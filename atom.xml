@@ -4,7 +4,7 @@
   <title><![CDATA[KaderTarlan]]></title>
   <link href="http://kadertarlan.github.io/atom.xml" rel="self"/>
   <link href="http://kadertarlan.github.io/"/>
-  <updated>2017-05-13T01:57:48+03:00</updated>
+  <updated>2017-05-13T02:03:57+03:00</updated>
   <id>http://kadertarlan.github.io/</id>
   <author>
     <name><![CDATA[KaderTarlan]]></name>
@@ -12,6 +12,28 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Test Otomasyonu Için öaliyeti Azaltan Yöntemler]]></title>
+    <link href="http://kadertarlan.github.io/blog/2017/05/13/test-otomasyonu-icin-oaliyeti-azaltan-yontemler/"/>
+    <updated>2017-05-13T02:03:29+03:00</updated>
+    <id>http://kadertarlan.github.io/blog/2017/05/13/test-otomasyonu-icin-oaliyeti-azaltan-yontemler</id>
+    <content type="html"><![CDATA[<p>Test Otomasyonu için Maliyeti Azaltan Yöntemler</p>
+
+<p>Yazılım otomasyon testlerinin büyük amacı manuel testlerle çok vakit kaybetmeden zamandan ve paradan kazanç sağlayabilmek işi otomotize etmek isterken yazılım otomasyonlarındaki yapılan bazı hatalardan dolayı buradaki zaman ve maliyet artmakta.
+Yazılım otomasyon testleri yaparken otomasyon testlerinin maliyetini dusurebilecek durumlardan bahsedersek;</p>
+
+<p>Maliyeti azaltmak için düşük değerlikli özelliklerin test edilmesi ile stabil diyeceğimiz durumların test edilmesi durumlarını çıkartmalıyız.  Bunları test etmenin bir anlamı olmayacak. Burada neyi test etmemiz gerekiyor bunun analizi iyi çıkarılmalı. Bakım maliyeti yapacak gereksiz adımları çıkarırsak daha kritik noktalar üzerinde testi koşturmak gereksiz maliyeti önlemiş olacaktır.   Bu tarz ufak kritik olmayan noktaların  otomasyonunu gerçeklemeyin.</p>
+
+<p>Testinizi birden fazla tarayıcı da birden fazla işletim sisteminde uygulamanız gerekecek. Ama gerçekten tüm işletim sistemlerine ve tüm tarayıcılara ihtiyacımız var mı ? Bunun analizini yaparsak maliyetimiz biraz daha azalır. Şöyle ki mevcut sistemlerde tarayıcıların kullanım oranlarına göre bir eleme yapabilirsiniz.</p>
+
+<p>Karmaşık test senaryolarını önleyiniz. Burada basitliğe ve esnekliğe odaklanmalıyız. Ancak karmaşık data-driven senaryolar oluşturacaksınız elbette bu karmaşık davranmak anlamına gelmez. Hünerli test kodu yazmak ile anlamsız parçaları birleştirip bir karmaşa oluşturmak arasındaki fark aslında. iç içe koşullardan kaçının testi okumak ve hata ayıklamak daha da zorlaşır. Tek bir testte bir çok adımı bir arada yapmaktan kaçının. Karmaşıklık sadece test değil tüm sistem için ek bir maliyete sebep olacaktır.</p>
+
+<p>Web sayfasındaki html elemanlarının bulunmasını sağlamak önemli.  Çünkü patlayan testlerin çoğunluğu aslında bu elemanların bulunmayışından dolayıdır.  Takımdaki web sayfamızı kodlayan arkadaşların bu idlerin bulunabilme ihtimallerini yukseltmeleri test maliyeti etkileyecektir.</p>
+
+<p>Sistemdeki asenkron hareketleri bilmeye ihtiyacımız var.  Asenkron hareket eden test komutları için herhangi bir değişiklik bunları etkileyecektir. Yazdığınız tüm test kodları küçük bir geliştirmede bile etkileneceğinden testleri buna dikkat ederek yazarsanız testlerin çalışmasını etkilememiş olursunuz. Veya takibinin iyi yapılıp yazılan test kodları hasar görmeyecek şekilde düzeltmeler ile maliyete gene sahip çıkarız.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Appium Kurulumu]]></title>
@@ -3361,197 +3383,6 @@ bunları dosyamıza yazıp kayıt ettikten sonra çıkıyoruz.</p>
 <p>Böylece Oluşturma(<font color='brown'> Create </font>), Oluşturulan formaları görme (<font color='brown'> Show </font>) metotlarını inceledik sonraki yazımda <font color='red'>CRUD </font> deyiminden kalan iki metotu anlatacağım , formu güncelleme (<font color='brown'> Update </font>) ve silme(<font color='brown'> Delete </font> ).</p>
 
 <p>İyi çalışmalar.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Ruby on Rails]]></title>
-    <link href="http://kadertarlan.github.io/blog/2014/03/09/ruby-on-rails/"/>
-    <updated>2014-03-09T02:50:00+02:00</updated>
-    <id>http://kadertarlan.github.io/blog/2014/03/09/ruby-on-rails</id>
-    <content type="html"><![CDATA[<div class="entry-content"><p><font color='red'>Ruby</font> nesne tabanlı bir programlama dili olup oldukça sade ve kısa bir sözdizimine sahiptir.<br/>
- Karmaşık kodlar yerine gelişmiş uygulamaları kısa yoldan gerçekleştirebilmemizi sağlar.<br/>
-<font color='red'>Rails</font> ise web üzerinde veritabanına dayanan çalışmaları gerçekletirmeye yarayan , Ruby programlama dili üzerinden çalışan bir web uygulama geliştirme  aracıdır.</p>
-
-<p>Web uygulamalarının yapılmasını kolaylaştırmak için tasarlanmıştır çok daha az kod ile istenileni gerçekleştirmeyi hedefler.<br/>
-Rails, Dont Repeat Yourself (<font color='purple'>DRY </font>) yani kendini tekrar edip durma ve Convention Over Configuration yani rutin işlerin
-ruby on rails tarafından hal edildiği felsefeleri üzerine kuruludur.</p>
-
-<p>Railsi kurmak için <font color='purple'>gem</font>lerden faydalanırız.  <font color='red'>Gems</font>,
-Ruby ile yazılmış bir paket yönetim sistemidir.  Linux’da ki yum , apt tarzı bir işlem gibi düşünülebilir. İçinde bir çok paket barındırır.<br/>
-
-Ruby kurmak için linuxta konsola<br/>
-  <code>$sudo apt-get install ruby</code><br/>
-yazarak kurabiliriz.<br/>
-
-RubyGems kurmak için, önce download sayfasından indirin. Arşivi açın ve<br/>
-<code>ruby setup.rb</code><br/>
-komutu ile çalıştırın.<br/>
-Rails kurmak için<br/>
-<code>gem install rails</code><br/>
-komutunu yazdıktan sonra<br/>
-<code>rails –version</code><br/>
-komutu ile de version kontrolü yapabiliriz.</p>
-
-<p>Rails temeli;   <font color='blue'>Model</font>(ActiveRecord)
-<font color='blue'>Views</font>(ActionView)<br/>
-<font color='blue'>Controller</font>(ActionController) (MVC) üzerine kuruludur.</p>
-
-<p><font color='blue'>Model&#8217;ler</font></p>
-
-<blockquote><p>Rails yapısında modeller esas olarak veritabanı ile olan ilişkilerden sorumludur.  Veri tabanınızdaki her tabloya karşılık uygulamanızda bir model olacaktır.<br/>
-Örneğin comment modeli veritabanında comments tablosu ile ilşkilidir.  Comment modeli bu tabloda Create, Read, Update ve Delete işlemlerini yapar.</p></blockquote>
-
-<p><font color='blue'>View&#8217;ler</font></p>
-
-<blockquote><p>Görseller uygulamanızın kullanıcıya gözüken yüzüdür.  Rails’de görseller, ruby kodlarıyla birleştirilmiş HTML dosyalarıdır.<br/>
-View’ın, Model ile iletişimi  Controller üzerinden olur.</p></blockquote>
-
-<p><font color='blue'>Controller&#8217;lar</font></p>
-
-<blockquote><p>Kontrolörler, modeller ve görseller arasında birleştirici görevi yaparlar.<br/>
-Rails’de kontrolörler,  dış dünyadan kullanıcı aracılığıyla web den gelen<br/>
-istekleri kabul edip işleyerek  verileri kullanıcıya sunulması için view katmanına göndermekte.</p></blockquote>
-
-<p>Şimdi basit bir rails projesi yapalım,terminalden;</p>
-
-<p><code>$ rails new project</code></p>
-
-<p>yazarak ilk projemizi oluşturalım ve<br/>
-<code>$ cd project</code>  komutu ile projemizin içine girelim.</p>
-
-<p><code>$ rails server</code><br/>
-komutunu vererek  varsayılan olarak bir web server başlatacaktır.</p>
-
-<p>Uygulamamızı çalışır şekilde görmek için bir tarayıcı açıp ve <a href="http://localhost:3000">http://localhost:3000</a> adresini girin.  Rails’in default bilgilendirme ekranı görecekseniz.<br/>
-<img src="http://i.imgur.com/m8QOrcS.png?1" alt="" /></p>
-
-<p><code>$ cd  project</code><br/>
-komutu  ile projemizin içine girdik projemiz içinde<br/>
-<code>$ ls</code><br/>
-komutu verdiğimiz zaman proje içinde app, bin config,db, lib, log, public, test,tmp ve vendor dizinleri ile bir kaç dosya görüyoruz.<br/>
- Şimdi bunların ne işe yaradıklarına bir bakalım..</p>
-
-<p><font color='brown'>app/ :</font>
-Bu klasörde views, controllers ve models katmanları bulunur.</p>
-
-<p><font color='brown'>config/ :</font>
-Bu klasörde uygulamamızın çalışma kuralları, yolları, veritabanı ve yapılandırma dosyaları bulunur.</p>
-
-<p><font color='brown'>config.ru :</font>
-Rack temelli suncucular için uygulamayı başlatmak için konfigürasyonlar içerir.</p>
-
-<p><font color='brown'>db/ :</font>
-Geçerli veritabanı şeması,  ve veritabanı geçişleri için birleştirmeleri (Migration)  içerir.</p>
-
-<p><font color='brown'>Gemfile :</font>
-Bu dosya Rails uygulamamızın bağlantılı olduğu Gem’leri belirtir.</p>
-
-<p><font color='brown'>lib/ :</font>
-Uygulamamız için modüller bulundurur.</p>
-
-<p><font color='brown'>log/ :</font>
-Uygulamamızın log dosyaları.</p>
-
-<p><font color='brown'>public/ :</font>
-Dışarıdan , oldukları sekilde ulaşılabilen  dosyalar buradadır. Burada statik dosyalarımız bulunur, tüm resimleriniz, javascriptleriniz, stilleriniz ..</p>
-
-<p><font color='brown'>README :</font>
-uygulama için kısa kullanım kılavuzudur. Uygulamamızın ne yaptığını, nasıl, vb ayarları için kullanıcılara söylemek istediklerimizi bu dosyaya yazarız.</p>
-
-<p><font color='brown'>test/ :</font>
-Birim testleri , bağlayıcılar ve diğer test yardımcılarını içerir.</p>
-
-<p><font color='brown'>tmp/ :</font>
-Geçici dosyaları barındırır.</p>
-
-<p><font color='brown'>vendor/ :</font>
-Tüm 3. parti yazılımları buradadır. Tipik bir Rails uygulamasında, Gem dosyaları,pluginler ve projenizin içine gömecekseniz Rails kaynak kodu bulunur.</p>
-
-<h3>Gerekli Gemlerin Kurulması</h3>
-
-<p>Rails uygulamamızın kullandığı tüm gemleri vendor klasöründe işleyemek için <font color='purple'>Bundler</font>
- gemi kullanır.<br/>
-Bu uygulamamızı başlatmak ve hatasız olarak çalıştırmak için gereken bağımlılıkların olduğundan emin olmamızı kolaylaştırır.</p>
-
-<p><code>$ bundle install</code><br/>
-  komutu ile bunu kurabiliriz.</p>
-
-<h3>Rails’de Veritabanı</h3>
-
-<p>Hemen hemen tüm Rails uygulaması veritabanı kullanır.<br/>
-Kullanılacağımız veritabanı <code>config/database.yml</code> dosyasında yer alır. <br/>
-Rails uygulaması oluşturduktan sonra bu dosyayı kontrol edersek SQLITE3 gibi bir veritabanından bahsedildiğini görürüz.</p>
-
-<p><code>$ rake db:migrate</code></p>
-
-<p>komutu ile  <font color='brown'>db/</font>
-  klasöründe  veritabanlarınızı oluşturur.</p>
-
-<p>Şimdi Rails üzerinde kısa bir çalışma yapalım..</p>
-
-<p>Rails’in var olan <font color='red'>“Welcome abroad”</font> yazısı yerine hazırladığımız görselin çıkmasını isteyelim<br/>
- Mesela bize  <font color='red'>“Hoşgeldin Rails!”</font>  desin  bunun için :</p>
-
-<p><code>$ rails generate controller welcome index</code></p>
-
-<p>komutunu kullanırız.</p>
-
-<p>Bu  komutu açıklarsak Rails’in bize <font color='red'>Hoşgeldin Rails!</font>
- demesi için bize controller ve views katmanları lazım.  Bu komutla birlikte Rails bunu sağlıyor.</p>
-
-<p><font color='brown'>app/</font>
-  dizini içinde controllerda   <code>welcome_controller.rb</code>    adında bir dosya oluşturuyor ve içinde <font color='purple'>index</font>  metodu yer alıyor.<br/>
-Aynı zamanda bu komut  <font color='brown'>app/</font>  dizini içinde  <font color='purple'>views</font><br/>
-klasöründe  <code>index.html.erb</code>  adında bir <font color='purple'>html</font> dosyası oluşturuyor.</p>
-
-<p><code>$ app/views/home/index.html.erb</code>    dosyasını açıp içine sadece</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'>   <span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="no">Ho</span><span class="err">ş</span><span class="n">geldin</span> <span class="no">Rails</span><span class="o">!&lt;</span><span class="sr">/h1&gt;</span>
-</span><span class='line'><span class="sr"> </span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>   yazıp kayıt edip çıkalım.</p>
-
-<p>Şimdi <a href="http://localhost:3000/">http://localhost:3000/</a> adresine girdik  ve hiç bir değişiklik olmadığını gördük.
-Çünkü <code>routes.rb</code>  dosyasında ana sayfamızın değiştiği haberini vermedik.<br/>
-Bu dosyada uygulamamızın Rails’e gelen isteklerin nasıl yönlendireceğini anlatan DSL girdileri vardır.</p>
-
-<p><code>$ config/routes.rb</code></p>
-
-<p>dosyasını açalım , bu dosyada sadece yorumlar vardır, bu yorumlarda örnek yönlendirmeler yer alır.<br/>
- <font color='purple'>root :to</font>  ile örnek yönlendirmenin önündeki yorum işaretini(#)  kaldıralım ve şu hale getirelim:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="ss">Project</span><span class="p">:</span><span class="ss">:Application</span><span class="o">.</span><span class="n">routes</span><span class="o">.</span><span class="n">draw</span> <span class="k">do</span>
-</span><span class='line'><span class="c1"># get “welcome/index”</span>
-</span><span class='line'><span class="c1"># The priority is based upon order of creation: first created -&gt; highest priority</span>
-</span><span class='line'><span class="c1"># See how all your routes lay out with “rake routes”</span>
-</span><span class='line'><span class="c1"># You can have the root of your site routed with “root” </span>
-</span><span class='line'>
-</span><span class='line'><span class="n">root</span> <span class="err">‘</span><span class="n">welcome</span><span class="c1">#index’</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>dosyamızı kayıt edip çıkalım , daha sonra</p>
-
-<p> <code>$rails server</code><br/>
-komutu ile Rails projemizi tekrar çalştıralım ve tarayıcımızdan <a href="http://localhost:3000/">http://localhost:3000/</a> adresi ile giriş yapalım.</p>
-
-<p>Çıkan sonuç şekildeki gibi olur:</p>
-
-<p><img src="http://i.imgur.com/ZX4Fsh3.png" alt="" /></p>
-</div>
-
 ]]></content>
   </entry>
   

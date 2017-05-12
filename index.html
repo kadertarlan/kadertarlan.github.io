@@ -9,7 +9,7 @@
   <meta name="author" content="KaderTarlan">
 
   
-  <meta name="description" content="Appium kurulumu kullanımı. İlk olarak Eclipse kurulu değil ise Eclipse IDE‘yi indiriyoruz kullandığınız platforma göre linkten bulabilirsiniz.  &hellip;">
+  <meta name="description" content="Test Otomasyonu için Maliyeti Azaltan Yöntemler Yazılım otomasyon testlerinin büyük amacı manuel testlerle çok vakit kaybetmeden zamandan ve paradan &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -66,6 +66,55 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2017/05/13/test-otomasyonu-icin-oaliyeti-azaltan-yontemler/">Test Otomasyonu Için öaliyeti Azaltan Yöntemler</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2017-05-13T02:03:29+03:00" pubdate data-updated="true"></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Test Otomasyonu için Maliyeti Azaltan Yöntemler</p>
+
+<p>Yazılım otomasyon testlerinin büyük amacı manuel testlerle çok vakit kaybetmeden zamandan ve paradan kazanç sağlayabilmek işi otomotize etmek isterken yazılım otomasyonlarındaki yapılan bazı hatalardan dolayı buradaki zaman ve maliyet artmakta.
+Yazılım otomasyon testleri yaparken otomasyon testlerinin maliyetini dusurebilecek durumlardan bahsedersek;</p>
+
+<p>Maliyeti azaltmak için düşük değerlikli özelliklerin test edilmesi ile stabil diyeceğimiz durumların test edilmesi durumlarını çıkartmalıyız.  Bunları test etmenin bir anlamı olmayacak. Burada neyi test etmemiz gerekiyor bunun analizi iyi çıkarılmalı. Bakım maliyeti yapacak gereksiz adımları çıkarırsak daha kritik noktalar üzerinde testi koşturmak gereksiz maliyeti önlemiş olacaktır.   Bu tarz ufak kritik olmayan noktaların  otomasyonunu gerçeklemeyin.</p>
+
+<p>Testinizi birden fazla tarayıcı da birden fazla işletim sisteminde uygulamanız gerekecek. Ama gerçekten tüm işletim sistemlerine ve tüm tarayıcılara ihtiyacımız var mı ? Bunun analizini yaparsak maliyetimiz biraz daha azalır. Şöyle ki mevcut sistemlerde tarayıcıların kullanım oranlarına göre bir eleme yapabilirsiniz.</p>
+
+<p>Karmaşık test senaryolarını önleyiniz. Burada basitliğe ve esnekliğe odaklanmalıyız. Ancak karmaşık data-driven senaryolar oluşturacaksınız elbette bu karmaşık davranmak anlamına gelmez. Hünerli test kodu yazmak ile anlamsız parçaları birleştirip bir karmaşa oluşturmak arasındaki fark aslında. iç içe koşullardan kaçının testi okumak ve hata ayıklamak daha da zorlaşır. Tek bir testte bir çok adımı bir arada yapmaktan kaçının. Karmaşıklık sadece test değil tüm sistem için ek bir maliyete sebep olacaktır.</p>
+
+<p>Web sayfasındaki html elemanlarının bulunmasını sağlamak önemli.  Çünkü patlayan testlerin çoğunluğu aslında bu elemanların bulunmayışından dolayıdır.  Takımdaki web sayfamızı kodlayan arkadaşların bu idlerin bulunabilme ihtimallerini yukseltmeleri test maliyeti etkileyecektir.</p>
+
+<p>Sistemdeki asenkron hareketleri bilmeye ihtiyacımız var.  Asenkron hareket eden test komutları için herhangi bir değişiklik bunları etkileyecektir. Yazdığınız tüm test kodları küçük bir geliştirmede bile etkileneceğinden testleri buna dikkat ederek yazarsanız testlerin çalışmasını etkilememiş olursunuz. Veya takibinin iyi yapılıp yazılan test kodları hasar görmeyecek şekilde düzeltmeler ile maliyete gene sahip çıkarız.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -1159,252 +1208,6 @@ Bir kaç test adımı örnek vermek gerekirse;</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2015/02/09/rspec-nedir/">RSpec Nedir?</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2015-02-09T19:41:16+02:00" pubdate data-updated="true"></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><blockquote><p><font color=red>Rspec</font> , Ruby dili ile yazılmış, ruby kodlarınızın testlerinde kullanılan bir test çatısıdır.</p></blockquote>
-
-<p>RSpec ile ilk test kodlarımızı yazmaya başlayalım. Bunun için öncelikle rspec kurmalıyız. Dizinimizi yaratıp içine giriyoruz.<br/>
-<code>mkdir example_rspec</code><br/>
-<code>cd exapmle_rspec</code><br/>
-<code>gem install rspec</code></p>
-
-<p>Sonraki komutumuz, <br/>
-<code>rspec --init</code><br/>
-çıktımız ise;</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="n">create</span>   <span class="o">.</span><span class="n">rspec</span>
-</span><span class='line'>  <span class="n">create</span>   <span class="n">spec</span><span class="o">/</span><span class="n">spec_helper</span><span class="o">.</span><span class="n">rb</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Varsayılan olarak <font color=brown>.rspec</font> ve <font color=brown>spec_helper.rb</font> dosyalarını oluşturuyor.</p>
-
-<blockquote><p><font color=brown>.rspec</font> gizli dosya olarak oluşturuluyor.<br/>
-Bu dosya varsayılan olarak configurasyon seçeneklerini içeriyor.<br/>
-İsterseniz bunları uygulamabilirsiniz veya deiğştirebilirsiniz.<br/>
-Bu dosyada yer alan bazı seçenekler,</p></blockquote>
-
-<p><font color=purple>&ndash;format progress:</font> Spec çalışmasında ilerlemeyi görüntüler. <br/>
-<font color=purple>&ndash;out :</font> belirtilen dosyaya yönlendirme yapar.<br/>
-<font color=purple>&ndash;color:</font> terminal çıktısında renk kullanır. Yeşil valid , red invalid testler için kullanılır.<br/>
-<font color=purple>&ndash;fail-fast :</font> fail veren ilk testte spec durur.<br/>
-<font color=purple>&ndash;format html:</font> Görüntüler html biçiminde bir dosyaya yönlendirilebilir. <br/>
-Tüm seçeneklere erişmek isterseniz  <code>rspec --help</code> komutunu verebilirsiniz.</p>
-
-<blockquote><p>Şimdide ana dizinimizin içinde <font color=brown>lib</font> dizini oluşturup kodlarımızı yazacağımız <font color=brown>ornek.rb</font> dosyası oluşturacağız.<br/>
-Ayrıca ana dizinimizde <font color=purple>spec</font> dizinimizin altında bir <font color=purple>lib</font> dizini ve testlerimiz için <font color=purple>ornek_spec.rb</font> dosyası oluşturalım.</p></blockquote>
-
-<p>project source code: <code>mkdir lib -&gt; cd lib -&gt; nano ornek.rb</code><br/>
-rspec code:  <code>spec/lib/ornek_spec.rb</code></p>
-
-<p>Burada <code>ornek_rspec.rb</code> dosyamıza test adımlarımızı yazacağız. <br/>
-<code>ornek.rb</code> dosyamıza ise kodumuzun  kendisini yazacağız.</p>
-
-<p>Şimdi <code>ornek_spec.rb</code> dosyamızı açıp içine,</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">require</span> <span class="s2">&quot;rspec&quot;</span>
-</span><span class='line'><span class="nb">require</span> <span class="s2">&quot;spec_helper&quot;</span>
-</span><span class='line'><span class="n">describe</span> <span class="s2">&quot;a example&quot;</span> <span class="k">do</span>
-</span><span class='line'>  <span class="n">it</span> <span class="s2">&quot;is name Ornek&quot;</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p><font color=red>describe</font> ile oluturacağımız testi tanımlıyoruz.<br/>
-<font color=red>it</font> oluşturulan testin tanımını yapıyoruz.</p>
-
-<p>Kodumuzu yazıp kaydediyoruz ve <code>rspec spec/lib/ornek_spec.rb</code> komutu ile konsolda çalıştırdığımızda çıktımız;</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="ss">Pending</span><span class="p">:</span>
-</span><span class='line'>  <span class="n">a</span> <span class="n">example</span> <span class="n">is</span> <span class="nb">name</span> <span class="no">Ornek</span>
-</span><span class='line'>    <span class="c1"># Not yet implemented</span>
-</span><span class='line'>    <span class="c1"># ./spec/lib/ornek_spec.rb:4</span>
-</span><span class='line'>
-</span><span class='line'><span class="no">Finished</span> <span class="k">in</span> <span class="mi">0</span><span class="o">.</span><span class="mo">0005</span><span class="mi">9</span> <span class="n">seconds</span> <span class="p">(</span><span class="n">files</span> <span class="n">took</span> <span class="mi">0</span><span class="o">.</span><span class="mi">10746</span> <span class="n">seconds</span> <span class="n">to</span> <span class="nb">load</span><span class="p">)</span>
-</span><span class='line'><span class="mi">1</span> <span class="n">example</span><span class="p">,</span> <span class="mi">0</span> <span class="n">failures</span><span class="p">,</span> <span class="mi">1</span> <span class="n">pending</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<blockquote><p>Burada <font color=purple>Pending</font> ile  <font color=purple>Not yet implemented</font> çıktısı alıyoruz, kodumuzda şöyle bir değişiklik yaparsak;</p></blockquote>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">require</span> <span class="s2">&quot;spec_helper&quot;</span>
-</span><span class='line'><span class="c1">#describe &quot;a exapmle&quot; do</span>
-</span><span class='line'><span class="n">describe</span> <span class="no">Example</span> <span class="k">do</span>
-</span><span class='line'> <span class="n">it</span> <span class="s2">&quot;is name Ornek&quot;</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Kodumuzu kaydedip  <code>rspec spec/lib/ornek_spec.rb</code> komutuyla tekrar çalıştırırsak,</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="sr">/example_rspec/s</span><span class="n">pec</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">example_spectop</span> <span class="p">(</span><span class="n">required</span><span class="p">)</span><span class="o">&gt;</span> <span class="n">initialized</span> <span class="n">constant</span> <span class="no">Example</span> <span class="p">(</span><span class="no">NameError</span><span class="p">)</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p><font color=brown>Uninitialized</font> hatası aldık çünkü Example classımız henüz yok.</p>
-
-<blockquote><p>Burada önce testi yazıp, çalıştırıp, Fail aldık. Testin verdiği çıktıya göre de yeterli kodumuzu yazıp Faili, Pass edeceğiz.
-Bu da <font color=red>Test Driven Development (TDD)</font> yapısına uymakta.</p></blockquote>
-
-<p>Bunun için <code>lib/ornek.rb</code> dosyamızda,</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Example</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Şimdilik Classımızı oluşturmuş olduk. Test çalıştığında Classı bulamadım hatası vermeyecek.<br/>
-Bu classı da <code>spec/lib/ornek_spec.rb</code> dosyamıza haber vereceğiz. Onu da <code>require "example"</code> komutunu  <code>lib/ornek_spec.rb</code> dosyamıza ekleyerek sağlayacağız, ekledikten sonra;</p>
-
-<p><code>spec/lib/ornek_spec.rb</code> komutunu verdiğimizde,</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="ss">Pending</span><span class="p">:</span>
-</span><span class='line'>  <span class="no">Example</span> <span class="n">is</span> <span class="nb">name</span> <span class="no">Ornek</span>
-</span><span class='line'>    <span class="c1"># Not yet implemented</span>
-</span><span class='line'>    <span class="c1"># ./spec/lib/ornek_spec.rb:5</span>
-</span><span class='line'>
-</span><span class='line'><span class="no">Finished</span> <span class="k">in</span> <span class="mi">0</span><span class="o">.</span><span class="mo">0002</span><span class="mi">9</span> <span class="n">seconds</span> <span class="p">(</span><span class="n">files</span> <span class="n">took</span> <span class="mi">0</span><span class="o">.</span><span class="mi">10765</span> <span class="n">seconds</span> <span class="n">to</span> <span class="nb">load</span><span class="p">)</span>
-</span><span class='line'><span class="mi">1</span> <span class="n">example</span><span class="p">,</span> <span class="mi">0</span> <span class="n">failures</span><span class="p">,</span> <span class="mi">1</span> <span class="n">pending</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p></p>
-
-<p>Gördüğünüz gibi hata almadık. Fakat hala implement edilmediğini söylüyor.</p>
-
-<p>Şimdi de <code>spec/lib/ornek_spec.rb</code> dosyamıza bişeyler dolduralım;</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">it</span> <span class="s2">&quot;is name Ornek&quot;</span> <span class="k">do</span>
-</span><span class='line'>  <span class="n">new_example</span> <span class="o">=</span><span class="no">Example</span><span class="o">.</span><span class="n">new</span>
-</span><span class='line'>  <span class="n">new_example</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">should</span> <span class="o">==</span> <span class="s1">&#39;Ornek&#39;</span>
-</span><span class='line'> <span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Kodumuz da yeni bir Ornek methodu oluştuğunda ve adının Ornek olmasını istediğimizi söyledik.</p>
-
-<p>Testimiz çalıştığında yeni oluşan örnek methodunun adını kontrol edip bunun &lsquo;Ornek&rsquo; olup olmadığını kontrol edecek.<br/>
-Eğer adı &lsquo;Ornek&rsquo; ise testimiz <font color=green>Pass</font> edecek değilse <font color=red>Fail</font> edecek.</p>
-
-<p>Testimizi kaydettikten sonra <code>rspec spec/lib/example_spec.rb</code> komutunu kullanarak çalıştırıyoruz ve çıktımız,</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="mi">1</span><span class="p">)</span> <span class="n">E</span> <span class="n">is</span> <span class="nb">name</span> <span class="no">Ornek</span>
-</span><span class='line'>     <span class="no">Failure</span><span class="o">/</span><span class="ss">Error</span><span class="p">:</span> <span class="n">new_example</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">should</span> <span class="o">==</span> <span class="s1">&#39;Ornek&#39;</span>
-</span><span class='line'>     <span class="ss">NoMethodError</span><span class="p">:</span>
-</span><span class='line'>       <span class="n">undefined</span> <span class="nb">method</span> <span class="sb">`name&#39; for #&lt;Example:0x007f5f89721c40&gt;</span>
-</span><span class='line'><span class="sb">     # ./spec/lib/ornek_spec.rb:7:in `</span><span class="n">block</span> <span class="p">(</span><span class="mi">2</span> <span class="n">levels</span><span class="p">)</span> <span class="k">in</span> <span class="o">&lt;</span><span class="n">top</span> <span class="p">(</span><span class="n">required</span><span class="p">)</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="no">Finished</span> <span class="k">in</span> <span class="mi">0</span><span class="o">.</span><span class="mo">00045</span> <span class="n">seconds</span> <span class="p">(</span><span class="n">files</span> <span class="n">took</span> <span class="mi">0</span><span class="o">.</span><span class="mi">1093</span> <span class="n">seconds</span> <span class="n">to</span> <span class="nb">load</span><span class="p">)</span>
-</span><span class='line'><span class="mi">1</span> <span class="n">example</span><span class="p">,</span> <span class="mi">1</span> <span class="n">failure</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p><font color=brown>NoMethodError</font> hatamızı aldık. Hatırlarsanız boş bir Class oluşturmuştuk, boş Classa gitti ve Ornek adında bir method bulamadı.</p>
-
-<p>Şimdi kod parçamızdaki Classımızı hatamızı yok edecek şekilde düzenlemeliyiz.<br/>
-Kırmızıyı yeşile çevirme aşaması. Değişikliklerimizi source kodumuzda yapacağız ki testimiz fail vermesin.</p>
-
-<p><code>nano lib/ornek.rb</code></p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Example</span>
-</span><span class='line'>  <span class="kp">attr_accessor</span> <span class="ss">:name</span>
-</span><span class='line'>  <span class="k">def</span> <span class="nf">initialize</span>
-</span><span class='line'>    <span class="vi">@name</span> <span class="o">=</span> <span class="s1">&#39;Ornek&#39;</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Testimizi <code>rspec spec/lib/ornek_spec.rb</code> komutumuzla tekrar calıştırdığımızda,</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">Finished</span> <span class="k">in</span> <span class="mi">0</span><span class="o">.</span><span class="mo">00212</span> <span class="n">seconds</span> <span class="p">(</span><span class="n">files</span> <span class="n">took</span> <span class="mi">0</span><span class="o">.</span><span class="mi">11077</span> <span class="n">seconds</span> <span class="n">to</span> <span class="nb">load</span><span class="p">)</span>
-</span><span class='line'><span class="mi">1</span> <span class="n">example</span><span class="p">,</span> <span class="mi">0</span> <span class="n">failures</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Görüyoruz ki kırmızı yazımız yeşile dönmüş durumda. Testimiz Fail vermedi.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="2">&larr; Older</a>
@@ -1441,6 +1244,10 @@ Kırmızıyı yeşile çevirme aşaması. Değişikliklerimizi source kodumuzda 
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2017/05/13/test-otomasyonu-icin-oaliyeti-azaltan-yontemler/">Test Otomasyonu Için öaliyeti Azaltan Yöntemler</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2017/05/13/appium-kurulumu/">Appium Kurulumu</a>
       </li>
     
@@ -1454,10 +1261,6 @@ Kırmızıyı yeşile çevirme aşaması. Değişikliklerimizi source kodumuzda 
     
       <li class="post">
         <a href="/blog/2016/02/23/python-ile-birim-testler/">Python Ile Birim Testler</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/02/23/gdg-devfest-libreoffice-katki-sureci/">GDG DevFest - LibreOffice Katkı Süreci</a>
       </li>
     
   </ul>
@@ -1469,6 +1272,10 @@ Kırmızıyı yeşile çevirme aşaması. Değişikliklerimizi source kodumuzda 
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2017/05/13/test-otomasyonu-icin-oaliyeti-azaltan-yontemler/">Test Otomasyonu Için öaliyeti Azaltan Yöntemler</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2017/05/13/appium-kurulumu/">Appium Kurulumu</a>
       </li>
     
@@ -1482,10 +1289,6 @@ Kırmızıyı yeşile çevirme aşaması. Değişikliklerimizi source kodumuzda 
     
       <li class="post">
         <a href="/blog/2016/02/23/python-ile-birim-testler/">Python Ile Birim Testler</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/02/23/gdg-devfest-libreoffice-katki-sureci/">GDG DevFest - LibreOffice Katkı Süreci</a>
       </li>
     
   </ul>

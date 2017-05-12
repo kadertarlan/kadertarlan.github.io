@@ -1,0 +1,351 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Mobil Otomasyon Ve Cihaz Desteği - KaderTarlan</title>
+  <meta name="author" content="KaderTarlan">
+
+  
+  <meta name="description" content="Mobil Otomasyon için Cihaz Desteği veren Toolar var. Kullandığım ve fikrim olan cihazlardan biraz bahsetmek istiyorum: Appium
+Appium açık kaynak &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://kadertarlan.github.io/blog/2017/05/13/mobil-otomasyon-ve-cihaz-destegi">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="KaderTarlan" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><div class="header-left">
+  <hgroup>
+  <h1><a href="/">KaderTarlan</a></h1>
+  
+  <div class="subtitle">
+    <h2>BlogCan</h2>
+  </div>
+  
+  </hgroup>
+  
+</div>
+
+<div class="header-right">
+  <ul class="main-navigation">
+ <div> 
+  <li><a href="/">blog</a></li></div><div class="spacer"></div>
+     <div> 
+  <li><a href="/projects">projects</a></li></div><div class="spacer"></div>
+       <div> 
+  <li><a href="/work">work</a></li></div><div class="spacer"></div>
+         <div> 
+  <li><a href="/about">about</a></li></div>
+</ul>
+  
+
+</div>
+</header>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Mobil Otomasyon Ve Cihaz Desteği</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2017-05-13T01:49:55+03:00" pubdate data-updated="true"></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Mobil Otomasyon için  Cihaz Desteği  veren Toolar var. Kullandığım ve fikrim olan cihazlardan biraz bahsetmek istiyorum:</p>
+
+<p>Appium
+Appium  açık kaynak kodlu, cross-platform test automation aracıdır. Native, hybrid ve mobile web uygulamalarını simulator (iOS, FirefoxOS), emulators (Android), veya real cihazlarda (iOS, Android, Windows, FirefoxOS) test etme imkanı sağlayan bir araç.</p>
+
+<p>Appium avantajları:
+- Her iki platformda da kullanabilme iOS ve android için.
+- Sürekli entegrasyon desteği, jenkins, saucelabs kullanabilme
+- Kaynak kod veya kütüphanelerine erişimi gerektirmez.  (Robotium istiyor mesela)
+- Çeşitli framework desteği.
+- Herhangi bir programlama dili destekler
+- Uygulamalarda hybris, native ve webapps çeşitliliklerini destekliyor
+- Bedava, açık kaynak
+- Simulator/emulator ve real device ile de çalışıyor
+Dezavantajı:
+- Waitleri statik vermek gerekiyor, bu konuda iyi bir çözümleri yok
+- Dökümantasyon biraz eksik
+- Apple dünyasında Appium ile otomasyon testlerinde paralel çalıştırmada limit var
+- Mobil dünyadaki özellikle oyun uygulamaları için hareketlere (zoom, double tap) ihtiyaç var. Bu hareketler için Javascript koşmak lazım</p>
+
+<p>******Bulut Tabanlı Mobil Cihaz Desteği:</p>
+
+<p>Bitbar Testdroid
+Bitbar Public Cloud (Testdroid Cloud) Android ve IOS manuel ve otomasyon testleri için bulut tabanlı mobil cihaz desteği sağlıyor.  Bir nevi cihaz desteği aslında. Burası test ortamlarının sağlandığı bir hizmet aslında. Mobil uygulamalar ve ilgili hizmetler için fonksiyonel, performans, stres, regresyon ve kararlılık testlerini otomatik hale getirir.  Burada monitoring yapmak mümkün günün her saatinde. Cihazları ise : <a href="https://cloud.testdroid.com/#public/devices">https://cloud.testdroid.com/#public/devices</a></p>
+
+<p>SauceLabs
+Bulut tabanlı olan Sauce Labs Android , IOS ve web uygulamaları için simulator, emilator ve gerçek cihaz desteği sağlıyor. Native, hibrit ve mobil web testlerini koşmak mümkün. Çeşitli işletim sistemleri ve browserlarla 800’den fazla platform sunuyor.  Appium ve Selenyum ile test edebilir ve testleri paralel olarak çalışabilir.</p>
+
+<p>SauceLabs ve Testdroid Karşılaştırması:
+-  Testdroid mobil yazılım geliştirme ve test için kullandığımız bir Bitbar Teknolojisidir. 3 farklı ürünü var Testdroid Cloud, Testdroid Recorder ve Testdroid Enterprise.  Testdroid GitHub üzerinde açık kaynak kodlu  bir  application programming interface aslında. Testdroid ile çeşitli test frameworklerini kullanabilirsin , örneğin native için Robotium, Appium ve uiautomator  veya web uygulamaları için  Selenium , aslında bu platformun hedef kitlesi mobil veya oyun geliştiricileri. Gerçek Android ve iOS destekli cihazlar içerir bunun yanında bulut tabanlı test simulatorleri de sunuyor Testdroid Cloud ile.   Testdroid Recorder  ise developer ve testerlar için user-actions kaydediyor,  mobil uygulama ve oyunları üzerinde Junit tabanlı test caseler üretiyor,  Eclipse marketplace var. Testdroid Enterprise  ise gerçek Android ve IOS cihazlar için otomasyon testlerinin yönetildiği bir server yazılımıdır, Jenkins Continuous Integration destekler.</p>
+
+<ul>
+<li>Sauce Labs  desktop, mobile web, native, ve hybrid uygulamaları test etmek için için düyadaki en geniş ölçekli güvenilir ve ölçeklenebilir cloud ortamını oluşturur. 450’den fazla platform sunar.</li>
+</ul>
+
+
+<p>Cross Browser Testing
+Manuel ve otomasyon testleri ile fonksiyonel test ortamları sunar.  Geliştiriciler için 1500'den fazla mobil cihazlar ve tarayıcı desteği. Test sonuçlarını video ve ekran görüntüleri kaydedilebilir. Selenyum, Appium ve diğer testler CrossBrowserTesting uzaktan cihazlarda çalıştırabiliriz. Güvenlik duvarı (firewall) test etmek istiyorsanız, CrossBrowserTesting kullanıcılar için Chrome uzantısı veya Node.js tünel bulunmaktadır.  Desteklenen Tarayıcılar: Internet Explorer, Mozilla Firefox, Apple Safari, Google Chrome, Opera, Netscape ve daha birçok&hellip;
+Desteklenen İşletim Sistemi: Windows 98, Windows 2000, Windows XP, Windows Vista, 6, 5, Mac OS X 10.3–10.5, Fedora Core 6, O BlackBerry, BlackBerry OS, Apple iOS, Google Android, Windows Mobile 5.0 (RQVGA), Windows Mobile 6.0, Windows Mobile Professional 6.5
+Browserları: <a href="https://crossbrowsertesting.com/browsers">https://crossbrowsertesting.com/browsers</a></p>
+
+<p>******Mobil Beta Testleri için:</p>
+
+<p>Ubertesters
+-Ubertesters kullanıcı deneyimini analiz etme, hata raporlama, kullanıcı testi  ortamları sağlar.  Development lifecycle yönetebilmek için hataları yakalama ve izlemeye yarar. Ubertesters ile mobil beta testleri yapmak, ekran görüntüleri ile video kayıtları ile takip etmeyi sağlar. Hataları raporlar.  Ubertester native ve cross-platform development destekler.</p>
+
+<p>TestFairy
+- TestFairy mobil uygulamaları için beta test platformudur, yapılan her test videoya çekilir. Mobil uygulamaları test ederken bir sorun varsa tam olarak istemci tarafında neyin yanlış gittiğini asla bilemezsin.
+TestFairy CPU, Bellek, GPS, Ağ ve çok daha fazla fazlası dahil olmak üzere tam bir deneme videosu sağlayarak bu sorunu çözer.</p>
+
+<p>****** Fonksiyonel Test
+Sencha mobil ve web uygulamaları için fonksiyonel test sunar. Sencha Test mobil tarayıcılarda gerçek cihazlarda kullanılabilen benzersiz bir URL oluşturmak için bir proxy mekanizması kullanır. Testler JavaScript ile yazılabilir. Unit testleri otomatize etme ve  end-to-end functional test için kapsamlı çözümler üretir, birden fazla tarayıcılarda aynı anda yürütebilirsiniz</p>
+
+<p>Bugsee
+Otomasyon ile çok ilgisi yok aslında,
+<a href="https://www.bugsee.com">https://www.bugsee.com</a>
+Bugsee monitoring ve sistem durumunu kayıtları sağlar, geliştiriciler için hata takibi yapmak, gönderilen hata bilgileri ile hata raporları sunan, bulut tabanlı bir araçtır.  iOS veya Android uygulamaları için hata ayıklama desteği.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">KaderTarlan</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2017-05-13T01:49:55+03:00" pubdate data-updated="true"></time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://kadertarlan.github.io/blog/2017/05/13/mobil-otomasyon-ve-cihaz-destegi/" data-via="" data-counturl="http://kadertarlan.github.io/blog/2017/05/13/mobil-otomasyon-ve-cihaz-destegi/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2017/05/13/ozetle-yazilim-test-otomasyon/" title="Previous Post: Özetle Yazılım Test Otomasyon">&laquo; Özetle Yazılım Test Otomasyon</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  <section>
+  <p>Hi, I'm <a href="https://twitter.com/martinbjeldbak">Martin Bjeldbak Madsen</a>!</p>
+  
+
+  <p>You can read more about me on my <a href="/about/">about</a> page. To see what I'm working on, check out my GitHub page <a href="https://github.com/fapper">here</a>.</p>
+  <p>My resume can be found <a href="cv.pdf">here</a>.</p>
+  <div class="social-icons">
+    
+
+    
+
+    
+
+    
+  <a href="https://github.com/kadertarlan"><i class="fa fa-github fa-3x"></i></a>
+
+
+    
+
+  </div>
+</section>
+
+  <section>
+  <h1>Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2017/05/13/mobil-otomasyon-ve-cihaz-destegi/">Mobil Otomasyon Ve Cihaz Desteği</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/05/13/ozetle-yazilim-test-otomasyon/">Özetle Yazılım Test Otomasyon</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/02/23/python-ile-birim-testler/">Python Ile Birim Testler</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/02/23/gdg-devfest-libreoffice-katki-sureci/">GDG DevFest - LibreOffice Katkı Süreci</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/11/03/libreofiice-icin-test-yazma/"><font color=green>LibreOffice</font> Için Test Yazmak</a>
+      </li>
+    
+  </ul>
+</section>
+
+  
+    <section>
+  <h1>Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2017/05/13/mobil-otomasyon-ve-cihaz-destegi/">Mobil Otomasyon Ve Cihaz Desteği</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/05/13/ozetle-yazilim-test-otomasyon/">Özetle Yazılım Test Otomasyon</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/02/23/python-ile-birim-testler/">Python Ile Birim Testler</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/02/23/gdg-devfest-libreoffice-katki-sureci/">GDG DevFest - LibreOffice Katkı Süreci</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/11/03/libreofiice-icin-test-yazma/"><font color=green>LibreOffice</font> Için Test Yazmak</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/kadertarlan">@kadertarlan</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'kadertarlan',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2017 - KaderTarlan -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+<p>
+<span>Copyright &copy; 2017  KaderTarlan -</span>
+<span class="credit">Powered by <a href="http://octopress.org">Octopress</a> using the <a href="https://github.com/fapper/classic-martinb">classic-martinb</a> theme</span>
+</p>
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

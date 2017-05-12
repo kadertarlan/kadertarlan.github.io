@@ -1,0 +1,365 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>KKO Algoritması Ile Gezgin Satıcı Problemi - KaderTarlan</title>
+  <meta name="author" content="KaderTarlan">
+
+  
+  <meta name="description" content="Gezgin Satıcı Problemi (GSP) - Travelling Salesman Problem (TSP) Gezgin satıcı problemi, en önemli algoritma problemlerinden biridir.
+Gezgin satıcı &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://kadertarlan.github.io/blog/2014/03/08/kko-algoritmasi-ile-gezgin-satici-problemi">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="KaderTarlan" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><div class="header-left">
+  <hgroup>
+  <h1><a href="/">KaderTarlan</a></h1>
+  
+  <div class="subtitle">
+    <h2>BlogCan</h2>
+  </div>
+  
+  </hgroup>
+  
+</div>
+
+<div class="header-right">
+  <ul class="main-navigation">
+ <div> 
+  <li><a href="/">blog</a></li></div><div class="spacer"></div>
+     <div> 
+  <li><a href="/projects">projects</a></li></div><div class="spacer"></div>
+       <div> 
+  <li><a href="/work">work</a></li></div><div class="spacer"></div>
+         <div> 
+  <li><a href="/about">about</a></li></div>
+</ul>
+  
+
+</div>
+</header>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">KKO Algoritması Ile Gezgin Satıcı Problemi</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-03-08T02:31:52+02:00" pubdate data-updated="true"></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><blockquote><p>Gezgin Satıcı Problemi (GSP) - Travelling Salesman Problem (TSP)</p></blockquote>
+
+<p>Gezgin satıcı problemi, en önemli algoritma problemlerinden biridir.
+Gezgin satıcı problemi iki şehir arasında mümkün olan en kısa yolu bulmaya çalışır, bu şehirler
+arasındaki her noktaya maximum bir kez uğramalı. Şehir sayısı artarsa problemimizde üstel bir
+şekilde artar. Gezgin Satıcı Problemi (GSP), üzerinde yoğun olarak çalışılan kombinasyonel
+eniyileme problemlerinin başında gelmektedir. Çözümü için birçok sezgisel algoritma
+geliştirilmiştir.</p>
+
+<p><font color=brown>Gezgin Satıcı probleminin çözümü;</font><br/>
+• Başlangıç için seçilebilecek n tane şehir vardır.<br/>
+• Bu şehirlerden birisi başlangıç noktası olacağı için, satıcı n-1 farklı şehirde satış yapabilir.<br/>
+• İkinci şehire geçince satıcının satış yapabileceği şehir sayısı n-2 olur.</p>
+
+<blockquote><p>Karınca Koloni Algoritması</p></blockquote>
+
+<p>Karınca koloni algoritması Gezgin Satıcı Problemi gibi problemlerin çözümü için ortaya çıkarılmış
+bir algoritmadır. Karıncalar , yiyecek bulmak için en kısa yolu görme duyusunu kullanmadan
+bulurlar. Karıncalar yiyecek ararken ,yiyecege ulaştıkları yollara buharlaşma özelliği olan, feromon
+adında bir salgı bırakırlar. Feromon, aralarındaki haberleşmeyi sağlayan kimyevi maddenin adıdır,
+bununla yiyeceğin olduğu yere kadar giden bir koku izi bırakır.</p>
+
+<p><img src="http://i.imgur.com/zQScTfQ.jpg"></p>
+
+<p><font color=red>1-</font> Yuvadan çıkan karıncalar, bulundukları yerde diğer karıncalardan kaynaklanan baskın bir koku
+yoksa tamamen rastgele hareket ederler.<br/>
+<font color=red>2-</font> Eğer herhangi bir yönden diğer karıncaların yaydığı bir kokuyu alabilmişse, karınca o tarafa
+yönelir. Birden çok yönden koku alıyorsa kokunun geldiği en baskın tarafa yönelir.<br/>
+<font color=red>3-</font>  Karıncanın yaydığı koku bir süre o bölgede kalabilir. Bu sayede bir yolu birden çok karınca tercih etmişse aradan belirli bir süre geçmiş olsa bile daha çok tercih edilen bölgeden daha baskın bir koku gelir.</p>
+
+<p><font color=brown>Karınca Koloni Optimizasyonu(KKO)</font><br/>
+Gerçek karınca koloni davranışından yola çıkarak karıncanın besin arayışını matematikselmodellerle ifade eden algoritmadır. Karıncaların besin arayışında kısa yolu bulabilme yeteneklerini Gezgin Satıcı Problemimizdeki kısa yolu bulma olayıyla eşleştiriyoruz.</p>
+
+<p>Gezgin Satıcı Problemi, KKO algoritmaları için oldukça önemlidir. İlk KKO algoritması olan Karınca Sistemi (Ant System), ilk olarak bu problem
+üzerinde denenmiştir. Çünkü bu problem, önemli bir Np-zor eniyileme problemidir. Ayrıca kolay anlaşılabilir ve yeni algoritmaların denenebileceği, etkinliklerinin ölçülebileceği standart bir deneme ortamıdır.</p>
+
+<p>6 adımda algoritmamızı oluşturmak istersek;<br/>
+<font color=blue>1-</font> Başlangıç fenomen değerlerini belirle<br/>
+<font color=blue>2-</font> Karıncaları random bir şekilde her bir noktaya koy<br/>
+<font color=blue>3-</font> Her karınca turunu tamamlar<br/>
+<font color=blue>4-</font> Karıncaların aldıkları yol hesaplanır ve local feromen değeri güncellenir<br/>
+<font color=blue>5-</font> En iyi çözüm hesaplanır ve gloabal feromon değeri güncellenir<br/>
+<font color=blue>6-</font> İstediğimiz sonucu elde edene kadar 2. adıma geri dön</p>
+
+<p><font color=red>Feromon guncellemesı; </font>
+Turunu tamamlayan karınca feromonunu günceller. Yollardaki feromonlar buharlaşma oranı kadar buharlaştırılır. Geçiş yapılan yolda ise feromonları artırırız bu artırma yolun uzunluğu ile ters orantılı olarak gerçekleşir.<br/>
+Daha kısa yolda böylece feromon miktarı daha fazla olur.</p>
+
+<p><font color=red>Local Feromon Güncellemesi;</font><br/>
+Geçilen yolda buharlaşma oranı kadar feromon buharlaştırılı ve yolun uzunluğu ile ters orantılı olacak şekilde feromon artırılır. Feromon miktarına bağlı olarak sürekli değişen rota sonunda en kısa yol bulunmuş olur.</p>
+
+<p><font color=red>Global Feromon Güncellemesi;</font><br/>
+Global feromon güncellemesi geçerli adımda en iyi sonucu yapmış karıncanın yolunun feromondüzeyinin artırılması. Böylece bulunan en iyi sonuç bir sonraki adıma aktarılmış olur.</p>
+
+<p><font color=red>Karınca sayısı;</font><br/>
+Sayıyı artırmak hem iyi hem kötü. İyi tarafı çözümde iyileşme sağlar kötü tarafı fazla hesap gerekir
+karmaşıklık ve zaman artar.</p>
+
+<p><font color=red>Sezgisel Algoritma;</font><br/>
+Gercek uzaklık bilinmese de tahmin edilir. Bu tahmin Heuristic(Sezgi) denir.
+Optimal çözüm değil fakat optimal çözüme yakın değer aranır. Kesin çözümü garanti etmez.
+Sezgisel algoritmaların buradaki kullanım amacı hedefe varmak için doğal fenomenleri
+kullanmamız.<br/>
+Belirli sayıdaki karıncılarımızı random seçtiğimiz şehirlere yerleştiririz. Bu şehirlerden hedef şehire
+ulaşmak için aradaki şehirlere uğramalıyız. Böylece bir tur gerçekleşir.</p>
+
+<p>Bir şehirden diğer şehire giderken gidilecek bu şehri seçme faktörleri;<br/>
+Feromon izi miktarı, yol uzunluğu ve sezgisel bilgisi kullanılır. Tur sonunda ise feromon miktarı
+güncellenir. Bir sonraki karıncanın bu yolu tercih etmesinde bu feromon oranı etkilidir.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">KaderTarlan</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-03-08T02:31:52+02:00" pubdate data-updated="true"></time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://kadertarlan.github.io/blog/2014/03/08/kko-algoritmasi-ile-gezgin-satici-problemi/" data-via="" data-counturl="http://kadertarlan.github.io/blog/2014/03/08/kko-algoritmasi-ile-gezgin-satici-problemi/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/03/08/octopress-blogunu-tasima/" title="Previous Post: Octopress Blogunu Taşıma">&laquo; Octopress Blogunu Taşıma</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2014/03/08/git-ve-github/" title="Next Post: Git ve Github">Git ve Github &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  <section>
+  <p>Hi, I'm <a href="https://twitter.com/martinbjeldbak">Martin Bjeldbak Madsen</a>!</p>
+  
+
+  <p>You can read more about me on my <a href="/about/">about</a> page. To see what I'm working on, check out my GitHub page <a href="https://github.com/fapper">here</a>.</p>
+  <p>My resume can be found <a href="cv.pdf">here</a>.</p>
+  <div class="social-icons">
+    
+
+    
+
+    
+
+    
+  <a href="https://github.com/kadertarlan"><i class="fa fa-github fa-3x"></i></a>
+
+
+    
+
+  </div>
+</section>
+
+  <section>
+  <h1>Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2017/05/13/title-of-the-post/">Title of the Post</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/05/13/ozetle-yazilim-test-otomasyon/">Özetle Yazılım Test Otomasyon</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/02/23/python-ile-birim-testler/">Python Ile Birim Testler</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/02/23/gdg-devfest-libreoffice-katki-sureci/">GDG DevFest - LibreOffice Katkı Süreci</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/11/03/libreofiice-icin-test-yazma/"><font color=green>LibreOffice</font> Için Test Yazmak</a>
+      </li>
+    
+  </ul>
+</section>
+
+  
+    <section>
+  <h1>Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2017/05/13/title-of-the-post/">Title of the Post</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/05/13/ozetle-yazilim-test-otomasyon/">Özetle Yazılım Test Otomasyon</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/02/23/python-ile-birim-testler/">Python Ile Birim Testler</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/02/23/gdg-devfest-libreoffice-katki-sureci/">GDG DevFest - LibreOffice Katkı Süreci</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/11/03/libreofiice-icin-test-yazma/"><font color=green>LibreOffice</font> Için Test Yazmak</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/kadertarlan">@kadertarlan</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'kadertarlan',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2017 - KaderTarlan -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+<p>
+<span>Copyright &copy; 2017  KaderTarlan -</span>
+<span class="credit">Powered by <a href="http://octopress.org">Octopress</a> using the <a href="https://github.com/fapper/classic-martinb">classic-martinb</a> theme</span>
+</p>
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

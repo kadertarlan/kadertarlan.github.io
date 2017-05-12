@@ -1,0 +1,478 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Ruby on Rails - KaderTarlan</title>
+  <meta name="author" content="KaderTarlan">
+
+  
+  <meta name="description" content="Ruby nesne tabanlı bir programlama dili olup oldukça sade ve kısa bir sözdizimine sahiptir. Karmaşık kodlar yerine gelişmiş uygulamaları kısa yoldan &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://kadertarlan.github.io/blog/2014/03/09/ruby-on-rails">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="KaderTarlan" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><div class="header-left">
+  <hgroup>
+  <h1><a href="/">KaderTarlan</a></h1>
+  
+  <div class="subtitle">
+    <h2>BlogCan</h2>
+  </div>
+  
+  </hgroup>
+  
+</div>
+
+<div class="header-right">
+  <ul class="main-navigation">
+ <div> 
+  <li><a href="/">blog</a></li></div><div class="spacer"></div>
+     <div> 
+  <li><a href="/projects">projects</a></li></div><div class="spacer"></div>
+       <div> 
+  <li><a href="/work">work</a></li></div><div class="spacer"></div>
+         <div> 
+  <li><a href="/about">about</a></li></div>
+</ul>
+  
+
+</div>
+</header>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Ruby on Rails</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-03-09T02:50:00+02:00" pubdate data-updated="true"></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><div class="entry-content"><p><font color='red'>Ruby</font> nesne tabanlı bir programlama dili olup oldukça sade ve kısa bir sözdizimine sahiptir.<br/>
+ Karmaşık kodlar yerine gelişmiş uygulamaları kısa yoldan gerçekleştirebilmemizi sağlar.<br/>
+<font color='red'>Rails</font> ise web üzerinde veritabanına dayanan çalışmaları gerçekletirmeye yarayan , Ruby programlama dili üzerinden çalışan bir web uygulama geliştirme  aracıdır.</p>
+
+<p>Web uygulamalarının yapılmasını kolaylaştırmak için tasarlanmıştır çok daha az kod ile istenileni gerçekleştirmeyi hedefler.<br/>
+Rails, Dont Repeat Yourself (<font color='purple'>DRY </font>) yani kendini tekrar edip durma ve Convention Over Configuration yani rutin işlerin
+ruby on rails tarafından hal edildiği felsefeleri üzerine kuruludur.</p>
+
+<p>Railsi kurmak için <font color='purple'>gem</font>lerden faydalanırız.  <font color='red'>Gems</font>,
+Ruby ile yazılmış bir paket yönetim sistemidir.  Linux’da ki yum , apt tarzı bir işlem gibi düşünülebilir. İçinde bir çok paket barındırır.<br/>
+
+Ruby kurmak için linuxta konsola<br/>
+  <code>$sudo apt-get install ruby</code><br/>
+yazarak kurabiliriz.<br/>
+
+RubyGems kurmak için, önce download sayfasından indirin. Arşivi açın ve<br/>
+<code>ruby setup.rb</code><br/>
+komutu ile çalıştırın.<br/>
+Rails kurmak için<br/>
+<code>gem install rails</code><br/>
+komutunu yazdıktan sonra<br/>
+<code>rails –version</code><br/>
+komutu ile de version kontrolü yapabiliriz.</p>
+
+<p>Rails temeli;   <font color='blue'>Model</font>(ActiveRecord)
+<font color='blue'>Views</font>(ActionView)<br/>
+<font color='blue'>Controller</font>(ActionController) (MVC) üzerine kuruludur.</p>
+
+<p><font color='blue'>Model&#8217;ler</font></p>
+
+<blockquote><p>Rails yapısında modeller esas olarak veritabanı ile olan ilişkilerden sorumludur.  Veri tabanınızdaki her tabloya karşılık uygulamanızda bir model olacaktır.<br/>
+Örneğin comment modeli veritabanında comments tablosu ile ilşkilidir.  Comment modeli bu tabloda Create, Read, Update ve Delete işlemlerini yapar.</p></blockquote>
+
+<p><font color='blue'>View&#8217;ler</font></p>
+
+<blockquote><p>Görseller uygulamanızın kullanıcıya gözüken yüzüdür.  Rails’de görseller, ruby kodlarıyla birleştirilmiş HTML dosyalarıdır.<br/>
+View’ın, Model ile iletişimi  Controller üzerinden olur.</p></blockquote>
+
+<p><font color='blue'>Controller&#8217;lar</font></p>
+
+<blockquote><p>Kontrolörler, modeller ve görseller arasında birleştirici görevi yaparlar.<br/>
+Rails’de kontrolörler,  dış dünyadan kullanıcı aracılığıyla web den gelen<br/>
+istekleri kabul edip işleyerek  verileri kullanıcıya sunulması için view katmanına göndermekte.</p></blockquote>
+
+<p>Şimdi basit bir rails projesi yapalım,terminalden;</p>
+
+<p><code>$ rails new project</code></p>
+
+<p>yazarak ilk projemizi oluşturalım ve<br/>
+<code>$ cd project</code>  komutu ile projemizin içine girelim.</p>
+
+<p><code>$ rails server</code><br/>
+komutunu vererek  varsayılan olarak bir web server başlatacaktır.</p>
+
+<p>Uygulamamızı çalışır şekilde görmek için bir tarayıcı açıp ve <a href="http://localhost:3000">http://localhost:3000</a> adresini girin.  Rails’in default bilgilendirme ekranı görecekseniz.<br/>
+<img src="http://i.imgur.com/m8QOrcS.png?1" alt="" /></p>
+
+<p><code>$ cd  project</code><br/>
+komutu  ile projemizin içine girdik projemiz içinde<br/>
+<code>$ ls</code><br/>
+komutu verdiğimiz zaman proje içinde app, bin config,db, lib, log, public, test,tmp ve vendor dizinleri ile bir kaç dosya görüyoruz.<br/>
+ Şimdi bunların ne işe yaradıklarına bir bakalım..</p>
+
+<p><font color='brown'>app/ :</font>
+Bu klasörde views, controllers ve models katmanları bulunur.</p>
+
+<p><font color='brown'>config/ :</font>
+Bu klasörde uygulamamızın çalışma kuralları, yolları, veritabanı ve yapılandırma dosyaları bulunur.</p>
+
+<p><font color='brown'>config.ru :</font>
+Rack temelli suncucular için uygulamayı başlatmak için konfigürasyonlar içerir.</p>
+
+<p><font color='brown'>db/ :</font>
+Geçerli veritabanı şeması,  ve veritabanı geçişleri için birleştirmeleri (Migration)  içerir.</p>
+
+<p><font color='brown'>Gemfile :</font>
+Bu dosya Rails uygulamamızın bağlantılı olduğu Gem’leri belirtir.</p>
+
+<p><font color='brown'>lib/ :</font>
+Uygulamamız için modüller bulundurur.</p>
+
+<p><font color='brown'>log/ :</font>
+Uygulamamızın log dosyaları.</p>
+
+<p><font color='brown'>public/ :</font>
+Dışarıdan , oldukları sekilde ulaşılabilen  dosyalar buradadır. Burada statik dosyalarımız bulunur, tüm resimleriniz, javascriptleriniz, stilleriniz ..</p>
+
+<p><font color='brown'>README :</font>
+uygulama için kısa kullanım kılavuzudur. Uygulamamızın ne yaptığını, nasıl, vb ayarları için kullanıcılara söylemek istediklerimizi bu dosyaya yazarız.</p>
+
+<p><font color='brown'>test/ :</font>
+Birim testleri , bağlayıcılar ve diğer test yardımcılarını içerir.</p>
+
+<p><font color='brown'>tmp/ :</font>
+Geçici dosyaları barındırır.</p>
+
+<p><font color='brown'>vendor/ :</font>
+Tüm 3. parti yazılımları buradadır. Tipik bir Rails uygulamasında, Gem dosyaları,pluginler ve projenizin içine gömecekseniz Rails kaynak kodu bulunur.</p>
+
+<h3>Gerekli Gemlerin Kurulması</h3>
+
+<p>Rails uygulamamızın kullandığı tüm gemleri vendor klasöründe işleyemek için <font color='purple'>Bundler</font>
+ gemi kullanır.<br/>
+Bu uygulamamızı başlatmak ve hatasız olarak çalıştırmak için gereken bağımlılıkların olduğundan emin olmamızı kolaylaştırır.</p>
+
+<p><code>$ bundle install</code><br/>
+  komutu ile bunu kurabiliriz.</p>
+
+<h3>Rails’de Veritabanı</h3>
+
+<p>Hemen hemen tüm Rails uygulaması veritabanı kullanır.<br/>
+Kullanılacağımız veritabanı <code>config/database.yml</code> dosyasında yer alır. <br/>
+Rails uygulaması oluşturduktan sonra bu dosyayı kontrol edersek SQLITE3 gibi bir veritabanından bahsedildiğini görürüz.</p>
+
+<p><code>$ rake db:migrate</code></p>
+
+<p>komutu ile  <font color='brown'>db/</font>
+  klasöründe  veritabanlarınızı oluşturur.</p>
+
+<p>Şimdi Rails üzerinde kısa bir çalışma yapalım..</p>
+
+<p>Rails’in var olan <font color='red'>“Welcome abroad”</font> yazısı yerine hazırladığımız görselin çıkmasını isteyelim<br/>
+ Mesela bize  <font color='red'>“Hoşgeldin Rails!”</font>  desin  bunun için :</p>
+
+<p><code>$ rails generate controller welcome index</code></p>
+
+<p>komutunu kullanırız.</p>
+
+<p>Bu  komutu açıklarsak Rails’in bize <font color='red'>Hoşgeldin Rails!</font>
+ demesi için bize controller ve views katmanları lazım.  Bu komutla birlikte Rails bunu sağlıyor.</p>
+
+<p><font color='brown'>app/</font>
+  dizini içinde controllerda   <code>welcome_controller.rb</code>    adında bir dosya oluşturuyor ve içinde <font color='purple'>index</font>  metodu yer alıyor.<br/>
+Aynı zamanda bu komut  <font color='brown'>app/</font>  dizini içinde  <font color='purple'>views</font><br/>
+klasöründe  <code>index.html.erb</code>  adında bir <font color='purple'>html</font> dosyası oluşturuyor.</p>
+
+<p><code>$ app/views/home/index.html.erb</code>    dosyasını açıp içine sadece</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>   <span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="no">Ho</span><span class="err">ş</span><span class="n">geldin</span> <span class="no">Rails</span><span class="o">!&lt;</span><span class="sr">/h1&gt;</span>
+</span><span class='line'><span class="sr"> </span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>   yazıp kayıt edip çıkalım.</p>
+
+<p>Şimdi <a href="http://localhost:3000/">http://localhost:3000/</a> adresine girdik  ve hiç bir değişiklik olmadığını gördük.
+Çünkü <code>routes.rb</code>  dosyasında ana sayfamızın değiştiği haberini vermedik.<br/>
+Bu dosyada uygulamamızın Rails’e gelen isteklerin nasıl yönlendireceğini anlatan DSL girdileri vardır.</p>
+
+<p><code>$ config/routes.rb</code></p>
+
+<p>dosyasını açalım , bu dosyada sadece yorumlar vardır, bu yorumlarda örnek yönlendirmeler yer alır.<br/>
+ <font color='purple'>root :to</font>  ile örnek yönlendirmenin önündeki yorum işaretini(#)  kaldıralım ve şu hale getirelim:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="ss">Project</span><span class="p">:</span><span class="ss">:Application</span><span class="o">.</span><span class="n">routes</span><span class="o">.</span><span class="n">draw</span> <span class="k">do</span>
+</span><span class='line'><span class="c1"># get “welcome/index”</span>
+</span><span class='line'><span class="c1"># The priority is based upon order of creation: first created -&gt; highest priority</span>
+</span><span class='line'><span class="c1"># See how all your routes lay out with “rake routes”</span>
+</span><span class='line'><span class="c1"># You can have the root of your site routed with “root” </span>
+</span><span class='line'>
+</span><span class='line'><span class="n">root</span> <span class="err">‘</span><span class="n">welcome</span><span class="c1">#index’</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>dosyamızı kayıt edip çıkalım , daha sonra</p>
+
+<p> <code>$rails server</code><br/>
+komutu ile Rails projemizi tekrar çalştıralım ve tarayıcımızdan <a href="http://localhost:3000/">http://localhost:3000/</a> adresi ile giriş yapalım.</p>
+
+<p>Çıkan sonuç şekildeki gibi olur:</p>
+
+<p><img src="http://i.imgur.com/ZX4Fsh3.png" alt="" /></p>
+</div>
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">KaderTarlan</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-03-09T02:50:00+02:00" pubdate data-updated="true"></time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://kadertarlan.github.io/blog/2014/03/09/ruby-on-rails/" data-via="" data-counturl="http://kadertarlan.github.io/blog/2014/03/09/ruby-on-rails/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/03/08/git-ve-github/" title="Previous Post: Git ve Github">&laquo; Git ve Github</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2014/03/10/ruby-on-rails-2/" title="Next Post: Ruby on Rails-2">Ruby on Rails-2 &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  <section>
+  <p>Hi, I'm <a href="https://twitter.com/martinbjeldbak">Martin Bjeldbak Madsen</a>!</p>
+  
+
+  <p>You can read more about me on my <a href="/about/">about</a> page. To see what I'm working on, check out my GitHub page <a href="https://github.com/fapper">here</a>.</p>
+  <p>My resume can be found <a href="cv.pdf">here</a>.</p>
+  <div class="social-icons">
+    
+
+    
+
+    
+
+    
+  <a href="https://github.com/kadertarlan"><i class="fa fa-github fa-3x"></i></a>
+
+
+    
+
+  </div>
+</section>
+
+  <section>
+  <h1>Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2017/05/13/title-of-the-post/">Title of the Post</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/05/13/ozetle-yazilim-test-otomasyon/">Özetle Yazılım Test Otomasyon</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/02/23/python-ile-birim-testler/">Python Ile Birim Testler</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/02/23/gdg-devfest-libreoffice-katki-sureci/">GDG DevFest - LibreOffice Katkı Süreci</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/11/03/libreofiice-icin-test-yazma/"><font color=green>LibreOffice</font> Için Test Yazmak</a>
+      </li>
+    
+  </ul>
+</section>
+
+  
+    <section>
+  <h1>Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2017/05/13/title-of-the-post/">Title of the Post</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/05/13/ozetle-yazilim-test-otomasyon/">Özetle Yazılım Test Otomasyon</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/02/23/python-ile-birim-testler/">Python Ile Birim Testler</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/02/23/gdg-devfest-libreoffice-katki-sureci/">GDG DevFest - LibreOffice Katkı Süreci</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/11/03/libreofiice-icin-test-yazma/"><font color=green>LibreOffice</font> Için Test Yazmak</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/kadertarlan">@kadertarlan</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'kadertarlan',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2017 - KaderTarlan -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+<p>
+<span>Copyright &copy; 2017  KaderTarlan -</span>
+<span class="credit">Powered by <a href="http://octopress.org">Octopress</a> using the <a href="https://github.com/fapper/classic-martinb">classic-martinb</a> theme</span>
+</p>
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

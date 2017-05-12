@@ -1,0 +1,408 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Selenium - KaderTarlan</title>
+  <meta name="author" content="KaderTarlan">
+
+  
+  <meta name="description" content="Selenium web tabanlı uygulamaların testlerini browser üzerinden yapmamızı sağlayan bir araçtır.
+Tüm web testlerinin yapılabileceği açık kaynak kodlu &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://kadertarlan.github.io/blog/2014/03/19/selenium">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="KaderTarlan" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><div class="header-left">
+  <hgroup>
+  <h1><a href="/">KaderTarlan</a></h1>
+  
+  <div class="subtitle">
+    <h2>BlogCan</h2>
+  </div>
+  
+  </hgroup>
+  
+</div>
+
+<div class="header-right">
+  <ul class="main-navigation">
+ <div> 
+  <li><a href="/">blog</a></li></div><div class="spacer"></div>
+     <div> 
+  <li><a href="/projects">projects</a></li></div><div class="spacer"></div>
+       <div> 
+  <li><a href="/work">work</a></li></div><div class="spacer"></div>
+         <div> 
+  <li><a href="/about">about</a></li></div>
+</ul>
+  
+
+</div>
+</header>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Selenium</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-03-19T17:23:59+02:00" pubdate data-updated="true"></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p><font color='red'> Selenium </font>  web tabanlı uygulamaların testlerini browser üzerinden yapmamızı sağlayan bir araçtır.<br/>
+Tüm web testlerinin yapılabileceği açık kaynak kodlu bir test aracıdır. Diğer test araçlarına göre daha fazla gelişmiştir.<br/>
+Web ortamında testlerinizi kaydetme , çalıştırabilme, düzeltme, yeniden test etme imkanı verir.<br/>
+Test adımları için <font color='purple'> java, ruby, python </font> gibi farklı yazılım dilleri kullanılabilir.</p>
+
+<p>Test adımlarını web üzerinden görebilmek için <font color='red'>  selenium-ide  </font> kullanılır.Selenium-ide firefox için geliştirilmiş bir eklentidir.</p>
+
+<p>Seleniumda firefoxdaki haraketlerimizi kayıt edebilir ve sonraki ürettiğimiz test kodlarını otomotik testler için kullanabiliriz.</p>
+
+<p>Şimdi 4 adımda bir senaryo düşünelim , <a href="http://www.sahibinden.com/">http://www.sahibinden.com/</a> adresine girdik<br/>
+<font color='red'>1-</font>  siteyi açtım<br/>
+<font color='red'>2-</font>  arama kısmına tıkladım, telefon yazdım, aradım<br/>
+<font color='red'>3-</font>  ilk çıkan sonuca tıkladım<br/>
+<font color='red'>4-</font>  ilan no : 3123123 tarzı bişey yazıyo mu onu kontrol ettim</p>
+
+<p>Diyelim ki sahibinden.com'da çalışıyoruz, kod yazdık, aramayı güçlendiriyoruz.<br/>
+Kodumuzdan öyle eminiz ki, ya da arama kısmıyla beraber ürünle ilgili de bi kod yazıyoruz, en ucra köşede bir kod, evet kodumuz çalışıyor.  Ama, ya aramayı bozmuşsa? Ya aralarında bağ varsa? Ya ilan numarası gelmiyorsa? Sırf o yazdığımız küçük kod yüzünden? Bunlar olabilir..</p>
+
+<p>Tester larımız vardır, click clickçiler, şu yukarıdaki senaryomuzu ona veririz, ve her bir güncellemede, bunları test eder.<br/>
+Sen de bunu doğrularsın; kodun, aramayı bozmamış. Bunun gibi 100lerce senaryo düşünürsek;<br/>
+Mesaj göndersin, paylaşsın, yazdırsın, favorilere eklesin vs..</p>
+
+<p>Peki hep click clickçilerle mi uğraşaçağız? Bir sürü para, + insan, yanılabilir. İşte bu aşamada ,automated ui tests devreye giriyor..</p>
+
+<p>Şimdi, <font color='purple'>  Selenium </font>  kendini burada gösteriyor kendi içinde,  <font color='purple'> “tıkla” , “aç”, “doğrula”, “yaz” </font> gibi automated test için çok kullanılan fonksiyonlara sahip.<br/>
+Biz de onu kullanarak, senaryoyu yazarız. Ve <font color='red'>  RUN! </font> dediğimiz an , kendine kendine bizim senaryomuzu çalıştırır, ve bize, evet çalıştırdım, düzgün çalışıyor yada eğer bozuksa hata var! gibi çıktılar verir.<br/>
+Biz her güncelleme yaptığımızda , sadece <font color='red'> RUN! </font> diyerek bu testimizi çalıştırabiliriz bu sayede.</p>
+
+<p>Burada <font color='purple'> Selenium-İde </font> görüntüsü yer almakta ve aşağıda da açıklanmakta.</p>
+
+<p><img src="http://i.imgur.com/4b584hS.png" alt="" /></p>
+
+<p><font color='red'>  Selenium'da </font>;<br/>
+<font color='brown'> 1-Dosya seçeneği </font>, yeni veya önceden açılmış test case açmaya , kaydetmeye,yarar.<br/>
+<font color='brown'> 2-Düzenle seçeneği </font>, kontrol işlemlerini yapar (kes,yapıstır, geri al gibi).<br/>
+<font color='brown'> 3-Options seçeneği </font>, ide ile alakalı ayarlar yapılır, varsayılan ide dili değiştirilir.<br/>
+  <font color='brown'> 3.1-Options-Options seçeneği </font>, karakter kodlaması ve “*wait” komutu için milisaniye cinsinden sürenin belirlenmesi bu kısımda yapılır.Varsayılan bekleme süresi 30 sn .ayrıca bu bölümde kişisel java scriptler yüklenebilir.<br/>
+  <font color='brown'> 3.2-Options-Format seçeneği </font>, html dilindeki scriptleri başka dile çevirmeye yarar.<br/>
+  <font color='brown'> 3.3-Options-Clipboard format seçeneği </font> , hızlı şekilde mevcut diğer dillere çevirme işlemini yapar.</p>
+
+<p><font color='purple'>Base URL </font>, test yapılmak istenen url adresi bu bölüme yazılır. Eğer kayıtlı bir test case varsa test case çalıştırıldığında bu url otomatık olarak gelir.<br/>
+<font color='purple'>Fast &amp; slow </font>, bu kısımda testin hızı ayarlanır. Hız göstergesi ile 1 ile 10 arasındadır. Testin varsayılan hızı 10 dur.<br/>
+<font color='purple'>Play all </font>, tüm test caseleri çalıştırmak için kullanılır.<br/>
+<font color='purple'>Play </font>, üzerinde çalışılan test case çalıştırır.<br/>
+<font color='purple'>Pause </font>, çalıştırılmış bir test case bekletir.<br/>
+<font color='purple'>Step </font>, bekletilmiş bir test case adım adım ilerletir.<br/>
+<font color='purple'>Test runner </font>, selenium kodunu, test case ve test yapılan siteyi gösterir.<br/>
+<font color='purple'>Record </font>, testi kaydetmek ve testi durdurmak için kullanılır. Selenium-ide ilk başlatıldığında kayıt otomatik başlar.</p>
+
+<p><font color='red'> Log: </font> testin çalıştırılması ile hatalı ve başarılı işlemlerin kaydını tutar.<br/>
+<font color='red'> Reference: </font> Komutların açıklanmasını gösterir. Komutların nasıl kullanılacağı burada anlatılmaktadır.</p>
+
+<h3>Selenium Nasıl Çalışır?</h3>
+
+<p><font color='red'>1-Command: </font> Test için senaryomuzdaki komutları girdiğimiz yer.Bazı komutlar;</p>
+
+<p>   <font color='purple'>Open: </font> Verilern URL'ye(siteye) ait web sayfasını açmak için kullanılır.<br/>
+   <font color='purple'>Click: </font> Bir nesneyi tıklamak için kullanılır.<br/>
+   <font color='purple'> ClickAndWait: </font> Nesneye tıklattıktan sonra sayfanın yüklenmesini beklemek için kullanılır.<br/>
+   <font color='purple'>AssertElementPresent: </font> Belirtilen elemanın yüklenemesini beklemek için kullanılır.<br/>
+   <font color='purple'>AssertTextPresent: </font> Belirtilen bir metnin sayfada olup olmadığını kontrol  eder.<br/>
+   <font color='purple'>WaitForPageToload: </font> sayfanın yüklenmesini bekler.<br/>
+   <font color='purple'>WaitForElementPresent: </font> Sayfadaki beklenen arayüz ekrana gelene kadar   testi bekletir.<br/>
+   <font color='purple'>Type: </font> bir inputun içine yazmak için kullanılır.<br/>
+   <font color='purple'>VerifyTextPresent: </font> Sayfanın herhangi bir yerinde beklenen yazının varlığını doğrular.<br/>
+   <font color='purple'>VerifyElementPresent: </font> Sayfada olması beklenen arayüzün doğru yerde olup olmadığını kontrol eder.<br/>
+   <font color='purple'>Title/AsertTitle: </font> Beklenen sayfa başlağını doğrular.<br/>
+   <font color='purple'>DeleteCookie: </font> Belirtilen cookinin silinmesi sağlar.<br/>
+   <font color='purple'>MouseOver: </font> Mouse belirtilen elemanın üzerine götürür.</p>
+
+<p><font color='red'>2-Target: </font>  Commanda belirttiğimiz olayın hangi nesne üzerinde gerçekleşeceğini belirtiriz. Burada CSS Locator yada Xpath gibi yer bulucular kullanmamız gerekmekte.</p>
+
+<p><font color='red'>3-Value: </font> Targette belirttiğimiz nesnenin bir değeri varsa ve o değeri belirtmemiz gerekiyorsa yada sitede bir yere değer yazmak gerekiyorsa kullanılır.</p>
+
+<p>Şimdi elimizde 1 tane senaryomuz olsun</p>
+
+<p>Scenario 1: cikti.al home page<br/>
+<font color='red'>1- </font> Open page(<a href="http://cikti.al">http://cikti.al</a>)<br/>
+<font color='red'>2- </font> Verify the page header(&lsquo;Çıktı Al ! Bulut Flash Bellek( (beta))</p>
+
+<p><img src="http://i.imgur.com/4b584hS.png" alt="" /></p>
+
+<p>burada (<a href="http://cikti.al">http://cikti.al</a>) adresine gidip ,<br/>
+Çıktı Al ! Bulut Flash Bellek( (beta)) ,<br/>
+yazısının sayfada olup olmadığının kontrolünü yaparız.<br/>
+Seleniumu çalıştırdığımız anda bize tarayıcımızdan yeni bir sekme açarak
+<a href="http://cikti.al">http://cikti.al</a> adresine gider.</p>
+
+<p><img src="http://i.imgur.com/iOR3055.png" alt="" /></p>
+
+<p><img src="http://i.imgur.com/4l1uAfK.png" alt="" /></p>
+
+<p> Burada istediğimiz adrese gitti. <font color='blue'>Çıktı Al ! Bulut Flash Bellek </font> yazımızı kontrol etti evet böyle bir metin var ve  her şey yolunda dedi bize. <br/>
+Peki ,bu Bulut Flaş bellek sitemiz ne işe yarıyor? Herhangi bir dökümanımızı yükleyip ,daha sonra istediğimiz bir yerde çıktısını almamızı sağlıyor, harici bellek kullanmadan hallediyoruz çıktı alma olayını ,site kendi hafızasında saklıyor bu dökümanı.<br/>
+Peki o zaman bizde bir dosya yükleyelim <font color='red'> Selenium'a </font> komutları verelim o bizim için yüklesin ve baksın sitemizin dosya yükle butonu gerçekten çalışıyor mu bir sorunu var mı ?</p>
+
+<p><img src="http://i.imgur.com/ckEDZYq.png" alt="" /></p>
+
+<p><img src="http://i.imgur.com/GTcGqeZ.png" alt="" /></p>
+
+<p>Seleniuma gireceğimiz  komutlar bu şekildedir.<br/>
+Seleniuma <font color='red'>  Run! </font> komutunu verdiğimiz anda yeni sekmede <a href="http://cikti.al">http://cikti.al</a> adresine gitti yazımızı kontrol etti ve commanda kısmına yazdığımız type komutu ile target kısmına yazdığımız CSS Locator yer bulucusu  ile dosya yüklemesi gereken yeri bulmasını söyledik ve value kısmına yüklenecek dosyamızın adını verdik.</p>
+
+<p><img src="http://i.imgur.com/2ojYL7I.png" alt="" /></p>
+
+<p>Dosyamız yüklendi! Sitemizde hiç bir sorun olmadığını test ederek gördük.</p>
+
+<p>Sizlerde Seleniumu çeşitli siteleri test etmek amaçlı kullanabilirsiniz hatta bunu farklı browserlarda deneyebilir hatta ve hatta farklı işletim sistemleri için bile test edebilir hale getirebilirsiniz.</p>
+
+<p><a href="http://www.browserstack.com">http://www.browserstack.com</a> bu adres ile testlerinizi farklı web tarayıcılarında deneyebilirsiniz. Örneğin tekrar www.sahibinden.com dan tekrar bahsedersek ve buradaki bir ürünümüzü tam müşterinin biri 1500 dolarlık ürün alırken, İnternet explorer8 de göremediğimiz, ödemeyi onayla butonu , çalışmazsa ne olacak? Ve bizden önce bunu müşteri görmüş olsa, biz 1500 doları ve müşterizi kaybetsek, ne kötü olur değil mi? İşte bu gibi durumlara sebebiyet vermemek için testimizi farklı tarayıcılar ve farklı işletim sistemleri içinde kullanıma hazır hale getirebiliriz.</p>
+
+<p> Yazıma burada son veriyorum Selenium hakkında bişeyler katabilmişsem ne mutlu :)</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">KaderTarlan</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-03-19T17:23:59+02:00" pubdate data-updated="true"></time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://kadertarlan.github.io/blog/2014/03/19/selenium/" data-via="" data-counturl="http://kadertarlan.github.io/blog/2014/03/19/selenium/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/03/18/yeni/" title="Previous Post: GCM Ile Push Notification">&laquo; GCM Ile Push Notification</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2014/08/07/selenium-ikinci-asama/" title="Next Post: Test Senaryolarını Anlama">Test Senaryolarını Anlama &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  <section>
+  <p>Hi, I'm <a href="https://twitter.com/martinbjeldbak">Martin Bjeldbak Madsen</a>!</p>
+  
+
+  <p>You can read more about me on my <a href="/about/">about</a> page. To see what I'm working on, check out my GitHub page <a href="https://github.com/fapper">here</a>.</p>
+  <p>My resume can be found <a href="cv.pdf">here</a>.</p>
+  <div class="social-icons">
+    
+
+    
+
+    
+
+    
+  <a href="https://github.com/kadertarlan"><i class="fa fa-github fa-3x"></i></a>
+
+
+    
+
+  </div>
+</section>
+
+  <section>
+  <h1>Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2017/05/13/title-of-the-post/">Title of the Post</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/05/13/ozetle-yazilim-test-otomasyon/">Özetle Yazılım Test Otomasyon</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/02/23/python-ile-birim-testler/">Python Ile Birim Testler</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/02/23/gdg-devfest-libreoffice-katki-sureci/">GDG DevFest - LibreOffice Katkı Süreci</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/11/03/libreofiice-icin-test-yazma/"><font color=green>LibreOffice</font> Için Test Yazmak</a>
+      </li>
+    
+  </ul>
+</section>
+
+  
+    <section>
+  <h1>Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2017/05/13/title-of-the-post/">Title of the Post</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/05/13/ozetle-yazilim-test-otomasyon/">Özetle Yazılım Test Otomasyon</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/02/23/python-ile-birim-testler/">Python Ile Birim Testler</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/02/23/gdg-devfest-libreoffice-katki-sureci/">GDG DevFest - LibreOffice Katkı Süreci</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/11/03/libreofiice-icin-test-yazma/"><font color=green>LibreOffice</font> Için Test Yazmak</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/kadertarlan">@kadertarlan</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'kadertarlan',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2017 - KaderTarlan -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+<p>
+<span>Copyright &copy; 2017  KaderTarlan -</span>
+<span class="credit">Powered by <a href="http://octopress.org">Octopress</a> using the <a href="https://github.com/fapper/classic-martinb">classic-martinb</a> theme</span>
+</p>
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

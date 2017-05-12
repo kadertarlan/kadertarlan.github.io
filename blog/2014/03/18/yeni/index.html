@@ -1,0 +1,1119 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>GCM Ile Push Notification - KaderTarlan</title>
+  <meta name="author" content="KaderTarlan">
+
+  
+  <meta name="description" content="Merhaba arkadaşlar bir cihaza Push Notification yapmak istediğimiz zaman Google Cloud Messaging dediğimiz servisi kullanıyoruz. Kısaca GCM olan bu &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://kadertarlan.github.io/blog/2014/03/18/yeni">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="KaderTarlan" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><div class="header-left">
+  <hgroup>
+  <h1><a href="/">KaderTarlan</a></h1>
+  
+  <div class="subtitle">
+    <h2>BlogCan</h2>
+  </div>
+  
+  </hgroup>
+  
+</div>
+
+<div class="header-right">
+  <ul class="main-navigation">
+ <div> 
+  <li><a href="/">blog</a></li></div><div class="spacer"></div>
+     <div> 
+  <li><a href="/projects">projects</a></li></div><div class="spacer"></div>
+       <div> 
+  <li><a href="/work">work</a></li></div><div class="spacer"></div>
+         <div> 
+  <li><a href="/about">about</a></li></div>
+</ul>
+  
+
+</div>
+</header>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">GCM Ile Push Notification</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-03-18T00:06:04+02:00" pubdate data-updated="true"></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><blockquote><p>Merhaba arkadaşlar bir cihaza Push Notification yapmak istediğimiz zaman <font color=blue>Google Cloud Messaging</font> dediğimiz servisi  kullanıyoruz. Kısaca <font color=blue>GCM</font> olan bu servis , sunucu görevi gören  bilgisayarımızdan göndereceğimiz verinin  , android cihaz tarafından alınmasını sağlayacak bir teknolojidir. Bulut teknolojisi kullanarak uygulamara veri göndermeyi sağlar.</p></blockquote>
+
+<p>Android cihazımızda bir uygulamamız olduğunu farz edelim bu uygulama bize tatile çıktığımız zaman konum bilgimize erişip bize otel adları sunsun ve push notification mantığı ile çalışsın. O civarda otel arıyor olalım ve hareket etiiğimizi anlayan bu uygulama konum bilgimize erişsin. Biz bu uygulamaya sürekli otel var mı diye sormayalım da o bulunduğumuz yerde otel bulduğunda push notification ile bize otel adlarını yollasın.</p>
+
+<p>Eğer uygulamamızda push notification yoksa bizim sürekli sormamız gerekecekti yeni otel buldun mu diye. Bu durum ayrıca zahmet ve serverımızda sürekli bir yogunluğa neden olur.<br/>
+Fakat bizim uygulamamız GCM ile çalışıyor ve bana çok güzel kolaylık sunuyor. Biz sürekli sayfa güncelleyip sormadan uygulama bizim işimizi görecek ne kadar kolay değil mi ?</p>
+
+<p>Uygulamalara bu push notification olayını yerleştirdiğimiz zaman istediğimiz kullanıcıya istediğimiz mesajı atarak kullanıcıyı uyarabiliyoruz.<br/>
+Bankalar örneğin böyle bir uygulama kullansa bakiyesi eksiye inen kullanıcılarını tespit etse ve onlara otomatik push notification ile mesaj atsa Paraya ihtiyacın mı var dese çok da güzel olur.</p>
+
+<blockquote><p>Push Notification ile bir android cihazımıza bildirim yollamak isteyelim bunun için bize bir android uygulaması lazım. Bir diğer olay GCM servisi lazım ve Sunucumuzun olması lazım.<br/>
+GCM çalşma mantığı ise aşağıdaki resimdeki gibidir.</p></blockquote>
+
+<p><img src="http://i.imgur.com/2jxRfN3.jpg"></p>
+
+<ul>
+<li><p>Ilk adımda android uygulaması application_id and sender_id bilgilerimizi GCM ile paylasır. GCM sunucusuda bu bilgileri tutar.</p></li>
+<li><p>Ikinci adımda GCM sunucu uygulamasından register_id bilgisi gelir, bu bilgi gelen application_id and sender_id bilgilerini kullanarak uygulamayı register ettikten sonra oluşur.</p></li>
+<li><p>Mobil uygulama GCM sunucusundan aldığı register_id bilgisini push notification yapacağı servera iletir.</p></li>
+<li><p>Server da gelen bu regıster_id bilgisini kendi veritabanına kaydeder.</p></li>
+<li><p>Server kendi application_id si için göndereceği bilgileri GCM'e registration_id olarak bildiriyor.</p></li>
+<li><p>GCM de bu registration_id üzerinden belirlenen mobil cihaza serverdan gelen bilgiyi iletiyor.</p></li>
+</ul>
+
+
+<p>Tüm bu adımların tamamı bahsettiğimiz push notification işlemini gerçekleştiriyor.</p>
+
+<blockquote><p>Ilk Adım;</p></blockquote>
+
+<p>Google Cloud Messaging dediğimiz servisi kullanabilmemiz için <a href="https://cloud.google.com/console">Google Developer Console </a> girip hesap oluşturmamız gerekiyor. <font color=blue> Create New Project</font> e tıklıyoruz. Açılan sayfaya bilgileri giriyoruz (name,id). GCM ile paylaştığımız application_id olur bu.</p>
+
+<p><img src="http://i.imgur.com/lKH63hw.jpg"></p>
+
+<p>Projemizi oluşturduktan sonra;<br/>
+Menuden  <font color=blue>APİs&amp;AUTH</font> menüsünden  <font color=blue>Credentials</font> seciyoruz. Açılan sayfadan  <font color=blue>Create New Key</font> tıklayıp  <font color=blue>Server Key</font> seçiyoruz. Ve  <font color=blue>Create</font> dıyoruz.  Gelen ekranda APi keyimizi göreceksiniz bunu kullanacağımız yerler olacak bu şekilde bunu da oluşturmuş olduk.</p>
+
+<p><img src="http://i.imgur.com/vVnYbmA.png"></p>
+
+<blockquote><p>İkinci Adım;</p></blockquote>
+
+<p> <font color=red>Veritabanını Oluşturma</font></p>
+
+<p>Bunun için phpMyAdmin kullanacağız. Web uygulamalarını kendi bilgisayarınızda test edebilmek için sisteminizde LAMP (Linux, Apache, MySQL, PHP) server kurulu olmalıdır. <a href="http://www.getgnu.org/gnulinux/gnulinux-ipuclari/lamp-linux-apache-mysql-php-server-kurulumu.html"> buradan </a> LAMP kurulumu gerçekleştirebilirsiniz.</p>
+
+<p>Kurulumu tamamladıktan sonra
+ <a href="http://localhost/phpmyadmin">http://localhost/phpmyadmin</a> adresine giriş yapabilirsiniz. Giriş yaptıktan sonra  <font color=green>GCM</font> adında database oluşturuyoruz.Daha sonra SQL tıklayıp aşağıdaki kodu çalıştırdığımızda  <font color=green>gcm_users</font> adında bir tablo oluşturmuş oluruz.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'> <span class="no">CREATE</span> <span class="no">TABLE</span> <span class="no">IF</span> <span class="no">NOT</span> <span class="no">EXISTS</span> <span class="sb">`gcm_users`</span> <span class="p">(</span>
+</span><span class='line'>  <span class="sb">`id`</span> <span class="n">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span> <span class="no">NOT</span> <span class="no">NULL</span> <span class="no">AUTO_INCREMENT</span><span class="p">,</span>
+</span><span class='line'>  <span class="sb">`gcm_regid`</span> <span class="n">text</span><span class="p">,</span>
+</span><span class='line'>  <span class="sb">`android_id`</span> <span class="n">varchar</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span> <span class="no">NOT</span> <span class="no">NULL</span><span class="p">,</span>
+</span><span class='line'>  <span class="sb">`email`</span> <span class="n">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span> <span class="no">NOT</span> <span class="no">NULL</span><span class="p">,</span>
+</span><span class='line'>  <span class="sb">`created_at`</span> <span class="n">timestamp</span> <span class="no">NOT</span> <span class="no">NULL</span> <span class="no">DEFAULT</span> <span class="no">CURRENT_TIMESTAMP</span><span class="p">,</span>
+</span><span class='line'>  <span class="no">PRIMARY</span> <span class="no">KEY</span> <span class="p">(</span><span class="sb">`id`</span><span class="p">)</span>
+</span><span class='line'> <span class="p">)</span><span class="no">ENGINE</span><span class="o">=</span><span class="no">InnoDB</span> <span class="no">DEFAULT</span> <span class="no">CHARSET</span><span class="o">=</span><span class="n">latin1</span> <span class="no">AUTO_INCREMENT</span><span class="o">=</span><span class="mi">1</span> <span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><img src="http://i.imgur.com/4ErXDQT.png"></p>
+
+<p> <font color=red>PHP Projelerini Oluşturma</font></p>
+
+<p>Veritabanını oluşturduktan sonra php konfigurasyon dosyalarını oluşturmalıyız.</p>
+
+<blockquote><p>İlk önce veritabanı bilgilerinin yer aldığı config.php dosyası oluşturalım ve aşağıdaki kodu ekleyelim.</p></blockquote>
+
+<p>config.php</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
+</span><span class='line'> <span class="c1">//Database config degiskenleri</span>
+</span><span class='line'><span class="nb">define</span><span class="p">(</span><span class="s2">&quot;DB_HOST&quot;</span><span class="p">,</span> <span class="s2">&quot;localhost&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="nb">define</span><span class="p">(</span><span class="s2">&quot;DB_USER&quot;</span><span class="p">,</span> <span class="s2">&quot;root&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="nb">define</span><span class="p">(</span><span class="s2">&quot;DB_PASSWORD&quot;</span><span class="p">,</span> <span class="s2">&quot;root_password&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="nb">define</span><span class="p">(</span><span class="s2">&quot;DB_DATABASE&quot;</span><span class="p">,</span> <span class="s2">&quot;gcm&quot;</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'> <span class="c1">//Projemizi oluştururken elde ettiğimiz API keye yazıyoruz</span>
+</span><span class='line'><span class="nb">define</span><span class="p">(</span><span class="s2">&quot;GOOGLE_API_KEY&quot;</span><span class="p">,</span> <span class="s2">&quot;AIzaSyBuKjAAFTPaYIL83BvKzhfJ1patQfojz-w&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="cp">?&gt;</span><span class="x"></span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<blockquote><p>Şimdi ikinci bir dosya oluşturuyoruz  db_connect.php adında burada da database bağlantımız sağlanacak.</p></blockquote>
+
+<p>db_connect.php</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
+</span><span class='line'> <span class="k">class</span> <span class="nc">DB_Connect</span> <span class="p">{</span>
+</span><span class='line'>
+</span><span class='line'>     <span class="c1">//constructor</span>
+</span><span class='line'>    <span class="k">function</span> <span class="nf">__construct</span><span class="p">()</span> <span class="p">{}</span>
+</span><span class='line'>
+</span><span class='line'>     <span class="c1">//destructor</span>
+</span><span class='line'>    <span class="k">function</span> <span class="nf">__destruct</span><span class="p">()</span> <span class="p">{}</span>
+</span><span class='line'>
+</span><span class='line'>     <span class="c1">//database bağlantısı</span>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">connect</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="c1">//config.php dosyamızı dahil ediyoruz</span>
+</span><span class='line'>        <span class="k">require_once</span> <span class="s1">&#39;config.php&#39;</span><span class="p">;</span>
+</span><span class='line'>        <span class="c1">//config.php dosyamızdaki bilgiler eşliğinde mysql bağlanıyoruz.</span>
+</span><span class='line'>        <span class="nv">$con</span> <span class="o">=</span> <span class="nb">mysql_connect</span><span class="p">(</span><span class="nx">DB_HOST</span><span class="p">,</span> <span class="nx">DB_USER</span><span class="p">,</span> <span class="nx">DB_PASSWORD</span><span class="p">);</span>
+</span><span class='line'>        <span class="c1">//databasemizi seçiyoruz</span>
+</span><span class='line'>        <span class="nb">mysql_select_db</span><span class="p">(</span><span class="nx">DB_DATABASE</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="k">return</span> <span class="nv">$con</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>    <span class="c1">//database bağlantısı kesiliyor</span>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">close</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nb">mysql_close</span><span class="p">();</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="cp">?&gt;</span><span class="x"></span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<blockquote><p>Üçüncü dosyamız oluşturduğumuz veritabanında CRUD işlemleri gerçekleştirmek için db_functions.php adında bir dosya olacak ve bu dosya içine kullanıcı oluşturmak için bir fonksiyon yazıyoruz fazlasını yapmakda mümkün.</p></blockquote>
+
+<p>db_functions.php</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">DB_Functions</span> <span class="p">{</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">private</span> <span class="nv">$db</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">//yapıcı kodumuzu yerleştiriyoruz.</span>
+</span><span class='line'>    <span class="k">function</span> <span class="nf">__construct</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="c1">//oluşturduğumuz database bağlantısını çağırıyoruz.</span>
+</span><span class='line'>        <span class="k">include_once</span> <span class="s1">&#39;./db_connect.php&#39;</span><span class="p">;</span>
+</span><span class='line'>        <span class="c1">//database bağlantısı oluşturuldu</span>
+</span><span class='line'>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">DB_Connect</span><span class="p">();</span>
+</span><span class='line'>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">connect</span><span class="p">();</span>
+</span><span class='line'>   <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">function</span> <span class="nf">__destruct</span><span class="p">()</span> <span class="p">{}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// CRUD işlemlerinden Create ile yeni bir kullanıcı ekleme işlemi yapılıyor</span>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">storeUser</span><span class="p">(</span><span class="nv">$name</span><span class="p">,</span> <span class="nv">$email</span><span class="p">,</span> <span class="nv">$gcm_regid</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="c1">// database kullanıcı ekleme</span>
+</span><span class='line'>        <span class="nv">$result</span> <span class="o">=</span> <span class="nb">mysql_query</span><span class="p">(</span><span class="s2">&quot;INSERT INTO gcm_users(name, email, gcm_regid, created_at) VALUES(&#39;</span><span class="si">$name</span><span class="s2">&#39;, &#39;</span><span class="si">$email</span><span class="s2">&#39;, &#39;</span><span class="si">$gcm_regid</span><span class="s2">&#39;, NOW())&quot;</span><span class="p">);</span>
+</span><span class='line'>        <span class="c1">// kullanıcı eklenmiş mi kontrol ediyoruz</span>
+</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="nv">$result</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>            <span class="c1">// kullanıcı bilgilerine erişiyoruz</span>
+</span><span class='line'>            <span class="nv">$id</span> <span class="o">=</span> <span class="nb">mysql_insert_id</span><span class="p">();</span> <span class="c1">// en son eklenen id</span>
+</span><span class='line'>            <span class="nv">$result</span> <span class="o">=</span> <span class="nb">mysql_query</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM gcm_users WHERE id = </span><span class="si">$id</span><span class="s2">&quot;</span><span class="p">)</span> <span class="k">or</span> <span class="k">die</span><span class="p">(</span><span class="nb">mysql_error</span><span class="p">());</span>
+</span><span class='line'>            <span class="c1">// kullanıcı bilgilerine geri dönüyoruz</span>
+</span><span class='line'>            <span class="k">if</span> <span class="p">(</span><span class="nb">mysql_num_rows</span><span class="p">(</span><span class="nv">$result</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>                <span class="k">return</span> <span class="nb">mysql_fetch_array</span><span class="p">(</span><span class="nv">$result</span><span class="p">);}</span>
+</span><span class='line'>            <span class="k">else</span> <span class="p">{</span>
+</span><span class='line'>                <span class="k">return</span> <span class="k">false</span><span class="p">;</span> <span class="p">}</span>  <span class="p">}</span>
+</span><span class='line'>        <span class="k">else</span> <span class="p">{</span>
+</span><span class='line'>            <span class="k">return</span> <span class="k">false</span><span class="p">;}</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// Tüm kullanıcılara erişme </span>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">getAllUsers</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nv">$result</span> <span class="o">=</span> <span class="nb">mysql_query</span><span class="p">(</span><span class="s2">&quot;select * FROM gcm_users&quot;</span><span class="p">);</span>
+</span><span class='line'>        <span class="k">return</span> <span class="nv">$result</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}}</span>
+</span><span class='line'>
+</span><span class='line'><span class="cp">?&gt;</span><span class="x"></span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<blockquote><p>Dördüncü oluşturacağımız dosya GCM.php olacak. Bu dosya GCM sunucuya push bildirim istekleri göndermek için kullanılır.</p></blockquote>
+
+<p>GCM.php</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'>
+</span><span class='line'>  <span class="o">&lt;?</span><span class="nx">php</span>
+</span><span class='line'> <span class="k">class</span> <span class="nc">GCM</span> <span class="p">{</span>
+</span><span class='line'>    <span class="c1">// constructor</span>
+</span><span class='line'>    <span class="k">function</span> <span class="nf">__construct</span><span class="p">()</span> <span class="p">{}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">//Push notification yollama, resmimizdeki 5. adım</span>
+</span><span class='line'>     <span class="c1">// yollanacak registerin idisi ve mesajımız burada kullanılacak</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">send_notification</span><span class="p">(</span><span class="nv">$registatoin_ids</span><span class="p">,</span> <span class="nv">$message</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="c1">// ilk oluşturduğumuz database bilgimizin olduğu config.php dosyasını cağırıyoruz.</span>
+</span><span class='line'>        <span class="k">include_once</span> <span class="s1">&#39;./config.php&#39;</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="c1">// adresimize gidiyoruz ardından ulaşılmasını istediğimiz cihazın register_id bilgisini ve mesajımızı buraya yerleştiriyoruz.</span>
+</span><span class='line'>        <span class="nv">$url</span> <span class="o">=</span> <span class="s1">&#39;https://android.googleapis.com/gcm/send&#39;</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="nv">$fields</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+</span><span class='line'>            <span class="s1">&#39;registration_ids&#39;</span> <span class="o">=&gt;</span> <span class="nv">$registatoin_ids</span><span class="p">,</span>
+</span><span class='line'>            <span class="s1">&#39;data&#39;</span> <span class="o">=&gt;</span> <span class="nv">$message</span><span class="p">,</span>
+</span><span class='line'>        <span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="nv">$headers</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+</span><span class='line'>            <span class="s1">&#39;Authorization: key=&#39;</span> <span class="o">.</span> <span class="nx">GOOGLE_API_KEY</span><span class="p">,</span>
+</span><span class='line'>            <span class="s1">&#39;Content-Type: application/json&#39;</span>
+</span><span class='line'>        <span class="p">);</span>
+</span><span class='line'>        <span class="c1">// bağlantımızı açtık</span>
+</span><span class='line'>        <span class="nv">$ch</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="c1">// urlyi set ettik ve POST data</span>
+</span><span class='line'>        <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_URL</span><span class="p">,</span> <span class="nv">$url</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_POST</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
+</span><span class='line'>        <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_HTTPHEADER</span><span class="p">,</span> <span class="nv">$headers</span><span class="p">);</span>
+</span><span class='line'>        <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_RETURNTRANSFER</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="c1">// SSL Certificate</span>
+</span><span class='line'>        <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_SSL_VERIFYPEER</span><span class="p">,</span> <span class="k">false</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_POSTFIELDS</span><span class="p">,</span> <span class="nb">json_encode</span><span class="p">(</span><span class="nv">$fields</span><span class="p">));</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="c1">//post çalıştırılıyor</span>
+</span><span class='line'>        <span class="nv">$result</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
+</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="nv">$result</span> <span class="o">===</span> <span class="k">FALSE</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>            <span class="k">die</span><span class="p">(</span><span class="s1">&#39;Curl failed: &#39;</span> <span class="o">.</span> <span class="nb">curl_error</span><span class="p">(</span><span class="nv">$ch</span><span class="p">));</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="c1">// Close connection</span>
+</span><span class='line'>        <span class="nb">curl_close</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
+</span><span class='line'>        <span class="k">echo</span> <span class="nv">$result</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}}</span>
+</span><span class='line'><span class="cp">?&gt;</span><span class="x"></span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<blockquote><p>Beşinci oluşturacağımız dosya Register.php dosyası , Bu dosya Android cihazından gelen istekleri alır. Android cihazınızdan Adınız, Mailiniz ve bir Register_id niz ile ki bu id size ilk GCM kayıt olurken verildi, seni bu id ile kayıt ettim demişti GCM.<br/>
+Bizde bunları kullanarak Böylece uygulamaya dahil olduk bilgilerimizde database aktarıldı, yazdığın register_id bilgisi de database tablomuzdaki Reg_id bilgisine eşitlenir. Aynı zamanda buradaki reg_id bilgimizi GCM.php dosyamıza da yolladık oluşturduğumuz bir mesajla birlikte. GCM.php bu reg_id sine ait cihaza bu mesajı push etmek için GCM servera bağlanacak.</p></blockquote>
+
+<p>register.php</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'> <span class="o">&lt;?</span><span class="nx">php</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">// response json</span>
+</span><span class='line'>  <span class="nv">$json</span> <span class="o">=</span> <span class="k">array</span><span class="p">();</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">//Kullanıcı cihazını kayıt eder,register eder</span>
+</span><span class='line'>    <span class="nx">ve</span> <span class="nx">bunu</span> <span class="nx">kullanıcı</span> <span class="nx">tablosundaki</span> <span class="nx">reg_id</span> <span class="nx">depolar</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">if</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">])</span> <span class="o">&amp;&amp;</span> <span class="nb">isset</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s2">&quot;email&quot;</span><span class="p">])</span> <span class="o">&amp;&amp;</span> <span class="nb">isset</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s2">&quot;regId&quot;</span><span class="p">]))</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nv">$name</span> <span class="o">=</span> <span class="nv">$_POST</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">];</span>
+</span><span class='line'>    <span class="nv">$email</span> <span class="o">=</span> <span class="nv">$_POST</span><span class="p">[</span><span class="s2">&quot;email&quot;</span><span class="p">];</span>
+</span><span class='line'>    <span class="nv">$gcm_regid</span> <span class="o">=</span> <span class="nv">$_POST</span><span class="p">[</span><span class="s2">&quot;regId&quot;</span><span class="p">];</span> <span class="c1">// GCM Registration ID</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">//kullanıcı bilgilerini database yazıyor, </span>
+</span><span class='line'>    <span class="c1">//Bunu da bilgileri alıp yazdığımız db_functions.php dosyasını kullanarak yapıyor</span>
+</span><span class='line'>    <span class="k">include_once</span> <span class="s1">&#39;./db_functions.php&#39;</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">include_once</span> <span class="s1">&#39;./GCM.php&#39;</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nv">$db</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">DB_Functions</span><span class="p">();</span>
+</span><span class='line'>    <span class="nv">$gcm</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GCM</span><span class="p">();</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nv">$res</span> <span class="o">=</span> <span class="nv">$db</span><span class="o">-&gt;</span><span class="na">storeUser</span><span class="p">(</span><span class="nv">$name</span><span class="p">,</span> <span class="nv">$email</span><span class="p">,</span> <span class="nv">$gcm_regid</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nv">$registatoin_ids</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="nv">$gcm_regid</span><span class="p">);</span>
+</span><span class='line'>    <span class="nv">$message</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s2">&quot;product&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;shirt&quot;</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nv">$result</span> <span class="o">=</span> <span class="nv">$gcm</span><span class="o">-&gt;</span><span class="na">send_notification</span><span class="p">(</span><span class="nv">$registatoin_ids</span><span class="p">,</span> <span class="nv">$message</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">echo</span> <span class="nv">$result</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>  <span class="k">else</span> <span class="p">{}</span>
+</span><span class='line'><span class="cp">?&gt;</span><span class="x"></span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<blockquote><p>Altıncı olarak oluşturacağımız dosya send_message.php dosyası , Bu dosya da reg_id ve mesaage bilgilerimizi alıp notification yapması için GCM.php dosyasını çağırır.</p></blockquote>
+
+<p>send_message.php</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'>  <span class="o">&lt;?</span><span class="nx">php</span>
+</span><span class='line'>  <span class="k">if</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_GET</span><span class="p">[</span><span class="s2">&quot;regId&quot;</span><span class="p">])</span> <span class="o">&amp;&amp;</span> <span class="nb">isset</span><span class="p">(</span><span class="nv">$_GET</span><span class="p">[</span><span class="s2">&quot;message&quot;</span><span class="p">]))</span> <span class="p">{</span>
+</span><span class='line'>     <span class="nv">$regId</span> <span class="o">=</span> <span class="nv">$_GET</span><span class="p">[</span><span class="s2">&quot;regId&quot;</span><span class="p">];</span>
+</span><span class='line'>     <span class="nv">$message</span> <span class="o">=</span> <span class="nv">$_GET</span><span class="p">[</span><span class="s2">&quot;message&quot;</span><span class="p">];</span>
+</span><span class='line'>
+</span><span class='line'>     <span class="k">include_once</span> <span class="s1">&#39;./GCM.php&#39;</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>     <span class="nv">$gcm</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GCM</span><span class="p">();</span>
+</span><span class='line'>
+</span><span class='line'>     <span class="nv">$registatoin_ids</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="nv">$regId</span><span class="p">);</span>
+</span><span class='line'>     <span class="nv">$message</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s2">&quot;price&quot;</span> <span class="o">=&gt;</span> <span class="nv">$message</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>     <span class="nv">$result</span> <span class="o">=</span> <span class="nv">$gcm</span><span class="o">-&gt;</span><span class="na">send_notification</span><span class="p">(</span><span class="nv">$registatoin_ids</span><span class="p">,</span> <span class="nv">$message</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>     <span class="k">echo</span> <span class="nv">$result</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="cp">?&gt;</span><span class="x"></span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<blockquote><p>Son olarak oluşturacağımız dosya index.php dosyası, Bu dosya takip edilen kodları basar. Bu kodlar basit bir admin panel oluşturur , kullanıcı cihazlarını sıralar , bireysel kullanıcılara push notıfıcatıon yollar.</p></blockquote>
+
+<p>index.php</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+<span class='line-number'>65</span>
+<span class='line-number'>66</span>
+<span class='line-number'>67</span>
+<span class='line-number'>68</span>
+<span class='line-number'>69</span>
+<span class='line-number'>70</span>
+<span class='line-number'>71</span>
+<span class='line-number'>72</span>
+<span class='line-number'>73</span>
+<span class='line-number'>74</span>
+<span class='line-number'>75</span>
+<span class='line-number'>76</span>
+<span class='line-number'>77</span>
+<span class='line-number'>78</span>
+<span class='line-number'>79</span>
+<span class='line-number'>80</span>
+<span class='line-number'>81</span>
+<span class='line-number'>82</span>
+<span class='line-number'>83</span>
+<span class='line-number'>84</span>
+<span class='line-number'>85</span>
+<span class='line-number'>86</span>
+<span class='line-number'>87</span>
+<span class='line-number'>88</span>
+<span class='line-number'>89</span>
+<span class='line-number'>90</span>
+<span class='line-number'>91</span>
+<span class='line-number'>92</span>
+<span class='line-number'>93</span>
+<span class='line-number'>94</span>
+<span class='line-number'>95</span>
+<span class='line-number'>96</span>
+<span class='line-number'>97</span>
+<span class='line-number'>98</span>
+<span class='line-number'>99</span>
+<span class='line-number'>100</span>
+<span class='line-number'>101</span>
+<span class='line-number'>102</span>
+<span class='line-number'>103</span>
+<span class='line-number'>104</span>
+<span class='line-number'>105</span>
+<span class='line-number'>106</span>
+<span class='line-number'>107</span>
+<span class='line-number'>108</span>
+<span class='line-number'>109</span>
+<span class='line-number'>110</span>
+<span class='line-number'>111</span>
+<span class='line-number'>112</span>
+<span class='line-number'>113</span>
+<span class='line-number'>114</span>
+<span class='line-number'>115</span>
+<span class='line-number'>116</span>
+<span class='line-number'>117</span>
+<span class='line-number'>118</span>
+<span class='line-number'>119</span>
+<span class='line-number'>120</span>
+<span class='line-number'>121</span>
+<span class='line-number'>122</span>
+<span class='line-number'>123</span>
+<span class='line-number'>124</span>
+<span class='line-number'>125</span>
+<span class='line-number'>126</span>
+<span class='line-number'>127</span>
+<span class='line-number'>128</span>
+<span class='line-number'>129</span>
+<span class='line-number'>130</span>
+<span class='line-number'>131</span>
+<span class='line-number'>132</span>
+<span class='line-number'>133</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;!</span><span class="nx">DOCTYPE</span> <span class="nx">html</span><span class="o">&gt;</span>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">html</span><span class="o">&gt;</span>
+</span><span class='line'>    <span class="o">&lt;</span><span class="nx">head</span><span class="o">&gt;</span>
+</span><span class='line'>        <span class="o">&lt;</span><span class="nx">title</span><span class="o">&gt;&lt;/</span><span class="nx">title</span><span class="o">&gt;</span>
+</span><span class='line'>        <span class="o">&lt;</span><span class="nx">meta</span> <span class="nx">http</span><span class="o">-</span><span class="nx">equiv</span><span class="o">=</span><span class="s2">&quot;Content-Type&quot;</span> <span class="nx">content</span><span class="o">=</span><span class="s2">&quot;text/html; charset=UTF-8&quot;</span><span class="o">&gt;</span>
+</span><span class='line'>        <span class="o">&lt;</span><span class="nx">script</span> <span class="nx">src</span><span class="o">=</span><span class="s2">&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js&quot;</span><span class="o">&gt;&lt;/</span><span class="nx">script</span><span class="o">&gt;</span>
+</span><span class='line'>        <span class="o">&lt;</span><span class="nx">script</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;text/javascript&quot;</span><span class="o">&gt;</span>
+</span><span class='line'>            <span class="err">$</span><span class="p">(</span><span class="nx">document</span><span class="p">)</span><span class="o">.</span><span class="nx">ready</span><span class="p">(</span><span class="k">function</span><span class="p">(){</span>
+</span><span class='line'>
+</span><span class='line'>            <span class="p">});</span>
+</span><span class='line'>            <span class="k">function</span> <span class="nf">sendPushNotification</span><span class="p">(</span><span class="nx">id</span><span class="p">){</span>
+</span><span class='line'>                <span class="k">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="err">$</span><span class="p">(</span><span class="s1">&#39;form#&#39;</span><span class="o">+</span><span class="nx">id</span><span class="p">)</span><span class="o">.</span><span class="nb">serialize</span><span class="p">();</span>
+</span><span class='line'>                <span class="err">$</span><span class="p">(</span><span class="s1">&#39;form#&#39;</span><span class="o">+</span><span class="nx">id</span><span class="p">)</span><span class="o">.</span><span class="nx">unbind</span><span class="p">(</span><span class="s1">&#39;submit&#39;</span><span class="p">);</span>
+</span><span class='line'>                <span class="err">$</span><span class="o">.</span><span class="nx">ajax</span><span class="p">({</span>
+</span><span class='line'>                    <span class="nx">url</span><span class="o">:</span> <span class="s2">&quot;send_message.php&quot;</span><span class="p">,</span>
+</span><span class='line'>                    <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;GET&#39;</span><span class="p">,</span>
+</span><span class='line'>                    <span class="nx">data</span><span class="o">:</span> <span class="nx">data</span><span class="p">,</span>
+</span><span class='line'>                    <span class="nx">beforeSend</span><span class="o">:</span> <span class="k">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>
+</span><span class='line'>                    <span class="p">},</span>
+</span><span class='line'>                    <span class="nx">success</span><span class="o">:</span> <span class="k">function</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">textStatus</span><span class="p">,</span> <span class="nx">xhr</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>                          <span class="err">$</span><span class="p">(</span><span class="s1">&#39;.txt_message&#39;</span><span class="p">)</span><span class="o">.</span><span class="nx">val</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">);</span>
+</span><span class='line'>                    <span class="p">},</span>
+</span><span class='line'>                    <span class="nx">error</span><span class="o">:</span> <span class="k">function</span><span class="p">(</span><span class="nx">xhr</span><span class="p">,</span> <span class="nx">textStatus</span><span class="p">,</span> <span class="nx">errorThrown</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>
+</span><span class='line'>                    <span class="p">}</span>
+</span><span class='line'>                <span class="p">});</span>
+</span><span class='line'>                <span class="k">return</span> <span class="k">false</span><span class="p">;</span>
+</span><span class='line'>            <span class="p">}</span>
+</span><span class='line'>        <span class="o">&lt;/</span><span class="nx">script</span><span class="o">&gt;</span>
+</span><span class='line'>        <span class="o">&lt;</span><span class="nx">style</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;text/css&quot;</span><span class="o">&gt;</span>
+</span><span class='line'>            <span class="o">.</span><span class="nx">container</span><span class="p">{</span>
+</span><span class='line'>                <span class="nx">width</span><span class="o">:</span> <span class="mi">950</span><span class="nx">px</span><span class="p">;</span>
+</span><span class='line'>                <span class="nx">margin</span><span class="o">:</span> <span class="mi">0</span> <span class="nx">auto</span><span class="p">;</span>
+</span><span class='line'>                <span class="nx">padding</span><span class="o">:</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'>            <span class="p">}</span>
+</span><span class='line'>            <span class="nx">h1</span><span class="p">{</span>
+</span><span class='line'>                <span class="nx">font</span><span class="o">-</span><span class="nx">family</span><span class="o">:</span> <span class="s1">&#39;Helvetica Neue&#39;</span><span class="p">,</span> <span class="nx">Helvetica</span><span class="p">,</span> <span class="nx">Arial</span><span class="p">,</span> <span class="nx">sans</span><span class="o">-</span><span class="nx">serif</span><span class="p">;</span>
+</span><span class='line'>                <span class="nx">font</span><span class="o">-</span><span class="nx">size</span><span class="o">:</span> <span class="mi">24</span><span class="nx">px</span><span class="p">;</span>
+</span><span class='line'>                <span class="nx">color</span><span class="o">:</span> <span class="c1">#777;</span>
+</span><span class='line'>            <span class="p">}</span>
+</span><span class='line'>            <span class="nx">div</span><span class="o">.</span><span class="nx">clear</span><span class="p">{</span>
+</span><span class='line'>                <span class="nx">clear</span><span class="o">:</span> <span class="nx">both</span><span class="p">;</span>
+</span><span class='line'>            <span class="p">}</span>
+</span><span class='line'>            <span class="nx">ul</span><span class="o">.</span><span class="nx">devices</span><span class="p">{</span>
+</span><span class='line'>                <span class="nx">margin</span><span class="o">:</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'>                <span class="nx">padding</span><span class="o">:</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'>            <span class="p">}</span>
+</span><span class='line'>            <span class="nx">ul</span><span class="o">.</span><span class="nx">devices</span> <span class="nx">li</span><span class="p">{</span>
+</span><span class='line'>                <span class="nx">float</span><span class="o">:</span> <span class="nx">left</span><span class="p">;</span>
+</span><span class='line'>                <span class="k">list</span><span class="o">-</span><span class="nx">style</span><span class="o">:</span> <span class="nx">none</span><span class="p">;</span>
+</span><span class='line'>                <span class="nx">border</span><span class="o">:</span> <span class="mi">1</span><span class="nx">px</span> <span class="nx">solid</span> <span class="c1">#dedede;</span>
+</span><span class='line'>                <span class="nx">padding</span><span class="o">:</span> <span class="mi">10</span><span class="nx">px</span><span class="p">;</span>
+</span><span class='line'>                <span class="nx">margin</span><span class="o">:</span> <span class="mi">0</span> <span class="mi">15</span><span class="nx">px</span> <span class="mi">25</span><span class="nx">px</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'>                <span class="nx">border</span><span class="o">-</span><span class="nx">radius</span><span class="o">:</span> <span class="mi">3</span><span class="nx">px</span><span class="p">;</span>
+</span><span class='line'>                <span class="o">-</span><span class="nx">webkit</span><span class="o">-</span><span class="nx">box</span><span class="o">-</span><span class="nx">shadow</span><span class="o">:</span> <span class="mi">0</span> <span class="mi">1</span><span class="nx">px</span> <span class="mi">5</span><span class="nx">px</span> <span class="nx">rgba</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.35</span><span class="p">);</span>
+</span><span class='line'>                <span class="o">-</span><span class="nx">moz</span><span class="o">-</span><span class="nx">box</span><span class="o">-</span><span class="nx">shadow</span><span class="o">:</span> <span class="mi">0</span> <span class="mi">1</span><span class="nx">px</span> <span class="mi">5</span><span class="nx">px</span> <span class="nx">rgba</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.35</span><span class="p">);</span>
+</span><span class='line'>                <span class="nx">box</span><span class="o">-</span><span class="nx">shadow</span><span class="o">:</span> <span class="mi">0</span> <span class="mi">1</span><span class="nx">px</span> <span class="mi">5</span><span class="nx">px</span> <span class="nx">rgba</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.35</span><span class="p">);</span>
+</span><span class='line'>                <span class="nx">font</span><span class="o">-</span><span class="nx">family</span><span class="o">:</span> <span class="s1">&#39;Helvetica Neue&#39;</span><span class="p">,</span> <span class="nx">Helvetica</span><span class="p">,</span> <span class="nx">Arial</span><span class="p">,</span> <span class="nx">sans</span><span class="o">-</span><span class="nx">serif</span><span class="p">;</span>
+</span><span class='line'>                <span class="nx">color</span><span class="o">:</span> <span class="c1">#555;</span>
+</span><span class='line'>            <span class="p">}</span>
+</span><span class='line'>            <span class="nx">ul</span><span class="o">.</span><span class="nx">devices</span> <span class="nx">li</span> <span class="nx">label</span><span class="p">,</span> <span class="nx">ul</span><span class="o">.</span><span class="nx">devices</span> <span class="nx">li</span> <span class="nx">span</span><span class="p">{</span>
+</span><span class='line'>                <span class="nx">font</span><span class="o">-</span><span class="nx">family</span><span class="o">:</span> <span class="s1">&#39;Helvetica Neue&#39;</span><span class="p">,</span> <span class="nx">Helvetica</span><span class="p">,</span> <span class="nx">Arial</span><span class="p">,</span> <span class="nx">sans</span><span class="o">-</span><span class="nx">serif</span><span class="p">;</span>
+</span><span class='line'>                <span class="nx">font</span><span class="o">-</span><span class="nx">size</span><span class="o">:</span> <span class="mi">12</span><span class="nx">px</span><span class="p">;</span>
+</span><span class='line'>                <span class="nx">font</span><span class="o">-</span><span class="nx">style</span><span class="o">:</span> <span class="nx">normal</span><span class="p">;</span>
+</span><span class='line'>                <span class="nx">font</span><span class="o">-</span><span class="nx">variant</span><span class="o">:</span> <span class="nx">normal</span><span class="p">;</span>
+</span><span class='line'>                <span class="nx">font</span><span class="o">-</span><span class="nx">weight</span><span class="o">:</span> <span class="nx">bold</span><span class="p">;</span>
+</span><span class='line'>                <span class="nx">color</span><span class="o">:</span> <span class="c1">#393939;</span>
+</span><span class='line'>                <span class="nx">display</span><span class="o">:</span> <span class="nx">block</span><span class="p">;</span>
+</span><span class='line'>                <span class="nx">float</span><span class="o">:</span> <span class="nx">left</span><span class="p">;</span>
+</span><span class='line'>            <span class="p">}</span>
+</span><span class='line'>            <span class="nx">ul</span><span class="o">.</span><span class="nx">devices</span> <span class="nx">li</span> <span class="nx">label</span><span class="p">{</span>
+</span><span class='line'>                <span class="nx">height</span><span class="o">:</span> <span class="mi">25</span><span class="nx">px</span><span class="p">;</span>
+</span><span class='line'>                <span class="nx">width</span><span class="o">:</span> <span class="mi">50</span><span class="nx">px</span><span class="p">;</span>
+</span><span class='line'>            <span class="p">}</span>
+</span><span class='line'>            <span class="nx">ul</span><span class="o">.</span><span class="nx">devices</span> <span class="nx">li</span> <span class="nx">textarea</span><span class="p">{</span>
+</span><span class='line'>                <span class="nx">float</span><span class="o">:</span> <span class="nx">left</span><span class="p">;</span>
+</span><span class='line'>                <span class="nx">resize</span><span class="o">:</span> <span class="nx">none</span><span class="p">;</span>
+</span><span class='line'>            <span class="p">}</span>
+</span><span class='line'>            <span class="nx">ul</span><span class="o">.</span><span class="nx">devices</span> <span class="nx">li</span> <span class="o">.</span><span class="nx">send_btn</span><span class="p">{</span>
+</span><span class='line'>                <span class="nx">background</span><span class="o">:</span> <span class="o">-</span><span class="nx">webkit</span><span class="o">-</span><span class="nx">gradient</span><span class="p">(</span><span class="nx">linear</span><span class="p">,</span> <span class="mi">0</span><span class="o">%</span> <span class="mi">0</span><span class="o">%</span><span class="p">,</span> <span class="mi">0</span><span class="o">%</span> <span class="mi">100</span><span class="o">%</span><span class="p">,</span> <span class="nx">from</span><span class="p">(</span><span class="c1">#0096FF), to(#005DFF));</span>
+</span><span class='line'>                <span class="nx">background</span><span class="o">:</span> <span class="o">-</span><span class="nx">webkit</span><span class="o">-</span><span class="nx">linear</span><span class="o">-</span><span class="nx">gradient</span><span class="p">(</span><span class="mi">0</span><span class="o">%</span> <span class="mi">0</span><span class="o">%</span><span class="p">,</span> <span class="mi">0</span><span class="o">%</span> <span class="mi">100</span><span class="o">%</span><span class="p">,</span> <span class="nx">from</span><span class="p">(</span><span class="c1">#0096FF), to(#005DFF));</span>
+</span><span class='line'>                <span class="nx">background</span><span class="o">:</span> <span class="o">-</span><span class="nx">moz</span><span class="o">-</span><span class="nx">linear</span><span class="o">-</span><span class="nx">gradient</span><span class="p">(</span><span class="nx">center</span> <span class="nx">top</span><span class="p">,</span> <span class="c1">#0096FF, #005DFF);</span>
+</span><span class='line'>                <span class="nx">background</span><span class="o">:</span> <span class="nx">linear</span><span class="o">-</span><span class="nx">gradient</span><span class="p">(</span><span class="c1">#0096FF, #005DFF);</span>
+</span><span class='line'>                <span class="nx">text</span><span class="o">-</span><span class="nx">shadow</span><span class="o">:</span> <span class="mi">0</span> <span class="mi">1</span><span class="nx">px</span> <span class="mi">0</span> <span class="nx">rgba</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">);</span>
+</span><span class='line'>                <span class="nx">border</span><span class="o">-</span><span class="nx">radius</span><span class="o">:</span> <span class="mi">3</span><span class="nx">px</span><span class="p">;</span>
+</span><span class='line'>                <span class="nx">color</span><span class="o">:</span> <span class="c1">#fff;</span>
+</span><span class='line'>            <span class="p">}</span>
+</span><span class='line'>        <span class="o">&lt;/</span><span class="nx">style</span><span class="o">&gt;</span>
+</span><span class='line'>    <span class="o">&lt;/</span><span class="nx">head</span><span class="o">&gt;</span>
+</span><span class='line'>    <span class="o">&lt;</span><span class="nx">body</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="o">&lt;?</span><span class="nx">php</span>
+</span><span class='line'>        <span class="k">include_once</span> <span class="s1">&#39;db_functions.php&#39;</span><span class="p">;</span>
+</span><span class='line'>        <span class="nv">$db</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">DB_Functions</span><span class="p">();</span>
+</span><span class='line'>        <span class="nv">$users</span> <span class="o">=</span> <span class="nv">$db</span><span class="o">-&gt;</span><span class="na">getAllUsers</span><span class="p">();</span>
+</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="nv">$users</span> <span class="o">!=</span> <span class="k">false</span><span class="p">)</span>
+</span><span class='line'>            <span class="nv">$no_of_users</span> <span class="o">=</span> <span class="nb">mysql_num_rows</span><span class="p">(</span><span class="nv">$users</span><span class="p">);</span>
+</span><span class='line'>        <span class="k">else</span>
+</span><span class='line'>            <span class="nv">$no_of_users</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'>        <span class="cp">?&gt;</span><span class="x"></span>
+</span><span class='line'><span class="x">        &lt;div class=&quot;container&quot;&gt;</span>
+</span><span class='line'><span class="x">            &lt;h1&gt;No of Devices Registered: </span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$no_of_users</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="x">&lt;/h1&gt;</span>
+</span><span class='line'><span class="x">            &lt;hr/&gt;</span>
+</span><span class='line'><span class="x">            &lt;ul class=&quot;devices&quot;&gt;</span>
+</span><span class='line'><span class="x">                </span><span class="cp">&lt;?php</span>
+</span><span class='line'>                <span class="k">if</span> <span class="p">(</span><span class="nv">$no_of_users</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>                    <span class="cp">?&gt;</span><span class="x"></span>
+</span><span class='line'><span class="x">                    </span><span class="cp">&lt;?php</span>
+</span><span class='line'>                    <span class="k">while</span> <span class="p">(</span><span class="nv">$row</span> <span class="o">=</span> <span class="nb">mysql_fetch_array</span><span class="p">(</span><span class="nv">$users</span><span class="p">))</span> <span class="p">{</span>
+</span><span class='line'>                        <span class="cp">?&gt;</span><span class="x"></span>
+</span><span class='line'><span class="x">                        &lt;li&gt;</span>
+</span><span class='line'><span class="x">                            &lt;form id=&quot;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$row</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span> <span class="cp">?&gt;</span><span class="x">&quot; name=&quot;&quot; method=&quot;post&quot; onsubmit=&quot;return sendPushNotification(&#39;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$row</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span> <span class="cp">?&gt;</span><span class="x">&#39;)&quot;&gt;</span>
+</span><span class='line'><span class="x">                                &lt;label&gt;Name: &lt;/label&gt; &lt;span&gt;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$row</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="cp">?&gt;</span><span class="x">&lt;/span&gt;</span>
+</span><span class='line'><span class="x">                                &lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;</span>
+</span><span class='line'><span class="x">                                &lt;label&gt;Email:&lt;/label&gt; &lt;span&gt;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$row</span><span class="p">[</span><span class="s2">&quot;email&quot;</span><span class="p">]</span> <span class="cp">?&gt;</span><span class="x">&lt;/span&gt;</span>
+</span><span class='line'><span class="x">                                &lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;</span>
+</span><span class='line'><span class="x">                                &lt;div class=&quot;send_container&quot;&gt;                               </span>
+</span><span class='line'><span class="x">                                    &lt;textarea rows=&quot;3&quot; name=&quot;message&quot; cols=&quot;25&quot; class=&quot;txt_message&quot; placeholder=&quot;Type message here&quot;&gt;&lt;/textarea&gt;</span>
+</span><span class='line'><span class="x">                                    &lt;input type=&quot;hidden&quot; name=&quot;regId&quot; value=&quot;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$row</span><span class="p">[</span><span class="s2">&quot;gcm_regid&quot;</span><span class="p">]</span> <span class="cp">?&gt;</span><span class="x">&quot;/&gt;</span>
+</span><span class='line'><span class="x">                                    &lt;input type=&quot;submit&quot; class=&quot;send_btn&quot; value=&quot;Send&quot; onclick=&quot;&quot;/&gt;</span>
+</span><span class='line'><span class="x">                                &lt;/div&gt;</span>
+</span><span class='line'><span class="x">                            &lt;/form&gt;</span>
+</span><span class='line'><span class="x">                        &lt;/li&gt;</span>
+</span><span class='line'><span class="x">                    </span><span class="cp">&lt;?php</span> <span class="p">}</span>
+</span><span class='line'>                <span class="p">}</span> <span class="k">else</span> <span class="p">{</span> <span class="cp">?&gt;</span><span class="x"></span>
+</span><span class='line'><span class="x">                    &lt;li&gt;</span>
+</span><span class='line'><span class="x">                        No Users Registered Yet!</span>
+</span><span class='line'><span class="x">                    &lt;/li&gt;</span>
+</span><span class='line'><span class="x">                </span><span class="cp">&lt;?php</span> <span class="p">}</span> <span class="cp">?&gt;</span><span class="x"></span>
+</span><span class='line'><span class="x">            &lt;/ul&gt;</span>
+</span><span class='line'><span class="x">        &lt;/div&gt;</span>
+</span><span class='line'><span class="x">    &lt;/body&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<blockquote><p>Son olarak yaptığımız bu uygulamayı şimdilik bağlı bir Cihazımız olmadığı için bir test.php  dosyamız ile Adımızı, Mailimizi ve Random bir Reg_id vererek kayıt işlemlerinin nasıl gerçekleştiğini görelim.</p></blockquote>
+
+<p>test.php</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'> <span class="o">&lt;!--</span>
+</span><span class='line'><span class="no">To</span> <span class="n">change</span> <span class="n">this</span> <span class="n">template</span><span class="p">,</span> <span class="n">choose</span> <span class="no">Tools</span> <span class="o">|</span> <span class="no">Templates</span>
+</span><span class='line'><span class="ow">and</span> <span class="nb">open</span> <span class="n">the</span> <span class="n">template</span> <span class="k">in</span> <span class="n">the</span> <span class="n">editor</span><span class="o">.</span>
+</span><span class='line'><span class="o">--&gt;</span>
+</span><span class='line'><span class="o">&lt;!</span><span class="no">DOCTYPE</span> <span class="n">html</span><span class="o">&gt;</span>
+</span><span class='line'><span class="o">&lt;</span><span class="n">html</span><span class="o">&gt;</span>
+</span><span class='line'>    <span class="o">&lt;</span><span class="n">head</span><span class="o">&gt;</span>
+</span><span class='line'>        <span class="o">&lt;</span><span class="n">title</span><span class="o">&gt;&lt;</span><span class="sr">/title&gt;</span>
+</span><span class='line'><span class="sr">        &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/</span><span class="n">html</span><span class="p">;</span> <span class="n">charset</span><span class="o">=</span><span class="no">UTF</span><span class="o">-</span><span class="mi">8</span><span class="s2">&quot;&gt;</span>
+</span><span class='line'><span class="s2">        &lt;script src=&quot;</span><span class="ss">http</span><span class="p">:</span><span class="sr">//</span><span class="n">ajax</span><span class="o">.</span><span class="n">googleapis</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">ajax</span><span class="o">/</span><span class="n">libs</span><span class="o">/</span><span class="n">jquery</span><span class="o">/</span><span class="mi">1</span><span class="o">.</span><span class="mi">8</span><span class="o">.</span><span class="mi">2</span><span class="o">/</span><span class="n">jquery</span><span class="o">.</span><span class="n">min</span><span class="o">.</span><span class="n">js</span><span class="s2">&quot;&gt;&lt;/script&gt;</span>
+</span><span class='line'><span class="s2">        &lt;script type=&quot;</span><span class="n">text</span><span class="o">/</span><span class="n">javascript</span><span class="s2">&quot;&gt;</span>
+</span><span class='line'><span class="s2">            $(document).ready(function(){</span>
+</span><span class='line'><span class="s2">            });</span>
+</span><span class='line'><span class="s2">        &lt;/script&gt;</span>
+</span><span class='line'><span class="s2">    &lt;/head&gt;</span>
+</span><span class='line'><span class="s2">    &lt;body&gt;</span>
+</span><span class='line'><span class="s2">        &lt;form name=&quot;&quot; method=&quot;</span><span class="n">post</span><span class="s2">&quot; action=&quot;</span><span class="n">register</span><span class="o">.</span><span class="n">php</span><span class="s2">&quot;&gt;</span>
+</span><span class='line'><span class="s2">         &lt;input type=&quot;</span><span class="n">text</span><span class="s2">&quot; name=&quot;</span><span class="nb">name</span><span class="s2">&quot;/&gt;</span>
+</span><span class='line'><span class="s2">         &lt;input type=&quot;</span><span class="n">text</span><span class="s2">&quot; name=&quot;</span><span class="n">email</span><span class="s2">&quot;/&gt;</span>
+</span><span class='line'><span class="s2">         &lt;input type=&quot;</span><span class="n">text</span><span class="s2">&quot; name=&quot;</span><span class="n">regId</span><span class="s2">&quot;/&gt;</span>
+</span><span class='line'><span class="s2">         &lt;input type=&quot;</span><span class="n">submit</span><span class="s2">&quot;/&gt;</span>
+</span><span class='line'><span class="s2">     &lt;/form&gt;</span>
+</span><span class='line'><span class="s2">    &lt;/body&gt;</span>
+</span><span class='line'><span class="s2">&lt;/html&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><font color=red>Şimdi çalıştırma zamanı!</font> <br/>
+Kurulumunu gerçekleştirdiğiniz LAMP ile uygulamarımızı kendi bilgisayarımızda test etmek mümkün demiştik. Bunun için benim bilgisayarım için uzantısı  /var/www/html/ olan dizinimin altına tüm bu dosyalarımın olduğu GCM adlı dizinimi yerleştiriyorum. Yeni dizinim  /var/www/html/GCM oluyor.</p>
+
+<p>Browsera gelip <a href="http://localhost/GCM/">http://localhost/GCM/</a> dediğimiz zaman çıkan ekran;</p>
+
+<p><img src="http://i.imgur.com/ajNjohE.jpg"></p>
+
+<p>Şimdi bir cihaz bağlıyormuşuz gibi test.php dosyamızı çalıştıralım.<br/>
+Bunun için <a href="http://localhost/GCM/test.php">http://localhost/GCM/test.php</a> adresine girelim ve bir ad, mail, reg_id bilgisi girelim.<br/>
+ <a href="http://localhost/GCM/">http://localhost/GCM/</a> adresini tekrar kontrol edelim.</p>
+
+<p><img src="http://i.imgur.com/OlHKXxk.jpg"></p>
+
+<p><img src="http://i.imgur.com/XVLWaba.jpg"></p>
+
+<p>Gördüğünüz gibi bir cihaz eklendi index.php dosyamıza. Burada eklenen cihazlar sıralanır. Ve push bildirimlerimizi mesaj kısmına yazıp send dediğimizde o cihazlara bildirim gitmiş olur.</p>
+
+<p>Bu arada Database de durumlar ne oldu derseniz? O halde ekran görüntüsünü paylaşayım sizinle;</p>
+
+<p><img src="http://i.imgur.com/LDhTI6X.png"></p>
+
+<p>Gördüğünüz gibi girdiğimiz Ad, Mail ve Reg_id bilgileri otomatik olarak oraya kayıt oldu.</p>
+
+<p>Yazımı burada bitireceğim , sonraki aşamada Gerçek bir android cihaz bağlayıp uygulamamıza gerçek bir notification yollayacağız.<br/>
+İyi çalışmalar.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">KaderTarlan</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-03-18T00:06:04+02:00" pubdate data-updated="true"></time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://kadertarlan.github.io/blog/2014/03/18/yeni/" data-via="" data-counturl="http://kadertarlan.github.io/blog/2014/03/18/yeni/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/03/17/ruby-on-rails-4/" title="Previous Post: Ruby on Rails-4">&laquo; Ruby on Rails-4</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2014/03/19/selenium/" title="Next Post: Selenium">Selenium &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  <section>
+  <p>Hi, I'm <a href="https://twitter.com/martinbjeldbak">Martin Bjeldbak Madsen</a>!</p>
+  
+
+  <p>You can read more about me on my <a href="/about/">about</a> page. To see what I'm working on, check out my GitHub page <a href="https://github.com/fapper">here</a>.</p>
+  <p>My resume can be found <a href="cv.pdf">here</a>.</p>
+  <div class="social-icons">
+    
+
+    
+
+    
+
+    
+  <a href="https://github.com/kadertarlan"><i class="fa fa-github fa-3x"></i></a>
+
+
+    
+
+  </div>
+</section>
+
+  <section>
+  <h1>Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2017/05/13/title-of-the-post/">Title of the Post</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/05/13/ozetle-yazilim-test-otomasyon/">Özetle Yazılım Test Otomasyon</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/02/23/python-ile-birim-testler/">Python Ile Birim Testler</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/02/23/gdg-devfest-libreoffice-katki-sureci/">GDG DevFest - LibreOffice Katkı Süreci</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/11/03/libreofiice-icin-test-yazma/"><font color=green>LibreOffice</font> Için Test Yazmak</a>
+      </li>
+    
+  </ul>
+</section>
+
+  
+    <section>
+  <h1>Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2017/05/13/title-of-the-post/">Title of the Post</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/05/13/ozetle-yazilim-test-otomasyon/">Özetle Yazılım Test Otomasyon</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/02/23/python-ile-birim-testler/">Python Ile Birim Testler</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/02/23/gdg-devfest-libreoffice-katki-sureci/">GDG DevFest - LibreOffice Katkı Süreci</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/11/03/libreofiice-icin-test-yazma/"><font color=green>LibreOffice</font> Için Test Yazmak</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/kadertarlan">@kadertarlan</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'kadertarlan',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2017 - KaderTarlan -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+<p>
+<span>Copyright &copy; 2017  KaderTarlan -</span>
+<span class="credit">Powered by <a href="http://octopress.org">Octopress</a> using the <a href="https://github.com/fapper/classic-martinb">classic-martinb</a> theme</span>
+</p>
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

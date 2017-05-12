@@ -1,0 +1,351 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Test Senaryolarını Anlama - KaderTarlan</title>
+  <meta name="author" content="KaderTarlan">
+
+  
+  <meta name="description" content="Yazdığımız uygulamalarda ,programlarda kodlarımız sayfalar dolu olsun ama arada öyle bir yer varki bizim gözümüzden kaçtı unuttuk yada yaptığımız &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://kadertarlan.github.io/blog/2014/08/07/selenium-ikinci-asama">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="KaderTarlan" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><div class="header-left">
+  <hgroup>
+  <h1><a href="/">KaderTarlan</a></h1>
+  
+  <div class="subtitle">
+    <h2>BlogCan</h2>
+  </div>
+  
+  </hgroup>
+  
+</div>
+
+<div class="header-right">
+  <ul class="main-navigation">
+ <div> 
+  <li><a href="/">blog</a></li></div><div class="spacer"></div>
+     <div> 
+  <li><a href="/projects">projects</a></li></div><div class="spacer"></div>
+       <div> 
+  <li><a href="/work">work</a></li></div><div class="spacer"></div>
+         <div> 
+  <li><a href="/about">about</a></li></div>
+</ul>
+  
+
+</div>
+</header>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Test Senaryolarını Anlama</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-08-07T00:00:18+03:00" pubdate data-updated="true"></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Yazdığımız uygulamalarda ,programlarda kodlarımız sayfalar dolu olsun ama arada öyle bir yer varki bizim gözümüzden kaçtı unuttuk yada yaptığımız yeni bir dokunuş uygulamanın herhangi bir yerini bozdu ve orası çalışmıyor.<br/>
+Kullanıcı ise sizden önce bunun çalışmadığını fark etti. Uygulamanızın çok kritik işler yaptığını düşünürsek o küçüçük eksikliğin bile büyük hasarlar getireceğini unutmayalım.<br/>
+Oluşturduguz bu ürün kulanıcı tarafından hoş karşılanmaz ve müşteri kaybına uğramış olursunuz.<br/>
+Bu ve bunun gibi bir çok senaryoyu kafamızda düşünebiliriz.<br/>
+Milyon dolarlık ürünlerin internet üzerinden satışını yapacağınız anda &ldquo;satın al&rdquo; butonunun çalışmayıp müşteri kaybetmeniz gibi çoğaltabiliriz.</p>
+
+<p>Testlerin başka bir güzelliği de var örneğin firefoxda çalıştırdığımız uygulamanın hiç hatası yok her şey mükemmel sanıyoruz ki aslında üzerinde çalıştığınız uygulama  chrome da yada explorerda çalışmayabilir, sadece o da değil işletim sistemi değiştiğinde de çalışmayabilir. Linux da çalışan şey windowsta çalışmayabilir. Bu uygulamayı insan gücü ile her şeyiyle kontrol etmesi çok zor..</p>
+
+<p>Test yazma işini 3 aşamada yapacağız;<br/>
+Öncelikle test yazmak için elimizde bir <font color=red> Test Senaryosu </font> olmalı.<br/>
+İkinci aşama da ise senaryomuzu <font color=red> Selenium IDE </font> de yazıp test adımlarımızı çalıştırıp görmeliyiz.<br/>
+Son aşama da ise Selenium IDE sorunsuz çalışan testimizi Ruby koduna çevirip <font color=red > BrowserStack</font>&lsquo;e yükleyip birçok Browser ve işletim sistemi için test etmeyi sağlamalıyız.</p>
+
+<p>Test yazma işi oldukça önemli , senaryolarımızı analiz ederek Selenium koduna dökebilmeliyiz.</p>
+
+<p>Testleriniz anlaşılır olmalı öyle ki sizin yazdığınız bir senaryoyu bir başkası da okuyarak o testi yazabilmeli.</p>
+
+<p>Testlerimizi benim oluşturduğum basit bir Rails uygulaması üzerinden anlatacağım.</p>
+
+<p><font color=#bf5f00>Şimdi ilk senaryomuzu sunuyorum ;</font></p>
+
+<pre><code>1.Go to https://heroku
+   1.1 Verify that "BORÇ TAKİBİ" appeared on the page  
+
+2.Click on "Arkadaş Ekle" button  
+   2.1 Verify that "Yeni Borçlu Ekle" appeared on the page  
+
+3.Fill in "Borçlunun Adı Soyadı:","E-Mail Adresi:","Twitter Kullanıcı Adi:" sections
+
+4.Click on "Create Friend" button  
+   4.1 Verify that " Successful Created. " appeared on the page  
+</code></pre>
+
+<blockquote><p><font color=#ff5656>Dört adımlık bir test senaryosu oluşturduk şimdi senaryomuzu anlayalım; </font></p>
+
+<p><font color=brown>İlk adımda;</font></p></blockquote>
+
+<p><font color=purple><em>Go to</em></font> komutu ile Sayfamızı browserdan açtırıyoruz ve sayfamız açıldı mı kontrolünü ise <font color=purple><em>Verify</em></font> komutu ile oluşturuyoruz. Sayfa açıldığında görmek istediğimiz yazı her ne ise onu yazıyoruz eğer bu yazı geldiyse butonumuz çalışıyor ve doğru adresteyiz demektir.</p>
+
+<blockquote><p><font color=brown>İkinci adımda;</font></p></blockquote>
+
+<p>Arkadaş ekle butonumuzdan bir arkadaş ekleyeceğiz. <font color=purple><em>Click</em></font> komutu ile butona tıklama işlemini yapıyoruz. Arkadaş ekle butonuna tıkladıktan sonra görmek istediğimiz sayfadaki herhangi ayırt edici bir yazıyı <font color=purple><em>Verify</em></font> ile kontrol edip sayfa açılmış mı, arkadaş ekle butonu çalışmış mı kontrolünü yaptık. <font color=purple><em>Verify</em></font> ile yazılan adımlar önemli işin içinde bir kontrol yoksa testiniz click clickten ibaret olur bu da işimize yaramaz bir şeyi test etmiş olmayız.</p>
+
+<blockquote><p><font color=brown>Üçüncü adımda;</font></p></blockquote>
+
+<p>Arkadaş ekle sayfasındaki doldurulması gereken yerleri <font color=purple> <em>Fill in</em></font> komutu ile sağladık.</p>
+
+<blockquote><p><font color=brown>Dördüncü adımda;</font></p></blockquote>
+
+<p><font color=purple><em>Click</em></font> komutu ile Arkadaşımızı oluştur dedik. Akabinde <font color=purple><em>Verify</em></font> komutu ile sonraki adımda karşımıza çıkacak ayırt edici herhangi yazıyı kullanarak arkadaşımız oluşmuş mu diye kontrol ettik.  Butona tıklandıktan sonra istediğimiz sayfaya geçiş sağlanmış mı kontrol etmiş olduk.</p>
+
+<p>Ayırt edici yazıdan kastım; eğer bir önceki sayfada da aynı yazı varsa ve senin butonun çalışmadı bozuk diyelim , sayfa geçişi sağlayamadın ve aynı sayfada kaldın. Kontrol ettiğin yazı bulunduğun sayfada zaten vardı sayfa geçişi yapmadığın halde verify ile kontrol ettiğin yer true dönüp seni yanıltabilir, butonun doğru çalışmadığı halde fark edemezsin.</p>
+
+<p>Ayrıca burada yazı değil bir elementi ,bir alert mesajını, bir title yada bir modal kontrolü de yapabilirsin.</p>
+
+<p>Özetle test senaryolarında her adımı <font color=brown><em>click, select, fill in , fill out, choose</em></font> gibi komutlarla anlaşılır biçimde yazıyoruz. Adım sonlarında kontrolü sağlamak için de <font color=brown><em>Verify</em></font> komutunu kulanıyoruz.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">KaderTarlan</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-08-07T00:00:18+03:00" pubdate data-updated="true"></time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://kadertarlan.github.io/blog/2014/08/07/selenium-ikinci-asama/" data-via="" data-counturl="http://kadertarlan.github.io/blog/2014/08/07/selenium-ikinci-asama/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/03/19/selenium/" title="Previous Post: Selenium">&laquo; Selenium</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2014/08/07/selenium-ide/" title="Next Post: Selenium IDE">Selenium IDE &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  <section>
+  <p>Hi, I'm <a href="https://twitter.com/martinbjeldbak">Martin Bjeldbak Madsen</a>!</p>
+  
+
+  <p>You can read more about me on my <a href="/about/">about</a> page. To see what I'm working on, check out my GitHub page <a href="https://github.com/fapper">here</a>.</p>
+  <p>My resume can be found <a href="cv.pdf">here</a>.</p>
+  <div class="social-icons">
+    
+
+    
+
+    
+
+    
+  <a href="https://github.com/kadertarlan"><i class="fa fa-github fa-3x"></i></a>
+
+
+    
+
+  </div>
+</section>
+
+  <section>
+  <h1>Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2017/05/13/title-of-the-post/">Title of the Post</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/05/13/ozetle-yazilim-test-otomasyon/">Özetle Yazılım Test Otomasyon</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/02/23/python-ile-birim-testler/">Python Ile Birim Testler</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/02/23/gdg-devfest-libreoffice-katki-sureci/">GDG DevFest - LibreOffice Katkı Süreci</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/11/03/libreofiice-icin-test-yazma/"><font color=green>LibreOffice</font> Için Test Yazmak</a>
+      </li>
+    
+  </ul>
+</section>
+
+  
+    <section>
+  <h1>Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2017/05/13/title-of-the-post/">Title of the Post</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/05/13/ozetle-yazilim-test-otomasyon/">Özetle Yazılım Test Otomasyon</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/02/23/python-ile-birim-testler/">Python Ile Birim Testler</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/02/23/gdg-devfest-libreoffice-katki-sureci/">GDG DevFest - LibreOffice Katkı Süreci</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/11/03/libreofiice-icin-test-yazma/"><font color=green>LibreOffice</font> Için Test Yazmak</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/kadertarlan">@kadertarlan</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'kadertarlan',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2017 - KaderTarlan -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+<p>
+<span>Copyright &copy; 2017  KaderTarlan -</span>
+<span class="credit">Powered by <a href="http://octopress.org">Octopress</a> using the <a href="https://github.com/fapper/classic-martinb">classic-martinb</a> theme</span>
+</p>
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

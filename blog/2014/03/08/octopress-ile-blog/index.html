@@ -1,0 +1,545 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Octopress Ile Blog - KaderTarlan</title>
+  <meta name="author" content="KaderTarlan">
+
+  
+  <meta name="description" content="Octopress , terminalden yönetilip , kendi içinde html diline çevrilen blog yazılımıdır. Octopress Mac OS X, Linux ve Windows’da çalışıyor, ancak Mac &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://kadertarlan.github.io/blog/2014/03/08/octopress-ile-blog">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="KaderTarlan" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><div class="header-left">
+  <hgroup>
+  <h1><a href="/">KaderTarlan</a></h1>
+  
+  <div class="subtitle">
+    <h2>BlogCan</h2>
+  </div>
+  
+  </hgroup>
+  
+</div>
+
+<div class="header-right">
+  <ul class="main-navigation">
+ <div> 
+  <li><a href="/">blog</a></li></div><div class="spacer"></div>
+     <div> 
+  <li><a href="/projects">projects</a></li></div><div class="spacer"></div>
+       <div> 
+  <li><a href="/work">work</a></li></div><div class="spacer"></div>
+         <div> 
+  <li><a href="/about">about</a></li></div>
+</ul>
+  
+
+</div>
+</header>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Octopress Ile Blog</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-03-08T02:29:30+02:00" pubdate data-updated="true"></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><div class="entry-content"><p> <font color='red'>Octopress</font> , terminalden yönetilip , kendi içinde html diline çevrilen blog yazılımıdır.</p>
+
+<p>  Octopress Mac OS X, Linux ve Windows’da çalışıyor, ancak Mac OS X ve Linux&#8217;da daha kullanışlıdır. Ben de Linux&#8217;da kurulumu anlatacağım.</p>
+
+<p>  Octopress <font color='red'>Rails</font> tabanlıdır, bu blog kullanımı diğer bloklara nazaran daha değişik gelecektir size.<br/>
+  Rails nedir, nasıl kurulur, nasıl kullanılır derseniz bir yazımda onu da anlattım okumak isteyenler için
+  <a href="http://kadertarlan.github.io/blog/2014/03/09/ruby-on-rails/">buyrun</a></p>
+
+<p> Octopress kullanabilmek için makinanızda <font color='red'>Ruby</font>&lsquo;nin kurulu olması gerekir.<br/>
+ Ruby kurmak için linuxta konsola<br/>
+<code>sudo apt-get install ruby</code><br/>
+yazabiliriz.</p>
+
+<p> Ayrıca bir <font color='red'>Github</font> hesabına da sahip olmak gerekiyor.<br/>
+ Blog açmak için Github hesabımızda user_name.github.io adında bir repomuz olmalı.<br/>
+ Github da hesap nasıl açılır, Repository den bir depo nasıl oluşturulur, github nasıl kullanılır onu da bir yazımda anlattım sizin için faydalı olabilir. <br/>
+ <a href="http://kadertarlan.github.io/blog/2014/03/09/git-ve-github/">buyrun</a></p>
+
+<h1>Kurulum</h1>
+
+<blockquote><p>Git, rvm , ruby 1.9.3 ün kurulu olduğu bir sistemde, ilk yapmamız gereken projeyi klonluyoruz ve daha sonra projemizin içine giriyoruz.</p></blockquote>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>   <span class="n">git</span> <span class="nb">clone</span> <span class="ss">git</span><span class="p">:</span><span class="sr">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">imathis</span><span class="o">/</span><span class="n">octopress</span><span class="o">.</span><span class="n">git</span> <span class="n">octopress</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>   <span class="n">cd</span> <span class="n">octopress</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p> <font color='red'>Not:</font> Bir sonraki komutlarımızı yapmadan önce
+  <code>nano Gemfile</code> komutu ile Gemfile dosyamızı kontrol edelim,
+  dosya içeriğimizde rake karşılığı aşağıdaki şekilde olmalıdır:</p>
+
+<pre><code> source "https://rubygems.org"
+ group :development do
+ gem 'rake', '~&gt; 10.1'
+</code></pre>
+
+<p> Sıradaki komutlarımızla Octopress için önce bağımlılıklarımızı kuracağız daha sonra varsayılan temamızı oluşturacağız.<br/>
+  Komutlar çıktıları ile birlikte verilmiştir aynı çıktıları alıyorsanız sıkıntı yok demektir.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>   <span class="err">$</span> <span class="n">gem</span> <span class="n">install</span> <span class="n">bundler</span>
+</span><span class='line'>   <span class="o">.</span><span class="n">.</span><span class="o">.</span>
+</span><span class='line'>   <span class="no">Successfully</span> <span class="n">installed</span> <span class="n">bundle</span><span class="o">-</span><span class="mi">0</span><span class="o">.</span><span class="mi">0</span><span class="o">.</span><span class="mi">1</span>
+</span><span class='line'>   <span class="o">.</span><span class="n">.</span><span class="o">.</span>
+</span><span class='line'>   <span class="n">gem</span> <span class="n">installed</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>   <span class="err">$</span> <span class="n">bundle</span> <span class="n">install</span>
+</span><span class='line'>   <span class="o">.</span><span class="n">.</span><span class="o">.</span>
+</span><span class='line'>   <span class="o">.</span><span class="n">.</span><span class="o">.</span>
+</span><span class='line'>   <span class="no">Your</span> <span class="n">bundle</span> <span class="n">is</span> <span class="n">complete!</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>   <span class="err">$</span> <span class="n">rake</span> <span class="n">install</span>
+</span><span class='line'>   <span class="o">.</span><span class="n">.</span><span class="o">.</span>
+</span><span class='line'>    <span class="n">mkdir</span> <span class="o">-</span><span class="nb">p</span> <span class="n">source</span>
+</span><span class='line'>    <span class="n">cp</span> <span class="o">-</span><span class="n">r</span> <span class="o">.</span><span class="n">themes</span><span class="o">/</span><span class="n">classic</span><span class="o">/</span><span class="n">source</span><span class="o">/.</span> <span class="n">source</span>
+</span><span class='line'>    <span class="n">mkdir</span> <span class="o">-</span><span class="nb">p</span> <span class="n">sass</span>
+</span><span class='line'>    <span class="n">cp</span> <span class="o">-</span><span class="n">r</span> <span class="o">.</span><span class="n">themes</span><span class="o">/</span><span class="n">classic</span><span class="o">/</span><span class="n">sass</span><span class="o">/.</span> <span class="n">sass</span>
+</span><span class='line'>    <span class="n">mkdir</span> <span class="o">-</span><span class="nb">p</span> <span class="n">source</span><span class="o">/</span><span class="n">_posts</span>
+</span><span class='line'>    <span class="n">mkdir</span> <span class="o">-</span><span class="nb">p</span> <span class="kp">public</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p> Komutlarımızı verdikten sonra bulunduğumuz dizin içinde var olan <code>_config.yml</code> dosyamıza gireceğiz.<br/>
+ Burada Blog için kişisel ayarlarınızı yapabileceksiniz, şimdi dosyamızı açalım..<br/>
+ Dosyamızı <code>nano _config.yml</code> komutu ile açtık karşımıza çıkan sayfada değiştirilmesi gereken yerleri ve değiştirildiklerinde nerelere etki ettiklerini
+kendi sayfamda yaptığım şekilde anlatacağım.<br/>
+ Blog sayfamda Bir büyük başlık birde küçük başlığım var title ve subtitle ile bunları şekildeki gibi değiştirebilirsiniz.<br/>
+ URL yazan satırımıza ise github&#8217;da açtığımız repomuzun adını veriyoruz.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>   <span class="c1"># ----------------------- #</span>
+</span><span class='line'>   <span class="c1">#      Main Configs       #</span>
+</span><span class='line'>   <span class="c1"># ----------------------- #</span>
+</span><span class='line'>
+</span><span class='line'>   <span class="ss">url</span><span class="p">:</span> <span class="ss">http</span><span class="p">:</span><span class="sr">//</span><span class="n">kadertarlan</span><span class="o">.</span><span class="n">github</span><span class="o">.</span><span class="n">io</span>
+</span><span class='line'>   <span class="ss">title</span><span class="p">:</span> <span class="no">KaderTarlan</span>
+</span><span class='line'>   <span class="ss">subtitle</span><span class="p">:</span> <span class="no">BlogCan</span>
+</span><span class='line'>   <span class="ss">author</span><span class="p">:</span> <span class="no">KaderTarlan</span>
+</span><span class='line'>   <span class="n">simple_search</span><span class="p">:</span> <span class="ss">http</span><span class="p">:</span><span class="sr">//</span><span class="n">google</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">search</span>
+</span><span class='line'>   <span class="ss">description</span><span class="p">:</span> <span class="err">İ</span><span class="n">lk</span> <span class="no">Blo</span><span class="err">ğ</span><span class="n">umuz</span><span class="o">.</span><span class="n">.</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p> henüz hala <code>_config.yml</code> dosyamızın içindeyken dosyanın sonuna indiğimizde <br/>
+ # Github repositories<br/>
+ # Twitter<br/>
+ # Google +1<br/>
+ &hellip;..<br/>
+ # Facebook Like</p>
+
+<p> gibi sayfalarda da Bloğumuzu görmek istersek;<br/>
+  &hellip;_user karşılığına hesap adınızı ve false yazan yerleri de true yapmanız gerekir, örneğin;</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>   <span class="c1"># Github repositories</span>
+</span><span class='line'>   <span class="n">github_user</span><span class="p">:</span> <span class="n">kadertarlan</span>
+</span><span class='line'>   <span class="n">github_repo_count</span><span class="p">:</span> <span class="mi">0</span>
+</span><span class='line'>   <span class="n">github_show_profile_link</span><span class="p">:</span> <span class="kp">true</span>
+</span><span class='line'>   <span class="n">github_skip_forks</span><span class="p">:</span> <span class="kp">true</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p> şeklinde düzenlemeler yapmakta mümkün.<br/>
+ Sonraki aşamamızda,  ilk postumuzu oluşturup yazımızı yazmaya başlayabiliriz.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>   <span class="err">$</span> <span class="n">rake</span> <span class="n">new_post</span><span class="o">[</span><span class="s2">&quot;blog_konu_basligi&quot;</span><span class="o">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p> yazdığınız başlık adı altında, markdown uzantılı boş bir blog sayfası oluşturmuş oldunuz.<br/>
+ Şimdi de oluşturduğumuz bu dosyayı doldurmak isteyelim bu dosya Octopress dizini altında bulunuyor.<br/>
+ <code>nano source/_posts/2014-02-19-octopres-ile-blog.markdown</code> komutu ile dosyamızı açalım.  Dosya içeriği;</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>   <span class="o">---</span>
+</span><span class='line'>   <span class="ss">layout</span><span class="p">:</span> <span class="n">post</span>
+</span><span class='line'>   <span class="ss">title</span><span class="p">:</span> <span class="s2">&quot;Octopres ile Blog&quot;</span>
+</span><span class='line'>   <span class="ss">date</span><span class="p">:</span> <span class="mi">2014</span><span class="o">-</span><span class="mo">02</span><span class="o">-</span><span class="mi">19</span> <span class="mi">23</span><span class="p">:</span><span class="mi">11</span><span class="p">:</span><span class="mi">43</span> <span class="o">+</span><span class="mo">0200</span>
+</span><span class='line'>   <span class="ss">comments</span><span class="p">:</span> <span class="kp">true</span>
+</span><span class='line'>   <span class="ss">categories</span><span class="p">:</span>
+</span><span class='line'>   <span class="o">---</span>
+</span><span class='line'>
+</span><span class='line'>   <span class="no">Bu</span> <span class="n">bir</span> <span class="n">blog</span> <span class="n">yaz</span><span class="err">ı</span><span class="n">s</span><span class="err">ı</span><span class="n">d</span><span class="err">ı</span><span class="n">r</span><span class="o">.</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p> Buradaki &ldquo;bu bir blog yazısıdır&rdquo; mesajını biz yazdık anlayacağınız üzere blog yazılarımızı gözüken şekilde &ndash; &ndash; &ndash; işaretinden sonra yazmaya başlıyoruz.<br/>
+ Blogumuzdaki yazımızı markdown syntax uygun bir biçimde yazabiliriz.<br/>
+ <font color='red'>Not:</font> <code>title: "Octopres ile Blog"</code> eğer bu dosyadaki bu satırınız <code>title: ""Octopres ile Blog""</code>
+şeklinde ise fazla tırnak işaretlerini siliniz.<br/>
+ Şimdi yazımızı yayınlama kısmına gelelim, öncelikle yazımızı önceden oluşturduğumuz github hesabımızdaki repoya bağlayalım, bunun için;</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>   <span class="err">$</span> <span class="n">rake</span> <span class="n">setup_github_pages</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>komutunu kullanıyoruz.<br/>
+<font color='red'>Not:</font> Bu komutu sadece bir kez kullanacağız. Her yazı yollamaya çalıştığınızda tekrar tekrar kullanmayalım.</p>
+
+<p>Şu an yazımız hala bizim kendi localimizde her yazı oluşturduğumuzda Github&#8217;daki repomuza yüklemesi için
+ <code>rake generate</code> ve <code>rake deploy</code> komutlarını gireceğiz.</p>
+
+<p> <font color='red'>Not:</font> Şu ana kadar yaptıklarımız sadece blog başlangıcı için bir kez yazılacak komutlardı.<br/>
+ Ancak &ldquo;her&rdquo; yazı yazdığınızda öcelikle <code>$ rake new_post["blog_konu_basligi"]</code> komutu ile blog oluşturacaksınız.<br/>
+ Bloğunuza yüklemek için de <code>rake generate</code> ve
+ <code>rake deploy</code> komutlarını yazıyı yazdıktan sonra yayınlamak için kullanacaksınız.  Bu komutlar repomuza yazımızı yükler.
+ Yani her yeni bloğ yazımız için tekrar edecek sadece bu üç komutumuz olacak.<br/>
+Şimdi komutlarımıza ve çıktıklarına bakalım..</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>   <span class="err">$</span> <span class="n">rake</span> <span class="n">generate</span>
+</span><span class='line'>   <span class="o">.</span><span class="n">.</span><span class="o">.</span>
+</span><span class='line'>   <span class="no">Successfully</span> <span class="n">generated</span> <span class="ss">site</span><span class="p">:</span> <span class="n">source</span> <span class="o">-&gt;</span> <span class="kp">public</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>   <span class="err">$</span> <span class="n">rake</span> <span class="n">deploy</span>
+</span><span class='line'>   <span class="o">.</span><span class="n">.</span><span class="o">.</span>
+</span><span class='line'>   <span class="o">.</span><span class="n">.</span><span class="o">.</span>
+</span><span class='line'>   <span class="no">Username</span> <span class="k">for</span> <span class="s1">&#39;https://github.com&#39;</span><span class="p">:</span> <span class="n">kadertarlan</span>
+</span><span class='line'>   <span class="no">Password</span> <span class="k">for</span> <span class="s1">&#39;https://kadertarlan@github.com&#39;</span><span class="p">:</span>
+</span><span class='line'>   <span class="no">Counting</span> <span class="ss">objects</span><span class="p">:</span> <span class="mi">21</span><span class="p">,</span> <span class="n">done</span><span class="o">.</span>
+</span><span class='line'>   <span class="o">.</span><span class="n">.</span><span class="o">.</span>
+</span><span class='line'>   <span class="no">Compressing</span> <span class="ss">objects</span><span class="p">:</span> <span class="mi">100</span><span class="o">%</span> <span class="p">(</span><span class="mi">7</span><span class="o">/</span><span class="mi">7</span><span class="p">),</span> <span class="n">done</span><span class="o">.</span>
+</span><span class='line'>   <span class="no">Writing</span> <span class="ss">objects</span><span class="p">:</span> <span class="mi">100</span><span class="o">%</span> <span class="p">(</span><span class="mi">11</span><span class="o">/</span><span class="mi">11</span><span class="p">),</span> <span class="mi">1</span><span class="o">.</span><span class="mi">87</span> <span class="no">KiB</span><span class="p">,</span> <span class="n">done</span><span class="o">.</span>
+</span><span class='line'>   <span class="no">Total</span> <span class="mi">11</span> <span class="p">(</span><span class="n">delta</span> <span class="mi">5</span><span class="p">),</span> <span class="n">reused</span> <span class="mi">0</span> <span class="p">(</span><span class="n">delta</span> <span class="mi">0</span><span class="p">)</span>
+</span><span class='line'>   <span class="no">To</span> <span class="ss">https</span><span class="p">:</span><span class="sr">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">kadertarlan</span><span class="o">/</span><span class="n">kadertarlan</span><span class="o">.</span><span class="n">github</span><span class="o">.</span><span class="n">io</span>
+</span><span class='line'>   <span class="n">c6876de</span><span class="o">.</span><span class="n">.e0d4b49</span>  <span class="n">master</span> <span class="o">-&gt;</span> <span class="n">master</span>
+</span><span class='line'>
+</span><span class='line'>   <span class="c1">## Github Pages deploy complete</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p> Şimdi yazılarımız yüklenmiş oldu  <a href="http://user_name.github.io">http://user_name.github.io</a> adresi ile bloğunuzu inceleyebilirsiniz.<br/>
+ Ayrıca bloğunuzu tarayıcınıza göndermeden önce localinizdede görme imkanınız var onun için ise</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>   <span class="err">$</span> <span class="n">rake</span> <span class="n">preview</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>  komutunu girdikten sonra tarayıcınıza <a href="http://localhost:4000/">http://localhost:4000/</a> yazarakda Bloğunuzu kontrol edebilirsiniz.</p>
+</div>
+
+
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">KaderTarlan</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-03-08T02:29:30+02:00" pubdate data-updated="true"></time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://kadertarlan.github.io/blog/2014/03/08/octopress-ile-blog/" data-via="" data-counturl="http://kadertarlan.github.io/blog/2014/03/08/octopress-ile-blog/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+      
+        <a class="basic-alignment right" href="/blog/2014/03/08/octopress-blogunu-tasima/" title="Next Post: Octopress Blogunu Taşıma">Octopress Blogunu Taşıma &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  <section>
+  <p>Hi, I'm <a href="https://twitter.com/martinbjeldbak">Martin Bjeldbak Madsen</a>!</p>
+  
+
+  <p>You can read more about me on my <a href="/about/">about</a> page. To see what I'm working on, check out my GitHub page <a href="https://github.com/fapper">here</a>.</p>
+  <p>My resume can be found <a href="cv.pdf">here</a>.</p>
+  <div class="social-icons">
+    
+
+    
+
+    
+
+    
+  <a href="https://github.com/kadertarlan"><i class="fa fa-github fa-3x"></i></a>
+
+
+    
+
+  </div>
+</section>
+
+  <section>
+  <h1>Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2017/05/13/title-of-the-post/">Title of the Post</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/05/13/ozetle-yazilim-test-otomasyon/">Özetle Yazılım Test Otomasyon</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/02/23/python-ile-birim-testler/">Python Ile Birim Testler</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/02/23/gdg-devfest-libreoffice-katki-sureci/">GDG DevFest - LibreOffice Katkı Süreci</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/11/03/libreofiice-icin-test-yazma/"><font color=green>LibreOffice</font> Için Test Yazmak</a>
+      </li>
+    
+  </ul>
+</section>
+
+  
+    <section>
+  <h1>Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2017/05/13/title-of-the-post/">Title of the Post</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/05/13/ozetle-yazilim-test-otomasyon/">Özetle Yazılım Test Otomasyon</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/02/23/python-ile-birim-testler/">Python Ile Birim Testler</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/02/23/gdg-devfest-libreoffice-katki-sureci/">GDG DevFest - LibreOffice Katkı Süreci</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/11/03/libreofiice-icin-test-yazma/"><font color=green>LibreOffice</font> Için Test Yazmak</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/kadertarlan">@kadertarlan</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'kadertarlan',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2017 - KaderTarlan -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+<p>
+<span>Copyright &copy; 2017  KaderTarlan -</span>
+<span class="credit">Powered by <a href="http://octopress.org">Octopress</a> using the <a href="https://github.com/fapper/classic-martinb">classic-martinb</a> theme</span>
+</p>
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

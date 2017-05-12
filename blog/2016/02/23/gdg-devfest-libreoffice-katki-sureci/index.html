@@ -1,0 +1,369 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>GDG DevFest - LibreOffice Katkı Süreci - KaderTarlan</title>
+  <meta name="author" content="KaderTarlan">
+
+  
+  <meta name="description" content="Merhaba bu yıl GDG DevFest Istanbul-2015 etkinliğine ekip olarak katılıp LibreOffice Katkı Süreci ve Deneyimlerimizden bahsettik. Ben de etkinlikte &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://kadertarlan.github.io/blog/2016/02/23/gdg-devfest-libreoffice-katki-sureci">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="KaderTarlan" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><div class="header-left">
+  <hgroup>
+  <h1><a href="/">KaderTarlan</a></h1>
+  
+  <div class="subtitle">
+    <h2>BlogCan</h2>
+  </div>
+  
+  </hgroup>
+  
+</div>
+
+<div class="header-right">
+  <ul class="main-navigation">
+ <div> 
+  <li><a href="/">blog</a></li></div><div class="spacer"></div>
+     <div> 
+  <li><a href="/projects">projects</a></li></div><div class="spacer"></div>
+       <div> 
+  <li><a href="/work">work</a></li></div><div class="spacer"></div>
+         <div> 
+  <li><a href="/about">about</a></li></div>
+</ul>
+  
+
+</div>
+</header>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">GDG DevFest - LibreOffice Katkı Süreci</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2016-02-23T01:26:54+02:00" pubdate data-updated="true"></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Merhaba bu yıl <font color=blue>GDG DevFest Istanbul-2015</font> etkinliğine ekip olarak katılıp <font color=#990000>LibreOffice Katkı Süreci ve Deneyimlerimizden</font> bahsettik.</p>
+
+<p>Ben de etkinlikte konuşmacıydım ve test alanında yaptığım katkılardan bahsettim. Neleri anlatmış ve yapmışım tekrar bakmak isteyenler için bloğuma da eklemek istedim umarım faydalı olur.</p>
+
+<blockquote><p><font color=#990000>Test</font> bir sistemin en küçük parçalarına kadar yapması gereken görevleri gerçekleştirip gerçekleştirmediğinin kontrolünün yapılması işlemidir.</p></blockquote>
+
+<h5>YAZILIM YAŞAM DÖNGÜSÜ</h5>
+
+<blockquote><p>Yazılım geliştirme döngüsünde <font color=#990000>denetleme, yönetilme, ölçülebilme </font> en önemli aşamalarımız.</p></blockquote>
+
+<p>Yazılım parçalarını bu yaşam döngüsünde test ederek, geliştirmenin sonraki aşamalarını daha az hata ile ilerletmek istiyoruz. Bir bileşende yapılan değşişiklik diğer bileşenleri nasıl etkiledi bunu öğrenmek yazdığımız kodun kalitesini ölçmek önemli.</p>
+
+<p>Yazılımın farklı platformalarda başarılı şekilde çalıştı mı beklenilen sağlandı mı? Bunlar sağlandı diyelim peki yazılan kod yük testlerinin altında da aynı şekilde çalıştı mı?  10 kullanıcı 100 kullanıcı 1000 kullanıcı son durum nedir?</p>
+
+<h5>Kullanıcı Arayüzü(UI) Testi nedir?</h5>
+
+<blockquote><p><font color=#990000>UI</font>, aslında arayüz tasarımıdır.</p></blockquote>
+
+<p>Bilgisayarımızın tuşları bir arayüz tasarımı örneğidir. Tuşların yerleri, büyüklüğü, renkleri tasarımcının isteği doğrultusunda oluşur. Arayüz tasarımının internet dünyasındaki karşılığı ise butonlar, renkler, boşluklar gibi görsel tasarımlardır.</p>
+
+<blockquote><p><font color=#990000>UI(User Interface) Test</font> , bu testler kodlanmış olan kullanıcı arayüzünün daha iyi şekilde, efektif, sorunsuz çalışmasının kontrolünü sağlayacak testlerdir. UI Test bir arayüz testidir.</p></blockquote>
+
+<h5>Manul test nedir?</h5>
+
+<blockquote><p>Kullanıcılar tarafından yazılımın test edilmesi işlemidir. Test işlemi <font color=grey>Yazılım Test Araçları</font> olmadan tamamen insanlar tarafından yapılır.</p></blockquote>
+
+<p><font color=red>BugHunting</font>
+LibreOffice sürüm öncesi ortaya çıkacak ürünün kalitesini ölçmek amacıyla tüm geliştirici ekibinde içinde bulunduğu belirli zaman dilimleri içerisinde hata yakalama etkinliği düzenliyor. Böylece manuel testler ile ürün düzgün çalışıyor mu, bir hata var mı, test edilmiş oluyor.</p>
+
+<p>Hata bulunduysa <font color=#grey>Bugzilla</font> dediğimiz LibreOffice hata depolama aracına hatalarımızı raporluyoruz ve kontrolünü sağlıyoruz.</p>
+
+<p>Burada işin içine kullanıcı arayüzü için oluşturulmuş <font color=grey>test durumları</font> giriyor.</p>
+
+<blockquote><p><font color=#990000>Test durumları</font> gereksinimlere göre hazırladığımız, istenilen aksiyonları belirten ve bunları uyguladıktan sonra oluşmasını beklediğimiz sonuçları da belirttiğimiz belgelerdir.</p></blockquote>
+
+<p> Test eden kişi hata aramak isterken bunu nasıl yapmalı? Bunun için şöyle düşünelim bir geliştirme yapıldı ve istenilen iki sayıyı topladık ve sonucu da bize ikilik tabana çevirip versin.</p>
+
+<p> Test edecek kişiye; iki sayı girmesini, bunları toplamasını ve sonucun ikilik tabanda doğru şekilde geldi mi diye kontrolünü yapmasını isteyeceksiniz. Test durum belgelerimiz bu aşamaları anlatan rotamız olacak burada. Bir çok test durum belgesini depolayabildiğimiz bir araç geliyor gündeme, <font color=grey>Moztrap.</font></p>
+
+<h5>Moztrap nedir?</h5>
+
+<p>Bu tip büyük yazılımların özelliklerinin test edilmesi için farklı araçlar kullanılıyor. LibreOffice de bunun için <font color=grey>Moztrap</font> aracını kullanıyor. Moztrap, LibreOffice projesinde önemli bir araçtır.</p>
+
+<blockquote><p><font color=#990000>Moztrap</font>, açık kaynak dağıtılmış, test durum yönetim sistemidir. <font color=#990000>Kullanıcı arayüzü(UI)</font> testlerinin tutulduğu bir platformdur. Bir çok manuel testi depoladığımız ve bunları çalıştırabildiğimiz bir ortam sunar.</p></blockquote>
+
+<p>LibreOffice projesi bu aracı kullarak kalitesini daha da artırmayı amaçlar. Moztrap, yazılan test durumlarının her adımını çalıştırıp bu adımlar için <font color=green>Passed,</font> <font color=red>Failed,</font> <font color=#CCCC00>Invalidated </font> sonuçları ile raporlama yapar.</p>
+
+<h5>Libreoffice manuel testlerini nasıl oluşturuyor?</h5>
+
+<p>LibreOffice test mühendisleri Moztrap aracına test durum adımlarını yazıyorlar. Istenilen işletim sistemi üzerinde istenilen LibreOffice sürümü işaretlenerek hazırlanıyor bu belgeler.</p>
+
+<p>Beklenilen adımlar yazıldıktan sonra bileşenin çalışmasını kontrol edebilmek için testimizi de anlamlı hale getirmek için  <font color=green>Verify</font> adımları ile beklenilen sonuçlar yazılır. Buradan yola çıkarak test gerçekler, beklenilen sağlanırsa <font color=green>Passed,</font> sağlanmaz ise <font color=red>Failed,</font>cevapları ile test durumunu incelenir.</p>
+
+<h5>Automated UI Tests Nedir ?</h5>
+
+<blockquote><p><font color=#990000>Automated UI</font> test bahsettiğimiz UI arayüz testlerinin otomatik hale getirilmesidir. Kodlanmış arayüzü testidir.</p></blockquote>
+
+<h5>Otomasyon testlerin LibreOffice için önemi nedir?</h5>
+
+<p>Birçok kullanıcı tarafından geliştirilen bu büyük projede herhangi bir kullanıcının yazdığı bir bileşen başka bir kodu tetikliyor olabilir. Bunu tek tek elle deneyip görmek çok zor bir iş. Bu yüzden LibreOffice için yazılan otomasyon testleri var siz bir bileşen geliştirdiğinizde ve bunu yüklediğinizde kodunuz öncelikle bu testlerden geçirilmeye çalışılıyor. Kodunuz testlerden geçemezse size hata mesajı dönüyor. Testten geçemeyen bir kod LibreOffice için geçerli değildir.</p>
+
+<h5>Unit Test nedir?</h5>
+
+<blockquote><p><font color=#990000>Unit test</font> yaparken temel amaç yazdığınız kodun her satırının başka bir kod tarafından otomatik olarak test edilmesidir.
+Unit Test kodları yalnızca çalışması beklenen durumlar için değil var olan metodun vereceği hataları da test eder.</p></blockquote>
+
+<h5>Unit testlerin LibreOffice için önemi nedir?</h5>
+
+<p>LibreOffice projesi için hataların erken bulunup düzeltilebilmesi açısından bu sürecin en önemli aşamasını oluşturuyor.<br/>
+Projeye eklenen her kod parçası için testler çalıştırılır. Bu sayede projede gözü kapalı değişiklik yapmak mümkün olabiliyor. Var olacak bir hatadan haberiniz olacak. Bunun anlamı sorun çok daha büyümeden ya da tasarımın içerisine girmeden sorunu çözmek demektir.</p>
+
+<p>DevFest konuşmamızı yayınlamışlar. 16. dakikadan sonra anlattıklarımı sesli olarak da dinleyebilirsiniz. Kolay gelsin :)</p>
+
+<p><a href="https://www.youtube.com/watch?v=BM-sun5eZY0"><img src="http://img.youtube.com/vi/BM-sun5eZY0/0.jpg" alt="IMAGE ALT TEXT HERE" /></a></p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">KaderTarlan</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2016-02-23T01:26:54+02:00" pubdate data-updated="true"></time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://kadertarlan.github.io/blog/2016/02/23/gdg-devfest-libreoffice-katki-sureci/" data-via="" data-counturl="http://kadertarlan.github.io/blog/2016/02/23/gdg-devfest-libreoffice-katki-sureci/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2015/11/03/libreofiice-icin-test-yazma/" title="Previous Post: <font color=green>LibreOffice</font> için Test Yazmak">&laquo; <font color=green>LibreOffice</font> için Test Yazmak</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2016/02/23/python-ile-birim-testler/" title="Next Post: Python ile Birim Testler">Python ile Birim Testler &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  <section>
+  <p>Hi, I'm <a href="https://twitter.com/martinbjeldbak">Martin Bjeldbak Madsen</a>!</p>
+  
+
+  <p>You can read more about me on my <a href="/about/">about</a> page. To see what I'm working on, check out my GitHub page <a href="https://github.com/fapper">here</a>.</p>
+  <p>My resume can be found <a href="cv.pdf">here</a>.</p>
+  <div class="social-icons">
+    
+
+    
+
+    
+
+    
+  <a href="https://github.com/kadertarlan"><i class="fa fa-github fa-3x"></i></a>
+
+
+    
+
+  </div>
+</section>
+
+  <section>
+  <h1>Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2017/05/13/title-of-the-post/">Title of the Post</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/05/13/ozetle-yazilim-test-otomasyon/">Özetle Yazılım Test Otomasyon</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/02/23/python-ile-birim-testler/">Python Ile Birim Testler</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/02/23/gdg-devfest-libreoffice-katki-sureci/">GDG DevFest - LibreOffice Katkı Süreci</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/11/03/libreofiice-icin-test-yazma/"><font color=green>LibreOffice</font> Için Test Yazmak</a>
+      </li>
+    
+  </ul>
+</section>
+
+  
+    <section>
+  <h1>Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2017/05/13/title-of-the-post/">Title of the Post</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/05/13/ozetle-yazilim-test-otomasyon/">Özetle Yazılım Test Otomasyon</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/02/23/python-ile-birim-testler/">Python Ile Birim Testler</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/02/23/gdg-devfest-libreoffice-katki-sureci/">GDG DevFest - LibreOffice Katkı Süreci</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/11/03/libreofiice-icin-test-yazma/"><font color=green>LibreOffice</font> Için Test Yazmak</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/kadertarlan">@kadertarlan</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'kadertarlan',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2017 - KaderTarlan -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+<p>
+<span>Copyright &copy; 2017  KaderTarlan -</span>
+<span class="credit">Powered by <a href="http://octopress.org">Octopress</a> using the <a href="https://github.com/fapper/classic-martinb">classic-martinb</a> theme</span>
+</p>
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

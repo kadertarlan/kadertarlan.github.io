@@ -1,0 +1,383 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Selenium IDE - KaderTarlan</title>
+  <meta name="author" content="KaderTarlan">
+
+  
+  <meta name="description" content="Test senaryolarımızı Selenium-IDE ile hayata geçireğiz. Senaryomuzun adımlarını anlayıp Selenium-İde de onlara uygun komutları bulup çalışabilir bir &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://kadertarlan.github.io/blog/2014/08/07/selenium-ide">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="KaderTarlan" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><div class="header-left">
+  <hgroup>
+  <h1><a href="/">KaderTarlan</a></h1>
+  
+  <div class="subtitle">
+    <h2>BlogCan</h2>
+  </div>
+  
+  </hgroup>
+  
+</div>
+
+<div class="header-right">
+  <ul class="main-navigation">
+ <div> 
+  <li><a href="/">blog</a></li></div><div class="spacer"></div>
+     <div> 
+  <li><a href="/projects">projects</a></li></div><div class="spacer"></div>
+       <div> 
+  <li><a href="/work">work</a></li></div><div class="spacer"></div>
+         <div> 
+  <li><a href="/about">about</a></li></div>
+</ul>
+  
+
+</div>
+</header>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Selenium IDE</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-08-07T20:51:12+03:00" pubdate data-updated="true"></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Test senaryolarımızı Selenium-IDE ile hayata geçireğiz. Senaryomuzun adımlarını anlayıp Selenium-İde de onlara uygun komutları bulup çalışabilir bir test oluşturacağız. Bir önceki yazımda bulunan test senaryosunu kullanacağım.</p>
+
+<p>Seleniumda kodlarımızı yazabilmek için <font color=red>Command</font> kısmına yazacağımız komutların anlamını ve <font color=red>Target</font> kısmına yazacağımız yer bulucularını kullanmayı öğrenmeliyiz.</p>
+
+<blockquote><p><font color=brown>İlk adım;</font></p></blockquote>
+
+<ol>
+<li><font color=grey><em>Go to</em> <a href="https://borc_takibi.herokuapp.com/">https://borc_takibi.herokuapp.com/</a></font></li>
+</ol>
+
+
+<p>Bu adıma uygun selenium komutumuz <font color=red> <em>Open</em></font> komutu olacak.<br/>
+<font color=purple> Open</font> komutu ile herhangi bir URL adresini <font color=purple>Seleneium</font>da açabiliriz.<br/>
+Open komutunu seleniumda yazıp Run! dersek istediğimiz sayfa resimdeki gibi açılmış olacak.</p>
+
+<p><img src="http://i.imgur.com/xk8wDPm.png"></p>
+
+<p><img src="http://i.imgur.com/GBxhLQs.png"></p>
+
+<blockquote><p><font color=brown>İkinci adım;</font></p></blockquote>
+
+<p>2.<font color=grey><em>Verify that &ldquo;BORÇ TAKİBİ&rdquo; appeared on the page</em></font></p>
+
+<p>Sayfamızı <font color=purple> Open</font> komutu ile açmış olduk. Şimdi sayfamızın açıldığı kontrolünü de verify ile yazdığımız komutlarla sağlayacağız. Verify adımlarını <font color=purple>Assert </font> komutları ile yapacağız. Assert ile yazılan selenium komutları, eğer istenilen adım gerçekleşmemişse testi durdurur. Yanlış giden bir durum varsa engellenmiş olur.<br/>
+Ben kısaca en çok kullanılacak bir kaç Assert komutundan bahsedeyim;</p>
+
+<p><font color=red>AssertElementPresent(locator),</font>  bu komutumuz ekrandaki hedeflenen elemanı sayfada arar. Elemanı bulursa true bulamazsa false döndürür.<br/>
+<font color=red>AssertTextPresent(pattern),</font>   bu komutumuz ekranda görmek istediğimiz yazıyı kontrol eder istenen metin ekranda varsa true yoksa false döndürür.<br/>
+<font color=red>AssertVisible(locator),</font>  belirtilen ögenin görünür durumda olup olmadığı kontrolünü yapar , true veya false döndürür.<br/>
+<font color=red>AssertTitle(pattern), </font>  geçerli sayfanın başlığını kontrol eder,  sayfa geçişlerinde başlık değişmiş mi kontrolü için işimize epey yarar.</p>
+
+<p>Tekrar senaryomuza dönersek sayfamız açıldı ve beklediğimiz yazı geldi mi kontrolü için <font color=purple>AssertTextPresent</font> komutunu kullanacağız.<br/>
+Sayfamızı açtık kontrolümüzü sağladık resimde de görüldüğü gibi;</p>
+
+<p><img src="http://i.imgur.com/hdNn3Gk.png"></p>
+
+<blockquote><p><font color=brown>Üçüncü adım;</font></p></blockquote>
+
+<p>3.<font color=grey>  <em>Click on &ldquo;Arkadaş Ekle&rdquo; button</em></font><br/>
+Bu adımımızda dikkatinizi iki komuta çekeceğim;<br/>
+<font color=red><em>Click</em></font> ve  <font color=red><em>ClickAndWait</em></font><br/>
+Bu komutları butona, seçeneklere tıklama işlemlerinde kullanıyoruz. Fakat aralarında bir fark var. Sayfa geçişlerinde butona tıkladıktan sonra sayfanın yüklenebilmesi için bir bekleme süremiz vardır işte bu beklemeyi ayarlayan butona tıklayan komut, <font color=purple>ClickAndWait</font> komutudur.<br/>
+Sadece click işlemi yapacaksak, aynı sayfada kalıp o sayfa içindeki işlemlerimizi hal edeceksek  <font color=purple> Click </font>  komutunu kullanmalıyız. <br/>
+Eğer aynı sayfadaysanız ve yaptığınız işlem sayfa değiştirmediyse, gene de tıkladıktan sonra beklememiz gereken işlem varsa işte onun içinde <font color=purple><em>Pause</em></font> komutunu kullanırız.<font color=purple> Pause </font> komutunda bekleme süresini siz ayarlarsınız, komutu verip bekleme süresini de yazarsak <font color=purple>click</font> işleminden sonra o süre kadar bekler.<br/>
+Peki bekleme işlemi yapmasak neler olur? Biz selenium testlermizi fast konumda çalıştırırız. Adımlar akar gider siz o bekleme işini hesaba katmazsanız hala o işle oyalanırsa selenıum ikinci adımda yapması gereken işi arar ve bulamadığı için test patlar.<br/>
+Testimize dönersek şimdi burada sayfa geçişi işi yapacağımız için <font color=purple>ClickAndWait</font> komutunu kullanacağız.</p>
+
+<p>Komutumuzu yazdıktan sonra <font color=purple>clickandwait</font> işlemini yapacağımız yeri belirlemeliyiz.<br/>
+<font color=purple>Selenium IDE</font> de çoğunlukla<font color=red> CSS Locator, Xpath, Locator</font>&lsquo;ları (Yer Bulucuları) kullanacağız.
+<font color=purple>Xpath</font>, Selenium IDE de kullanılan bir yol göstericidir.Veritabanında sorgu çekileceği zaman Test Case'de sorguyu Path'e vermek için kullanılır. Bu Locatorı daha çok bu iş için kullanırız.<br/>
+<font color=purple>CSS Locator</font> ise <font color=purple>Xpath</font> nazaran daha hızlıdır. Bu yer bulucuyu Web sitelerinde yer alan HTML sıralamasında <font color=purple>CSS class</font> ve <font color=purple>CSS id</font>'leri bularak kullanırız.<br/>
+Erişmek istediğiniz yere <font color=purple>İnspect Element</font> derseniz Web sayfamızın bilgileri çıkar, erişeceğimiz yerinde HTML ağacındaki yeri bu bilginin içinde farklı renkte gözükür bize. O satıra sağ tıklayıp <font color=purple>Copy Unique Selector</font> dersek erişceğimiz yerin <font color=purple>Css</font> olarak adresi kopyalanmış olur. Bu kolay yolumuz olsun. Ama extrem şeyler için <font color=purple>Css ve Xpath</font> kullanmayı öğrenirsek işimiz kolaylaşır.<br/>
+Adımları resimlerde de görelim.</p>
+
+<p> <img src="http://i.imgur.com/AenyHlm.png"></p>
+
+<p>Kopyaladığımız Css Adresini Komutumuzun Target alanını css=&hellip; olacak şekilde  yazdık. <font color=purple>Seleniumda</font> <font color=red>find</font> butonuna tıklarsak Target kısmına yazdığımız css ile bulduğumuz yeri gösterir bize, burada sarı renk alır.</p>
+
+<p><img src="http://i.imgur.com/w1fxvXy.png"></p>
+
+<p>4.<font color=grey> <em>Verify that &ldquo;Yeni Borçlu Ekle&rdquo; appeared on the page</em></font><br/>
+Burada gene bir metin kontrolu var ve <font color=purple>AssertTextPresent</font> kullanacağız.</p>
+
+<p>5.<font color=grey> <em>Fill in &ldquo;Borçlunun Adı Soyadı:&rdquo;,&ldquo;E-Mail Adresi:&rdquo;,&ldquo;Twitter Kullanıcı Adi:&rdquo; sections</em> </font><br/>
+Bu adımda text alanlarını dolduracağız. Bunu <font color=purple>Seleniumda</font> <font color=red><em>Type(locator,pattern)</em></font> komutu ile sağlarız.<br/>
+Parantez içine yazdığım şeylerden ilki <font color=purple>Target</font> ikincisi <font color=purple>Value</font> alanlarına yazılacak şeyler.<br/>
+<font color=purple>Command</font> kısmına ise komutumuzun kendisi gelecek bu adım için <font color=purple> Type</font> komutu gelecek. Borçlu adı soyadı yazma şekli resimdeki gibi ;<br/>
+<img src="http://i.imgur.com/8VXUT2X.png" alt="" /></p></p>
+
+<p>aynı şekilde borçlu emaili ve twitter kullanıcı adı da böyle yazılacak.</p>
+
+<p><img src="http://i.imgur.com/Kwfvqr5.png">
+<img src="http://i.imgur.com/I3qWn1j.png"></p>
+
+<p>6.<font color=grey> <em>Click on &ldquo;Create Friend&rdquo; button</em></font>
+Burada bir sayfa geçişi söz konusu o zaman <font color=purple>ClickAndWait</font> komutu kullanmamız gerekir.<br/>
+Create butonuna tıklayıp farklı bir sayfaya geçeriz resimdeki gibi;</p>
+
+<p><img src="http://i.imgur.com/Rte0GRk.png"></p>
+
+<p>7.<font color=grey> <em>Verify that &ldquo; Successful Created.&rdquo; appeared on the page</em> </font><br/>
+Burada bir yazı kontrolümüz var <font color=purple> AssertTextPresent</font> yapacağız.</p>
+
+<p><img src="http://i.imgur.com/iGZ7M9N.png"></p>
+
+<p>Adımlarımızı Seleniumda yazdıktan sonra <font color=red>Run!</font> komutunu veririz ve <font color=red>Log</font> kısmından testimizin çalışmasını takip ederiz, hatasız adımlar yeşil renk olur.</p>
+
+<p><img src="http://i.imgur.com/XAxycM0.png"></p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">KaderTarlan</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-08-07T20:51:12+03:00" pubdate data-updated="true"></time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://kadertarlan.github.io/blog/2014/08/07/selenium-ide/" data-via="" data-counturl="http://kadertarlan.github.io/blog/2014/08/07/selenium-ide/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/08/07/selenium-ikinci-asama/" title="Previous Post: Test Senaryolarını Anlama">&laquo; Test Senaryolarını Anlama</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2014/08/20/selenium-ve-browserstack/" title="Next Post: Selenium ve BrowserStack">Selenium ve BrowserStack &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  <section>
+  <p>Hi, I'm <a href="https://twitter.com/martinbjeldbak">Martin Bjeldbak Madsen</a>!</p>
+  
+
+  <p>You can read more about me on my <a href="/about/">about</a> page. To see what I'm working on, check out my GitHub page <a href="https://github.com/fapper">here</a>.</p>
+  <p>My resume can be found <a href="cv.pdf">here</a>.</p>
+  <div class="social-icons">
+    
+
+    
+
+    
+
+    
+  <a href="https://github.com/kadertarlan"><i class="fa fa-github fa-3x"></i></a>
+
+
+    
+
+  </div>
+</section>
+
+  <section>
+  <h1>Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2017/05/13/title-of-the-post/">Title of the Post</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/05/13/ozetle-yazilim-test-otomasyon/">Özetle Yazılım Test Otomasyon</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/02/23/python-ile-birim-testler/">Python Ile Birim Testler</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/02/23/gdg-devfest-libreoffice-katki-sureci/">GDG DevFest - LibreOffice Katkı Süreci</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/11/03/libreofiice-icin-test-yazma/"><font color=green>LibreOffice</font> Için Test Yazmak</a>
+      </li>
+    
+  </ul>
+</section>
+
+  
+    <section>
+  <h1>Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2017/05/13/title-of-the-post/">Title of the Post</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/05/13/ozetle-yazilim-test-otomasyon/">Özetle Yazılım Test Otomasyon</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/02/23/python-ile-birim-testler/">Python Ile Birim Testler</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/02/23/gdg-devfest-libreoffice-katki-sureci/">GDG DevFest - LibreOffice Katkı Süreci</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/11/03/libreofiice-icin-test-yazma/"><font color=green>LibreOffice</font> Için Test Yazmak</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/kadertarlan">@kadertarlan</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'kadertarlan',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2017 - KaderTarlan -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+<p>
+<span>Copyright &copy; 2017  KaderTarlan -</span>
+<span class="credit">Powered by <a href="http://octopress.org">Octopress</a> using the <a href="https://github.com/fapper/classic-martinb">classic-martinb</a> theme</span>
+</p>
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

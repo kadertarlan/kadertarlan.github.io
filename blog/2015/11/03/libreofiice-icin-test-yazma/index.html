@@ -1,0 +1,354 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title><font color=green>LibreOffice</font> Için Test Yazmak - KaderTarlan</title>
+  <meta name="author" content="KaderTarlan">
+
+  
+  <meta name="description" content="Merhaba Arkadaşlar, bu yıl Necdet Yücel hocamızın öncülüğü ile ÇOMÜ'den 10 kişilik bir ekiple LibreOffice için katkı sağlamaktayız. Ben de &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://kadertarlan.github.io/blog/2015/11/03/libreofiice-icin-test-yazma">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="KaderTarlan" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><div class="header-left">
+  <hgroup>
+  <h1><a href="/">KaderTarlan</a></h1>
+  
+  <div class="subtitle">
+    <h2>BlogCan</h2>
+  </div>
+  
+  </hgroup>
+  
+</div>
+
+<div class="header-right">
+  <ul class="main-navigation">
+ <div> 
+  <li><a href="/">blog</a></li></div><div class="spacer"></div>
+     <div> 
+  <li><a href="/projects">projects</a></li></div><div class="spacer"></div>
+       <div> 
+  <li><a href="/work">work</a></li></div><div class="spacer"></div>
+         <div> 
+  <li><a href="/about">about</a></li></div>
+</ul>
+  
+
+</div>
+</header>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title"><font color=green>LibreOffice</font> Için Test Yazmak</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-11-03T23:16:39+03:00" pubdate data-updated="true"></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Merhaba Arkadaşlar,  bu yıl Necdet Yücel hocamızın öncülüğü ile ÇOMÜ'den 10 kişilik bir ekiple LibreOffice için katkı sağlamaktayız. Ben de  LibreOffice için <font color=#990000>Unit Testler yazma, Kullanıcı Arayüzü Testlerini oluşturma ve Otomasyon Testleri</font> yazarak katkıcılar listesinde ve test ekibinde yer almaktayım. Bu aşamada yaptığım işleri blogumda paylaşarak sizleri de bilgilendirmeyi amaçlıyorum.</p>
+
+<blockquote><p><font color=green>LibreOffice</font> Özgür ve Açık Kaynaklı Ofis yazılımıdır.  LibreOffice aşağıdaki bileşenleri içerir:<br/>
+• <font color=blue> Writer; </font>kelime işlemci,<br/>
+• <font color=green>Calc; </font> hesap tablosu uygulaması , <br/>
+• <font color=brown>Impress; </font> sunu, <br/>
+• <font color=#FF8000> Draw;  </font>çizim ve akış şeması uygulaması,<br/>
+• <font color=purple> Base; </font>veritabanı ve veritabanı ön ucu <br/>
+• <font color=gray>Math </font> matematik yazılımı</p></blockquote>
+
+<p><font color=#FF3333>UI(User Interface) Test </font>, bu testler kodlanmış kullanıcı arayüzünün daha iyi şekilde, efektif, sorunsuz çalışmasının kontrolünü sağlayacak testlerdir.UI Test bir arayüz testidir.<br/>
+<font color=#FF3333> Automated UI test</font> ise bu testlerin otomatik hale getirilmesidir.</p>
+
+<p>Bu tip büyük yazılımların özelliklerinin test edilmesi için farklı araçlar kullanılıyor. LibreOffice de bunun için <a href="https://wiki.documentfoundation.org/MozTrap">Moztrap</a> aracını kullanıyor. Moztrap LibreOffice projesinde önemli bir araçtır. <font color=gray>Moztrap</font>, açık kaynak dağıtılmış,  test durum yönetim sistemidir. <font color=#FF3333> Kullanıcı arayüzü(UI)</font> testlerinin tutulduğu bir platformdur. Bir çok manuel testi depoladığımız ve bunları çalıştırabildiğimiz bir ortam sunar .</p>
+
+<p>LibreOffice projesi bu aracı kullarak kalitesini daha da artırmayı amaçlar. <font color=gray>Moztrap</font>, yazılan test durumlarının depoladığımız ve çalıştırma sonucunda aldığımız çıktıları dökümante edebileceğimiz bir web sitesi. Testi belirlediğimiz bir sürüm için belirlediğimiz işletim sistemi özelliklerinde manuel olarak uyguluyoruz. Önceden yazılmış bu test adımları bu sürüm için çalışıyor mu? Hangi adım bu sürümde hata verdi bu durumları da <font color=green>Passed,</font> <font color=red>Failed,</font> <font color=#CCCC00>Invalidated </font>sonuçları ile raporlama yapar.</p>
+
+<p>Ben de LibreOffice için Moztrapta <font color=#FF3333>Kullanıcı Arayüzü(UI)</font> testleri oluşturdum. Nasıl test case yazılır  anlatımını başka bir blogumda paylaşmıştım   <a href="http://kadertarlan.github.io/blog/2014/08/07/selenium-ikinci-asama/">buradan</a> inceleyebilirsiniz.
+LibreOffice için yazdığım test durumlarını <a href="http://manual-test.libreoffice.org/manage/cases/">buradan</a> inceleyebilirsiniz.
+Testleri okumanıza yardımcı olabilmek için ben de bir örnek üzerinden anlatayım istiyorum.</p>
+
+<p>Aşağıdaki test  <font color=gray>“Making Text Superscript or Subscript” </font>  adı ile yazdığım bir test LibreOffice için yazılan test caselerin içinde bulabilirsiniz.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">Open</span> <span class="n">a</span> <span class="kp">new</span> <span class="no">Writer</span> <span class="n">document</span>
+</span><span class='line'><span class="no">Fill</span> <span class="k">in</span> <span class="n">the</span> <span class="n">document</span> <span class="n">with</span> <span class="n">characters</span> <span class="p">(</span><span class="ss">example</span><span class="p">:</span> <span class="mi">12</span><span class="no">Mg2</span><span class="o">+</span><span class="p">)</span>
+</span><span class='line'><span class="no">Select</span> <span class="n">the</span> <span class="n">characters</span> <span class="n">that</span> <span class="n">you</span> <span class="n">want</span> <span class="n">to</span> <span class="n">put</span> <span class="k">in</span> <span class="n">subscript</span> <span class="p">(</span><span class="no">Select</span> <span class="mi">12</span> <span class="k">for</span> <span class="mi">12</span><span class="no">Mg2</span><span class="o">+</span><span class="p">)</span>
+</span><span class='line'><span class="no">Choose</span> <span class="s2">&quot;Format&quot;</span> <span class="n">menu</span> <span class="n">bar</span><span class="o">.</span> <span class="no">And</span> <span class="k">then</span> <span class="no">Select</span> <span class="s2">&quot;Character&quot;</span>
+</span><span class='line'><span class="no">Click</span> <span class="n">the</span> <span class="s2">&quot;Position&quot;</span> <span class="n">tab</span><span class="o">.</span>
+</span><span class='line'><span class="no">Select</span> <span class="n">the</span> <span class="s2">&quot;Subscript&quot;</span> <span class="n">option</span> <span class="k">for</span> <span class="n">position</span><span class="o">.</span> <span class="no">And</span> <span class="k">then</span> <span class="no">Click</span> <span class="no">OK</span>
+</span><span class='line'>  <span class="o">-</span><span class="no">Verify</span> <span class="n">that</span> <span class="n">the</span> <span class="n">subscript</span> <span class="k">for</span> <span class="n">the</span> <span class="n">selected</span> <span class="n">character</span> <span class="p">(</span><span class="n">here</span> <span class="n">this</span> <span class="n">character</span> <span class="mi">12</span><span class="p">)</span>
+</span><span class='line'><span class="no">Select</span> <span class="n">the</span> <span class="n">characters</span> <span class="n">that</span> <span class="n">you</span> <span class="n">want</span> <span class="n">to</span> <span class="n">put</span> <span class="k">in</span> <span class="no">Superscript</span> <span class="p">(</span><span class="no">Select</span> <span class="mi">2</span><span class="o">+</span> <span class="k">for</span> <span class="mi">12</span><span class="no">Mg2</span><span class="o">+</span><span class="p">)</span>
+</span><span class='line'><span class="no">Choose</span> <span class="s2">&quot;Format&quot;</span> <span class="n">menu</span> <span class="n">bar</span><span class="o">.</span> <span class="no">And</span> <span class="k">then</span> <span class="no">Select</span> <span class="s2">&quot;Character&quot;</span>
+</span><span class='line'><span class="no">Click</span> <span class="n">the</span> <span class="s2">&quot;Position&quot;</span> <span class="n">tab</span><span class="o">.</span>
+</span><span class='line'><span class="no">Select</span> <span class="n">the</span> <span class="s2">&quot;Superscript&quot;</span> <span class="n">option</span> <span class="k">for</span> <span class="n">position</span><span class="o">.</span> <span class="no">And</span> <span class="k">then</span> <span class="no">Click</span> <span class="no">OK</span>
+</span><span class='line'>  <span class="o">-</span><span class="no">Verify</span> <span class="n">that</span> <span class="n">the</span> <span class="n">superscript</span> <span class="k">for</span> <span class="n">the</span> <span class="n">selected</span> <span class="n">character</span> <span class="p">(</span><span class="n">here</span> <span class="n">this</span> <span class="n">character</span> <span class="mi">2</span><span class="o">+</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p> 12Mg2+→ <sub>12</sub>Mg2+  → <sub>12</sub>Mg<sup>2+</sup></p>
+
+<p>Testi incelediğinizde görüyorsunuz ki aslında anlaşılması oldukça basit. Libreoffice Writer dökümanına örnek olarak yazılan “12Mg2+ “ değerindeki &ldquo;12&rdquo; değerini <font color=gray>subcsript</font> “2+” değerini ise <font color=gray>superscript</font> yapabilmek amaçlanıyor.</p>
+
+<p>Writer bu işi düzgün yapabildi mi? <font color=gray> Subscript ve Superscript</font> özellikleri doğru çalışıyor mu? Beklediğimiz sonuç geldi mi? Herhangi başka bir gelişme bizim bu özelliklerimizi bozmuş olabilir ve burası efektif şekilde çalışmıyor olabilir. Bu özelliği farklı işletim sistemlerinde de çalışmasını kontrol etmek mümkün. Testin yapıldığı platformu seçip testi uyguladıktan sonra sonuçlarını not ediyoruz. Özellik çalışmıyorsa test <font color=red> Fail!</font>  verecek ve biz bunu Moztrap dökğmanına <font color=red> Fail!</font> olarak bildireceğiz. Böylece hangi özellikler hala bu sürümde düzgün çalışıyor, hangileri hata veriyor bilgileneceğiz.</p>
+
+<p>Testin çalışmasını kontrol edebilmek için <font color=#00CCCC>Verify</font> adımları ile beklenilen sonuç yazılmıştır. Buradan yola çıkarak test gerçekler, beklenilen sağlanırsa <font color=#00CC00>Passed</font>, sağlanmaz ise <font color=red>Failed</font> cevapları ile test durumunu bildirmek mümkün.</p>
+
+<p>Bu şekilde test durumu nedir, nasıl yazılır biraz olsun fikriniz olduğunu düşünüyorum. Sonraki blog yazılarımda LibreOffice için oluşturduğum <font color=#FF3333>Unit Test</font> ve <font color=#FF3333>Otomasyon testlerinden</font> de bahsedeceğim. Kolay gelsin.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">KaderTarlan</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-11-03T23:16:39+03:00" pubdate data-updated="true"></time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://kadertarlan.github.io/blog/2015/11/03/libreofiice-icin-test-yazma/" data-via="" data-counturl="http://kadertarlan.github.io/blog/2015/11/03/libreofiice-icin-test-yazma/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2015/10/04/jmeter-ile-performans-testi/" title="Previous Post: Jmeter ile Performans Testi">&laquo; Jmeter ile Performans Testi</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2016/02/23/gdg-devfest-libreoffice-katki-sureci/" title="Next Post: GDG DevFest - LibreOffice Katkı Süreci">GDG DevFest - LibreOffice Katkı Süreci &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  <section>
+  <p>Hi, I'm <a href="https://twitter.com/martinbjeldbak">Martin Bjeldbak Madsen</a>!</p>
+  
+
+  <p>You can read more about me on my <a href="/about/">about</a> page. To see what I'm working on, check out my GitHub page <a href="https://github.com/fapper">here</a>.</p>
+  <p>My resume can be found <a href="cv.pdf">here</a>.</p>
+  <div class="social-icons">
+    
+
+    
+
+    
+
+    
+  <a href="https://github.com/kadertarlan"><i class="fa fa-github fa-3x"></i></a>
+
+
+    
+
+  </div>
+</section>
+
+  <section>
+  <h1>Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2017/05/13/title-of-the-post/">Title of the Post</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/05/13/ozetle-yazilim-test-otomasyon/">Özetle Yazılım Test Otomasyon</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/02/23/python-ile-birim-testler/">Python Ile Birim Testler</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/02/23/gdg-devfest-libreoffice-katki-sureci/">GDG DevFest - LibreOffice Katkı Süreci</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/11/03/libreofiice-icin-test-yazma/"><font color=green>LibreOffice</font> Için Test Yazmak</a>
+      </li>
+    
+  </ul>
+</section>
+
+  
+    <section>
+  <h1>Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2017/05/13/title-of-the-post/">Title of the Post</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/05/13/ozetle-yazilim-test-otomasyon/">Özetle Yazılım Test Otomasyon</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/02/23/python-ile-birim-testler/">Python Ile Birim Testler</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/02/23/gdg-devfest-libreoffice-katki-sureci/">GDG DevFest - LibreOffice Katkı Süreci</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/11/03/libreofiice-icin-test-yazma/"><font color=green>LibreOffice</font> Için Test Yazmak</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/kadertarlan">@kadertarlan</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'kadertarlan',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2017 - KaderTarlan -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+<p>
+<span>Copyright &copy; 2017  KaderTarlan -</span>
+<span class="credit">Powered by <a href="http://octopress.org">Octopress</a> using the <a href="https://github.com/fapper/classic-martinb">classic-martinb</a> theme</span>
+</p>
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

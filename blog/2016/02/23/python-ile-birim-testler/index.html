@@ -1,0 +1,613 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Python Ile Birim Testler - KaderTarlan</title>
+  <meta name="author" content="KaderTarlan">
+
+  
+  <meta name="description" content="Merhaba uzun süredir uğraştığım test alanı ile ilgili faydalı bilgiler aktarabilmek adına Python ile birim testleri nasıl yazıyoruz ondan &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://kadertarlan.github.io/blog/2016/02/23/python-ile-birim-testler">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="KaderTarlan" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><div class="header-left">
+  <hgroup>
+  <h1><a href="/">KaderTarlan</a></h1>
+  
+  <div class="subtitle">
+    <h2>BlogCan</h2>
+  </div>
+  
+  </hgroup>
+  
+</div>
+
+<div class="header-right">
+  <ul class="main-navigation">
+ <div> 
+  <li><a href="/">blog</a></li></div><div class="spacer"></div>
+     <div> 
+  <li><a href="/projects">projects</a></li></div><div class="spacer"></div>
+       <div> 
+  <li><a href="/work">work</a></li></div><div class="spacer"></div>
+         <div> 
+  <li><a href="/about">about</a></li></div>
+</ul>
+  
+
+</div>
+</header>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Python Ile Birim Testler</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2016-02-23T01:45:42+02:00" pubdate data-updated="true"></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><blockquote><p>Merhaba uzun süredir uğraştığım test alanı ile ilgili faydalı bilgiler aktarabilmek adına Python ile birim testleri nasıl yazıyoruz ondan bahsedeceğim bu yazımda.</p></blockquote>
+
+<p><font color=green>LibreOffice</font> projesinin kaynak koduna <font color=#990000>Python</font> ile birim testler yazdım. Oraya yazdığım ve kaynak koduna kabul ettirdiğim testlerden birini örnek vererek anlatacağım.</p>
+
+<p>Öncelikle <font color=green>LibreOffice</font> test yazacaksanız yazdığınız kodun en başına bir lisans bildirimi ekliyorsunuz. Yazdığım dosya <font color=green>LibreOffice</font> aittir, belirtilen lisans doğrultusunda yazıyorum gibi.</p>
+
+<p><font color=green>LibreOffice</font> geliştirdiği Uno modüllerinden testinizde hangilerini kullanacaksanız onları test dosyasına dahil ediyoruz. <br/>
+<code>from com.sun.star.text import XTextDocument</code>
+<code>from org.libreoffice.unotest import UnoInProcess</code></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="k">class</span> <span class="nc">CheckFlies</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nd">@classmethod</span>
+</span><span class='line'>    <span class="k">def</span> <span class="nf">setUpClass</span><span class="p">(</span><span class="n">cls</span><span class="p">):</span>
+</span><span class='line'>        <span class="n">cls</span><span class="o">.</span><span class="n">_uno</span> <span class="o">=</span> <span class="n">UnoInProcess</span><span class="p">()</span>
+</span><span class='line'>        <span class="n">cls</span><span class="o">.</span><span class="n">_uno</span><span class="o">.</span><span class="n">setUp</span><span class="p">()</span>
+</span><span class='line'>        <span class="n">cls</span><span class="o">.</span><span class="n">document</span> <span class="o">=</span> <span class="n">cls</span><span class="o">.</span><span class="n">_uno</span><span class="o">.</span><span class="n">openWriterTemplateDoc</span><span class="p">(</span><span class="s">&quot;CheckFlies.odt&quot;</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'>    <span class="nd">@classmethod</span>
+</span><span class='line'>    <span class="k">def</span> <span class="nf">tearDownClass</span><span class="p">(</span><span class="n">cls</span><span class="p">):</span>
+</span><span class='line'>        <span class="n">cls</span><span class="o">.</span><span class="n">_uno</span><span class="o">.</span><span class="n">tearDown</span><span class="p">()</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><font color=#990000>Python</font> ile yazılan tüm birim testlerimizin class parametresi <code>unittest.TestCase</code> şeklinde olmalı.</p>
+
+<p>Testler için <font color=brown>SetUpClass</font> ve <font color=brown>tearDownClass</font> sınıf metotlarımız olması gereken metotlardır. <font color=brown>SetUpClass</font> metodumuz testler daha başlamadan hazırlanmasını istediğimiz adımları yazdığımız kısımdır. Burada <font color=green>LibreOffice</font> için dökümanları açtığımız, oluşturduğumuz yer de oluyor aynı zamanda. İşlem yapılacak belgemizi öncesinde hazır hale getiriyoruz. <font color=brown>tearDownClass</font> metodu ise testler bittikten sonra çalıştırılmasını istediğimiz adımları yazdığımız yerdir. Örneğin açılan dosyamızın kapatılma işlemi burada gerçekleşiyor.</p>
+
+<p>Testlerin başlangıç fonksiyonu <font color=red>&ldquo;test&rdquo;</font> deyimi ile başlamalı. Eğer bunu yazmazsak o test aslında hiç çalışmamış olur. Fonksiyonların başına test yazmadığınız zaman çağırmadığınız sürece çalıştırılmayacak fonksiyonlar olur onlar. Ancak <font color=red>&ldquo;test&rdquo;</font> yazan her fonksiyonu siz çağırmak zorunda değilsiniz siz testleri çalıştırdığınızda o fonksiyonlarda otomatikmen çağrılırlar. Benim örneğimdeki fonksiyonumuzda <font color=brown>&ldquo;def test_checkFlies(self):&rdquo;</font> deyimi yer almakta.</p>
+
+<p>Testlerde kullanılan diğer herşey kulandığınız dilin marifetleri ile şekillenecektir. Değindiğim noktalarla iskeleti oluşturduktan sonra <font color=#990000>Python</font> dilinde yapmak istediğim şeyleri yazdım.</p>
+
+<p>Kullandığım diğer önemli yapı testlerin hepsinde olan <font color=red>Assert</font> adımlarıdır. <font color=#5276AC>AssertEqual</font> ile verilen iki parametre arasında eşitliği kontrol edip <font color=#5276AC>AssertTrue</font> ile doğruluğunun sağlandığını ölçüp <font color=#5276AC>AssertFail</font> ile hata mesajı dönebilirsiniz. <font color=#D01F54>Assertion</font> adımları testi test yapan adımlar. Eğer testinizde kontrol adımlarınız yoksa birşeyi test etmiş olmazsınız. <font color=red>Assert</font> çok çeşitlidir, örneğin kullanmanız gereken duruma göre aşağıdakilerden birini seçebilirsiniz:</p>
+
+<p><font color=#E16F6F></p>
+
+<p>|             |             |<br/>
+| &mdash;&mdash;&mdash;&ndash; | &mdash;&mdash;&mdash;&ndash; | <br/>
+|assertEqual(a, b) |  a == b|<br/>
+| assertNotEqual(a, b)|a != b|<br/>
+| assertTrue(x)          | bool(x) is True  |        <br/>
+| assertFalse(x)            | bool(x) is False   |<br/>
+| assertIs(a, b)         | a is b  |<br/>
+| assertIsNot(a, b)         | a is not b  | <br/>
+| assertIsNone(x)       | x is None   |<br/>
+| assertIsNotNone(x)     | x is not None |  <br/>
+| assertIn(a, b)        | a in b  s|<br/>
+| assertNotIn(a, b)      | a not in b  |<br/>
+| assertIsInstance(a, b) | isinstance(a, b)  |<br/>
+| assertGreater(a, b) | a > b  |<br/>
+| assertGreaterEqual(a, b )   | a >= b |  <br/>
+| assertLess(a, b) |    a &lt; b  |<br/>
+| assertLessEqual(a, b) |   a &lt;= b  |<br/>
+</font></p>
+
+<blockquote><p>Bahsini ettiğim testi de paylaşacağım. Testin üzerinden anlattıklarıma tekrar bakarsanız daha kalıcı olacağını düşünüyorum. Kolay gelsin.</p></blockquote>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+<span class='line-number'>65</span>
+<span class='line-number'>66</span>
+<span class='line-number'>67</span>
+<span class='line-number'>68</span>
+<span class='line-number'>69</span>
+<span class='line-number'>70</span>
+<span class='line-number'>71</span>
+<span class='line-number'>72</span>
+<span class='line-number'>73</span>
+<span class='line-number'>74</span>
+<span class='line-number'>75</span>
+<span class='line-number'>76</span>
+<span class='line-number'>77</span>
+<span class='line-number'>78</span>
+<span class='line-number'>79</span>
+<span class='line-number'>80</span>
+<span class='line-number'>81</span>
+<span class='line-number'>82</span>
+<span class='line-number'>83</span>
+<span class='line-number'>84</span>
+<span class='line-number'>85</span>
+<span class='line-number'>86</span>
+<span class='line-number'>87</span>
+<span class='line-number'>88</span>
+<span class='line-number'>89</span>
+<span class='line-number'>90</span>
+<span class='line-number'>91</span>
+<span class='line-number'>92</span>
+<span class='line-number'>93</span>
+<span class='line-number'>94</span>
+<span class='line-number'>95</span>
+<span class='line-number'>96</span>
+<span class='line-number'>97</span>
+<span class='line-number'>98</span>
+<span class='line-number'>99</span>
+<span class='line-number'>100</span>
+<span class='line-number'>101</span>
+<span class='line-number'>102</span>
+<span class='line-number'>103</span>
+<span class='line-number'>104</span>
+<span class='line-number'>105</span>
+<span class='line-number'>106</span>
+<span class='line-number'>107</span>
+<span class='line-number'>108</span>
+<span class='line-number'>109</span>
+<span class='line-number'>110</span>
+<span class='line-number'>111</span>
+<span class='line-number'>112</span>
+<span class='line-number'>113</span>
+<span class='line-number'>114</span>
+<span class='line-number'>115</span>
+<span class='line-number'>116</span>
+<span class='line-number'>117</span>
+<span class='line-number'>118</span>
+<span class='line-number'>119</span>
+<span class='line-number'>120</span>
+<span class='line-number'>121</span>
+<span class='line-number'>122</span>
+<span class='line-number'>123</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="sd">&#39;&#39;&#39;</span>
+</span><span class='line'><span class="sd">  This is file is part of the LibreOffice project.</span>
+</span><span class='line'>
+</span><span class='line'><span class="sd">  This Source Code Form is subject to the terms of the Mozilla Public</span>
+</span><span class='line'><span class="sd">  License, v. 2.0. If a copy of the MPL was not distributed with this</span>
+</span><span class='line'><span class="sd">  file, You can obtain one at http://mozilla.org/MPL/2.0/.</span>
+</span><span class='line'>
+</span><span class='line'><span class="sd">  This file incorporates work covered by the following license notice:</span>
+</span><span class='line'>
+</span><span class='line'><span class="sd">    Licensed to the Apache Software Foundation (ASF) under one or more</span>
+</span><span class='line'><span class="sd">    contributor license agreements. See the NOTICE file distributed</span>
+</span><span class='line'><span class="sd">    with this work for additional information regarding copyright</span>
+</span><span class='line'><span class="sd">    ownership. The ASF licenses this file to you under the Apache</span>
+</span><span class='line'><span class="sd">    License, Version 2.0 (the &quot;License&quot;); you may not use this file</span>
+</span><span class='line'><span class="sd">    except in compliance with the License. You may obtain a copy of</span>
+</span><span class='line'><span class="sd">    the License at http://www.apache.org/licenses/LICENSE-2.0 .</span>
+</span><span class='line'><span class="sd">&#39;&#39;&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="kn">from</span> <span class="nn">com.sun.star.lang</span> <span class="kn">import</span> <span class="n">XMultiServiceFactory</span>
+</span><span class='line'><span class="kn">from</span> <span class="nn">com.sun.star.text</span> <span class="kn">import</span> <span class="n">XTextDocument</span>
+</span><span class='line'><span class="kn">from</span> <span class="nn">com.sun.star.text</span> <span class="kn">import</span> <span class="n">XTextFramesSupplier</span>
+</span><span class='line'><span class="kn">from</span> <span class="nn">com.sun.star.text</span> <span class="kn">import</span> <span class="n">XTextGraphicObjectsSupplier</span>
+</span><span class='line'><span class="kn">from</span> <span class="nn">com.sun.star.text</span> <span class="kn">import</span> <span class="n">XTextEmbeddedObjectsSupplier</span>
+</span><span class='line'><span class="kn">from</span> <span class="nn">com.sun.star.container</span> <span class="kn">import</span> <span class="n">XNameAccess</span>
+</span><span class='line'><span class="kn">from</span> <span class="nn">com.sun.star.container</span> <span class="kn">import</span> <span class="n">NoSuchElementException</span>
+</span><span class='line'><span class="kn">from</span> <span class="nn">com.sun.star.container</span> <span class="kn">import</span> <span class="n">XIndexAccess</span>
+</span><span class='line'><span class="kn">from</span> <span class="nn">org.libreoffice.unotest</span> <span class="kn">import</span> <span class="n">UnoInProcess</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">unittest</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">unohelper</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">os</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">CheckFlies</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nd">@classmethod</span>
+</span><span class='line'>    <span class="k">def</span> <span class="nf">setUpClass</span><span class="p">(</span><span class="n">cls</span><span class="p">):</span>
+</span><span class='line'>        <span class="n">cls</span><span class="o">.</span><span class="n">_uno</span> <span class="o">=</span> <span class="n">UnoInProcess</span><span class="p">()</span>
+</span><span class='line'>        <span class="n">cls</span><span class="o">.</span><span class="n">_uno</span><span class="o">.</span><span class="n">setUp</span><span class="p">()</span>
+</span><span class='line'>        <span class="n">cls</span><span class="o">.</span><span class="n">document</span> <span class="o">=</span> <span class="n">cls</span><span class="o">.</span><span class="n">_uno</span><span class="o">.</span><span class="n">openWriterTemplateDoc</span><span class="p">(</span><span class="s">&quot;CheckFlies.odt&quot;</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'>    <span class="nd">@classmethod</span>
+</span><span class='line'>    <span class="k">def</span> <span class="nf">tearDownClass</span><span class="p">(</span><span class="n">cls</span><span class="p">):</span>
+</span><span class='line'>        <span class="n">cls</span><span class="o">.</span><span class="n">_uno</span><span class="o">.</span><span class="n">tearDown</span><span class="p">()</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">def</span> <span class="nf">test_checkFlies</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span class='line'>        <span class="n">xTFS</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">document</span>
+</span><span class='line'>        <span class="bp">self</span><span class="o">.</span><span class="n">checkTextFrames</span><span class="p">(</span><span class="n">xTFS</span><span class="p">)</span>
+</span><span class='line'>        <span class="n">xTGOS</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">document</span>
+</span><span class='line'>        <span class="bp">self</span><span class="o">.</span><span class="n">checkGraphicFrames</span><span class="p">(</span><span class="n">xTGOS</span><span class="p">)</span>
+</span><span class='line'>        <span class="n">xTEOS</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">document</span>
+</span><span class='line'>        <span class="bp">self</span><span class="o">.</span><span class="n">checkEmbeddedFrames</span><span class="p">(</span><span class="n">xTEOS</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">def</span> <span class="nf">checkEmbeddedFrames</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">xTGOS</span><span class="p">):</span>
+</span><span class='line'>        <span class="n">vExpectedEmbeddedFrames</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;Object1&quot;</span><span class="p">]</span>
+</span><span class='line'>        <span class="n">nEmbeddedFrames</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">vExpectedEmbeddedFrames</span><span class="p">)</span>
+</span><span class='line'>        <span class="n">xEmbeddedFrames</span> <span class="o">=</span> <span class="n">xTGOS</span><span class="o">.</span><span class="n">getEmbeddedObjects</span><span class="p">()</span>
+</span><span class='line'>        <span class="n">nCurrentFrameIdx</span><span class="o">=</span><span class="mi">0</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="k">print</span> <span class="p">(</span><span class="n">xEmbeddedFrames</span><span class="p">)</span>
+</span><span class='line'>        <span class="k">for</span> <span class="n">sFrameName</span> <span class="ow">in</span> <span class="n">xEmbeddedFrames</span><span class="o">.</span><span class="n">getElementNames</span><span class="p">():</span>
+</span><span class='line'>            <span class="n">vExpectedEmbeddedFrames</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">sFrameName</span><span class="p">)</span>
+</span><span class='line'>                <span class="c"># raises ValueError if not found</span>
+</span><span class='line'>            <span class="k">print</span> <span class="p">(</span><span class="n">sFrameName</span><span class="p">)</span>
+</span><span class='line'>            <span class="n">xEmbeddedFrames</span><span class="o">.</span><span class="n">getByName</span><span class="p">(</span><span class="n">sFrameName</span><span class="p">)</span>
+</span><span class='line'>            <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="n">xEmbeddedFrames</span><span class="o">.</span><span class="n">hasByName</span><span class="p">(</span><span class="n">sFrameName</span><span class="p">),</span> <span class="s">&quot;Could not find embedded frame by name.&quot;</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="ow">not</span><span class="p">(</span><span class="n">vExpectedEmbeddedFrames</span><span class="p">),</span> <span class="s">&quot;Missing expected embedded frames.&quot;</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="n">xEmbeddedFramesIdx</span> <span class="o">=</span> <span class="n">xEmbeddedFrames</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">nEmbeddedFrames</span><span class="p">,</span> <span class="n">xEmbeddedFramesIdx</span><span class="o">.</span><span class="n">getCount</span><span class="p">())</span> <span class="c">#Unexpected number of embedded frames reported</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="k">for</span> <span class="n">nCurrentFrameIdx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">xEmbeddedFramesIdx</span><span class="o">.</span><span class="n">getCount</span><span class="p">()):</span>
+</span><span class='line'>            <span class="n">xEmbeddedFramesIdx</span><span class="o">.</span><span class="n">getByIndex</span><span class="p">(</span><span class="n">nCurrentFrameIdx</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">def</span> <span class="nf">checkGraphicFrames</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">xTGOS</span><span class="p">):</span>
+</span><span class='line'>        <span class="n">vExpectedGraphicFrames</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;graphics1&quot;</span><span class="p">]</span>
+</span><span class='line'>        <span class="n">nGraphicFrames</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">vExpectedGraphicFrames</span><span class="p">)</span>
+</span><span class='line'>        <span class="n">xGraphicFrames</span> <span class="o">=</span> <span class="n">xTGOS</span><span class="o">.</span><span class="n">getGraphicObjects</span><span class="p">()</span>
+</span><span class='line'>        <span class="n">nCurrentFrameIdx</span> <span class="o">=</span> <span class="mi">0</span>
+</span><span class='line'>        <span class="k">for</span> <span class="n">sFrameName</span> <span class="ow">in</span> <span class="n">xGraphicFrames</span><span class="o">.</span><span class="n">getElementNames</span><span class="p">():</span>
+</span><span class='line'>            <span class="n">vExpectedGraphicFrames</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">sFrameName</span><span class="p">)</span>
+</span><span class='line'>                <span class="c"># raises ValueError if not found</span>
+</span><span class='line'>            <span class="n">xGraphicFrames</span><span class="o">.</span><span class="n">getByName</span><span class="p">(</span><span class="n">sFrameName</span><span class="p">)</span>
+</span><span class='line'>            <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span>
+</span><span class='line'>                <span class="n">xGraphicFrames</span><span class="o">.</span><span class="n">hasByName</span><span class="p">(</span><span class="n">sFrameName</span><span class="p">),</span>
+</span><span class='line'>                <span class="s">&quot;Could not find graphics frame by name.&quot;</span><span class="p">)</span>
+</span><span class='line'>        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span>
+</span><span class='line'>            <span class="ow">not</span><span class="p">(</span><span class="n">vExpectedGraphicFrames</span><span class="p">),</span>
+</span><span class='line'>            <span class="s">&quot;Missing expected graphics frames.&quot;</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="n">xGraphicFramesIdx</span> <span class="o">=</span> <span class="n">xGraphicFrames</span>
+</span><span class='line'>        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">nGraphicFrames</span><span class="p">,</span><span class="n">xGraphicFramesIdx</span><span class="o">.</span><span class="n">getCount</span><span class="p">())</span> <span class="c">#Unexpected number of graphics frames reported</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="k">for</span> <span class="n">nCurrentFrameIdx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">xGraphicFramesIdx</span><span class="o">.</span><span class="n">getCount</span><span class="p">()):</span>
+</span><span class='line'>            <span class="n">xGraphicFramesIdx</span><span class="o">.</span><span class="n">getByIndex</span><span class="p">(</span><span class="n">nCurrentFrameIdx</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">def</span> <span class="nf">checkTextFrames</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">xTFS</span><span class="p">):</span>
+</span><span class='line'>        <span class="n">vExpectedTextFrames</span><span class="o">=</span> <span class="p">[</span><span class="s">&quot;Frame1&quot;</span> <span class="p">,</span> <span class="s">&quot;Frame2&quot;</span><span class="p">]</span>
+</span><span class='line'>        <span class="n">nTextFrames</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">vExpectedTextFrames</span><span class="p">)</span>
+</span><span class='line'>        <span class="n">xTextFrames</span> <span class="o">=</span> <span class="n">xTFS</span><span class="o">.</span><span class="n">getTextFrames</span><span class="p">()</span>
+</span><span class='line'>        <span class="n">nCurrentFrameIdx</span><span class="o">=</span><span class="mi">0</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="k">for</span> <span class="n">sFrameName</span> <span class="ow">in</span> <span class="n">xTextFrames</span><span class="o">.</span><span class="n">getElementNames</span><span class="p">():</span>
+</span><span class='line'>            <span class="n">vExpectedTextFrames</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">sFrameName</span><span class="p">)</span>
+</span><span class='line'>                <span class="c"># raises ValueError if not found</span>
+</span><span class='line'>            <span class="n">xTextFrames</span><span class="o">.</span><span class="n">getByName</span><span class="p">(</span><span class="n">sFrameName</span><span class="p">)</span>
+</span><span class='line'>            <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span>
+</span><span class='line'>                <span class="n">xTextFrames</span><span class="o">.</span><span class="n">hasByName</span><span class="p">(</span><span class="n">sFrameName</span><span class="p">),</span>
+</span><span class='line'>                <span class="s">&quot;Could not find text frame by name.&quot;</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span>
+</span><span class='line'>            <span class="ow">not</span><span class="p">(</span><span class="n">vExpectedTextFrames</span><span class="p">),</span> <span class="s">&quot;Missing expected text frames.&quot;</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="n">xTextFramesIdx</span> <span class="o">=</span> <span class="n">xTextFrames</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">nTextFrames</span><span class="p">,</span> <span class="n">xTextFrames</span><span class="o">.</span><span class="n">getCount</span><span class="p">())</span> <span class="c">#Unexpected number of text frames reported</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="k">for</span> <span class="n">nCurrentFrameIdx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">xTextFramesIdx</span><span class="o">.</span><span class="n">getCount</span><span class="p">()):</span>
+</span><span class='line'>            <span class="n">xTextFramesIdx</span><span class="o">.</span><span class="n">getByIndex</span><span class="p">(</span><span class="n">nCurrentFrameIdx</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&quot;__main__&quot;</span><span class="p">:</span>
+</span><span class='line'>    <span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
+</span></code></pre></td></tr></table></div></figure>
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">KaderTarlan</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2016-02-23T01:45:42+02:00" pubdate data-updated="true"></time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://kadertarlan.github.io/blog/2016/02/23/python-ile-birim-testler/" data-via="" data-counturl="http://kadertarlan.github.io/blog/2016/02/23/python-ile-birim-testler/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2016/02/23/gdg-devfest-libreoffice-katki-sureci/" title="Previous Post: GDG DevFest - LibreOffice Katkı Süreci">&laquo; GDG DevFest - LibreOffice Katkı Süreci</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2017/05/13/ozetle-yazilim-test-otomasyon/" title="Next Post: Özetle Yazılım Test Otomasyon">Özetle Yazılım Test Otomasyon &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  <section>
+  <p>Hi, I'm <a href="https://twitter.com/martinbjeldbak">Martin Bjeldbak Madsen</a>!</p>
+  
+
+  <p>You can read more about me on my <a href="/about/">about</a> page. To see what I'm working on, check out my GitHub page <a href="https://github.com/fapper">here</a>.</p>
+  <p>My resume can be found <a href="cv.pdf">here</a>.</p>
+  <div class="social-icons">
+    
+
+    
+
+    
+
+    
+  <a href="https://github.com/kadertarlan"><i class="fa fa-github fa-3x"></i></a>
+
+
+    
+
+  </div>
+</section>
+
+  <section>
+  <h1>Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2017/05/13/title-of-the-post/">Title of the Post</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/05/13/ozetle-yazilim-test-otomasyon/">Özetle Yazılım Test Otomasyon</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/02/23/python-ile-birim-testler/">Python Ile Birim Testler</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/02/23/gdg-devfest-libreoffice-katki-sureci/">GDG DevFest - LibreOffice Katkı Süreci</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/11/03/libreofiice-icin-test-yazma/"><font color=green>LibreOffice</font> Için Test Yazmak</a>
+      </li>
+    
+  </ul>
+</section>
+
+  
+    <section>
+  <h1>Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2017/05/13/title-of-the-post/">Title of the Post</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/05/13/ozetle-yazilim-test-otomasyon/">Özetle Yazılım Test Otomasyon</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/02/23/python-ile-birim-testler/">Python Ile Birim Testler</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/02/23/gdg-devfest-libreoffice-katki-sureci/">GDG DevFest - LibreOffice Katkı Süreci</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/11/03/libreofiice-icin-test-yazma/"><font color=green>LibreOffice</font> Için Test Yazmak</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/kadertarlan">@kadertarlan</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'kadertarlan',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2017 - KaderTarlan -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+<p>
+<span>Copyright &copy; 2017  KaderTarlan -</span>
+<span class="credit">Powered by <a href="http://octopress.org">Octopress</a> using the <a href="https://github.com/fapper/classic-martinb">classic-martinb</a> theme</span>
+</p>
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

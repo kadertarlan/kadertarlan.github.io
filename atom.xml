@@ -4,7 +4,7 @@
   <title><![CDATA[KaderTarlan]]></title>
   <link href="http://kadertarlan.github.io/atom.xml" rel="self"/>
   <link href="http://kadertarlan.github.io/"/>
-  <updated>2017-05-13T01:52:08+03:00</updated>
+  <updated>2017-05-13T01:57:48+03:00</updated>
   <id>http://kadertarlan.github.io/</id>
   <author>
     <name><![CDATA[KaderTarlan]]></name>
@@ -12,6 +12,65 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Appium Kurulumu]]></title>
+    <link href="http://kadertarlan.github.io/blog/2017/05/13/appium-kurulumu/"/>
+    <updated>2017-05-13T01:56:58+03:00</updated>
+    <id>http://kadertarlan.github.io/blog/2017/05/13/appium-kurulumu</id>
+    <content type="html"><![CDATA[<p>Appium kurulumu kullanımı. İlk olarak Eclipse kurulu değil ise Eclipse IDE‘yi indiriyoruz kullandığınız platforma göre linkten bulabilirsiniz. <a href="http://www.eclipse.org/downloads/%E2%80%A8Ayr%C4%B1ca">http://www.eclipse.org/downloads/%E2%80%A8Ayr%C4%B1ca</a> JDK indirmeniz gerekiyor. Bunun için de aşağıdaki linkten, işletim sisteminizi seçip anlaşmayı onayladıktan sonra indirebilirsiniz. <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-">http://www.oracle.com/technetwork/java/javase/downloads/jdk8-</a> downloads-2133151.html JDKʼ yı indirip kurun. Yükleme bitince Eclipseʼyi açın. Android için SDK indireceğiz. Bunun için aşağıdaki linkten indirme işlemini yapıyoruz. <a href="http://www.gezginler.net/indir/android-sdk.html%E2%80%A8I%CC%87ndirdikten">http://www.gezginler.net/indir/android-sdk.html%E2%80%A8I%CC%87ndirdikten</a> sonra çift tıklayıp kuralım. Eclipse dosyasının içine kurabilirsiniz. Yükleme bitince SDK Manager programı açılacaktır. Burada yüklemek istediğimiz Android sürümlerini seçerek kurulumunu sağlayabilirsiniz. Şimdi Eclipseʼyi açın ve yukarıdaki menüden Help-Install New Software seçeneğine gelin. Location kısmına <a href="https://dl-ssl.google.com/android/eclipse/">https://dl-ssl.google.com/android/eclipse/</a>
+adresini girin. ADT (Android Development Tools) için gelen verileri seçerek indirilmesini sağlayın. Son olarak Eclipse içerisinde Window-Preferences ve soldaki Android kısmına tıklıyoruz. Buradaki SDK Location bölümüne Android SDKʼyı nereye kurduysak onu işaretliyoruz. Kurulum işlemlerimiz tamam. Android Tools indirirken Android DDMSʼde inmiş oldu. Bu bizim Android testlerimiz için mobil cihazın ekran görüntüsü almamızı sağlayacak.
+Şimdi Appium kuralım.<a href="https://bitbucket.org/appium/appium.app/downloads/">https://bitbucket.org/appium/appium.app/downloads/</a> buradan Appium versiyonunu projenize uygun şekilde seçmelisiniz. Ben Android 5 ve 6 sürümlerinde ayrıca ios 9 sürümünde test yapabilmek için 1.4.13 indirdim. Mac bilgisayarlar için kurulumu oldukça basit indirdiğiniz dosyanın üzerine gelerek kurulumu gerçekleştiriniz. appium.jpeg Burada localde bir android telefonu bilgisayarınıza bağlayıp resimde görüldüğü gibi Android iconuna tıklayıp Launch ettiğinizde status 200 alcaksınız başarılı bağlanma sonunda. appium2
+Kurulumlar tamamlandıktan sonra Could not find adb. Please set the ANDROID_HOME environment variable with the Android SDK root directory path. Gib Bir hatamız local bunun için vi ~/.bash_profile girip
+export ANDROID_HOME=/Applications/Android export PATH=$ANDROID_HOME/platform-tools:$PATH export PATH=$ANDROID_HOME/tools:$PATH Bunları yazmak gerekiyor dosyaya.</p>
+
+<p><a href="https://developer.apple.com/download/more/">https://developer.apple.com/download/more/</a>
+ Buradan xcode 7.3.1</p>
+
+<p><a href="https://nodejs.org/en/download/">https://nodejs.org/en/download/</a>
+İnstall nodejs
+ node -v diyoruz
+v6.9.2</p>
+
+<p>Sonra path nodejs tanımla
+export PATH=/usr/local/bin/node:$PATH</p>
+
+<p>. <a href="http://brew.sh/index_tr.html">http://brew.sh/index_tr.html</a> sitesinde linke(/usr/bin/ruby -e &ldquo;$(curl -fsSL <a href="https://raw.githubusercontent.com/Homebrew/install/master/install">https://raw.githubusercontent.com/Homebrew/install/master/install</a>)&rdquo;) ulas kopyala terminale yapistir ilk gelen soruda
+Brew update
+Brew doctor</p>
+
+<p>sudo npm install -g appium
+Ve <a href="https://bitbucket.org/appium/appium.app/downloads/">https://bitbucket.org/appium/appium.app/downloads/</a> buradan appium 1.4.13 kuralım</p>
+
+<p>Şimdi java jdk indirelim
+<a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html?ssSourceSiteId=otnes*">http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html?ssSourceSiteId=otnes*</a>
+Buradan Java SE Development Kit 8 indirdik. Kurulum tamamlayalım</p>
+
+<p>Şimdi java -version diyerek kurulum kontrol edelim.
+echo export &ldquo;JAVA_HOME=\$(/usr/libexec/java_home)&rdquo; >> ~/.bash_profile ile java pays tanımlayalım bash_profile</p>
+
+<p><a href="http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/mars/2/eclipse-jee-mars-2-macosx-cocoa-x86_64.tar.gz">http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/mars/2/eclipse-jee-mars-2-macosx-cocoa-x86_64.tar.gz</a>
+ Buradan eclipse indirrelim.</p>
+
+<p><a href="https://developer.android.com/studio/index.html#downloads">https://developer.android.com/studio/index.html#downloads</a>
+Android sdk indirelim.</p>
+
+<p>ADT ile android gerekliliklerini indirelim eclipse içinde  (help > install new software)
+ADT Plugin - <a href="https://dl-ssl.google.com/android/eclipse">https://dl-ssl.google.com/android/eclipse</a></p>
+
+<p>Eclipse için adnroid gerekliliklerini indiriyorz.</p>
+
+<p>Konsolda bash profile içine:
+export PATH=&ldquo;/usr/local/bin:$PATH&rdquo;
+export PATH=/usr/local/lib/node_modules/grunt/bin:$PATH
+export PATH=/usr/local/bin/node:$PATH
+export JAVA_HOME=$(/usr/libexec/java_home)
+export ANDROID_HOME=&ldquo;/Users/kader.tarlan/Downloads/tools/&rdquo;
+export PATH=&ldquo;/Users/kader.tarlan/Downloads/tools/tools:$PATH&rdquo;
+export PATH=&ldquo;/Users/kader.tarlan/Downloads/tools/platform-tools:$PATH&rdquo;
+export PATH=&ldquo;/Users/kader.tarlan/Downloads/tools/build-tools:$PATH&rdquo;</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Mobil Otomasyon Ve Cihaz Desteği]]></title>
@@ -3492,247 +3551,6 @@ komutu ile Rails projemizi tekrar çalştıralım ve tarayıcımızdan <a href="
 
 <p><img src="http://i.imgur.com/ZX4Fsh3.png" alt="" /></p>
 </div>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Git Ve Github]]></title>
-    <link href="http://kadertarlan.github.io/blog/2014/03/08/git-ve-github/"/>
-    <updated>2014-03-08T02:45:57+02:00</updated>
-    <id>http://kadertarlan.github.io/blog/2014/03/08/git-ve-github</id>
-    <content type="html"><![CDATA[<div class="entry-content"><blockquote><p><font color='red'>Git</font> açık kaynaklı bir versiyon kontrolü yazılımıdır.</p>
-
-<p><font color='red'>Github</font> ise, git ile versiyon kontrolü yaptığımız paketlerimizi, açık kaynaklı ise bedava, kapalı kaynaklı ise aylık ücretlendirilerek
- hem yer edinmesine hem de bir çok geliştirici tarafından aynı anda geliştirilirken yönetilmesini sağlıyor.</p></blockquote>
-
-<p>Github “social coding”e de imkan veren, kod yazan insanların facebook’udur da diyebiliriz.</p>
-
-<p>Bir proje üzerinde birden fazla geliştirici olsun ,her geliştiricinin yaptığı değişiklikleri
- kimin neyi değiştirdiği görmek istediğimiz zaman satırlarca uzun kodu tek tek incelemek epey uğraştırıcıdır.</p>
-
-<p>Veya farklı dosyalar üzerinde sürekli değişiklikler yaptığımızı düşünelim,
- bir yerden sonra yaptığımız değişikliğin hatalı olduğunu farkettik şimdi ne yapacağız
- sürekli  Text editörü veya IDE’de geri al düzelt yapmak bizi epey yorar,
-yada silmek istemediğimiz bir dosyayı sildiğimizde geri almak istersek ne yapacağız işte tüm bu sorunların cevabı da <font color='purple'>Github</font>&lsquo;dır.</p>
-
-<p>Github da yapılan en küçük değişiklik bile <font color='purple'>commit</font> adı verilen komutlarla tutulabilir.</p>
-
-<p> Projemize yeni özellikler eklemek istediğimiz mesela projeye bir dal (dallanma olayına <font color='purple'>branch</font> denir) oluştururuz.</p>
-
-<p>Oluşturduğumuz dalda orjinal proje üzerinde istediğimizi yapabiliriz daha sonra bunu tekrar ana projeye dahil edebiliriz.<br/>
- Bu olaya da <font color='purple'>merge</font> etmek deriz.</p>
-
-<p>Birçok kişi aynı proje üzerinde çalıştığında her biri farklı dallardan gerçekleştirir bu olayı
-ve işlerini tamamladıktan sonra bunu ana projeye merge ederler.Githubın sağladığı kolaylıklardan sadece birkaçıdır bunlar.</p>
-
-<h3>Git ve Github nasıl kullanılır?</h3>
-
-<p>Öncelikle github kullanabilmek için bir github hesabımızın olması gerekiyor.<br/>
- <a href="https://github.com/">şuradan</a>  girip kayıt olup bir adres edinebilirsiniz.<br/>
-Daha sonra gerekli ortamı oluşturmak için linux konsoldan</p>
-
-<p><code>$ sudo apt-get install git </code></p>
-
-<p>komutu veriyoruz.</p>
-
-<p>Bilgisayarımızla github hesabımızın anlaşması için bir güvenlik anahtarı oluşturmamız gerekiyor.<br/>
-Bunu yapmamızın nedeni ise bu key ile  bizi tanımalarını sağlamaktır.<br/>
-Bilgisayarımız da yaptığımız her işlemin githuba yansıması sağlanır böylece.</p>
-
-<p><code>$ssh-keygen</code></p>
-
-<p>komutunu konsola yazarak çıkan ekrandaki anahtarı kaydetmek için bir dosya yeri (.ssh/id_rsa.pub) ve
-  bir parola girdikten sonra bir key elde etmiş oluruz.<br/>
- Buna da ulaşmak için gedit text editörünü kullanabiliriz.</p>
-
-<p><code>$ gedit .ssh/id_rsa.pub</code></p>
-
-<p>komutu ile anahtarımıza erişmiş oluruz.</p>
-
-<p>Şimdi bu anahtarımızı github hesabımıza girerek kaydediyoruz.<br/>
-<a href="https://github.com/settings">https://github.com/settings</a> adresindeki <font color='purple'>account setting</font> butonuna</p>
-
-<p><img src="http://i.imgur.com/So1Wcqf.png?1" alt="" /></p>
-
-<p>oradanda <a href="https://github.com/settings/ssh">https://github.com/settings/ssh</a> adresindeki <font color='purple'>SSH key</font> butonuna</p>
-
-<p><img src="http://i.imgur.com/NH4i1pT.png?1" alt="" /></p>
-
-<p>daha  sonra  <font color='brown'>Add SSH key</font>  butonuna</p>
-
-<p><img src="http://i.imgur.com/vugFZ2Z.png?1" alt="" /></p>
-
-<p>Çıkan ekranda Title kısmına başlık ve key kısmına anahtarımızı ekleyip</p>
-
-<p><img src="http://i.imgur.com/J1kcgCr.jpg?1" alt="" /></p>
-
-<p><font color='pink'>Add key</font> tıklayıp kayıt ediyoruz.</p>
-
-<p>Böylece bilgisayarımızda lokal olarak yaptığınız değişiklikleri github da gözlemleyebiliriz.<br/>
-Github da bilmemiz gereken 3 önemli terim vardır bunlar  <font color='red'>Repository, Fork, Branch</font>&lsquo;tır.</p>
-
-<p>Burada <font color='red'>Repository</font>&lsquo;den bahsedelim öncelikle , bizim Github da paylaştığımız projelerimiz burada yer alır.<br/>
-Bir repo açma örneği yapalım öncelikle hesabımızda  resimde gözüken yere tıklayarak</p>
-
-<p><img src="http://i.imgur.com/U2EPVPh.jpg?1" alt="" /></p>
-
-<p> aşağıdaki resimdeki ekranın gelmesini bekliyoruz.</p>
-
-<p><img src="http://i.imgur.com/tpeJCkz.jpg?1" alt="" /></p>
-
-<p>Burada bir repo adı yazıp  , create repository butonuna tıklıyoruz.</p>
-
-<p>Sonraki aşamada elde edeceğimiz ekran görüntüsü aşağıdaki gibidir.</p>
-
-<p><img src="http://i.imgur.com/L922jCS.jpg?1" alt="" /></p>
-
-<p>Farzedelimki masaüstümüzde <font color='purple'>Python</font> dili ile yazılmış kodların olduğu bir
-klasörümüz var biz bu klasördeki kodları bu repomuza yollamak
-isteyelim. Bunun için ;</p>
-
-<p> <code>$ mkdir Desktop/ilk_repo</code></p>
-
-<p>adında bir klasör oluşturuyoruz.<br/>
-Klasörümüze makinamızdan bir çok python kodu yerleştiriyoruz.Daha sonra bu klasörümüzün içine girelim</p>
-
-<p><code>$ cd Desktop/ilk_repo </code></p>
-
-<p>komutu ile ve yukarıdaki resmimizde çıkan aşamaları konsolda tek tek uygulayalım.<br/>
-Böylece normal oluşturduğumuz kodları git reposu haline getireceğiz.  öncelikle;</p>
-
-<p><code>$touch README.md</code></p>
-
-<p>komutu ile repo hakkında yorumlarımızı yazabileceğimiz bir dosya oluşturuyoruz.Daha sonra;</p>
-
-<p><code>$git init</code></p>
-
-<p>komutunu ile komutuyla oluşturduğumuz dosyayı github’ın anlayacağı dile çeviriyoruz.</p>
-
-<p> <code>$git add . </code></p>
-
-<p> diyerek  klasörümüzdeki tüm python kodlarını dahil etmiş oluyoruz.</p>
-
-<p> <code>$ git commit -a -m "python_kodları"</code></p>
-
-<p>değişiklik kayıtları için <font color='purple'>commit</font> mesajını yazıyoruz.</p>
-
-<p><code>$ git remote add origin https://github.com/kadertarlan/ilk_repom.git</code></p>
-
-<p> komutu ile depomuzun yolunu yazıyoruz.</p>
-
-<p>son olarak dosyaları repo’muzun master branch’ına göndereceğimizi farzediyoruz ve</p>
-
-<p><code>$ git push origin master</code></p>
-
-<p>diyerek commit’imizi repo’muzun master branch’ına yolluyoruz.<br/>
-Başka bir branch’a yollamak için  master yerine o branch’ın adını yazıyoruz.</p>
-
-<p>Bu kodumuzdan sonra github hesap adımızı ve şifremizi soran yazıları yanıtladıktan sonra kodlarımız repomuza ulaşmış demektir.</p>
-
-<p><img src="http://i.imgur.com/4RJw7jQ.jpg?1" alt="" /></p>
-
-<p>şekildede görüldüğü gibi repomuz python kodlarımızla dolmuş bulunuyor.</p>
-
-<p>İkinci bir örneğe gelelim bu seferde var olan bir repositorydeki public olarak
-githubda yayınlanan bir projeyi kendi localimize almak isteyelim.<br/>
-Bunun için önce <font color='red'>Fork</font> etmemiz gerekir , fork kavramına da burada değinmiş oluruz.<br/>
-Fork ile bu proje artık bizim kendi klasörümüze gelmiş olur.<br/>
-Böylece onu clone edip kendi bilgisayarımıza alabiliriz.</p>
-
-<p><img src="http://i.imgur.com/C9ZaX5f.jpg?1" alt="" /></p>
-
-<p> herhangi birinin hesabındaki bir projeyi forklamak istediğimiz zaman resimde sağ üst köşedeki  fork butonuna tıklarız.<br/>
- Repomuzun şu andaki adı ismetacar/tantuni-rails dir.  <br/>
- Ancak repoyu forklandıktan sonraki adının değiştiğine dikkat edin.<br/>
- Benim repom için adı kadertarlan/tantuni-rails olacaktır.</p>
-
-<p><img src="http://i.imgur.com/lOZltv2.jpg?1" alt="" /></p>
-
-<p>şekilde görüldüğü gibi repo adımız değişti. Şimdi proje artık bizim kendi klasörümüze gelmiş oldu ve artık clone etmeye hazır haldedir.</p>
-
-<p><code>$ git clone https://github.com/kadertarlan/tantuni-rails.git</code></p>
-
-<p>komutu ile kendi localimize bu projeyi almış olduk.</p>
-
-<p><code>$ cd tantuni-rails</code></p>
-
-<p>Komutu ile projenin içine girebilir, değişiklik yapabilir, silebilirsiniz.<br/>
-Daha sonra bunu tekrar git’e göndermek istediğinizde</p>
-
-<p> <code>$ git status</code></p>
-
-<p> komutunu verip localiniz de ki klasörünüzde değişen,eklenen,silinen dosyaları görürsünüz, nerelerde değişiklik yaptığınızı görmek isterseniz</p>
-
-<p><code>$ git diff</code></p>
-
-<p>komutunu vererek dosyada yaptığınız değişiklikleri görürsünüz.</p>
-
-<p> <code>$ git add dosya_adı</code></p>
-
-<p>komutu ile tekrardan git e yollayabilirsiniz.</p>
-
-<p> <code>$ git -m commit "duzenlendi"</code></p>
-
-<p> komutunu verirek yaptığımız her değişikliği kayderiz.</p>
-
-<p><code>$ git push origin gonderilecek_branch</code></p>
-
-<p> komutunu da verip repositorymizi düzenlenmiş şekilde tekrardan github&#8217;a göndermiş oluruz.</p>
-
-<p>Ayrıca benim yaptığım bu değişiklik klonlamak için aldığım orjinal dosyayı etkilemez.</p>
-
-<p>Biz bunu şu an kendi branchımıza yani kendi dalımıza yolladık kendi repomuzdaki proje üzerinde değişiklik yaptık.</p>
-
-<p>Ancak bu değişikliğin orjinal dosyadada olmasını istiyorsak   kendi branch’ımızda iken githubta <font color='red'>pull request</font>  butonuna tıklarsak.</p>
-
-<p>Karşı tarafın bu pull requesti görmesini sağlarız , karşı taraf benim eklediğim satırları yeşil,
-çıkardığım satırları ise kırmızı görür böylece değişen dosyaları ayırt etmek kolaylaşır .</p>
-
-<p>Karşı taraf pull requesti gördü hatırlarsak <font color='purple'>diff</font> bize değişiklikleri haber ediyordu o da diff&#8217;ine bakarak değişiklikleri görür.</p>
-
-<p>Ve eğer o da bu değişikliği kendi projesine koymak isterse <font color='purple'>merge</font> eder.</p>
-
-<p>Şimdi 3. önemli konumuz olan <font color='red'>branch</font>tan bahsedelim birazda..</p>
-
-<p>Bir proje içerisinde çalışmaya başladık diyelim  bu projeye yeni özellikler eklemek istiyoruz
-yada çalışacağım insan sayısını artırmak isitiyoruz bu durumda dallar yani branchlar eklememiz gerekecek.</p>
-
-<p><code>$ git checkout -b yeni_branch </code></p>
-
-<p>komutu ile yeni bir branch açtık böyle bir çok branch açabiliriz.<br/>
-Peki açtığımız tüm branchları görmek için ne yapmalıyız onun için de</p>
-
-<p><code>$ git branch</code></p>
-
-<p>komutunu kullanırız.</p>
-
-<p><font color='purple'>master branch</font> ana projemizin olduğu branchdır. Diğerleri ise sizin sonradan oluşturduğunuz branchlardır.</p>
-
-<p><code>$ git pull</code></p>
-
-<p>komutu ile ana projemizin olduğu yer yani master&#8217;dan , projemizi oluşturduğumuzu yeni dala çekeriz.<br/>
-Sonra burada kod üzerinde  istediğimiz değişiklikleri orjinal projeyi bozmadan dilediğimizce yaparız.<br/>
-Yaptığımız değişiklikleri kaydetmek istersek</p>
-
-<p><code>$ git commit -a -m "degistirildi"</code></p>
-
-<p>yazarak değişikliği kaydederiz.</p>
-
-<p>Projede yapmak istediğimiz her şeyi yaptıktan sonra bunları  ana projeye dahil etmek istediğimiz zaman ana brancha geçeriz.</p>
-
-<p><code>$ git checkout master</code></p>
-
-<p>komutu ile ana brancha geçeriz ve kendi branchımızda yaptığımız değişikliği ana brancha aktarmak için</p>
-
-<p><code>$ git merge</code></p>
-
-<p>Komutunu veririz.</p>
-
-<p>İyi çalışmalar..</p>
-</div>
-
-
 
 ]]></content>
   </entry>

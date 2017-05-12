@@ -1,0 +1,344 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Appium Kurulumu - KaderTarlan</title>
+  <meta name="author" content="KaderTarlan">
+
+  
+  <meta name="description" content="Appium kurulumu kullanımı. İlk olarak Eclipse kurulu değil ise Eclipse IDE‘yi indiriyoruz kullandığınız platforma göre linkten bulabilirsiniz.  &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://kadertarlan.github.io/blog/2017/05/13/appium-kurulumu">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="KaderTarlan" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><div class="header-left">
+  <hgroup>
+  <h1><a href="/">KaderTarlan</a></h1>
+  
+  <div class="subtitle">
+    <h2>BlogCan</h2>
+  </div>
+  
+  </hgroup>
+  
+</div>
+
+<div class="header-right">
+  <ul class="main-navigation">
+ <div> 
+  <li><a href="/">blog</a></li></div><div class="spacer"></div>
+     <div> 
+  <li><a href="/projects">projects</a></li></div><div class="spacer"></div>
+       <div> 
+  <li><a href="/work">work</a></li></div><div class="spacer"></div>
+         <div> 
+  <li><a href="/about">about</a></li></div>
+</ul>
+  
+
+</div>
+</header>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Appium Kurulumu</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2017-05-13T01:56:58+03:00" pubdate data-updated="true"></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Appium kurulumu kullanımı. İlk olarak Eclipse kurulu değil ise Eclipse IDE‘yi indiriyoruz kullandığınız platforma göre linkten bulabilirsiniz. <a href="http://www.eclipse.org/downloads/%E2%80%A8Ayr%C4%B1ca">http://www.eclipse.org/downloads/%E2%80%A8Ayr%C4%B1ca</a> JDK indirmeniz gerekiyor. Bunun için de aşağıdaki linkten, işletim sisteminizi seçip anlaşmayı onayladıktan sonra indirebilirsiniz. <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-">http://www.oracle.com/technetwork/java/javase/downloads/jdk8-</a> downloads-2133151.html JDKʼ yı indirip kurun. Yükleme bitince Eclipseʼyi açın. Android için SDK indireceğiz. Bunun için aşağıdaki linkten indirme işlemini yapıyoruz. <a href="http://www.gezginler.net/indir/android-sdk.html%E2%80%A8I%CC%87ndirdikten">http://www.gezginler.net/indir/android-sdk.html%E2%80%A8I%CC%87ndirdikten</a> sonra çift tıklayıp kuralım. Eclipse dosyasının içine kurabilirsiniz. Yükleme bitince SDK Manager programı açılacaktır. Burada yüklemek istediğimiz Android sürümlerini seçerek kurulumunu sağlayabilirsiniz. Şimdi Eclipseʼyi açın ve yukarıdaki menüden Help-Install New Software seçeneğine gelin. Location kısmına <a href="https://dl-ssl.google.com/android/eclipse/">https://dl-ssl.google.com/android/eclipse/</a>
+adresini girin. ADT (Android Development Tools) için gelen verileri seçerek indirilmesini sağlayın. Son olarak Eclipse içerisinde Window-Preferences ve soldaki Android kısmına tıklıyoruz. Buradaki SDK Location bölümüne Android SDKʼyı nereye kurduysak onu işaretliyoruz. Kurulum işlemlerimiz tamam. Android Tools indirirken Android DDMSʼde inmiş oldu. Bu bizim Android testlerimiz için mobil cihazın ekran görüntüsü almamızı sağlayacak.
+Şimdi Appium kuralım.<a href="https://bitbucket.org/appium/appium.app/downloads/">https://bitbucket.org/appium/appium.app/downloads/</a> buradan Appium versiyonunu projenize uygun şekilde seçmelisiniz. Ben Android 5 ve 6 sürümlerinde ayrıca ios 9 sürümünde test yapabilmek için 1.4.13 indirdim. Mac bilgisayarlar için kurulumu oldukça basit indirdiğiniz dosyanın üzerine gelerek kurulumu gerçekleştiriniz. appium.jpeg Burada localde bir android telefonu bilgisayarınıza bağlayıp resimde görüldüğü gibi Android iconuna tıklayıp Launch ettiğinizde status 200 alcaksınız başarılı bağlanma sonunda. appium2
+Kurulumlar tamamlandıktan sonra Could not find adb. Please set the ANDROID_HOME environment variable with the Android SDK root directory path. Gib Bir hatamız local bunun için vi ~/.bash_profile girip
+export ANDROID_HOME=/Applications/Android export PATH=$ANDROID_HOME/platform-tools:$PATH export PATH=$ANDROID_HOME/tools:$PATH Bunları yazmak gerekiyor dosyaya.</p>
+
+<p><a href="https://developer.apple.com/download/more/">https://developer.apple.com/download/more/</a>
+ Buradan xcode 7.3.1</p>
+
+<p><a href="https://nodejs.org/en/download/">https://nodejs.org/en/download/</a>
+İnstall nodejs
+ node -v diyoruz
+v6.9.2</p>
+
+<p>Sonra path nodejs tanımla
+export PATH=/usr/local/bin/node:$PATH</p>
+
+<p>. <a href="http://brew.sh/index_tr.html">http://brew.sh/index_tr.html</a> sitesinde linke(/usr/bin/ruby -e &ldquo;$(curl -fsSL <a href="https://raw.githubusercontent.com/Homebrew/install/master/install">https://raw.githubusercontent.com/Homebrew/install/master/install</a>)&rdquo;) ulas kopyala terminale yapistir ilk gelen soruda
+Brew update
+Brew doctor</p>
+
+<p>sudo npm install -g appium
+Ve <a href="https://bitbucket.org/appium/appium.app/downloads/">https://bitbucket.org/appium/appium.app/downloads/</a> buradan appium 1.4.13 kuralım</p>
+
+<p>Şimdi java jdk indirelim
+<a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html?ssSourceSiteId=otnes*">http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html?ssSourceSiteId=otnes*</a>
+Buradan Java SE Development Kit 8 indirdik. Kurulum tamamlayalım</p>
+
+<p>Şimdi java -version diyerek kurulum kontrol edelim.
+echo export &ldquo;JAVA_HOME=\$(/usr/libexec/java_home)&rdquo; >> ~/.bash_profile ile java pays tanımlayalım bash_profile</p>
+
+<p><a href="http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/mars/2/eclipse-jee-mars-2-macosx-cocoa-x86_64.tar.gz">http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/mars/2/eclipse-jee-mars-2-macosx-cocoa-x86_64.tar.gz</a>
+ Buradan eclipse indirrelim.</p>
+
+<p><a href="https://developer.android.com/studio/index.html#downloads">https://developer.android.com/studio/index.html#downloads</a>
+Android sdk indirelim.</p>
+
+<p>ADT ile android gerekliliklerini indirelim eclipse içinde  (help > install new software)
+ADT Plugin - <a href="https://dl-ssl.google.com/android/eclipse">https://dl-ssl.google.com/android/eclipse</a></p>
+
+<p>Eclipse için adnroid gerekliliklerini indiriyorz.</p>
+
+<p>Konsolda bash profile içine:
+export PATH=&ldquo;/usr/local/bin:$PATH&rdquo;
+export PATH=/usr/local/lib/node_modules/grunt/bin:$PATH
+export PATH=/usr/local/bin/node:$PATH
+export JAVA_HOME=$(/usr/libexec/java_home)
+export ANDROID_HOME=&ldquo;/Users/kader.tarlan/Downloads/tools/&rdquo;
+export PATH=&ldquo;/Users/kader.tarlan/Downloads/tools/tools:$PATH&rdquo;
+export PATH=&ldquo;/Users/kader.tarlan/Downloads/tools/platform-tools:$PATH&rdquo;
+export PATH=&ldquo;/Users/kader.tarlan/Downloads/tools/build-tools:$PATH&rdquo;</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">KaderTarlan</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2017-05-13T01:56:58+03:00" pubdate data-updated="true"></time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://kadertarlan.github.io/blog/2017/05/13/appium-kurulumu/" data-via="" data-counturl="http://kadertarlan.github.io/blog/2017/05/13/appium-kurulumu/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2017/05/13/mobil-otomasyon-ve-cihaz-destegi/" title="Previous Post: Mobil Otomasyon Ve Cihaz Desteği">&laquo; Mobil Otomasyon Ve Cihaz Desteği</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  <section>
+  <p>Hi, I'm <a href="https://twitter.com/martinbjeldbak">Martin Bjeldbak Madsen</a>!</p>
+  
+
+  <p>You can read more about me on my <a href="/about/">about</a> page. To see what I'm working on, check out my GitHub page <a href="https://github.com/fapper">here</a>.</p>
+  <p>My resume can be found <a href="cv.pdf">here</a>.</p>
+  <div class="social-icons">
+    
+
+    
+
+    
+
+    
+  <a href="https://github.com/kadertarlan"><i class="fa fa-github fa-3x"></i></a>
+
+
+    
+
+  </div>
+</section>
+
+  <section>
+  <h1>Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2017/05/13/appium-kurulumu/">Appium Kurulumu</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/05/13/mobil-otomasyon-ve-cihaz-destegi/">Mobil Otomasyon Ve Cihaz Desteği</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/05/13/ozetle-yazilim-test-otomasyon/">Özetle Yazılım Test Otomasyon</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/02/23/python-ile-birim-testler/">Python Ile Birim Testler</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/02/23/gdg-devfest-libreoffice-katki-sureci/">GDG DevFest - LibreOffice Katkı Süreci</a>
+      </li>
+    
+  </ul>
+</section>
+
+  
+    <section>
+  <h1>Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2017/05/13/appium-kurulumu/">Appium Kurulumu</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/05/13/mobil-otomasyon-ve-cihaz-destegi/">Mobil Otomasyon Ve Cihaz Desteği</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/05/13/ozetle-yazilim-test-otomasyon/">Özetle Yazılım Test Otomasyon</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/02/23/python-ile-birim-testler/">Python Ile Birim Testler</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/02/23/gdg-devfest-libreoffice-katki-sureci/">GDG DevFest - LibreOffice Katkı Süreci</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/kadertarlan">@kadertarlan</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'kadertarlan',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2017 - KaderTarlan -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+<p>
+<span>Copyright &copy; 2017  KaderTarlan -</span>
+<span class="credit">Powered by <a href="http://octopress.org">Octopress</a> using the <a href="https://github.com/fapper/classic-martinb">classic-martinb</a> theme</span>
+</p>
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

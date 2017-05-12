@@ -9,7 +9,7 @@
   <meta name="author" content="KaderTarlan">
 
   
-  <meta name="description" content="Rspec , Ruby dili ile yazılmış, ruby kodlarınızın testlerinde kullanılan bir test çatısıdır. RSpec ile ilk test kodlarımızı yazmaya başlayalım. Bunun &hellip;">
+  <meta name="description" content="Web uygulamarımızı test etmek için pek çok araç var ancak günden güne popüler olan mobil uygulamalarımızın testini yapmak istediğimiz zaman neler &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -66,6 +66,185 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2015/08/04/appium-ile-mobil-test/">Appium Ile Mobil Test</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-08-04T04:35:31+03:00" pubdate data-updated="true"></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Web uygulamarımızı test etmek için pek çok araç var ancak günden güne popüler olan mobil uygulamalarımızın testini yapmak istediğimiz zaman neler kullanmalıyız? Bunun için geliştirilmiş <font color=#990000>Appium</font> aracından bahsedeceğim;</p>
+
+<p><font color=#990000>Appium</font> açık kaynak kodlu mobil test aracıdır.  <font color=blue>iOS, Android, FirefoxOS</font> desteği bulunmakta bu aracın. IOS ve Android için yazılmış uygulamalarınızın geliştirme aşamasında ve sonrasında testini yapmak mümkün oluyor. <font color=#FF3333> Kullanıcı arayüzü(UI)</font> testlerini yazıp bunu <font color=#990000>Appium</font> üzerinde çalıştırıp aksaklıklar varsa bundan haberdar oluyoruz.<br/>
+Bu testleri otomatikleştirip, <font color=#FF3333>Continous Integration(CI)</font> sağlamak da mümkün. Her geliştirme sonrası sizin önceden yazılmış testi <font color=red>Run!</font> etmeniz yeterli olacaktır.</p>
+
+<p>Mobil test alanında çok sayıda farklı platform ve cihaz oluşunun farkındayız. Yazılmış uygulamanızın hangi platformda doğru çalıştığını hangisinde patladığını bulmanız oldukça zor, her cihazdan bir örnek alıp testi manuel gerçekleştirmek ise çılgınca bir fikir olabilir.<br/>
+Ancak  <font color=#990000>Appium</font> kullanarak manuel yapmak istediğin testi  <font color=#990000>Appium'</font>a desteklediği herhangi bir programlama dili ile yazarsanız, bu testi otomatikleştirerek her seferinde istediğiniz her platformda çalıştırma imkanınız olacak.</p>
+
+<blockquote><p>Appium desteklediği diller ise;<br/>
+<font color=#006600>Java, Objective-C, JavaScript, Node.js, PHP, Python, Ruby, C#, Clojure, Perl </font></p></blockquote>
+
+<p><font color=gray>Yazılım testlerini manuel testlerden arındırmanın yanında onları otomatikleştirme ve bunu mobil için her mobil cihaz modelini uygulayabilme fikri bana oldukça kullanışlı müthiş bir özellik geliyor, yaygın olmayan bu yöntem keşke daha çok kullanılabilse. </font></p>
+
+<p>Kurulum aşamasından da biraz bahsetmek istiyorum.<br/>
+<font color=#990000>Appium</font> için <font color=blue>Node.js</font> kurmamız gerekiyor. Bunun için ;</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="err">$</span> <span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">update</span>
+</span><span class='line'><span class="err">$</span> <span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="o">-</span><span class="n">y</span> <span class="n">python</span><span class="o">-</span><span class="n">software</span><span class="o">-</span><span class="n">properties</span> <span class="n">python</span> <span class="n">g</span><span class="o">++</span> <span class="n">make</span>
+</span><span class='line'><span class="err">$</span> <span class="n">sudo</span> <span class="n">add</span><span class="o">-</span><span class="n">apt</span><span class="o">-</span><span class="n">repository</span> <span class="n">ppa</span><span class="p">:</span><span class="n">chris</span><span class="o">-</span><span class="n">lea</span><span class="o">/</span><span class="n">node</span><span class="o">.</span><span class="n">js</span>
+</span><span class='line'><span class="err">$</span> <span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">update</span>
+</span><span class='line'><span class="err">$</span> <span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">nodejs</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Bu aşamadan sonra aşağıda verdiğim komutta hata almıştım</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="err">$</span> <span class="n">npm</span> <span class="n">install</span> <span class="o">-</span><span class="n">g</span> <span class="n">grunt</span><span class="o">-</span><span class="n">cli</span>
+</span><span class='line'><span class="n">npm</span> <span class="no">ERR</span><span class="o">!</span> <span class="ss">Error</span><span class="p">:</span> <span class="no">EACCES</span><span class="p">,</span> <span class="n">mkdir</span> <span class="s1">&#39;/home/kader/.npm/sigmund/1.0.1&#39;</span>
+</span><span class='line'><span class="n">npm</span> <span class="no">ERR</span><span class="o">!</span>  <span class="p">{</span> <span class="o">[</span><span class="ss">Error</span><span class="p">:</span> <span class="no">EACCES</span><span class="p">,</span> <span class="n">mkdir</span> <span class="s1">&#39;/home/kader/.npm/sigmund/1.0.1&#39;</span><span class="o">]</span>
+</span><span class='line'><span class="n">npm</span> <span class="no">ERR</span><span class="o">!</span>   <span class="ss">errno</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+</span><span class='line'><span class="n">npm</span> <span class="no">ERR</span><span class="o">!</span>   <span class="ss">code</span><span class="p">:</span> <span class="s1">&#39;EACCES&#39;</span><span class="p">,</span>
+</span><span class='line'><span class="n">npm</span> <span class="no">ERR</span><span class="o">!</span>   <span class="ss">path</span><span class="p">:</span> <span class="s1">&#39;/home/kader/.npm/sigmund/1.0.1&#39;</span><span class="p">,</span>
+</span><span class='line'><span class="n">npm</span> <span class="no">ERR</span><span class="o">!</span>   <span class="ss">parent</span><span class="p">:</span> <span class="s1">&#39;minimatch&#39;</span> <span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Böyle bir hata alırsanız, aşağıdaki adımları uygulayalım.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'> <span class="err">$</span> <span class="n">export</span> <span class="n">NPM_PREFIX</span><span class="o">=</span><span class="err">$</span><span class="n">HOME</span><span class="o">/</span><span class="n">node</span>
+</span><span class='line'> <span class="err">$</span> <span class="n">alias</span> <span class="n">npmg</span><span class="o">=</span><span class="s">&quot;npm -g --prefix $NPM_PREFIX&quot;</span>
+</span><span class='line'> <span class="err">$</span> <span class="n">sudo</span> <span class="n">chown</span> <span class="o">-</span><span class="n">R</span> <span class="sb">`whoami`</span> <span class="o">~/.</span><span class="n">npm</span>
+</span><span class='line'> <span class="err">$</span>  <span class="n">npm</span> <span class="n">install</span> <span class="o">-</span><span class="n">g</span> <span class="n">grunt</span><span class="o">-</span><span class="n">cli</span>
+</span><span class='line'><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">kader</span><span class="o">/.</span><span class="n">npm</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">grunt</span> <span class="o">-&gt;</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">kader</span><span class="o">/.</span><span class="n">npm</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">node_modules</span><span class="o">/</span><span class="n">grunt</span><span class="o">-</span><span class="n">cli</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">grunt</span>
+</span><span class='line'><span class="n">grunt</span><span class="o">-</span><span class="n">cli</span><span class="nd">@0.1.13</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">kader</span><span class="o">/.</span><span class="n">npm</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">node_modules</span><span class="o">/</span><span class="n">grunt</span><span class="o">-</span><span class="n">cli</span>
+</span><span class='line'><span class="err">├──</span> <span class="n">resolve</span><span class="nd">@0.3.1</span>
+</span><span class='line'><span class="err">├──</span> <span class="n">nopt</span><span class="nd">@1.0.10</span> <span class="p">(</span><span class="n">abbrev</span><span class="nd">@1.0.7</span><span class="p">)</span>
+</span><span class='line'><span class="err">└──</span> <span class="n">findup</span><span class="o">-</span><span class="n">sync</span><span class="nd">@0.1.3</span> <span class="p">(</span><span class="n">lodash</span><span class="nd">@2.4.2</span><span class="p">,</span> <span class="n">glob</span><span class="nd">@3.2.11</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Şimdi her şey yolunda. Ve <font color=#990000>Appium</font> kurmaya hazırız!</p>
+
+<p><code>$ npm install -g appium</code><br/>
+<code>$ appium &amp;</code></p>
+
+<p><font color=#990000>Appium</font>&lsquo;u Python ile kullandım ben onun için de <font color=purple>Appium Python Client</font> kurulumu;</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="err">$</span> <span class="n">git</span> <span class="nb">clone</span> <span class="n">git</span><span class="vi">@github</span><span class="o">.</span><span class="n">com</span><span class="ss">:appium</span><span class="o">/</span><span class="n">python</span><span class="o">-</span><span class="n">client</span><span class="o">.</span><span class="n">git</span>
+</span><span class='line'><span class="err">$</span> <span class="n">cd</span> <span class="n">python</span><span class="o">-</span><span class="n">client</span>
+</span><span class='line'><span class="err">$</span> <span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">install</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>veya</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="err">$</span> <span class="n">pip</span> <span class="n">install</span> <span class="no">Appium</span><span class="o">-</span><span class="no">Python</span><span class="o">-</span><span class="no">Client</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Herşey tamamlandıktan sonra test yazma aşamasında oluşturacağımız test dosyalarına<br/>
+<code>from appium import webdriver</code><br/>
+adımını dahil etmeyi unutmayalım.</p>
+
+<p>Test dosyalarında adımları yazabilmek için <font color=#990000>Appium-Python</font> test diline hakim olmak gerekiyor.<br/>
+Bir kaç test adımı örnek vermek gerekirse;</p>
+
+<p>Dosyamızda Patformumuzun <font color=blue>Android</font> olmasını ve sürümünün 4.2 olmasını istediğimiz zaman;</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="k">def</span> <span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span class='line'>    <span class="n">desired_caps</span> <span class="o">=</span> <span class="p">{}</span>
+</span><span class='line'>    <span class="n">desired_caps</span><span class="p">[</span><span class="s">&#39;platformName&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;Android&#39;</span>
+</span><span class='line'>    <span class="n">desired_caps</span><span class="p">[</span><span class="s">&#39;platformVersion&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;4.2&#39;</span>
+</span><span class='line'>    <span class="n">desired_caps</span><span class="p">[</span><span class="s">&#39;deviceName&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;Android Emulator&#39;</span>
+</span><span class='line'>    <span class="n">desired_caps</span><span class="p">[</span><span class="s">&#39;app&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">PATH</span><span class="p">(</span> <span class="s">&#39;../../../&#39;</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>   <font color=gray>#şu anki içeriğimizi çeksin <br/>
+   <code>current = driver.current_context</code></p>
+
+<p>   #HTML ağacındaki istenilen yeri bulsun<br/>
+   <code>textfield = self.driver.find_elements_by_class_name("android.EditText")</code></p>
+
+<p>   #Bulunan text alanının ilk boşluğuna mail adresi yazsın<br/>
+   <code>textfields[0].send_keys("blabla@appium.io")</code></p>
+
+<p>   #Mail doğru mu kontrol etsin. Olması gerekenle var olan değerler eşit mi?
+   <code>self.assertEqual('blabla@appium.io', textfields[0].text)</code></p>
+
+<p>   #Ekrana gelen mesajı onaylasın<br/>
+   <code>alert = self.driver.switch_to_alert()</code><br/>
+   <code>alert.accept()</code></p>
+
+<p>   #Gönder tuşuna tıklasın<br/>
+   <code>self.driver.find_element_by_accessibility_id("Save").click()</code></p>
+
+<p>   #Dokunmatik telefondaki hareket etsin<br/>
+   <code>action = TouchAction(self.driver);</code><br/>
+   <code>action.long_press(start).move_to(end).release().perform()</code></p>
+
+<p>   #Belitrilen xpath adresinde pano değeri görünmüyor mu kontrol etsin<br/>
+   <code>pano = self.driver.find_element_by_xpath('//[]')</code><br/>
+   <code>self.assertIsNotNone(pano)</code>   </font></p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -2304,541 +2483,6 @@ dosyamıza giriyoruz ve içine</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/03/10/ruby-on-rails-2/">Ruby on Rails-2</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-03-10T18:48:43+02:00" pubdate data-updated="true"></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Şimdi bir önceki örnekte yaptığımız kısa çalışmaları biraz daha ilerletelim ve blog uygulamasında yeni olaylar oluşturalım.
-Peki bunlar neler olsun mesela bir form oluşturalım ve biz buraya yeni eklemeler yapalım, eklenenleri okuyalım, güncelleyebilelim, silebilelim.
-Buna <font color='brown' > CRUD </font> işlemleri diyeceğiz yani Create,Read,Update,Delete..<br/>
- <code>$nano config/routes.rb</code> <br/>
-komutu ile dosyamıza bakalım. İçeriği;</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="no">Blog</span><span class="o">::</span><span class="no">Application</span><span class="o">.</span><span class="n">routes</span><span class="o">.</span><span class="n">draw</span> <span class="k">do</span>
-</span><span class='line'><span class="err"> </span>
-</span><span class='line'><span class="err">  </span><span class="n">resources</span> <span class="ss">:posts</span>
-</span><span class='line'><span class="err"> </span>
-</span><span class='line'><span class="err">  </span><span class="n">root</span> <span class="ss">to</span><span class="p">:</span> <span class="s2">&quot;welcome#index&quot;</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>
-şeklindedir.</p>
-
-<p><code>rake routes</code> komutunu çalıştırırsak  standart  RESTful aksiyonları için tüm yolları görmüş oluruz.</p>
-
-<p><code>$rake routes</code></p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="err">    </span><span class="n">posts</span> <span class="no">GET</span><span class="err">   </span> <span class="sr">/posts(.:format)          posts#index </span>
-</span><span class='line'><span class="sr">          POST   /</span><span class="n">posts</span><span class="p">(</span><span class="o">.</span><span class="ss">:format</span><span class="p">)</span><span class="err">         </span> <span class="n">posts</span><span class="c1">#create </span>
-</span><span class='line'><span class="err"> </span><span class="n">new_post</span> <span class="no">GET</span><span class="err">   </span> <span class="sr">/posts/ne</span><span class="n">w</span><span class="p">(</span><span class="o">.</span><span class="ss">:format</span><span class="p">)</span><span class="err">     </span> <span class="n">posts</span><span class="c1">#new </span>
-</span><span class='line'><span class="n">edit_post</span> <span class="no">GET</span><span class="err">   </span> <span class="sr">/posts/</span><span class="ss">:id</span><span class="o">/</span><span class="n">edit</span><span class="p">(</span><span class="o">.</span><span class="ss">:format</span><span class="p">)</span> <span class="n">posts</span><span class="c1">#edit </span>
-</span><span class='line'><span class="err">     </span><span class="n">post</span> <span class="no">GET</span><span class="err">   </span> <span class="sr">/posts/</span><span class="ss">:id</span><span class="p">(</span><span class="o">.</span><span class="ss">:format</span><span class="p">)</span><span class="err">     </span> <span class="n">posts</span><span class="c1">#show </span>
-</span><span class='line'><span class="err">     </span><span class="n">root</span><span class="err">       </span> <span class="sr">/                         welcome#index </span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p></p>
-
-<p>Şimdi uygulamamızda yeni bir mesaj oluşturmak için ve  eklemek ve onları görmek için çalışmalar yapacağız.
-Oluşturma ve okuma: Bu <font color='red'> CRUD </font> deyiminden gelen &ldquo;C&rdquo; ve &ldquo;R&rdquo; dir. Bunu yaptığımızda formumuz aşağıdaki gibi gözükecek.</p>
-
-<p><img src="http://i.imgur.com/FWrbLMG.png?1" alt="" /></p>
-
-<p>Uygulama içinde yeni bir yazı oluşturmak için ihtiyacımız olacak ilk şey, o yazı için bir yer ayırmaktır işte bunun için  harika yer;
-<code>/posts/new</code> olur.</p>
-
-<p>Route önceden tanımlanmış olan, istekleri artık uygulamasında <code>posts/new</code> için yapabilir.
-Ancak <a href="http://localhost:3000/posts/new">http://localhost:3000/posts/new</a> sayfasına girdiğimizde bir hata görürüz.</p>
-
-<p><img src="http://i.imgur.com/Y52AcwN.png?1" alt="" /></p>
-
-<p>bu hatanın sebebi,  route'un bu  isteği sunmak için tanımlanan bir controller'a sahip olmamasıdır.
-Bu özel sorunun çözümü basittir: <font color='red'>PostsController </font> adında bir controller oluşturalım.</p>
-
-<p><code>$ rails g controller posts</code>
-Komutu ile yeni oluşturulan dosyamızı<br/>
-<code>$ nano app/controllers/posts_controller.rb</code> komutu ile açarsak boş olduğunu
-görürsünüz.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">PostsController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>
-Burada controller basitçe <font color='red'> ApplicationController </font> sınıfını miras almak için tanımlanmış bir sınıftır.
-Controlleri ilgilendiren aksiyonları metotlarımızla burada tanımlayacağız.
-Bu aksiyonlar bizim sistem içinde postta<font color='red'> CRUD </font> işlemleri yapmamızı sağlayacak.
-Controllerımızı oluşturduk şimdi sayfamızı<br/>
-<code>http://localhost:3000/posts/new</code> adresini tarayıcımıza yazarak yenileyelim.
-Hop yeni bir hata ile karşılastık.</p>
-
-<p><img src="http://i.imgur.com/CRvUU3F.png?1" alt="" /></p>
-
-<p>Bu hata ile Rails'in  üretilen PostsController'ın içinde <font color='red'>new </font> metodunu bulamadığını gösteriyor.<br/>
-Controllers Rails de oluştuğu zaman varsayılan olarak boştur.
-Oluşum sürecinde biz isteğimize göre eylemleri tanımlarız.<br/>
-Elle bir controller içinde bir eylem tanımlamak için yapmamız gereken Controller içinde yeni bir metot tanımlamaktır. Bunun için new metodunu kullanırız index hatası almamak için de index metodunu kullarız.
-<code>$nano app/controllers/posts_controller.rb</code><br/>
-komutu ile dosyamızın içinde PostsController sınıfında,yeni metodumuzu aşağıdaki şekilde tanımlıyoruz.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">new</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'><span class="k">def</span> <span class="nf">index</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>PostsController'da tanımlanan yeni yöntemden sonra <code>http://localhost:3000/posts/new</code> yenilersek eğer başka bir hata görürsünüz:</p>
-
-<p><img src="http://i.imgur.com/jfbJa26.png?1" alt="" /></p>
-
-<p>Şablonumuzun <code>posts/new</code> için eksik olduğunu söylüyor.</p>
-
-<p><font color='brown'>Missing template posts/new, application/new with {locale:[:en], formats:[:html],
-handlers:[:erb, :builder, :coffee]}. Searched in: * &ldquo;/path/to/blog/app/views&rdquo; </font><br/>
-hatamız budur peki ne demek istedi bize burda. <br/>
-Normalde Rails bilgilerin görüntülenmesi için <font color='red'>Views </font> adını verdiğimiz dosyalara sahiptir.
-Ancak burada henüz view oluşturulmamış hatası alıyoruz. Hatayı yakından incelersek;<br/>
-İlk bölümde şablondaki neler eksik onları tanımlamış. <br/>
-Elimizde <font color='brown'>posts/new </font> şablonu var . İlk olarak Rails bu şablona bakıyor , eğer bulamazsa<font color='brown'> /application/new </font> şablonunu çağırıyor ve ona bakıyor.
-Burdaki sebep<font color='brown'> PostController , ApplicationController </font> sınıfını miras almıştı.</p>
-
-<p><font color='brown'>:locale </font> key yazan yerde şablonun dili düzeltilebilir. Varsayılan olarak ingilizcedir. <br/>
-<font color='brown'>:formats </font> key  şablonun biçimini belirler. Varsayılan olarak HTML'dir bu yüzden Rails burada bir html şablonu arıyor.<br/>
-<font color='brown'> :handlers </font> key de ise bizim şablon oluşturmak için kullanacağımız işleyicilerden bahsediyor.<br/>
-<font color='brown'>:erb </font> en yaygın <font color='red'>HTML </font> şablonları için kullanılır.<br/>
-<font color='brown'>:builder , </font>  <font color='red'>XML </font> şablonları için <br/>
-<font color='brown'>:coffee </font>JavaScript şablonları oluştururken  CoffeScripti kullanır.</p>
-
-<p>Basit şablon çalıştırmak için Views dosyasına ihtiyacımız olduğunu anladık o zaman<br/>
-<code>$nano app/views/posts/new.html.erb</code><br/>
- dosyamızı oluşturalım.</p>
-
-<p>Bu dosyada ilk uzatma eki yani <font color='brown'>html </font> şablon biçimini  belirtir yani format kısmıdır,
-<font color='brown'> erb </font> ise kullanılacak işleyicisini belirtir yani handler kısmıdır.</p>
-
-<p>Rails bu  uygulamamız için <code>app/views</code> dizini altındaki <code>/posts/new</code>şablonunu bulmaya çalışır.<br/>
-Bu şablon için formatımızda HTML formu kullanmak istiyorsak ERB dilini kullanmamız gerekir.<br/>
-Bu yüzden çağırdığımız dosya adımız <code>app/views</code> dizini altında  <code>posts/new.html.erb</code> şeklinde olur. <br/>
- Şimdi bu dosyamızın içine sadece</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="no">New</span> <span class="no">Post</span><span class="o">&lt;</span><span class="sr">/h1&gt; </span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p></p>
-
-<p>yazalım ve <code>http://localhost:3000/posts/new</code> adresimizi yenilediğimizde artık sayfada bir başlık olduğunu görürsünüz. <br/>
-Route, controller, metotlar ve views artık uyumlu çalışıyor.</p>
-
-<p>Şimdi bir yazı formu oluşturmak için Rails de <font color='red'>form_for</font> adlı bir method kullanacağız.<br/>
-Bunun için  şablonumuzun içine yani<br/>
-<code>$nano app/views/posts/new.html.erb</code><br/>
-komutumuzla dosyamızın içine girelim ve</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&lt;</span><span class="sx">%= form_for :post do |f| %&gt; </span>
-</span><span class='line'><span class="sx">  &lt;p&gt; </span>
-</span><span class='line'><span class="sx">    &lt;%=</span> <span class="n">f</span><span class="o">.</span><span class="n">label</span> <span class="ss">:title</span> <span class="sx">%&gt;&lt;br&gt;</span>
-</span><span class='line'><span class="err">    </span><span class="o">&lt;</span><span class="sx">%= f.text_field :title %&gt; </span>
-</span><span class='line'><span class="sx">  &lt;/p&gt; </span>
-</span><span class='line'><span class="sx">  </span>
-</span><span class='line'><span class="sx">  &lt;p&gt; </span>
-</span><span class='line'><span class="sx">    &lt;%=</span> <span class="n">f</span><span class="o">.</span><span class="n">label</span> <span class="ss">:text</span> <span class="sx">%&gt;&lt;br&gt;</span>
-</span><span class='line'><span class="err">    </span><span class="o">&lt;</span><span class="sx">%= f.text_area :text %&gt; </span>
-</span><span class='line'><span class="sx">  &lt;/p&gt; </span>
-</span><span class='line'><span class="sx">  </span>
-</span><span class='line'><span class="sx">  &lt;p&gt; </span>
-</span><span class='line'><span class="sx">    &lt;%=</span> <span class="n">f</span><span class="o">.</span><span class="n">submit</span> <span class="sx">%&gt; </span>
-</span><span class='line'><span class="sx">  &lt;/p&gt;</span>
-</span><span class='line'><span class="o">&lt;</span><span class="sx">% end </span><span class="o">%&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>
-komutlarını yazalım ve kaydedip çıkalım.
-Şimdi sayfayı yenileyelim ve yazının başında bahsettiğimiz formumuzun oluştuğunu göreceğiz.</p>
-
-<p>Böylece sayfamızda bir başlık ,bir yazı metni için iki etiket ve iki metin alanı, göndermek için de bir çağrıform , Gönder düğmesini ,yaratacaktır.</p>
-
-<p>Ancak Formda başka bir yere gitmek için farklı bir URL kullanmak gerekir.
-Bunun içinde form_for motodundaki <font color='brown'>:url </font> seçeneğini kullanırız.<br/>
-Tipik olarak Rails'de ,bu gibi yeni bir başvuru için kullanılan eyleme <font color='brown'> create </font> denir.<br/>
-Biz de formumuz da bu eylemi belirtmeliyiz. <br/>
-<code>$nano app/views/posts/new.html.erb</code><br/>
-komutu ile dosyamızın  içindeki <font color='brown' > form_for </font> satırı düzenleyelim o zaman;</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&lt;%=</span> <span class="n">form_for</span> <span class="ss">:post</span><span class="p">,</span> <span class="ss">url</span><span class="p">:</span> <span class="n">posts_path</span> <span class="k">do</span> <span class="o">|</span><span class="n">f</span><span class="o">|</span> <span class="o">%&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>
-şimdi formumuzu doldurmak mümkün ve doldurduktan sonra gönder düğmesine tıklamak mümkün oldu. <br/>
-Ancak formu gönderdikten sonra karşımıza bir hata daha çıkacak ;
-<img src="http://i.imgur.com/KpMml91.png?1" alt="" /></p>
-
-<p><font color='brown'>&ldquo;Unknown action&rdquo;</font>  yazısını gördük bunu yok etmek için <font color='brown'> PostsControllers </font>
-altında <font color='red'>create</font> metodu oluşturmalıyız.<br/>
-<code>$nano app/controllers/posts_controller.rb</code><br/>
-komutu ile dosyamızı açalım ve içine</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">PostsController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
-</span><span class='line'><span class="err"> </span><span class="k">def</span> <span class="nf">new</span>
-</span><span class='line'><span class="err">  </span><span class="k">end</span>
-</span><span class='line'><span class="err"> </span>
-</span><span class='line'><span class="err">  </span><span class="k">def</span> <span class="nf">create</span>
-</span><span class='line'><span class="err">  </span><span class="k">end</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>
-yazalım. <br/>
-Şimdi formu yeniden gönderelim, başka bir tanıdık hata görürsünüz: Bir şablon eksik. <br/>
-Şimdilik bunu gözardı edelim. Şimdi new postumuzu database göndermek için
-create aksiyomu olmalı.
-Tekrar create olan methodumuza geliyoruz ve içine</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">create</span>
-</span><span class='line'><span class="err">  </span><span class="n">render</span> <span class="ss">text</span><span class="p">:</span> <span class="n">params</span><span class="o">[</span><span class="ss">:post</span><span class="o">].</span><span class="n">inspect</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>
-komutlarını yazıyoruz.<br/>
-Bu metot işlendiğinde <code>params[:post].inspect</code> satırındaki Params metodu gelen parametreleri,
-sembolleri (veya alanları )formdan getiriyor.<br/>
-<font color='brown'>Params </font> yöntemi dizeleri veya sembolleri kullanarak karma anahtarları erişmenizi sağlayan bir
-<font color='brown' > ActiveSupport :: HashWithIndifferentAccess </font> nesnesi döndürür.<br/>
-Bu durumda, önemli olan tek parametre formdan olanlardır.</p>
-
-<p>Eğer formu bir kez daha tekrar sunarsanız şimdi artık eksik şablon hatası alırsınız.
-<code>{"title"=&gt;"kader", "text"=&gt;"tarlan\r\n"}</code></p>
-
-<p>Formdaki parametrelerin geldiğini görüyoruz . Ancak bu tam istediğimiz gibi olmadı. <br/>
-Evet parametreleri görüyoruz ama hiç bir estetiği yok bunların.</p>
-
-<p>Burada ise devreye <font color='red'> Model </font> katmanı girer.<br/>
-Rails de modellerde tekil adlar kullanılır fakat bunlarla ilgili veritabanı tabloları çoğul adlarla kullanılır.</p>
-
-<p>Rails model oluştururken terminalde;<br/>
-<code>$ rails generate model Post title:string text:text</code><br/>
-komutunu veririz.<br/>
-Bu komut ile Rails bize Post model ile birlikte dize türünde bir başlık ile
-text türünde metin texti oluşturuyor. <br/>
-Bu özellikler otomatik olarak veritabanındaki posts tabloya eklenir ve post model ile  eşleştirilir.</p>
-
-<p><code>app/models/post.rb</code> ve  <code>db/migrate/20140308145928_create_posts.rb</code> dosyaları ile ilgileneceğiz şimdide.</p>
-
-<p>Rails model oluştururken içinde <code>db/migrate</code> dizini içinde database migration dosyası
-olusturur.</p>
-
-<p><font color='red'>Migration </font> , veritabanı tablolarını oluşturmak ve değiştirmek için basit hale getirmek için tasarlanmış
-<font color='red'> Ruby </font> sınıflardır.</p>
-
-<p>Rails migrations çalıştırmak için <font color='red'>rake </font> komutunu kullanıyor.
-Aynı zamanda veritabanından bu migrationu geri almak da mümkün bu komutla .</p>
-
-<p>Migration dosyaları yaratılmış oldukları sıraya göre çalışırlar bu yüzden işlem sırası için dosya adlarına oluşturuldukları zaman
-otomatık yazılır. Benim migration dosyam;<br/>
-<code>20140308145928_create_posts.rb</code><br/>
-şeklindedir. Sizinki de daha farklı bir adda olur.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">CreatePosts</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Migration</span>
-</span><span class='line'><span class="err">  </span><span class="k">def</span> <span class="nf">change</span>
-</span><span class='line'><span class="err">    </span><span class="n">create_table</span> <span class="ss">:posts</span> <span class="k">do</span> <span class="o">|</span><span class="n">t</span><span class="o">|</span>
-</span><span class='line'><span class="err">      </span><span class="n">t</span><span class="o">.</span><span class="n">string</span> <span class="ss">:title</span>
-</span><span class='line'><span class="err">      </span><span class="n">t</span><span class="o">.</span><span class="n">text</span> <span class="ss">:text</span>
-</span><span class='line'><span class="err"> </span>
-</span><span class='line'><span class="err">      </span><span class="n">t</span><span class="o">.</span><span class="n">timestamps</span>
-</span><span class='line'><span class="err">    </span><span class="k">end</span>
-</span><span class='line'><span class="err">  </span><span class="k">end</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>
-Yukarıdaki  migrationu çalıştırdığımız zaman migration oluşturuluyor change adındaki metotla.<br/>
-Bu aksiyonda tanımladığımız metodu geri almak istediğimizde değişikliği migrasyon yapar. <br/>
-Bu migrasyonu çalıştırdığımızda bize bir dize sutun ve bir metin sutunu ile bir mesaj tablosu oluşturacak.<br/>
-Ayrıca post oluşturma ve güncellenmesinin süresini izlemek için Rails iki tane  <font color='brown'>timestamp fields </font> alanları oluşturuyor onlarda burada gözükecek.</p>
-
-<p>Migration çalıştırmak için aşağıdaki komutu kullanılırız;</p>
-
-<p><code>$ rake db:migrate</code></p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">==</span>  <span class="ss">CreatePosts</span><span class="p">:</span> <span class="n">migrating</span> <span class="o">====================================================</span>
-</span><span class='line'><span class="o">--</span> <span class="n">create_table</span><span class="p">(</span><span class="ss">:posts</span><span class="p">)</span>
-</span><span class='line'>   <span class="o">-&gt;</span> <span class="mi">0</span><span class="o">.</span><span class="mo">0014</span><span class="n">s</span>
-</span><span class='line'><span class="o">==</span>  <span class="ss">CreatePosts</span><span class="p">:</span> <span class="n">migrated</span> <span class="p">(</span><span class="mi">0</span><span class="o">.</span><span class="mo">0017</span><span class="n">s</span><span class="p">)</span> <span class="o">===========================================</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>
-Bizim oluşturduğuz aksiyonlardaki değişiklikleri <font color='brown'>new Post model </font> de kullanmak için
-bunu veritabanına kayıt etmek gerekir. <br/>
-Bunun içinde  <code>post_controller</code> dosyamızın içine gireriz.</p>
-
-<p><code>$nano app/controllers/posts_controller.rb</code><br/>
-komutu ile dosyamızı açarız ve içindeki <font color='brown'>create </font> metodunda değişiklikler yaparız.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">create</span>
-</span><span class='line'><span class="err">  </span><span class="vi">@post</span> <span class="o">=</span> <span class="no">Post</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">params</span><span class="o">[</span><span class="ss">:post</span><span class="o">]</span><span class="p">)</span>
-</span><span class='line'><span class="err">  </span><span class="vi">@post</span><span class="o">.</span><span class="n">save</span>
-</span><span class='line'><span class="err">  </span><span class="n">redirect_to</span> <span class="vi">@post</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>
-Burada ne oluyor peki , her <font color='brown'> Rails </font> modeli otomatik olarak ilgili veritabanı sütunları eşleştirilir, ilgili nitelikleri ile başlatılabilir. <br/>
-İlk satırda (hatırlıyorsanız params[<font color='blue'>: post </font>] ilgilendiğimiz özellikleri içeriyordu.). <br/>
-Daha sonra, <font color='brown'> @post.save </font> veritabanındaki modelinin muhafaza etmekle sorumludur.
-Son olarak,  en sonda da bu eylemi kullanıcıya yönlendirir.</p>
-
-<p>Şimdi <a href="http://localhost:3000/posts/new">http://localhost:3000/posts/new</a> sayfamızı yenilersek bir hata ile karşılaşacağız.</p>
-
-<p><img src="http://i.imgur.com/bn3uho5.png?1" alt="" /></p>
-
-<p><font color='brown' > Rails </font> güvenli uygulamaları yazmak için yardımcı birçok güvenlik özellikleri kullanır ve şimdi onlardan birine koşuyoruz.<br/>
-Bizim controllerimizda tam olarak hangi parametreleri kabul etmek istediğimizi Rails'e anlatmamız gerekiyor
-bu parametrelere <font color='brown'>strong_parametres </font> diyoruz.</p>
-
-<p>bu durumda biz title ve text parametrelerine izin vermek istiyoruz bu yüzden controllerda create metodunda bir kaç ekleme yaparak belirtiyoruz.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">create</span>
-</span><span class='line'><span class="err">  </span><span class="vi">@post</span> <span class="o">=</span> <span class="no">Post</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">post_params</span><span class="p">)</span>
-</span><span class='line'><span class="err"> </span>
-</span><span class='line'><span class="err">  </span><span class="vi">@post</span><span class="o">.</span><span class="n">save</span>
-</span><span class='line'><span class="err">  </span><span class="n">redirect_to</span> <span class="vi">@post</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'><span class="err"> </span>
-</span><span class='line'><span class="kp">private</span>
-</span><span class='line'><span class="err">  </span><span class="k">def</span> <span class="nf">post_params</span>
-</span><span class='line'><span class="err">    </span><span class="n">params</span><span class="o">.</span><span class="n">require</span><span class="p">(</span><span class="ss">:post</span><span class="p">)</span><span class="o">.</span><span class="n">permit</span><span class="p">(</span> <span class="ss">:title</span> <span class="p">,</span> <span class="ss">:text</span><span class="p">)</span>
-</span><span class='line'><span class="err">  </span><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p></p>
-
-<p>komut burada bir eylem başlığı ve metini kabul etmesini sağlar.</p>
-
-<p>şimdi sayfayı yenilediğimiz tekrar formu gönderdiğimizde bu sefer Rails <font color='red'>show </font> metodunu bulamadığından yakınacak.
-<img src="http://i.imgur.com/aGqJyDs.jpg?1" alt="" /></p>
-
-<p><code>post GET    /posts/:id(.:format)      posts#show</code> <br/>
-özel bir syntax görüyoruz burda :id  burası kalsın.</p>
-
-<p><code>$nano app/controllers/posts_controller.rb</code></p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">show</span>
-</span><span class='line'><span class="err">  </span><span class="vi">@post</span> <span class="o">=</span> <span class="no">Post</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">params</span><span class="o">[</span><span class="ss">:id</span><span class="o">]</span><span class="p">)</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>
-Dosyamıza girip show metodunu içine yazdık.</p>
-
-<p>Şimdi, aşağıdaki içerikle yeni bir dosya<br/>
-<code>nano app/views/posts/show.html.erb</code><br/>
-oluşturalım;</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&lt;</span><span class="nb">p</span><span class="o">&gt;</span>
-</span><span class='line'><span class="err">  </span><span class="o">&lt;</span><span class="n">strong</span><span class="o">&gt;</span><span class="ss">Title</span><span class="p">:</span><span class="o">&lt;</span><span class="sr">/strong&gt; </span>
-</span><span class='line'><span class="sr">&lt;/</span><span class="nb">p</span><span class="o">&gt;</span>
-</span><span class='line'><span class="err"> </span>
-</span><span class='line'><span class="o">&lt;</span><span class="nb">p</span><span class="o">&gt;</span>
-</span><span class='line'><span class="err">  </span><span class="o">&lt;</span><span class="n">strong</span><span class="o">&gt;</span><span class="ss">Text</span><span class="p">:</span><span class="o">&lt;</span><span class="sr">/strong&gt; </span>
-</span><span class='line'><span class="sr">  &lt;%= @post.text %&gt;&lt;/</span><span class="nb">p</span><span class="o">&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p></p>
-
-<p>kayıt edip çıkalım ve sayfamızı (<a href="http://localhost:3000/posts/new">http://localhost:3000/posts/new</a>) tekrar tazeleyelım.</p>
-
-<p><img src="http://i.imgur.com/F1Qcdzb.jpg?1" alt="" /></p>
-
-<p>biz tüm mesajları ekranda görmek istiyoruz bunun için ise
-<code>nano app/controllers/posts_controller.rb</code><br/>
-dosyasına girip;</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">index</span>
-</span><span class='line'><span class="err">  </span><span class="vi">@posts</span> <span class="o">=</span> <span class="no">Post</span><span class="o">.</span><span class="n">all</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>
-metodunu yazıyoruz.<br/>
-<code>nano app/views/posts/index.html.erb</code><br/>
-Dosyasında da view olusturuyoruz;</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="no">Listing</span> <span class="n">posts</span><span class="o">&lt;</span><span class="sr">/h1&gt; </span>
-</span><span class='line'><span class="sr">  </span>
-</span><span class='line'><span class="sr">&lt;table&gt; </span>
-</span><span class='line'><span class="sr">  &lt;tr&gt; </span>
-</span><span class='line'><span class="sr">    &lt;th&gt;Title&lt;/</span><span class="n">th</span><span class="o">&gt;</span>
-</span><span class='line'><span class="err">    </span><span class="o">&lt;</span><span class="n">th</span><span class="o">&gt;</span><span class="no">Text</span><span class="o">&lt;</span><span class="sr">/th&gt; </span>
-</span><span class='line'><span class="sr">  &lt;/</span><span class="n">tr</span><span class="o">&gt;</span>
-</span><span class='line'><span class="err"> </span>
-</span><span class='line'><span class="err">  </span><span class="o">&lt;</span><span class="sx">% @posts.each </span><span class="k">do</span> <span class="o">|</span><span class="n">post</span><span class="o">|</span> <span class="sx">%&gt; </span>
-</span><span class='line'><span class="sx">    &lt;tr&gt;</span>
-</span><span class='line'><span class="err">      </span><span class="o">&lt;</span><span class="n">td</span><span class="o">&gt;&lt;</span><span class="sx">%= post.title %&gt;&lt;/td&gt; </span>
-</span><span class='line'><span class="sx">      &lt;td&gt;&lt;%=</span> <span class="n">post</span><span class="o">.</span><span class="n">text</span> <span class="sx">%&gt;&lt;/td&gt;</span>
-</span><span class='line'><span class="err">    </span><span class="o">&lt;</span><span class="sr">/tr&gt; </span>
-</span><span class='line'><span class="sr">  &lt;% end %&gt; </span>
-</span><span class='line'><span class="sr">&lt;/</span><span class="n">table</span><span class="o">&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>
-bunları dosyamıza yazıp kayıt ettikten sonra çıkıyoruz.</p>
-
-<p><a href="http://localhost:3000/posts">http://localhost:3000/posts</a> adresine tekrar girip formumuza eklediğimiz tüm title,text ikililerini görebilirsiniz.</p>
-
-<p>Böylece Oluşturma(<font color='brown'> Create </font>), Oluşturulan formaları görme (<font color='brown'> Show </font>) metotlarını inceledik sonraki yazımda <font color='red'>CRUD </font> deyiminden kalan iki metotu anlatacağım , formu güncelleme (<font color='brown'> Update </font>) ve silme(<font color='brown'> Delete </font> ).</p>
-
-<p>İyi çalışmalar.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="3">&larr; Older</a>
@@ -2889,11 +2533,11 @@ bunları dosyamıza yazıp kayıt ettikten sonra çıkıyoruz.</p>
       </li>
     
       <li class="post">
-        <a href="/blog/2017/05/13/ozetle-yazilim-test-otomasyon/">Özetle Yazılım Test Otomasyon</a>
+        <a href="/blog/2017/05/13/title-of-the-post/">Title of the Post</a>
       </li>
     
       <li class="post">
-        <a href="/blog/2016/02/23/python-ile-birim-testler/">Python Ile Birim Testler</a>
+        <a href="/blog/2017/05/13/ozetle-yazilim-test-otomasyon/">Özetle Yazılım Test Otomasyon</a>
       </li>
     
   </ul>
@@ -2917,11 +2561,11 @@ bunları dosyamıza yazıp kayıt ettikten sonra çıkıyoruz.</p>
       </li>
     
       <li class="post">
-        <a href="/blog/2017/05/13/ozetle-yazilim-test-otomasyon/">Özetle Yazılım Test Otomasyon</a>
+        <a href="/blog/2017/05/13/title-of-the-post/">Title of the Post</a>
       </li>
     
       <li class="post">
-        <a href="/blog/2016/02/23/python-ile-birim-testler/">Python Ile Birim Testler</a>
+        <a href="/blog/2017/05/13/ozetle-yazilim-test-otomasyon/">Özetle Yazılım Test Otomasyon</a>
       </li>
     
   </ul>

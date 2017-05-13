@@ -4,7 +4,7 @@
   <title><![CDATA[KaderTarlan]]></title>
   <link href="http://kadertarlan.github.io/atom.xml" rel="self"/>
   <link href="http://kadertarlan.github.io/"/>
-  <updated>2017-05-13T21:27:31+03:00</updated>
+  <updated>2017-05-13T22:17:56+03:00</updated>
   <id>http://kadertarlan.github.io/</id>
   <author>
     <name><![CDATA[KaderTarlan]]></name>
@@ -12,6 +12,78 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Mobil Otomasyon Ve Cihaz Desteği]]></title>
+    <link href="http://kadertarlan.github.io/blog/2017/05/17/mobil-otomasyon-ve-cihaz-destegi/"/>
+    <updated>2017-05-17T01:49:55+03:00</updated>
+    <id>http://kadertarlan.github.io/blog/2017/05/17/mobil-otomasyon-ve-cihaz-destegi</id>
+    <content type="html"><![CDATA[<p><span style="font-family: terminal, monaco, monospace;">Mobil Otomasyon için  Cihaz Desteği  veren Toolar var. Kullandığım ve fikrim olan cihazlardan biraz bahsetmek istiyorum:</span></p>
+
+<h4>Appium</h4>
+
+
+<p><blockquote>
+<p><span style="color: #003366;"><span style="color: #993300;">Appium</span> açık kaynak kodlu, cross-platform test automation aracıdır. Native, hybrid ve mobile web uygulamalarını simulator (iOS, FirefoxOS), emulators (Android), veya real cihazlarda (iOS, Android, Windows, FirefoxOS) test etme imkanı sağlayan bir araç. </span></p></p>
+
+<p><p><span style="color: #ff0000;">Appium avantajları: </span>
+<ul style="list-style-type: disc;">
+<li>Her iki platformda da kullanabilme iOS ve android için.</li>
+<li>Sürekli entegrasyon desteği, jenkins, saucelabs kullanabilme</li>
+<li>Kaynak kod veya kütüphanelerine erişimi gerektirmez.  (Robotium istiyor mesela)</li>
+<li>Çeşitli framework desteği.</li>
+<li>Herhangi bir programlama dili destekler</li>
+<li>Uygulamalarda hybris, native ve webapps çeşitliliklerini destekliyor</li>
+<li>Bedava, açık kaynak</li>
+<li>Simulator/emulator ve real device ile de çalışıyor </li></ul></p>
+
+<p><span style="color: #ff0000;">Dezavantajı:</span>
+<ul style="list-style-type: disc;">
+<li>Waitleri statik vermek gerekiyor, bu konuda iyi bir çözümleri yok</li>
+<li>Dökümantasyon biraz eksik </li>
+<li>Apple dünyasında Appium ile otomasyon testlerinde paralel çalıştırmada limit var</li>
+<li>Mobil dünyadaki özellikle oyun uygulamaları için hareketlere (zoom, double tap) ihtiyaç var. Bu hareketler için Javascript koşmak lazım</li></ul></p>
+
+<p><h4>Bulut Tabanlı Mobil Cihaz Desteği: </h4></p>
+
+<p><p><span style="color: #0000ff;">Bitbar Testdroid</span></p>
+<p><strong>Bitbar Public Cloud (Testdroid Cloud),</strong>  Android ve IOS manuel ve otomasyon testleri için bulut tabanlı mobil cihaz desteği sağlıyor.  Bir nevi cihaz desteği aslında. Burası test ortamlarının sağlandığı bir hizmet aslında. Mobil uygulamalar ve ilgili hizmetler için fonksiyonel, performans, stres, regresyon ve kararlılık testlerini otomatik hale getirir.  Burada monitoring yapmak mümkün günün her saatinde.
+<br />Cihazları ise : <a href="https://cloud.testdroid.com/#public/devices"><a href="https://cloud.testdroid.com/#public/devices">https://cloud.testdroid.com/#public/devices</a></a></p></p>
+
+<p>SauceLabs
+Bulut tabanlı olan Sauce Labs Android , IOS ve web uygulamaları için simulator, emilator ve gerçek cihaz desteği sağlıyor. Native, hibrit ve mobil web testlerini koşmak mümkün. Çeşitli işletim sistemleri ve browserlarla 800’den fazla platform sunuyor.  Appium ve Selenyum ile test edebilir ve testleri paralel olarak çalışabilir.</p>
+
+<p>SauceLabs ve Testdroid Karşılaştırması:
+-  Testdroid mobil yazılım geliştirme ve test için kullandığımız bir Bitbar Teknolojisidir. 3 farklı ürünü var Testdroid Cloud, Testdroid Recorder ve Testdroid Enterprise.  Testdroid GitHub üzerinde açık kaynak kodlu  bir  application programming interface aslında. Testdroid ile çeşitli test frameworklerini kullanabilirsin , örneğin native için Robotium, Appium ve uiautomator  veya web uygulamaları için  Selenium , aslında bu platformun hedef kitlesi mobil veya oyun geliştiricileri. Gerçek Android ve iOS destekli cihazlar içerir bunun yanında bulut tabanlı test simulatorleri de sunuyor Testdroid Cloud ile.   Testdroid Recorder  ise developer ve testerlar için user-actions kaydediyor,  mobil uygulama ve oyunları üzerinde Junit tabanlı test caseler üretiyor,  Eclipse marketplace var. Testdroid Enterprise  ise gerçek Android ve IOS cihazlar için otomasyon testlerinin yönetildiği bir server yazılımıdır, Jenkins Continuous Integration destekler.</p>
+
+<ul>
+<li>Sauce Labs  desktop, mobile web, native, ve hybrid uygulamaları test etmek için için düyadaki en geniş ölçekli güvenilir ve ölçeklenebilir cloud ortamını oluşturur. 450’den fazla platform sunar.</li>
+</ul>
+
+
+<p>Cross Browser Testing
+Manuel ve otomasyon testleri ile fonksiyonel test ortamları sunar.  Geliştiriciler için 1500'den fazla mobil cihazlar ve tarayıcı desteği. Test sonuçlarını video ve ekran görüntüleri kaydedilebilir. Selenyum, Appium ve diğer testler CrossBrowserTesting uzaktan cihazlarda çalıştırabiliriz. Güvenlik duvarı (firewall) test etmek istiyorsanız, CrossBrowserTesting kullanıcılar için Chrome uzantısı veya Node.js tünel bulunmaktadır.  Desteklenen Tarayıcılar: Internet Explorer, Mozilla Firefox, Apple Safari, Google Chrome, Opera, Netscape ve daha birçok&hellip;
+Desteklenen İşletim Sistemi: Windows 98, Windows 2000, Windows XP, Windows Vista, 6, 5, Mac OS X 10.3–10.5, Fedora Core 6, O BlackBerry, BlackBerry OS, Apple iOS, Google Android, Windows Mobile 5.0 (RQVGA), Windows Mobile 6.0, Windows Mobile Professional 6.5
+Browserları: <a href="https://crossbrowsertesting.com/browsers">https://crossbrowsertesting.com/browsers</a></p>
+
+<p>******Mobil Beta Testleri için:</p>
+
+<p>Ubertesters
+-Ubertesters kullanıcı deneyimini analiz etme, hata raporlama, kullanıcı testi  ortamları sağlar.  Development lifecycle yönetebilmek için hataları yakalama ve izlemeye yarar. Ubertesters ile mobil beta testleri yapmak, ekran görüntüleri ile video kayıtları ile takip etmeyi sağlar. Hataları raporlar.  Ubertester native ve cross-platform development destekler.</p>
+
+<p>TestFairy
+- TestFairy mobil uygulamaları için beta test platformudur, yapılan her test videoya çekilir. Mobil uygulamaları test ederken bir sorun varsa tam olarak istemci tarafında neyin yanlış gittiğini asla bilemezsin.
+TestFairy CPU, Bellek, GPS, Ağ ve çok daha fazla fazlası dahil olmak üzere tam bir deneme videosu sağlayarak bu sorunu çözer.</p>
+
+<p>****** Fonksiyonel Test
+Sencha mobil ve web uygulamaları için fonksiyonel test sunar. Sencha Test mobil tarayıcılarda gerçek cihazlarda kullanılabilen benzersiz bir URL oluşturmak için bir proxy mekanizması kullanır. Testler JavaScript ile yazılabilir. Unit testleri otomatize etme ve  end-to-end functional test için kapsamlı çözümler üretir, birden fazla tarayıcılarda aynı anda yürütebilirsiniz</p>
+
+<p>Bugsee
+Otomasyon ile çok ilgisi yok aslında,
+<a href="https://www.bugsee.com">https://www.bugsee.com</a>
+Bugsee monitoring ve sistem durumunu kayıtları sağlar, geliştiriciler için hata takibi yapmak, gönderilen hata bilgileri ile hata raporları sunan, bulut tabanlı bir araçtır.  iOS veya Android uygulamaları için hata ayıklama desteği.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Test Otomasyonu Için Maliyeti Azaltan Yöntemler]]></title>
@@ -48,71 +120,6 @@ Sistemdeki <span style="color: #ff0000;">asenkron hareketleri</span> bilmeye iht
 </li>
 </ul>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Mobil Otomasyon Ve Cihaz Desteği]]></title>
-    <link href="http://kadertarlan.github.io/blog/2017/05/13/mobil-otomasyon-ve-cihaz-destegi/"/>
-    <updated>2017-05-13T01:49:55+03:00</updated>
-    <id>http://kadertarlan.github.io/blog/2017/05/13/mobil-otomasyon-ve-cihaz-destegi</id>
-    <content type="html"><![CDATA[<p>Mobil Otomasyon için  Cihaz Desteği  veren Toolar var. Kullandığım ve fikrim olan cihazlardan biraz bahsetmek istiyorum:</p>
-
-<p>Appium
-Appium  açık kaynak kodlu, cross-platform test automation aracıdır. Native, hybrid ve mobile web uygulamalarını simulator (iOS, FirefoxOS), emulators (Android), veya real cihazlarda (iOS, Android, Windows, FirefoxOS) test etme imkanı sağlayan bir araç.</p>
-
-<p>Appium avantajları:
-- Her iki platformda da kullanabilme iOS ve android için.
-- Sürekli entegrasyon desteği, jenkins, saucelabs kullanabilme
-- Kaynak kod veya kütüphanelerine erişimi gerektirmez.  (Robotium istiyor mesela)
-- Çeşitli framework desteği.
-- Herhangi bir programlama dili destekler
-- Uygulamalarda hybris, native ve webapps çeşitliliklerini destekliyor
-- Bedava, açık kaynak
-- Simulator/emulator ve real device ile de çalışıyor
-Dezavantajı:
-- Waitleri statik vermek gerekiyor, bu konuda iyi bir çözümleri yok
-- Dökümantasyon biraz eksik
-- Apple dünyasında Appium ile otomasyon testlerinde paralel çalıştırmada limit var
-- Mobil dünyadaki özellikle oyun uygulamaları için hareketlere (zoom, double tap) ihtiyaç var. Bu hareketler için Javascript koşmak lazım</p>
-
-<p>******Bulut Tabanlı Mobil Cihaz Desteği:</p>
-
-<p>Bitbar Testdroid
-Bitbar Public Cloud (Testdroid Cloud) Android ve IOS manuel ve otomasyon testleri için bulut tabanlı mobil cihaz desteği sağlıyor.  Bir nevi cihaz desteği aslında. Burası test ortamlarının sağlandığı bir hizmet aslında. Mobil uygulamalar ve ilgili hizmetler için fonksiyonel, performans, stres, regresyon ve kararlılık testlerini otomatik hale getirir.  Burada monitoring yapmak mümkün günün her saatinde. Cihazları ise : <a href="https://cloud.testdroid.com/#public/devices">https://cloud.testdroid.com/#public/devices</a></p>
-
-<p>SauceLabs
-Bulut tabanlı olan Sauce Labs Android , IOS ve web uygulamaları için simulator, emilator ve gerçek cihaz desteği sağlıyor. Native, hibrit ve mobil web testlerini koşmak mümkün. Çeşitli işletim sistemleri ve browserlarla 800’den fazla platform sunuyor.  Appium ve Selenyum ile test edebilir ve testleri paralel olarak çalışabilir.</p>
-
-<p>SauceLabs ve Testdroid Karşılaştırması:
--  Testdroid mobil yazılım geliştirme ve test için kullandığımız bir Bitbar Teknolojisidir. 3 farklı ürünü var Testdroid Cloud, Testdroid Recorder ve Testdroid Enterprise.  Testdroid GitHub üzerinde açık kaynak kodlu  bir  application programming interface aslında. Testdroid ile çeşitli test frameworklerini kullanabilirsin , örneğin native için Robotium, Appium ve uiautomator  veya web uygulamaları için  Selenium , aslında bu platformun hedef kitlesi mobil veya oyun geliştiricileri. Gerçek Android ve iOS destekli cihazlar içerir bunun yanında bulut tabanlı test simulatorleri de sunuyor Testdroid Cloud ile.   Testdroid Recorder  ise developer ve testerlar için user-actions kaydediyor,  mobil uygulama ve oyunları üzerinde Junit tabanlı test caseler üretiyor,  Eclipse marketplace var. Testdroid Enterprise  ise gerçek Android ve IOS cihazlar için otomasyon testlerinin yönetildiği bir server yazılımıdır, Jenkins Continuous Integration destekler.</p>
-
-<ul>
-<li>Sauce Labs  desktop, mobile web, native, ve hybrid uygulamaları test etmek için için düyadaki en geniş ölçekli güvenilir ve ölçeklenebilir cloud ortamını oluşturur. 450’den fazla platform sunar.</li>
-</ul>
-
-
-<p>Cross Browser Testing
-Manuel ve otomasyon testleri ile fonksiyonel test ortamları sunar.  Geliştiriciler için 1500'den fazla mobil cihazlar ve tarayıcı desteği. Test sonuçlarını video ve ekran görüntüleri kaydedilebilir. Selenyum, Appium ve diğer testler CrossBrowserTesting uzaktan cihazlarda çalıştırabiliriz. Güvenlik duvarı (firewall) test etmek istiyorsanız, CrossBrowserTesting kullanıcılar için Chrome uzantısı veya Node.js tünel bulunmaktadır.  Desteklenen Tarayıcılar: Internet Explorer, Mozilla Firefox, Apple Safari, Google Chrome, Opera, Netscape ve daha birçok&hellip;
-Desteklenen İşletim Sistemi: Windows 98, Windows 2000, Windows XP, Windows Vista, 6, 5, Mac OS X 10.3–10.5, Fedora Core 6, O BlackBerry, BlackBerry OS, Apple iOS, Google Android, Windows Mobile 5.0 (RQVGA), Windows Mobile 6.0, Windows Mobile Professional 6.5
-Browserları: <a href="https://crossbrowsertesting.com/browsers">https://crossbrowsertesting.com/browsers</a></p>
-
-<p>******Mobil Beta Testleri için:</p>
-
-<p>Ubertesters
--Ubertesters kullanıcı deneyimini analiz etme, hata raporlama, kullanıcı testi  ortamları sağlar.  Development lifecycle yönetebilmek için hataları yakalama ve izlemeye yarar. Ubertesters ile mobil beta testleri yapmak, ekran görüntüleri ile video kayıtları ile takip etmeyi sağlar. Hataları raporlar.  Ubertester native ve cross-platform development destekler.</p>
-
-<p>TestFairy
-- TestFairy mobil uygulamaları için beta test platformudur, yapılan her test videoya çekilir. Mobil uygulamaları test ederken bir sorun varsa tam olarak istemci tarafında neyin yanlış gittiğini asla bilemezsin.
-TestFairy CPU, Bellek, GPS, Ağ ve çok daha fazla fazlası dahil olmak üzere tam bir deneme videosu sağlayarak bu sorunu çözer.</p>
-
-<p>****** Fonksiyonel Test
-Sencha mobil ve web uygulamaları için fonksiyonel test sunar. Sencha Test mobil tarayıcılarda gerçek cihazlarda kullanılabilen benzersiz bir URL oluşturmak için bir proxy mekanizması kullanır. Testler JavaScript ile yazılabilir. Unit testleri otomatize etme ve  end-to-end functional test için kapsamlı çözümler üretir, birden fazla tarayıcılarda aynı anda yürütebilirsiniz</p>
-
-<p>Bugsee
-Otomasyon ile çok ilgisi yok aslında,
-<a href="https://www.bugsee.com">https://www.bugsee.com</a>
-Bugsee monitoring ve sistem durumunu kayıtları sağlar, geliştiriciler için hata takibi yapmak, gönderilen hata bilgileri ile hata raporları sunan, bulut tabanlı bir araçtır.  iOS veya Android uygulamaları için hata ayıklama desteği.</p>
 ]]></content>
   </entry>
   

@@ -4,7 +4,7 @@
   <title><![CDATA[KaderTarlan]]></title>
   <link href="http://kadertarlan.github.io/atom.xml" rel="self"/>
   <link href="http://kadertarlan.github.io/"/>
-  <updated>2017-05-13T03:36:14+03:00</updated>
+  <updated>2017-05-13T20:31:13+03:00</updated>
   <id>http://kadertarlan.github.io/</id>
   <author>
     <name><![CDATA[KaderTarlan]]></name>
@@ -18,20 +18,31 @@
     <link href="http://kadertarlan.github.io/blog/2017/05/13/test-otomasyonu-icin-oaliyeti-azaltan-yontemler/"/>
     <updated>2017-05-13T02:03:29+03:00</updated>
     <id>http://kadertarlan.github.io/blog/2017/05/13/test-otomasyonu-icin-oaliyeti-azaltan-yontemler</id>
-    <content type="html"><![CDATA[<p>Test Otomasyonu için Maliyeti Azaltan Yöntemler</p>
+    <content type="html"><![CDATA[<p><p><span style="font-size: 10pt; font-family: symbol;">Test Otomasyonu için Maliyeti Azaltan Yöntemler</span><p></p>
 
-<p>Yazılım otomasyon testlerinin büyük amacı manuel testlerle çok vakit kaybetmeden zamandan ve paradan kazanç sağlayabilmek işi otomotize etmek isterken yazılım otomasyonlarındaki yapılan bazı hatalardan dolayı buradaki zaman ve maliyet artmakta.
-Yazılım otomasyon testleri yaparken otomasyon testlerinin maliyetini dusurebilecek durumlardan bahsedersek;</p>
+<p><p><span style="font-family: terminal, monaco, monospace;">Yazılım otomasyon testlerinin büyük amacı manuel testlerle çok vakit kaybetmeden zamandan ve paradan kazanç sağlayabilmek işi otomotize etmek isterken yazılım otomasyonlarındaki yapılan bazı hatalardan dolayı buradaki zaman ve maliyet artmakta.</span></p></p>
 
-<p>Maliyeti azaltmak için düşük değerlikli özelliklerin test edilmesi ile stabil diyeceğimiz durumların test edilmesi durumlarını çıkartmalıyız.  Bunları test etmenin bir anlamı olmayacak. Burada neyi test etmemiz gerekiyor bunun analizi iyi çıkarılmalı. Bakım maliyeti yapacak gereksiz adımları çıkarırsak daha kritik noktalar üzerinde testi koşturmak gereksiz maliyeti önlemiş olacaktır.   Bu tarz ufak kritik olmayan noktaların  otomasyonunu gerçeklemeyin.</p>
+<p><p><span style="color: #993300;">Yazılım otomasyon testleri yaparken otomasyon testlerinin maliyetini dusurebilecek durumlardan bahsedersek;</span></p></p>
 
-<p>Testinizi birden fazla tarayıcı da birden fazla işletim sisteminde uygulamanız gerekecek. Ama gerçekten tüm işletim sistemlerine ve tüm tarayıcılara ihtiyacımız var mı ? Bunun analizini yaparsak maliyetimiz biraz daha azalır. Şöyle ki mevcut sistemlerde tarayıcıların kullanım oranlarına göre bir eleme yapabilirsiniz.</p>
+<p><ul style="list-style-type: square;">
+<li><span style="color: #ff0000;">
+Maliyeti azaltmak için</span> düşük değerlikli özelliklerin test edilmesi ile stabil diyeceğimiz durumların test edilmesi durumlarını çıkartmalıyız.  Bunları test etmenin bir anlamı olmayacak. Burada neyi test etmemiz gerekiyor bunun analizi iyi çıkarılmalı. Bakım maliyeti yapacak gereksiz adımları çıkarırsak daha <span style="color: #ff0000;">kritik noktalar</span> üzerinde testi koşturmak gereksiz maliyeti önlemiş olacaktır.   Bu tarz ufak kritik olmayan noktaların  otomasyonunu gerçeklemeyin.
+</li></p>
 
-<p>Karmaşık test senaryolarını önleyiniz. Burada basitliğe ve esnekliğe odaklanmalıyız. Ancak karmaşık data-driven senaryolar oluşturacaksınız elbette bu karmaşık davranmak anlamına gelmez. Hünerli test kodu yazmak ile anlamsız parçaları birleştirip bir karmaşa oluşturmak arasındaki fark aslında. iç içe koşullardan kaçının testi okumak ve hata ayıklamak daha da zorlaşır. Tek bir testte bir çok adımı bir arada yapmaktan kaçının. Karmaşıklık sadece test değil tüm sistem için ek bir maliyete sebep olacaktır.</p>
+<p><li>
+Testinizi birden fazla <span style="color: #ff0000;">tarayıcı</span> da birden fazla <span style="color: #ff0000;">işletim sistemi</span>nde uygulamanız gerekecek. Ama gerçekten tüm işletim sistemlerine ve tüm tarayıcılara ihtiyacımız var mı ? Bunun analizini yaparsak maliyetimiz biraz daha azalır. Şöyle ki mevcut sistemlerde <span style="color: #ff0000;">tarayıcıların kullanım oranlarına</span> göre bir eleme yapabilirsiniz.
+</li></p>
 
-<p>Web sayfasındaki html elemanlarının bulunmasını sağlamak önemli.  Çünkü patlayan testlerin çoğunluğu aslında bu elemanların bulunmayışından dolayıdır.  Takımdaki web sayfamızı kodlayan arkadaşların bu idlerin bulunabilme ihtimallerini yukseltmeleri test maliyeti etkileyecektir.</p>
+<p><li><span style="color: #ff0000;">Karmaşık test senaryolarını</span>  önleyiniz. Burada basitliğe ve esnekliğe odaklanmalıyız. Ancak karmaşık data-driven senaryolar oluşturacaksınız elbette bu karmaşık davranmak anlamına gelmez. Hünerli test kodu yazmak ile anlamsız parçaları birleştirip bir karmaşa oluşturmak arasındaki fark aslında. iç içe koşullardan kaçının testi okumak ve hata ayıklamak daha da zorlaşır. Tek bir testte bir çok adımı bir arada yapmaktan kaçının. <span style="color: #ff0000;">Karmaşıklık</span> sadece test değil tüm sistem için <span style="color: #ff0000;">ek bir maliyete</span> sebep olacaktır.
+</li>
+<li>
+Web sayfasındaki <span style="color: #ff0000;">html elemanlarının</span> bulunmasını sağlamak önemli.  Çünkü patlayan testlerin çoğunluğu aslında bu elemanların bulunmayışından dolayıdır.  Takımdaki web sayfamızı kodlayan arkadaşların bu <span style="color: #ff0000;">id</span>lerin bulunabilme ihtimallerini yukseltmeleri test maliyeti etkileyecektir.
+</li>
+<li>
+Sistemdeki <span style="color: #ff0000;">asenkron hareketleri</span> bilmeye ihtiyacımız var.  Asenkron hareket eden test komutları için herhangi bir değişiklik bunları etkileyecektir. Yazdığınız tüm test kodları küçük bir geliştirmede bile etkileneceğinden testleri buna <span style="color: #ff0000;">dikkat ederek yazarsanız </span>testlerin çalışmasını etkilememiş olursunuz. Veya takibinin iyi yapılıp yazılan test kodları hasar görmeyecek şekilde düzeltmeler ile maliyete gene sahip çıkarız.</p>
 
-<p>Sistemdeki asenkron hareketleri bilmeye ihtiyacımız var.  Asenkron hareket eden test komutları için herhangi bir değişiklik bunları etkileyecektir. Yazdığınız tüm test kodları küçük bir geliştirmede bile etkileneceğinden testleri buna dikkat ederek yazarsanız testlerin çalışmasını etkilememiş olursunuz. Veya takibinin iyi yapılıp yazılan test kodları hasar görmeyecek şekilde düzeltmeler ile maliyete gene sahip çıkarız.</p>
+<p></li>
+</ul></p>
 ]]></content>
   </entry>
   

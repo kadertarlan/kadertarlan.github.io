@@ -4,7 +4,7 @@
   <title><![CDATA[KaderTarlan]]></title>
   <link href="http://kadertarlan.github.io/atom.xml" rel="self"/>
   <link href="http://kadertarlan.github.io/"/>
-  <updated>2017-05-13T22:17:56+03:00</updated>
+  <updated>2017-05-13T22:24:06+03:00</updated>
   <id>http://kadertarlan.github.io/</id>
   <author>
     <name><![CDATA[KaderTarlan]]></name>
@@ -23,10 +23,10 @@
 <h4>Appium</h4>
 
 
-<p><blockquote>
-<p><span style="color: #003366;"><span style="color: #993300;">Appium</span> açık kaynak kodlu, cross-platform test automation aracıdır. Native, hybrid ve mobile web uygulamalarını simulator (iOS, FirefoxOS), emulators (Android), veya real cihazlarda (iOS, Android, Windows, FirefoxOS) test etme imkanı sağlayan bir araç. </span></p></p>
+<blockquote>
+<p><span style="color: #003366;"><span style="color: #993300;">Appium</span> açık kaynak kodlu, cross-platform test automation aracıdır. Native, hybrid ve mobile web uygulamalarını simulator (iOS, FirefoxOS), emulators (Android), veya real cihazlarda (iOS, Android, Windows, FirefoxOS) test etme imkanı sağlayan bir araç. </span></p>
 
-<p><p><span style="color: #ff0000;">Appium avantajları: </span>
+<p><span style="color: #ff0000;">Appium avantajları: </span>
 <ul style="list-style-type: disc;">
 <li>Her iki platformda da kullanabilme iOS ve android için.</li>
 <li>Sürekli entegrasyon desteği, jenkins, saucelabs kullanabilme</li>
@@ -35,23 +35,32 @@
 <li>Herhangi bir programlama dili destekler</li>
 <li>Uygulamalarda hybris, native ve webapps çeşitliliklerini destekliyor</li>
 <li>Bedava, açık kaynak</li>
-<li>Simulator/emulator ve real device ile de çalışıyor </li></ul></p>
+<li>Simulator/emulator ve real device ile de çalışıyor </li></ul>
 
-<p><span style="color: #ff0000;">Dezavantajı:</span>
+<span style="color: #ff0000;">Dezavantajı:</span>
 <ul style="list-style-type: disc;">
 <li>Waitleri statik vermek gerekiyor, bu konuda iyi bir çözümleri yok</li>
 <li>Dökümantasyon biraz eksik </li>
 <li>Apple dünyasında Appium ile otomasyon testlerinde paralel çalıştırmada limit var</li>
-<li>Mobil dünyadaki özellikle oyun uygulamaları için hareketlere (zoom, double tap) ihtiyaç var. Bu hareketler için Javascript koşmak lazım</li></ul></p>
+<li>Mobil dünyadaki özellikle oyun uygulamaları için hareketlere (zoom, double tap) ihtiyaç var. Bu hareketler için Javascript koşmak lazım</li></ul>
+</blockquote>
 
-<p><h4>Bulut Tabanlı Mobil Cihaz Desteği: </h4></p>
 
-<p><p><span style="color: #0000ff;">Bitbar Testdroid</span></p>
-<p><strong>Bitbar Public Cloud (Testdroid Cloud),</strong>  Android ve IOS manuel ve otomasyon testleri için bulut tabanlı mobil cihaz desteği sağlıyor.  Bir nevi cihaz desteği aslında. Burası test ortamlarının sağlandığı bir hizmet aslında. Mobil uygulamalar ve ilgili hizmetler için fonksiyonel, performans, stres, regresyon ve kararlılık testlerini otomatik hale getirir.  Burada monitoring yapmak mümkün günün her saatinde.
-<br />Cihazları ise : <a href="https://cloud.testdroid.com/#public/devices"><a href="https://cloud.testdroid.com/#public/devices">https://cloud.testdroid.com/#public/devices</a></a></p></p>
+<h4>Bulut Tabanlı Mobil Cihaz Desteği: </h4>
 
-<p>SauceLabs
-Bulut tabanlı olan Sauce Labs Android , IOS ve web uygulamaları için simulator, emilator ve gerçek cihaz desteği sağlıyor. Native, hibrit ve mobil web testlerini koşmak mümkün. Çeşitli işletim sistemleri ve browserlarla 800’den fazla platform sunuyor.  Appium ve Selenyum ile test edebilir ve testleri paralel olarak çalışabilir.</p>
+
+
+
+<p><span style="color: #0000ff;">Bitbar Testdroid</span></p>
+
+
+<p><strong>Bitbar Public Cloud (Testdroid Cloud),</strong>  Android ve IOS manuel ve otomasyon testleri için bulut tabanlı mobil cihaz desteği sağlıyor.  Bir nevi cihaz desteği aslında. Burası test ortamlarının sağlandığı bir hizmet aslında. Mobil uygulamalar ve ilgili hizmetler için fonksiyonel, performans, stres, regresyon ve kararlılık testlerini otomatik hale getirir.  Burada monitoring yapmak mümkün günün her saatinde. 
+<br />Cihazları ise : <a href="https://cloud.testdroid.com/#public/devices">https://cloud.testdroid.com/#public/devices</a></p>
+
+
+<p><span style="color: #0000ff;">Sauce Labs</span></p>
+
+<p><p><strong>Bulut tabanlı olan Sauce Labs</strong> Android , IOS ve web uygulamaları için simulator, emilator ve gerçek cihaz desteği sağlıyor. Native, hibrit ve mobil web testlerini koşmak mümkün. Çeşitli işletim sistemleri ve browserlarla 800’den fazla platform sunuyor.  Appium ve Seleniuum ile test edebilir ve testleri paralel olarak çalıştırabilir.</p>
 
 <p>SauceLabs ve Testdroid Karşılaştırması:
 -  Testdroid mobil yazılım geliştirme ve test için kullandığımız bir Bitbar Teknolojisidir. 3 farklı ürünü var Testdroid Cloud, Testdroid Recorder ve Testdroid Enterprise.  Testdroid GitHub üzerinde açık kaynak kodlu  bir  application programming interface aslında. Testdroid ile çeşitli test frameworklerini kullanabilirsin , örneğin native için Robotium, Appium ve uiautomator  veya web uygulamaları için  Selenium , aslında bu platformun hedef kitlesi mobil veya oyun geliştiricileri. Gerçek Android ve iOS destekli cihazlar içerir bunun yanında bulut tabanlı test simulatorleri de sunuyor Testdroid Cloud ile.   Testdroid Recorder  ise developer ve testerlar için user-actions kaydediyor,  mobil uygulama ve oyunları üzerinde Junit tabanlı test caseler üretiyor,  Eclipse marketplace var. Testdroid Enterprise  ise gerçek Android ve IOS cihazlar için otomasyon testlerinin yönetildiği bir server yazılımıdır, Jenkins Continuous Integration destekler.</p>

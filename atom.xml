@@ -4,7 +4,7 @@
   <title><![CDATA[KaderTarlan]]></title>
   <link href="http://kadertarlan.github.io/atom.xml" rel="self"/>
   <link href="http://kadertarlan.github.io/"/>
-  <updated>2017-05-13T21:20:43+03:00</updated>
+  <updated>2017-05-13T21:27:31+03:00</updated>
   <id>http://kadertarlan.github.io/</id>
   <author>
     <name><![CDATA[KaderTarlan]]></name>
@@ -126,11 +126,14 @@ Bugsee monitoring ve sistem durumunu kayıtları sağlar, geliştiriciler için 
 
 <p>Tasarımı oturmuş projemizde <span style="color: #993300;">manuel testlerin azaltılması</span> için otomasyon yazmanın yanında, otomasyonun getirdiği bir diğer güzellikler pek çok <span style="color: #993300;">farklı platformda</span> aynı testlerin çalıştırılmasının sağlanılması ,  bir testi 4 farklı makinada ve her makinanın 3 farklı platformunda deneme 12 iş yükü iken otomasyon testlerinin paralel aynı işi aynı anda yapıyor olmasının getirdiği maliyet ve zaman kazancını tahmin edebiliriz. Bu ihtiyacımız yalnızca web tarafında değil mobil tarafta da <span style="color: #993300;">cihaz değişikliği ihityaçlarımızda</span> otomasyon sorunu çözecektir.  Bir çok farklı sürümdeki android cihaz çeşitliliğinin farkındayız bütün bu cihazları tedarik etmek de oldukça maliyetliyken, yazılım test scriptlerinizi cloud yöntemlerle cihaz desteği sunan toolara üye olarak koşmak mümkün. Böylece bir çok mobil cihazda da mobil app’lerin testlerini gerçekleştirmiş oluncak.</p>
 
-<p><span style="color: #0000ff;  style="font-family: terminal, monaco, monospace; ">Herşeyde imdadımıza otomasyon testleri koşacak diye de bir  durum yok aslında, proje ve kaynaklara göre bunun ayrımının yapılması gerekir. Doğru zamanda doğru ihtiyacı yakalarsak test anlamındaki sistemi de oturtmuş oluruz. </span></p>
+<p><span style="font-family: terminal, monaco, monospace; ">
+Herşeyde imdadımıza otomasyon testleri koşacak diye de bir  durum yok aslında, proje ve kaynaklara göre bunun ayrımının yapılması gerekir. Doğru zamanda doğru ihtiyacı yakalarsak test anlamındaki sistemi de oturtmuş oluruz. </span></p>
 
-<p>Otomasyon testlerinin yapamadığı manuel testlere ihtiyacımız olan durumlarda olcak, kodlarımız da birim testlere deihtiyacımız olcak.
-<span style="font-family: terminal, monaco, monospace; ">Projenin her adımında teste ihtyacımız olduğunu ve doğru test adımları ile çok daha kaliteli işler çıkacağını göreceğiz. </span>
-Bol testli günler :)</p>
+<p>Otomasyon testlerinin yapamadığı manuel testlere ihtiyacımız olan durumlarda olcak, kodlarımız da birim testlere deihtiyacımız olcak.</p>
+
+<p><span style="color: #0000ff;  style="font-family: terminal, monaco, monospace; ">Projenin her adımında teste ihtyacımız olduğunu ve doğru test adımları ile çok daha kaliteli işler çıkacağını göreceğiz. </span></p>
+
+<p>Bol testli günler :)</p>
 ]]></content>
   </entry>
   

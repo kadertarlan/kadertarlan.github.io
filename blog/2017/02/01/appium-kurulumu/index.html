@@ -9,7 +9,8 @@
   <meta name="author" content="KaderTarlan">
 
   
-  <meta name="description" content="Appium kurulumu kullanımı. İlk olarak Eclipse kurulu değil ise Eclipse IDE‘yi indiriyoruz kullandığınız platforma göre linkten bulabilirsiniz.  &hellip;">
+  <meta name="description" content="Appium kurulumu kullanımı.
+İlk olarak Eclipse kurulu değil ise Eclipse IDE‘yi indiriyoruz kullandığınız platforma göre linkten bulabilirsiniz. &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://kadertarlan.github.io/blog/2017/05/13/appium-kurulumu">
+  <link rel="canonical" href="http://kadertarlan.github.io/blog/2017/02/01/appium-kurulumu">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="KaderTarlan" type="application/atom+xml">
@@ -82,18 +83,31 @@
   
 
 
-<time datetime="2017-05-13T01:56:58+03:00" pubdate data-updated="true"></time>
+<time datetime="2017-02-01T00:37:37+03:00" pubdate data-updated="true"></time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>Appium kurulumu kullanımı. İlk olarak Eclipse kurulu değil ise Eclipse IDE‘yi indiriyoruz kullandığınız platforma göre linkten bulabilirsiniz. <a href="http://www.eclipse.org/downloads/%E2%80%A8Ayr%C4%B1ca">http://www.eclipse.org/downloads/%E2%80%A8Ayr%C4%B1ca</a> JDK indirmeniz gerekiyor. Bunun için de aşağıdaki linkten, işletim sisteminizi seçip anlaşmayı onayladıktan sonra indirebilirsiniz. <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-">http://www.oracle.com/technetwork/java/javase/downloads/jdk8-</a> downloads-2133151.html JDKʼ yı indirip kurun. Yükleme bitince Eclipseʼyi açın. Android için SDK indireceğiz. Bunun için aşağıdaki linkten indirme işlemini yapıyoruz. <a href="http://www.gezginler.net/indir/android-sdk.html%E2%80%A8I%CC%87ndirdikten">http://www.gezginler.net/indir/android-sdk.html%E2%80%A8I%CC%87ndirdikten</a> sonra çift tıklayıp kuralım. Eclipse dosyasının içine kurabilirsiniz. Yükleme bitince SDK Manager programı açılacaktır. Burada yüklemek istediğimiz Android sürümlerini seçerek kurulumunu sağlayabilirsiniz. Şimdi Eclipseʼyi açın ve yukarıdaki menüden Help-Install New Software seçeneğine gelin. Location kısmına <a href="https://dl-ssl.google.com/android/eclipse/">https://dl-ssl.google.com/android/eclipse/</a>
-adresini girin. ADT (Android Development Tools) için gelen verileri seçerek indirilmesini sağlayın. Son olarak Eclipse içerisinde Window-Preferences ve soldaki Android kısmına tıklıyoruz. Buradaki SDK Location bölümüne Android SDKʼyı nereye kurduysak onu işaretliyoruz. Kurulum işlemlerimiz tamam. Android Tools indirirken Android DDMSʼde inmiş oldu. Bu bizim Android testlerimiz için mobil cihazın ekran görüntüsü almamızı sağlayacak.
-Şimdi Appium kuralım.<a href="https://bitbucket.org/appium/appium.app/downloads/">https://bitbucket.org/appium/appium.app/downloads/</a> buradan Appium versiyonunu projenize uygun şekilde seçmelisiniz. Ben Android 5 ve 6 sürümlerinde ayrıca ios 9 sürümünde test yapabilmek için 1.4.13 indirdim. Mac bilgisayarlar için kurulumu oldukça basit indirdiğiniz dosyanın üzerine gelerek kurulumu gerçekleştiriniz. appium.jpeg Burada localde bir android telefonu bilgisayarınıza bağlayıp resimde görüldüğü gibi Android iconuna tıklayıp Launch ettiğinizde status 200 alcaksınız başarılı bağlanma sonunda. appium2
+<div class="entry-content"><p>Appium kurulumu kullanımı.
+İlk olarak Eclipse kurulu değil ise Eclipse IDE‘yi indiriyoruz kullandığınız platforma göre linkten bulabilirsiniz.
+<a href="http://www.eclipse.org/downloads/">http://www.eclipse.org/downloads/</a>
+Ayrıca JDK indirmeniz gerekiyor. Bunun için de aşağıdaki linkten, işletim sisteminizi seçip anlaşmayı onayladıktan sonra indirebilirsiniz. <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-">http://www.oracle.com/technetwork/java/javase/downloads/jdk8-</a> downloads-2133151.html
+JDKʼ yı indirip kurun. Yükleme bitince Eclipseʼyi açın.
+Android için SDK indireceğiz. Bunun için aşağıdaki linkten indirme işlemini yapıyoruz.
+<a href="http://www.gezginler.net/indir/android-sdk.html">http://www.gezginler.net/indir/android-sdk.html</a>
+İndirdikten sonra çift tıklayıp kuralım. Eclipse dosyasının içine kurabilirsiniz. Yükleme bitince SDK Manager programı açılacaktır. Burada yüklemek istediğimiz Android sürümlerini seçerek kurulumunu sağlayabilirsiniz.
+Şimdi Eclipseʼyi açın ve yukarıdaki menüden Help-Install New Software seçeneğine gelin. Location kısmına <a href="https://dl-ssl.google.com/android/eclipse/">https://dl-ssl.google.com/android/eclipse/</a>
+adresini girin. ADT (Android Development Tools) için gelen verileri seçerek indirilmesini sağlayın.
+Son olarak Eclipse içerisinde Window-Preferences ve soldaki Android kısmına tıklıyoruz. Buradaki SDK Location bölümüne Android SDKʼyı nereye kurduysak onu işaretliyoruz.
+Kurulum işlemlerimiz tamam. Android Tools indirirken Android DDMSʼde inmiş oldu. Bu bizim Android testlerimiz için mobil cihazın ekran görüntüsü almamızı sağlayacak.
+Şimdi Appium kuralım.<a href="https://bitbucket.org/appium/appium.app/downloads/">https://bitbucket.org/appium/appium.app/downloads/</a> buradan Appium versiyonunu projenize uygun şekilde seçmelisiniz. Ben Android 5 ve 6 sürümlerinde ayrıca ios 9 sürümünde test yapabilmek için 1.4.13 indirdim. Mac bilgisayarlar için kurulumu oldukça basit indirdiğiniz dosyanın üzerine gelerek kurulumu gerçekleştiriniz. appium.jpeg
+Burada localde bir android telefonu bilgisayarınıza bağlayıp resimde görüldüğü gibi Android iconuna tıklayıp Launch ettiğinizde status 200 alcaksınız başarılı bağlanma sonunda. appium2
 Kurulumlar tamamlandıktan sonra Could not find adb. Please set the ANDROID_HOME environment variable with the Android SDK root directory path. Gib Bir hatamız local bunun için vi ~/.bash_profile girip
-export ANDROID_HOME=/Applications/Android export PATH=$ANDROID_HOME/platform-tools:$PATH export PATH=$ANDROID_HOME/tools:$PATH Bunları yazmak gerekiyor dosyaya.</p>
+export ANDROID_HOME=/Applications/Android
+export PATH=$ANDROID_HOME/platform-tools:$PATH export PATH=$ANDROID_HOME/tools:$PATH
+Bunları yazmak gerekiyor dosyaya.</p>
 
 <p><a href="https://developer.apple.com/download/more/">https://developer.apple.com/download/more/</a>
  Buradan xcode 7.3.1</p>
@@ -162,7 +176,7 @@ export PATH=&ldquo;/Users/kader.tarlan/Downloads/tools/build-tools:$PATH&rdquo;<
   
 
 
-<time datetime="2017-05-13T01:56:58+03:00" pubdate data-updated="true"></time>
+<time datetime="2017-02-01T00:37:37+03:00" pubdate data-updated="true"></time>
       
 
 
@@ -170,7 +184,7 @@ export PATH=&ldquo;/Users/kader.tarlan/Downloads/tools/build-tools:$PATH&rdquo;<
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://kadertarlan.github.io/blog/2017/05/13/appium-kurulumu/" data-via="" data-counturl="http://kadertarlan.github.io/blog/2017/05/13/appium-kurulumu/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://kadertarlan.github.io/blog/2017/02/01/appium-kurulumu/" data-via="" data-counturl="http://kadertarlan.github.io/blog/2017/02/01/appium-kurulumu/" >Tweet</a>
   
   
   
@@ -179,10 +193,10 @@ export PATH=&ldquo;/Users/kader.tarlan/Downloads/tools/build-tools:$PATH&rdquo;<
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2017/05/13/mobil-otomasyon-ve-cihaz-destegi/" title="Previous Post: Mobil Otomasyon Ve Cihaz Desteği">&laquo; Mobil Otomasyon Ve Cihaz Desteği</a>
+        <a class="basic-alignment left" href="/blog/2016/02/23/python-ile-birim-testler/" title="Previous Post: Python ile Birim Testler">&laquo; Python ile Birim Testler</a>
       
       
-        <a class="basic-alignment right" href="/blog/2017/05/13/test-otomasyonu-icin-oaliyeti-azaltan-yontemler/" title="Next Post: Test Otomasyonu için Maliyeti Azaltan Yöntemler">Test Otomasyonu için Maliyeti Azaltan Yöntemler &raquo;</a>
+        <a class="basic-alignment right" href="/blog/2017/05/13/ozetle-yazilim-test-otomasyon/" title="Next Post: Özetle Yazılım Test Otomasyon">Özetle Yazılım Test Otomasyon &raquo;</a>
       
     </p>
   </footer>
@@ -228,15 +242,15 @@ export PATH=&ldquo;/Users/kader.tarlan/Downloads/tools/build-tools:$PATH&rdquo;<
       </li>
     
       <li class="post">
-        <a href="/blog/2017/05/13/appium-kurulumu/">Appium Kurulumu</a>
-      </li>
-    
-      <li class="post">
         <a href="/blog/2017/05/13/mobil-otomasyon-ve-cihaz-destegi/">Mobil Otomasyon Ve Cihaz Desteği</a>
       </li>
     
       <li class="post">
         <a href="/blog/2017/05/13/ozetle-yazilim-test-otomasyon/">Özetle Yazılım Test Otomasyon</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/02/01/appium-kurulumu/">Appium Kurulumu</a>
       </li>
     
       <li class="post">
@@ -256,15 +270,15 @@ export PATH=&ldquo;/Users/kader.tarlan/Downloads/tools/build-tools:$PATH&rdquo;<
       </li>
     
       <li class="post">
-        <a href="/blog/2017/05/13/appium-kurulumu/">Appium Kurulumu</a>
-      </li>
-    
-      <li class="post">
         <a href="/blog/2017/05/13/mobil-otomasyon-ve-cihaz-destegi/">Mobil Otomasyon Ve Cihaz Desteği</a>
       </li>
     
       <li class="post">
         <a href="/blog/2017/05/13/ozetle-yazilim-test-otomasyon/">Özetle Yazılım Test Otomasyon</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/02/01/appium-kurulumu/">Appium Kurulumu</a>
       </li>
     
       <li class="post">

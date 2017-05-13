@@ -4,7 +4,7 @@
   <title><![CDATA[KaderTarlan]]></title>
   <link href="http://kadertarlan.github.io/atom.xml" rel="self"/>
   <link href="http://kadertarlan.github.io/"/>
-  <updated>2017-05-13T22:52:46+03:00</updated>
+  <updated>2017-05-13T22:55:03+03:00</updated>
   <id>http://kadertarlan.github.io/</id>
   <author>
     <name><![CDATA[KaderTarlan]]></name>
@@ -81,10 +81,13 @@ Testdroid ile çeşitli test frameworklerini kullanabilir, örneğin native içi
 
 <p><p><span style="color: #0000ff;">Cross Browser Testing</span></p></p>
 
-<p>Manuel ve otomasyon testleri ile fonksiyonel test ortamları sunar.  Geliştiriciler için 1500'den fazla mobil cihazlar ve tarayıcı desteği. Burada browser testleri yapmak mümkün, mobil taraftada browser açıp testleri yürütüyor. Mobil App testleri yapmak için diğer toolara bakmak daha iyi. Test sonuçlarını video ve ekran görüntüleri kaydedilebilir. Selenyum, Appium ve diğer testler CrossBrowserTesting uzaktan cihazlarda çalıştırabiliriz. Güvenlik duvarı (firewall) test etmek istiyorsanız, CrossBrowserTesting kullanıcılar için Chrome uzantısı veya Node.js tünel bulunmaktadır. <br/>
-<span style="color: #003366;">Desteklenen Tarayıcılar: </span>Internet Explorer, Mozilla Firefox, Apple Safari, Google Chrome, Opera, Netscape ve daha birçok&hellip;<br/>
-<span style="color: #003366;">Desteklenen İşletim Sistemi: </span> Windows 98, Windows 2000, Windows XP, Windows Vista, 6, 5, Mac OS X 10.3–10.5, Fedora Core 6, O BlackBerry, BlackBerry OS, Apple iOS, Google Android, Windows Mobile 5.0 (RQVGA), Windows Mobile 6.0, Windows Mobile Professional 6.5<br/>
-<span style="color: #003366;"> Browserları: </span> <a href="https://crossbrowsertesting.com/browsers">https://crossbrowsertesting.com/browsers</a></p>
+<p><p><span style="color: #003366;">Manuel ve otomasyon testleri ile fonksiyonel test ortamları sunar.</span>  Geliştiriciler için 1500'den fazla mobil cihazlar ve tarayıcı desteği. Burada browser testleri yapmak mümkün, mobil taraftada browser açıp testleri yürütüyor. Mobil App testleri yapmak için diğer toolara bakmak daha iyi. Test sonuçlarını video ve ekran görüntüleri kaydedilebilir. Selenyum, Appium ve diğer testler CrossBrowserTesting uzaktan cihazlarda çalıştırabiliriz. Güvenlik duvarı (firewall) test etmek istiyorsanız, CrossBrowserTesting kullanıcılar için Chrome uzantısı veya Node.js tünel bulunmaktadır.</p>
+
+<p><span style="color: #003366;">Desteklenen Tarayıcılar: </span>Internet Explorer, Mozilla Firefox, Apple Safari, Google Chrome, Opera, Netscape ve daha birçok&hellip;</p>
+
+<p><span style="color: #003366;">Desteklenen İşletim Sistemi: </span> Windows 98, Windows 2000, Windows XP, Windows Vista, 6, 5, Mac OS X 10.3–10.5, Fedora Core 6, O BlackBerry, BlackBerry OS, Apple iOS, Google Android, Windows Mobile 5.0 (RQVGA), Windows Mobile 6.0, Windows Mobile Professional 6.5</p>
+
+<p><span style="color: #003366;"> Browserları: </span> <a href="https://crossbrowsertesting.com/browsers">https://crossbrowsertesting.com/browsers</a></p>
 
 <p><blockquote>
 <h4>Mobil Beta Testleri için:</h4></p>

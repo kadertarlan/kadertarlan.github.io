@@ -4,7 +4,7 @@
   <title><![CDATA[KaderTarlan]]></title>
   <link href="http://kadertarlan.github.io/atom.xml" rel="self"/>
   <link href="http://kadertarlan.github.io/"/>
-  <updated>2017-05-13T20:31:13+03:00</updated>
+  <updated>2017-05-13T21:20:43+03:00</updated>
   <id>http://kadertarlan.github.io/</id>
   <author>
     <name><![CDATA[KaderTarlan]]></name>
@@ -18,31 +18,36 @@
     <link href="http://kadertarlan.github.io/blog/2017/05/13/test-otomasyonu-icin-oaliyeti-azaltan-yontemler/"/>
     <updated>2017-05-13T02:03:29+03:00</updated>
     <id>http://kadertarlan.github.io/blog/2017/05/13/test-otomasyonu-icin-oaliyeti-azaltan-yontemler</id>
-    <content type="html"><![CDATA[<p><p><span style="font-size: 10pt; font-family: symbol;">Test Otomasyonu için Maliyeti Azaltan Yöntemler</span><p></p>
+    <content type="html"><![CDATA[<p><span style="font-family: terminal, monaco, monospace;">Yazılım otomasyon testlerinin büyük amacı manuel testlerle çok vakit kaybetmeden zamandan ve paradan kazanç sağlayabilmek işi otomotize etmek isterken yazılım otomasyonlarındaki yapılan bazı hatalardan dolayı buradaki zaman ve maliyet artmakta.</span></p>
 
-<p><p><span style="font-family: terminal, monaco, monospace;">Yazılım otomasyon testlerinin büyük amacı manuel testlerle çok vakit kaybetmeden zamandan ve paradan kazanç sağlayabilmek işi otomotize etmek isterken yazılım otomasyonlarındaki yapılan bazı hatalardan dolayı buradaki zaman ve maliyet artmakta.</span></p></p>
 
-<p><p><span style="color: #993300;">Yazılım otomasyon testleri yaparken otomasyon testlerinin maliyetini dusurebilecek durumlardan bahsedersek;</span></p></p>
 
-<p><ul style="list-style-type: square;">
+
+<p><span style="color: #993300;">Yazılım otomasyon testleri yaparken otomasyon testlerinin maliyetini dusurebilecek durumlardan bahsedersek;</span></p>
+
+
+
+
+<ul style="list-style-type: square;">
 <li><span style="color: #ff0000;">
 Maliyeti azaltmak için</span> düşük değerlikli özelliklerin test edilmesi ile stabil diyeceğimiz durumların test edilmesi durumlarını çıkartmalıyız.  Bunları test etmenin bir anlamı olmayacak. Burada neyi test etmemiz gerekiyor bunun analizi iyi çıkarılmalı. Bakım maliyeti yapacak gereksiz adımları çıkarırsak daha <span style="color: #ff0000;">kritik noktalar</span> üzerinde testi koşturmak gereksiz maliyeti önlemiş olacaktır.   Bu tarz ufak kritik olmayan noktaların  otomasyonunu gerçeklemeyin.
-</li></p>
+</li>
 
-<p><li>
-Testinizi birden fazla <span style="color: #ff0000;">tarayıcı</span> da birden fazla <span style="color: #ff0000;">işletim sistemi</span>nde uygulamanız gerekecek. Ama gerçekten tüm işletim sistemlerine ve tüm tarayıcılara ihtiyacımız var mı ? Bunun analizini yaparsak maliyetimiz biraz daha azalır. Şöyle ki mevcut sistemlerde <span style="color: #ff0000;">tarayıcıların kullanım oranlarına</span> göre bir eleme yapabilirsiniz.
-</li></p>
+<li>
+Testinizi birden fazla <span style="color: #ff0000;">tarayıcı</span> da birden fazla <span style="color: #ff0000;">işletim sistemi</span>nde uygulamanız gerekecek. Ama gerçekten tüm işletim sistemlerine ve tüm tarayıcılara ihtiyacımız var mı ? Bunun analizini yaparsak maliyetimiz biraz daha azalır. Şöyle ki mevcut sistemlerde <span style="color: #ff0000;">tarayıcıların kullanım oranlarına</span> göre bir eleme yapabilirsiniz. 
+</li>
 
-<p><li><span style="color: #ff0000;">Karmaşık test senaryolarını</span>  önleyiniz. Burada basitliğe ve esnekliğe odaklanmalıyız. Ancak karmaşık data-driven senaryolar oluşturacaksınız elbette bu karmaşık davranmak anlamına gelmez. Hünerli test kodu yazmak ile anlamsız parçaları birleştirip bir karmaşa oluşturmak arasındaki fark aslında. iç içe koşullardan kaçının testi okumak ve hata ayıklamak daha da zorlaşır. Tek bir testte bir çok adımı bir arada yapmaktan kaçının. <span style="color: #ff0000;">Karmaşıklık</span> sadece test değil tüm sistem için <span style="color: #ff0000;">ek bir maliyete</span> sebep olacaktır.
+<li><span style="color: #ff0000;">Karmaşık test senaryolarını</span>  önleyiniz. Burada basitliğe ve esnekliğe odaklanmalıyız. Ancak karmaşık data-driven senaryolar oluşturacaksınız elbette bu karmaşık davranmak anlamına gelmez. Hünerli test kodu yazmak ile anlamsız parçaları birleştirip bir karmaşa oluşturmak arasındaki fark aslında. iç içe koşullardan kaçının testi okumak ve hata ayıklamak daha da zorlaşır. Tek bir testte bir çok adımı bir arada yapmaktan kaçının. <span style="color: #ff0000;">Karmaşıklık</span> sadece test değil tüm sistem için <span style="color: #ff0000;">ek bir maliyete</span> sebep olacaktır.
 </li>
 <li>
 Web sayfasındaki <span style="color: #ff0000;">html elemanlarının</span> bulunmasını sağlamak önemli.  Çünkü patlayan testlerin çoğunluğu aslında bu elemanların bulunmayışından dolayıdır.  Takımdaki web sayfamızı kodlayan arkadaşların bu <span style="color: #ff0000;">id</span>lerin bulunabilme ihtimallerini yukseltmeleri test maliyeti etkileyecektir.
 </li>
 <li>
-Sistemdeki <span style="color: #ff0000;">asenkron hareketleri</span> bilmeye ihtiyacımız var.  Asenkron hareket eden test komutları için herhangi bir değişiklik bunları etkileyecektir. Yazdığınız tüm test kodları küçük bir geliştirmede bile etkileneceğinden testleri buna <span style="color: #ff0000;">dikkat ederek yazarsanız </span>testlerin çalışmasını etkilememiş olursunuz. Veya takibinin iyi yapılıp yazılan test kodları hasar görmeyecek şekilde düzeltmeler ile maliyete gene sahip çıkarız.</p>
+Sistemdeki <span style="color: #ff0000;">asenkron hareketleri</span> bilmeye ihtiyacımız var.  Asenkron hareket eden test komutları için herhangi bir değişiklik bunları etkileyecektir. Yazdığınız tüm test kodları küçük bir geliştirmede bile etkileneceğinden testleri buna <span style="color: #ff0000;">dikkat ederek yazarsanız </span>testlerin çalışmasını etkilememiş olursunuz. Veya takibinin iyi yapılıp yazılan test kodları hasar görmeyecek şekilde düzeltmeler ile maliyete gene sahip çıkarız.
 
-<p></li>
-</ul></p>
+</li>
+</ul>
+
 ]]></content>
   </entry>
   
@@ -116,13 +121,16 @@ Bugsee monitoring ve sistem durumunu kayıtları sağlar, geliştiriciler için 
     <link href="http://kadertarlan.github.io/blog/2017/05/13/ozetle-yazilim-test-otomasyon/"/>
     <updated>2017-05-13T00:57:37+03:00</updated>
     <id>http://kadertarlan.github.io/blog/2017/05/13/ozetle-yazilim-test-otomasyon</id>
-    <content type="html"><![CDATA[<p>Otomasyon, test kapsamının arttırılmasını, manuel test yükünün azaltılmasını sağladığımız bir metodolojidir aslında.
-Otomasyon yazmalı mıyız, buna ihtiyacımız var mı sorularının cevabı için projenizin durumu önemli. Her defasında tekrar ettiğimiz test adımlarını otomatize edip iş yükünü azaltmak bir yöntemken, sürekli geliştirip bozup yeniden kurduğunuz bir tasarım içinde sürekli otomasyon testlerinin revize edilmesi ile de başka bir yük getirmek çok mantıklı olmaz. Daha çok gün yüzüne çıkmış, bir sistem oturtulup tasarımda stabil olduğumuz projelerimizde otomasyon daha doğru bir karar. Tabiki değişiklikler olacak ama tüm sayfaların, butonların, idl’erin değiştiği bir karmaşa halindeki değişiklikler değil kastımız.</p>
+    <content type="html"><![CDATA[<p><span style="color: #ff0000;  style="font-family: terminal, monaco, monospace; ">Otomasyon</span>, test kapsamının arttırılmasını, manuel test yükünün azaltılmasını sağladığımız bir metodolojidir aslında.
+<span style="color: #993300;">Otomasyon yazmalı mıyız, buna ihtiyacımız var mı sorularının cevabı için projenizin durumu önemli.</span>Her defasında tekrar ettiğimiz test adımlarını otomatize edip iş yükünü azaltmak bir yöntemken, sürekli geliştirip bozup yeniden kurduğunuz bir tasarım içinde sürekli otomasyon testlerinin revize edilmesi ile de başka bir yük getirmek çok mantıklı olmaz. Daha çok gün yüzüne çıkmış, bir sistem oturtulup <span style="color: #993300;"> stabil olduğumuz projelerimizde otomasyon daha doğru bir karar.</span> Tabiki değişiklikler olacak ama tüm sayfaların, butonların, idl’erin değiştiği bir karmaşa halindeki değişiklikler değil kastımız.</p>
 
-<p>Tasarımı oturmuş projemizde manuel testlerin azaltılması için otomasyon yazmanın yanında, otomasyonun getirdiği bir diğer güzellikler pek çok farklı platformda aynı testlerin çalıştırılmasının sağlanılması ,  bir testi 4 farklı makinada ve her makinanın 3 farklı platformunda deneme 12 iş yükü iken otomasyon testlerinin paralel aynı işi aynı anda yapıyor olmasının getirdiği maliyet ve zaman kazancını tahmin edebiliriz. Bu ihtiyacımız yalnızca web tarafında değil mobil taraftada cihaz değişikliği ihityaçlarımızda otomasyon sorunu çözecektir.  Bir çok farklı sürümdeki android cihaz çeşitliliğinin farkındayız bütün bu cihazları tedarik etmek de oldukça maliyetliyken, yazılım test scriptlerinizi cloud yöntemlerle cihaz desteği sunan toolara üye olarak koşmak mümkün. Böylece bir çok mobil cihazda da mobil app’lerin testlerini gerçekleştirmiş oluncak.</p>
+<p>Tasarımı oturmuş projemizde <span style="color: #993300;">manuel testlerin azaltılması</span> için otomasyon yazmanın yanında, otomasyonun getirdiği bir diğer güzellikler pek çok <span style="color: #993300;">farklı platformda</span> aynı testlerin çalıştırılmasının sağlanılması ,  bir testi 4 farklı makinada ve her makinanın 3 farklı platformunda deneme 12 iş yükü iken otomasyon testlerinin paralel aynı işi aynı anda yapıyor olmasının getirdiği maliyet ve zaman kazancını tahmin edebiliriz. Bu ihtiyacımız yalnızca web tarafında değil mobil tarafta da <span style="color: #993300;">cihaz değişikliği ihityaçlarımızda</span> otomasyon sorunu çözecektir.  Bir çok farklı sürümdeki android cihaz çeşitliliğinin farkındayız bütün bu cihazları tedarik etmek de oldukça maliyetliyken, yazılım test scriptlerinizi cloud yöntemlerle cihaz desteği sunan toolara üye olarak koşmak mümkün. Böylece bir çok mobil cihazda da mobil app’lerin testlerini gerçekleştirmiş oluncak.</p>
 
-<p>Herşeyde imdadımıza otomasyon testleri koşacak diye de bir  durum yok aslında, proje ve kaynaklara göre bunun ayrımının yapılması gerekir. Doğru zamanda doğru ihtiyacı yakalarsak test anlamındaki sistemi de oturtmuş oluruz.
-Otomasyon testlerinin yapamadığı manuel testlere ihtiyacımız olan durumlarda olcak, kodlarımız da birim testlere de ihtiyacımız olcak. Projenin her adımında teste ihtyacımız olduğunu ve doğru test adımları ile çok daha kaliteli işler çıkacağını göreceğiz. Bol testli günler :)</p>
+<p><span style="color: #0000ff;  style="font-family: terminal, monaco, monospace; ">Herşeyde imdadımıza otomasyon testleri koşacak diye de bir  durum yok aslında, proje ve kaynaklara göre bunun ayrımının yapılması gerekir. Doğru zamanda doğru ihtiyacı yakalarsak test anlamındaki sistemi de oturtmuş oluruz. </span></p>
+
+<p>Otomasyon testlerinin yapamadığı manuel testlere ihtiyacımız olan durumlarda olcak, kodlarımız da birim testlere deihtiyacımız olcak.
+<span style="font-family: terminal, monaco, monospace; ">Projenin her adımında teste ihtyacımız olduğunu ve doğru test adımları ile çok daha kaliteli işler çıkacağını göreceğiz. </span>
+Bol testli günler :)</p>
 ]]></content>
   </entry>
   

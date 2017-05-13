@@ -4,7 +4,7 @@
   <title><![CDATA[KaderTarlan]]></title>
   <link href="http://kadertarlan.github.io/atom.xml" rel="self"/>
   <link href="http://kadertarlan.github.io/"/>
-  <updated>2017-05-13T22:24:06+03:00</updated>
+  <updated>2017-05-13T22:28:33+03:00</updated>
   <id>http://kadertarlan.github.io/</id>
   <author>
     <name><![CDATA[KaderTarlan]]></name>
@@ -62,13 +62,14 @@
 
 <p><p><strong>Bulut tabanlı olan Sauce Labs</strong> Android , IOS ve web uygulamaları için simulator, emilator ve gerçek cihaz desteği sağlıyor. Native, hibrit ve mobil web testlerini koşmak mümkün. Çeşitli işletim sistemleri ve browserlarla 800’den fazla platform sunuyor.  Appium ve Seleniuum ile test edebilir ve testleri paralel olarak çalıştırabilir.</p>
 
-<p>SauceLabs ve Testdroid Karşılaştırması:
--  Testdroid mobil yazılım geliştirme ve test için kullandığımız bir Bitbar Teknolojisidir. 3 farklı ürünü var Testdroid Cloud, Testdroid Recorder ve Testdroid Enterprise.  Testdroid GitHub üzerinde açık kaynak kodlu  bir  application programming interface aslında. Testdroid ile çeşitli test frameworklerini kullanabilirsin , örneğin native için Robotium, Appium ve uiautomator  veya web uygulamaları için  Selenium , aslında bu platformun hedef kitlesi mobil veya oyun geliştiricileri. Gerçek Android ve iOS destekli cihazlar içerir bunun yanında bulut tabanlı test simulatorleri de sunuyor Testdroid Cloud ile.   Testdroid Recorder  ise developer ve testerlar için user-actions kaydediyor,  mobil uygulama ve oyunları üzerinde Junit tabanlı test caseler üretiyor,  Eclipse marketplace var. Testdroid Enterprise  ise gerçek Android ve IOS cihazlar için otomasyon testlerinin yönetildiği bir server yazılımıdır, Jenkins Continuous Integration destekler.</p>
-
-<ul>
-<li>Sauce Labs  desktop, mobile web, native, ve hybrid uygulamaları test etmek için için düyadaki en geniş ölçekli güvenilir ve ölçeklenebilir cloud ortamını oluşturur. 450’den fazla platform sunar.</li>
-</ul>
-
+<p><blockquote><span style="color: #0000ff;">
+SauceLabs ve Testdroid Karşılaştırması:</span>
+<ul style="list-style-type: square;">
+<li>
+Testdroid mobil yazılım geliştirme ve test için kullandığımız bir Bitbar Teknolojisidir. 3 farklı ürünü var Testdroid Cloud, Testdroid Recorder ve Testdroid Enterprise.  Testdroid GitHub üzerinde açık kaynak kodlu  bir  application programming interface aslında. Testdroid ile çeşitli test frameworklerini kullanabilirsin , örneğin native için Robotium, Appium ve uiautomator  veya web uygulamaları için  Selenium , aslında bu platformun hedef kitlesi mobil veya oyun geliştiricileri. Gerçek Android ve iOS destekli cihazlar içerir bunun yanında bulut tabanlı test simulatorleri de sunuyor Testdroid Cloud ile.   Testdroid Recorder  ise developer ve testerlar için user-actions kaydediyor,  mobil uygulama ve oyunları üzerinde Junit tabanlı test caseler üretiyor,  Eclipse marketplace var. Testdroid Enterprise  ise gerçek Android ve IOS cihazlar için otomasyon testlerinin yönetildiği bir server yazılımıdır, Jenkins Continuous Integration destekler.
+<li>
+ Sauce Labs  desktop, mobile web, native, ve hybrid uygulamaları test etmek için için düyadaki en geniş ölçekli güvenilir ve ölçeklenebilir cloud ortamını oluşturur. 450’den fazla platform sunar.
+</blockquote></li></p>
 
 <p>Cross Browser Testing
 Manuel ve otomasyon testleri ile fonksiyonel test ortamları sunar.  Geliştiriciler için 1500'den fazla mobil cihazlar ve tarayıcı desteği. Test sonuçlarını video ve ekran görüntüleri kaydedilebilir. Selenyum, Appium ve diğer testler CrossBrowserTesting uzaktan cihazlarda çalıştırabiliriz. Güvenlik duvarı (firewall) test etmek istiyorsanız, CrossBrowserTesting kullanıcılar için Chrome uzantısı veya Node.js tünel bulunmaktadır.  Desteklenen Tarayıcılar: Internet Explorer, Mozilla Firefox, Apple Safari, Google Chrome, Opera, Netscape ve daha birçok&hellip;

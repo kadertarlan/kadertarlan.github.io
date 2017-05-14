@@ -332,70 +332,112 @@ Herşeyde imdadımıza otomasyon testleri koşacak diye de bir  durum yok aslın
   </header>
 
 
-  <div class="entry-content"><p>Appium kurulumu kullanımı.
-İlk olarak Eclipse kurulu değil ise Eclipse IDE‘yi indiriyoruz kullandığınız platforma göre linkten bulabilirsiniz.
-<a href="http://www.eclipse.org/downloads/">http://www.eclipse.org/downloads/</a>
-Ayrıca JDK indirmeniz gerekiyor. Bunun için de aşağıdaki linkten, işletim sisteminizi seçip anlaşmayı onayladıktan sonra indirebilirsiniz. <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-">http://www.oracle.com/technetwork/java/javase/downloads/jdk8-</a> downloads-2133151.html
-JDKʼ yı indirip kurun. Yükleme bitince Eclipseʼyi açın.
-Android için SDK indireceğiz. Bunun için aşağıdaki linkten indirme işlemini yapıyoruz.
-<a href="http://www.gezginler.net/indir/android-sdk.html">http://www.gezginler.net/indir/android-sdk.html</a>
-İndirdikten sonra çift tıklayıp kuralım. Eclipse dosyasının içine kurabilirsiniz. Yükleme bitince SDK Manager programı açılacaktır. Burada yüklemek istediğimiz Android sürümlerini seçerek kurulumunu sağlayabilirsiniz.
-Şimdi Eclipseʼyi açın ve yukarıdaki menüden Help-Install New Software seçeneğine gelin. Location kısmına <a href="https://dl-ssl.google.com/android/eclipse/">https://dl-ssl.google.com/android/eclipse/</a>
-adresini girin. ADT (Android Development Tools) için gelen verileri seçerek indirilmesini sağlayın.
-Son olarak Eclipse içerisinde Window-Preferences ve soldaki Android kısmına tıklıyoruz. Buradaki SDK Location bölümüne Android SDKʼyı nereye kurduysak onu işaretliyoruz.
-Kurulum işlemlerimiz tamam. Android Tools indirirken Android DDMSʼde inmiş oldu. Bu bizim Android testlerimiz için mobil cihazın ekran görüntüsü almamızı sağlayacak.
-Şimdi Appium kuralım.<a href="https://bitbucket.org/appium/appium.app/downloads/">https://bitbucket.org/appium/appium.app/downloads/</a> buradan Appium versiyonunu projenize uygun şekilde seçmelisiniz. Ben Android 5 ve 6 sürümlerinde ayrıca ios 9 sürümünde test yapabilmek için 1.4.13 indirdim. Mac bilgisayarlar için kurulumu oldukça basit indirdiğiniz dosyanın üzerine gelerek kurulumu gerçekleştiriniz. appium.jpeg
-Burada localde bir android telefonu bilgisayarınıza bağlayıp resimde görüldüğü gibi Android iconuna tıklayıp Launch ettiğinizde status 200 alcaksınız başarılı bağlanma sonunda. appium2
-Kurulumlar tamamlandıktan sonra Could not find adb. Please set the ANDROID_HOME environment variable with the Android SDK root directory path. Gib Bir hatamız local bunun için vi ~/.bash_profile girip
-export ANDROID_HOME=/Applications/Android
-export PATH=$ANDROID_HOME/platform-tools:$PATH export PATH=$ANDROID_HOME/tools:$PATH
-Bunları yazmak gerekiyor dosyaya.</p>
+  <div class="entry-content"><p><span style="color: #993300;">Appium kurulumu kullanımı :  </span></p>
 
-<p><a href="https://developer.apple.com/download/more/">https://developer.apple.com/download/more/</a>
- Buradan xcode 7.3.1</p>
+<p><ul>
+<li>
+İlk olarak Eclipse kurulu değil ise <a href="http://www.eclipse.org/downloads/">Eclipse IDE</a>‘yi indiriyoruz kullandığınız platforma göre linkten bulabilirsiniz.
+-> <a href="http://www.eclipse.org/downloads/.">http://www.eclipse.org/downloads/.</a></p>
 
-<p><a href="https://nodejs.org/en/download/">https://nodejs.org/en/download/</a>
-İnstall nodejs
- node -v diyoruz
-v6.9.2</p>
+<p><li>Ayrıca <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8- downloads-2133151.html">JDK</a> indirmeniz gerekiyor. Bunun için de aşağıdaki linkten, işletim sisteminizi seçip anlaşmayı onayladıktan sonra indirebilirsiniz.<br/>
+-> <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8- downloads-2133151.html">JDK</p>
 
-<p>Sonra path nodejs tanımla
-export PATH=/usr/local/bin/node:$PATH</p>
+<p><li><span style="color: #800000;">JDKʼ</span> ʼ yı indirip kurun. Yükleme bitince <span style="color: #0000ff;">Eclipseʼyi</span> açın.</p>
 
-<p>. <a href="http://brew.sh/index_tr.html">http://brew.sh/index_tr.html</a> sitesinde linke(/usr/bin/ruby -e &ldquo;$(curl -fsSL <a href="https://raw.githubusercontent.com/Homebrew/install/master/install">https://raw.githubusercontent.com/Homebrew/install/master/install</a>)&rdquo;) ulas kopyala terminale yapistir ilk gelen soruda
-Brew update
-Brew doctor</p>
+<p><li>Android <span style="color: #800000;">SDK</span> indireceğiz.Bunun için aşağıdaki linkten indirme işlemini yapıyoruz.
+-> <a href="http://www.gezginler.net/indir/android-sdk.html">SDK</a></p>
 
-<p>sudo npm install -g appium
-Ve <a href="https://bitbucket.org/appium/appium.app/downloads/">https://bitbucket.org/appium/appium.app/downloads/</a> buradan appium 1.4.13 kuralım</p>
+<p><li>İndirdikten sonra çift tıklayıp kuralım. Eclipse dosyasının içine kurabilirsiniz. Yükleme bitince <span style="color: #800000;">SDK Manager</span> programı açılacaktır. Burada yüklemek istediğimiz <span style="color: #800000;">Android</span> sürümlerini seçerek kurulumunu sağlayabilirsiniz.</p>
 
-<p>Şimdi java jdk indirelim
-<a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html?ssSourceSiteId=otnes*">http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html?ssSourceSiteId=otnes*</a>
-Buradan Java SE Development Kit 8 indirdik. Kurulum tamamlayalım</p>
+<p><li>Şimdi Eclipseʼyi açın ve yukarıdaki menüden <span style="color: #800000;">Help-Install >  New Software </span>seçeneğine gelin. <span style="color: #800000;">Location</span> kısmına:  <a href="https://dl-ssl.google.com/android/eclipse/">https://dl-ssl.google.com/android/eclipse/</a>  adresini girin. span style=&ldquo;color: #800000;&rdquo;>ADT (Android Development Tools)</span> için gelen verileri seçerek indirilmesini sağlayın.</p>
 
-<p>Şimdi java -version diyerek kurulum kontrol edelim.
-echo export &ldquo;JAVA_HOME=\$(/usr/libexec/java_home)&rdquo; >> ~/.bash_profile ile java pays tanımlayalım bash_profile</p>
+<p><li>Son olarak <span style="color: #800000;">Eclipse</span> içerisinde <span style="color: #800000;">Window-Preferences</span> ve soldaki <span style="color: #800000;">Android</span> kısmına tıklıyoruz.  Buradaki <span style="color: #800000;">SDK Location</span> bölümüne <span style="color: #800000;"> Android SDK</span>ʼyı nereye kurduysak onu işaretliyoruz.</p>
 
-<p><a href="http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/mars/2/eclipse-jee-mars-2-macosx-cocoa-x86_64.tar.gz">http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/mars/2/eclipse-jee-mars-2-macosx-cocoa-x86_64.tar.gz</a>
- Buradan eclipse indirrelim.</p>
+<p>Kurulum işlemlerimiz tamam.  <span style="color: #800000;">Android Tools</span> indirirken <span style="color: #800000;">Android DDMSʼ</span>de inmiş oldu. Bu bizim <span style="color: #800000;">Android</span> testlerimiz için mobil cihazın ekran görüntüsü almamızı sağlayacak.</p>
 
-<p><a href="https://developer.android.com/studio/index.html#downloads">https://developer.android.com/studio/index.html#downloads</a>
-Android sdk indirelim.</p>
+<p>Şimdi <span style="color: #0000ff;">Appium</span>  kuralım. Link: Appium buradan Appium versiyonunu projenize uygun şekilde seçmelisiniz. Ben Android 5 ve 6 sürümlerinde ayrıca ios 9 sürümünde test yapabilmek için 1.4.13 indirdim. IOS 10 için 1.6 beta sürümünü ekemek lazım.  Mac bilgisayarlar için kurulumu oldukça basit indirdiğiniz dosyanın üzerine gelerek kurulumu gerçekleştiriniz. appium.jpeg.</p>
 
-<p>ADT ile android gerekliliklerini indirelim eclipse içinde  (help > install new software)
-ADT Plugin - <a href="https://dl-ssl.google.com/android/eclipse">https://dl-ssl.google.com/android/eclipse</a></p>
+<p>Burada localde bir android telefonu bilgisayarınıza bağlayıp resimde görüldüğü gibi Android iconuna tıklayıp Launch ettiğinizde status 200 alcaksınız başarılı bağlanma sonunda. appium2</p>
+
+<p>Kurulumlar tamamlandıktan sonra Could not find adb. Please set the ANDROID_HOME environment variable with the Android SDK root directory path. Gibi bir hatamız olacak bunun için</p>
+
+<p>vi ~/.bash_profile girip</p>
+
+<p>export ANDROID_HOME=/Applications/Android</p>
+
+<p>export PATH=$ANDROID_HOME/platform-tools:$PATH export PATH=$ANDROID_HOME/tools:$PATH</p>
+
+<p>Bunları yazmak gerekiyor dosyaya.</p>
+
+<p>Buradan xcode 7.3.1</p>
+
+<p><a href="https://developer.apple.com/download/more/">https://developer.apple.com/download/more/</a></p>
+
+<p>İnstall nodejs</p>
+
+<p><a href="https://nodejs.org/en/download/">https://nodejs.org/en/download/</a></p>
+
+<p>node -v diyoruz</p>
+
+<p>v6.9.2</p>
+
+<p>Sonra path nodejs tanımlalım.</p>
+
+<p>export PATH=/usr/local/bin/node:$PATH</p>
+
+<p>. <a href="http://brew.sh/index_tr.html">http://brew.sh/index_tr.html</a> sitesinde linke(/usr/bin/ruby -e &ldquo;$(curl -fsSL <a href="https://raw.githubusercontent.com/Homebrew/install/master/install">https://raw.githubusercontent.com/Homebrew/install/master/install</a>)&rdquo;)</p>
+
+<p>kopyalayıp terminale yapıştıralm ilk gelen soruda</p>
+
+<p>Brew update</p>
+
+<p>Brew doctor</p>
+
+<p>sudo npm install -g appium</p>
+
+<p>Ve <a href="https://bitbucket.org/appium/appium.app/downloads/">https://bitbucket.org/appium/appium.app/downloads/</a> buradan appium 1.4.13 kuralım</p>
+
+<p>Şimdi java jdk indirelim</p>
+
+<p><a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html?ssSourceSiteId=otnes*">http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html?ssSourceSiteId=otnes*</a></p>
+
+<p>Buradan Java SE Development Kit 8 indirdik. Kurulum tamamlayalım</p>
+
+<p>Şimdi java -version diyerek kurulum kontrol edelim.</p>
+
+<p>echo export &ldquo;JAVA_HOME=\$(/usr/libexec/java_home)&rdquo; >> ~/.bash_profile ile java pays tanımlayalım bash_profile</p>
+
+<p><a href="http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/mars/2/eclipse-jee-mars-2-macosx-cocoa-x86_64.tar.gz">http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/mars/2/eclipse-jee-mars-2-macosx-cocoa-x86_64.tar.gz</a></p>
+
+<p>Buradan eclipse indirrelim.</p>
+
+<p><a href="https://developer.android.com/studio/index.html#downloads">https://developer.android.com/studio/index.html#downloads</a></p>
+
+<p>Android sdk indirelim.</p>
+
+<p>ADT ile android gerekliliklerini indirelim eclipse içinde  (help > install new software)</p>
+
+<p>ADT Plugin - <a href="https://dl-ssl.google.com/android/eclipse">https://dl-ssl.google.com/android/eclipse</a></p>
 
 <p>Eclipse için adnroid gerekliliklerini indiriyorz.</p>
 
-<p>Konsolda bash profile içine:
-export PATH=&ldquo;/usr/local/bin:$PATH&rdquo;
-export PATH=/usr/local/lib/node_modules/grunt/bin:$PATH
-export PATH=/usr/local/bin/node:$PATH
-export JAVA_HOME=$(/usr/libexec/java_home)
-export ANDROID_HOME=&ldquo;/Users/kader.tarlan/Downloads/tools/&rdquo;
-export PATH=&ldquo;/Users/kader.tarlan/Downloads/tools/tools:$PATH&rdquo;
-export PATH=&ldquo;/Users/kader.tarlan/Downloads/tools/platform-tools:$PATH&rdquo;
-export PATH=&ldquo;/Users/kader.tarlan/Downloads/tools/build-tools:$PATH&rdquo;</p>
+<p>Konsolda bash profile içine:</p>
+
+<p>export PATH=&ldquo;/usr/local/bin:$PATH&rdquo;</p>
+
+<p>export PATH=/usr/local/lib/node_modules/grunt/bin:$PATH</p>
+
+<p>export PATH=/usr/local/bin/node:$PATH</p>
+
+<p>export JAVA_HOME=$(/usr/libexec/java_home)</p>
+
+<p>export ANDROID_HOME=&ldquo;/Users/kader.tarlan/Downloads/tools/&rdquo;</p>
+
+<p>export PATH=&ldquo;/Users/kader.tarlan/Downloads/tools/tools:$PATH&rdquo;</p>
+
+<p>export PATH=&ldquo;/Users/kader.tarlan/Downloads/tools/platform-tools:$PATH&rdquo;</p>
+
+<p>export PATH=&ldquo;/Users/kader.tarlan/Downloads/tools/build-tools:$PATH&rdquo;</p>
 </div>
   
   

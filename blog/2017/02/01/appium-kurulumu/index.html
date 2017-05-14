@@ -112,21 +112,21 @@ İlk olarak Eclipse kurulu değil ise <a href="http://www.eclipse.org/download
 
 <p>Kurulum işlemlerimiz tamam.  <span style="color: #800000;">Android Tools</span> indirirken <span style="color: #800000;">Android DDMSʼ</span>de inmiş oldu. Bu bizim <span style="color: #800000;">Android</span> testlerimiz için mobil cihazın ekran görüntüsü almamızı sağlayacak.</p>
 
-<p>Şimdi <span style="color: #0000ff;">Appium</span>  kuralım. Link: Appium buradan Appium versiyonunu projenize uygun şekilde seçmelisiniz. Ben Android 5 ve 6 sürümlerinde ayrıca ios 9 sürümünde test yapabilmek için 1.4.13 indirdim. IOS 10 için 1.6 beta sürümünü ekemek lazım.  Mac bilgisayarlar için kurulumu oldukça basit indirdiğiniz dosyanın üzerine gelerek kurulumu gerçekleştiriniz. appium.jpeg.</p>
+<p>Şimdi <span style="color: #0000ff;">Appium</span>  kuralım. Link: <a href="https://bitbucket.org/appium/appium.app/downloads/">Appium</a> buradan Appium versiyonunu projenize uygun şekilde seçmelisiniz. Ben Android 5 ve 6 sürümlerinde ayrıca ios 9 sürümünde test yapabilmek için 1.4.13 indirdim. IOS 10 için 1.6 beta sürümünü eklemek lazım.  Mac bilgisayarlar için kurulumu oldukça basit indirdiğiniz dosyanın üzerine gelerek kurulumu gerçekleştiriniz. appium.jpeg.</p>
 
 <p>Burada localde bir android telefonu bilgisayarınıza bağlayıp resimde görüldüğü gibi Android iconuna tıklayıp Launch ettiğinizde status 200 alcaksınız başarılı bağlanma sonunda. appium2</p>
 
-<p>Kurulumlar tamamlandıktan sonra Could not find adb. Please set the ANDROID_HOME environment variable with the Android SDK root directory path. Gibi bir hatamız olacak bunun için</p>
+<p><em><span style="color: #993300;">Kurulumlar tamamlandıktan sonra Could not find adb. Please set the ANDROID_HOME environment variable with the Android SDK root directory path. </span></em>Gibi bir hatamız olacak bunun için</p>
 
-<p>vi ~/.bash_profile girip</p>
+<p><code>vi ~/.bash_profile</code>  girip</p>
 
-<p>export ANDROID_HOME=/Applications/Android</p>
+<p><code>export ANDROID_HOME=/Applications/Android</code></p>
 
-<p>export PATH=$ANDROID_HOME/platform-tools:$PATH export PATH=$ANDROID_HOME/tools:$PATH</p>
+<p><code>export PATH=$ANDROID_HOME/platform-tools:$PATH export PATH=$ANDROID_HOME/tools:$PATH</code></p>
 
 <p>Bunları yazmak gerekiyor dosyaya.</p>
 
-<p>Buradan xcode 7.3.1</p>
+<p>Buradan <span style="color: #0000ff;">xcode 7.3.1</span></p>
 
 <p><a href="https://developer.apple.com/download/more/">https://developer.apple.com/download/more/</a></p>
 
@@ -134,23 +134,23 @@ İlk olarak Eclipse kurulu değil ise <a href="http://www.eclipse.org/download
 
 <p><a href="https://nodejs.org/en/download/">https://nodejs.org/en/download/</a></p>
 
-<p>node -v diyoruz</p>
+<p><code>node -v</code>diyoruz</p>
 
 <p>v6.9.2</p>
 
 <p>Sonra path nodejs tanımlalım.</p>
 
-<p>export PATH=/usr/local/bin/node:$PATH</p>
+<p><code>export PATH=/usr/local/bin/node:$PATH</code></p>
 
-<p>. <a href="http://brew.sh/index_tr.html">http://brew.sh/index_tr.html</a> sitesinde linke(/usr/bin/ruby -e &ldquo;$(curl -fsSL <a href="https://raw.githubusercontent.com/Homebrew/install/master/install">https://raw.githubusercontent.com/Homebrew/install/master/install</a>)&rdquo;)</p>
+<p>. <code>http://brew.sh/index_tr.html sitesinde linke(/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)")</code></p>
 
-<p>kopyalayıp terminale yapıştıralm ilk gelen soruda</p>
+<p>terminale yazalım ilk gelen soruda</p>
 
-<p>Brew update</p>
+<p><code>Brew update</code></p>
 
-<p>Brew doctor</p>
+<p><code>Brew doctor</code></p>
 
-<p>sudo npm install -g appium</p>
+<p><code>sudo npm install -g appium</code></p>
 
 <p>Ve <a href="https://bitbucket.org/appium/appium.app/downloads/">https://bitbucket.org/appium/appium.app/downloads/</a> buradan appium 1.4.13 kuralım</p>
 

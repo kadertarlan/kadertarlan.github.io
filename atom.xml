@@ -4,7 +4,7 @@
   <title><![CDATA[KaderTarlan]]></title>
   <link href="http://kadertarlan.github.io/atom.xml" rel="self"/>
   <link href="http://kadertarlan.github.io/"/>
-  <updated>2017-05-14T20:41:06+03:00</updated>
+  <updated>2017-05-14T20:43:36+03:00</updated>
   <id>http://kadertarlan.github.io/</id>
   <author>
     <name><![CDATA[KaderTarlan]]></name>
@@ -229,11 +229,11 @@ Buradan <span style="color: #0000ff;">xcode 7.3.1</span> :</p>
 
 <p><a href="https://nodejs.org/en/download/">https://nodejs.org/en/download/</a></p>
 
-<p>Kurulan nde versiyonu için <code>node -v</code>diyoruz  &ndash; > v6.9.2 benimki.</p>
+<p>Kurulan nde versiyonu için <code>node -v</code>diyoruz  &ndash; > v6.9.2 benimki. </li></p>
 
 <p><li>Sonra path'e' nodejs tanımlayalım:</p>
 
-<p><code>export PATH=/usr/local/bin/node:$PATH</code></p>
+<p><code>export PATH=/usr/local/bin/node:$PATH</code></li></p>
 
 <p><li> <code>http://brew.sh/index_tr.html sitesinde linke(/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)")</code></p>
 
@@ -245,26 +245,26 @@ Buradan <span style="color: #0000ff;">xcode 7.3.1</span> :</p>
 
 <p><code>sudo npm install -g appium</code></p>
 
-<p>Ve <a href="https://bitbucket.org/appium/appium.app/downloads/">https://bitbucket.org/appium/appium.app/downloads/</a> buradan appium 1.4.13 kuralım</p>
+<p>Ve <a href="https://bitbucket.org/appium/appium.app/downloads/">https://bitbucket.org/appium/appium.app/downloads/</a> buradan appium 1.4.13 kuralım</li></p>
 
 <p><li>Şimdi java jdk indirelim:</p>
 
 <p>&ndash;> <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html?ssSourceSiteId=otnes*">http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html?ssSourceSiteId=otnes*</a></p>
 
 <p>Buradan <span style="color: #0000ff;">Java SE Development Kit 8</span> indirdik. Kurulum tamamlayalım. </span><br/>
-Şimdi <code>java -version</code> diyerek kurulum kontrol edelim:</p>
+Şimdi <code>java -version</code> diyerek kurulum kontrol edelim.</li></p>
 
-<p><li><code>echo export "JAVA_HOME=\$(/usr/libexec/java_home)" &gt;&gt; ~/.bash_profile</code> ile java path tanımlayalım bash_profile içine</p>
+<p><li><code>echo export "JAVA_HOME=\$(/usr/libexec/java_home)" &gt;&gt; ~/.bash_profile</code> ile java path tanımlayalım bash_profile içine</li></p>
 
 <p><li>Eclipse indirelim. <br/>
-&ndash;> <a href="http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/mars/2/eclipse-jee-mars-2-macosx-cocoa-x86_64.tar.gz">http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/mars/2/eclipse-jee-mars-2-macosx-cocoa-x86_64.tar.gz</a></p>
+&ndash;> <a href="http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/mars/2/eclipse-jee-mars-2-macosx-cocoa-x86_64.tar.gz">http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/mars/2/eclipse-jee-mars-2-macosx-cocoa-x86_64.tar.gz</a> </li></p>
 
 <p><li>Android sdk indirelim.<br/>
-&ndash;> <a href="https://developer.android.com/studio/index.html#downloads">https://developer.android.com/studio/index.html#downloads</a></p>
+&ndash;> <a href="https://developer.android.com/studio/index.html#downloads">https://developer.android.com/studio/index.html#downloads</a>  </li></p>
 
 <p><li>Eclipse indirelim. ADT ile android gerekliliklerini indirelim eclipse içinde  (help > install new software)</p>
 
-<p>&ndash;> ADT Plugin - <a href="https://dl-ssl.google.com/android/eclipse">https://dl-ssl.google.com/android/eclipse</a></p>
+<p>&ndash;> ADT Plugin - <a href="https://dl-ssl.google.com/android/eclipse">https://dl-ssl.google.com/android/eclipse</a></li></p>
 
 <p><li>Konsolda bash profile içine:</p>
 
@@ -283,6 +283,8 @@ Buradan <span style="color: #0000ff;">xcode 7.3.1</span> :</p>
 <p>export PATH=&ldquo;/Users/kader.tarlan/Downloads/tools/platform-tools:$PATH&rdquo;</p>
 
 <p>export PATH=&ldquo;/Users/kader.tarlan/Downloads/tools/build-tools:$PATH&rdquo;`</p>
+
+<p></li></ul></blockquote></p>
 ]]></content>
   </entry>
   

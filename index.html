@@ -336,7 +336,7 @@ Herşeyde imdadımıza otomasyon testleri koşacak diye de bir  durum yok aslın
 
 <p><ul>
 <li>
-İlk olarak Eclipse kurulu değil ise <a href="http://www.eclipse.org/downloads/">Eclipse IDE</a>‘yi indiriyoruz kullandığınız platforma göre linkten bulabilirsiniz.
+İlk olarak Eclipse kurulu değil ise <a href="http://www.eclipse.org/downloads/">Eclipse IDE</a>‘yi indiriyoruz kullandığınız platforma göre linkten bulabilirsiniz. <br/>
      -> <a href="http://www.eclipse.org/downloads/">http://www.eclipse.org/downloads/</a></li></p>
 
 <p><li>Ayrıca <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">JDK</a> indirmeniz gerekiyor. Bunun için de aşağıdaki linkten, işletim sisteminizi seçip anlaşmayı onayladıktan sonra indirebilirsiniz.<br/>
@@ -344,12 +344,13 @@ İlk olarak Eclipse kurulu değil ise <a href="http://www.eclipse.org/download
 
 <p><li><span style="color: #800000;">JDKʼ</span> ʼyı indirip kurun. Yükleme bitince <span style="color: #0000ff;">Eclipseʼyi</span> açın.</li></p>
 
-<p><li>Android <span style="color: #800000;">SDK</span> indireceğiz.Bunun için aşağıdaki linkten indirme işlemini yapıyoruz.
+<p><li>Android <span style="color: #800000;">SDK</span> indireceğiz.Bunun için aşağıdaki linkten indirme işlemini yapıyoruz. <br/>
     -> <a href="http://www.gezginler.net/indir/android-sdk.html">SDK</a></li></p>
 
 <p><li>İndirdikten sonra çift tıklayıp kuralım. Eclipse dosyasının içine kurabilirsiniz. Yükleme bitince <span style="color: #800000;">SDK Manager</span> programı açılacaktır. Burada yüklemek istediğimiz <span style="color: #800000;">Android</span> sürümlerini seçerek kurulumunu sağlayabilirsiniz.</li></p>
 
-<p><li>Şimdi Eclipseʼyi açın ve yukarıdaki menüden <span style="color: #800000;">Help-Install >  New Software </span>seçeneğine gelin. <span style="color: #800000;">Location</span> kısmına:  <a href="https://dl-ssl.google.com/android/eclipse/">https://dl-ssl.google.com/android/eclipse/</a>  adresini girin. span style=&ldquo;color: #800000;&rdquo;>ADT (Android Development Tools)</span> için gelen verileri seçerek indirilmesini sağlayın.</li></p>
+<p><li>Şimdi Eclipseʼyi açın ve yukarıdaki menüden <span style="color: #800000;">Help-Install >  New Software </span>seçeneğine gelin. <br/>
+  <span style="color: #800000;">Location</span> kısmına:  <a href="https://dl-ssl.google.com/android/eclipse/">https://dl-ssl.google.com/android/eclipse/</a>  adresini girin. <span style="color: #800000;">ADT (Android Development Tools)</span> için gelen verileri seçerek indirilmesini sağlayın.</li></p>
 
 <p><li>Son olarak <span style="color: #800000;">Eclipse</span> içerisinde <span style="color: #800000;">Window-Preferences</span> ve soldaki <span style="color: #800000;">Android</span> kısmına tıklıyoruz.  Buradaki <span style="color: #800000;">SDK Location</span> bölümüne <span style="color: #800000;"> Android SDK</span>ʼyı nereye kurduysak onu işaretliyoruz.</li></p>
 
@@ -359,7 +360,9 @@ İlk olarak Eclipse kurulu değil ise <a href="http://www.eclipse.org/download
 
 <p>Burada localde bir android telefonu bilgisayarınıza bağlayıp resimde görüldüğü gibi Android iconuna tıklayıp Launch ettiğinizde status 200 alcaksınız başarılı bağlanma sonunda. appium2</p>
 
-<p><em><span style="color: #993300;">Kurulumlar tamamlandıktan sonra Could not find adb. Please set the ANDROID_HOME environment variable with the Android SDK root directory path. </span></em>Gibi bir hatamız olacak bunun için</p>
+<p>Kurulumlar tamamlandıktan sonra bir test eclipse üzerinde çalıştırmaya çalıştığımızda: <br/>
+<em><span style="color: #993300;">Could not find adb. Please set the ANDROID_HOME environment variable with the Android SDK root directory path. </span></em><br/>
+Gibi bir hatamız olursa;</p>
 
 <p><code>vi ~/.bash_profile</code>  girip</p>
 
@@ -369,25 +372,27 @@ İlk olarak Eclipse kurulu değil ise <a href="http://www.eclipse.org/download
 
 <p>Bunları yazmak gerekiyor dosyaya.</p>
 
-<p>Buradan <span style="color: #0000ff;">xcode 7.3.1</span></p>
+<p><blockquote>
+<h4> Özetle Tüm Kurulumlar: </h4></p>
+
+<p><ul><li>
+Buradan <span style="color: #0000ff;">xcode 7.3.1</span> :</p>
 
 <p><a href="https://developer.apple.com/download/more/">https://developer.apple.com/download/more/</a></p>
 
-<p>İnstall nodejs</p>
+<p><li>Daha sonra install nodejs:</p>
 
 <p><a href="https://nodejs.org/en/download/">https://nodejs.org/en/download/</a></p>
 
-<p><code>node -v</code>diyoruz</p>
+<p>Kurulan nde versiyonu için <code>node -v</code>diyoruz  &ndash; > v6.9.2 benimki.</p>
 
-<p>v6.9.2</p>
-
-<p>Sonra path nodejs tanımlalım.</p>
+<p><li>Sonra path'e' nodejs tanımlayalım:</p>
 
 <p><code>export PATH=/usr/local/bin/node:$PATH</code></p>
 
-<p>. <code>http://brew.sh/index_tr.html sitesinde linke(/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)")</code></p>
+<p><li> <code>http://brew.sh/index_tr.html sitesinde linke(/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)")</code></p>
 
-<p>terminale yazalım ilk gelen soruda</p>
+<p>terminale yazalım, sonra aşağıdaki komutları verelim:</p>
 
 <p><code>Brew update</code></p>
 
@@ -397,33 +402,28 @@ İlk olarak Eclipse kurulu değil ise <a href="http://www.eclipse.org/download
 
 <p>Ve <a href="https://bitbucket.org/appium/appium.app/downloads/">https://bitbucket.org/appium/appium.app/downloads/</a> buradan appium 1.4.13 kuralım</p>
 
-<p>Şimdi java jdk indirelim</p>
+<p><li>Şimdi java jdk indirelim:</p>
 
-<p><a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html?ssSourceSiteId=otnes*">http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html?ssSourceSiteId=otnes*</a></p>
+<p>&ndash;> <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html?ssSourceSiteId=otnes*">http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html?ssSourceSiteId=otnes*</a></p>
 
-<p>Buradan Java SE Development Kit 8 indirdik. Kurulum tamamlayalım</p>
+<p>Buradan <span style="color: #0000ff;">Java SE Development Kit 8</span> indirdik. Kurulum tamamlayalım. </span><br/>
+Şimdi <code>java -version</code> diyerek kurulum kontrol edelim:</p>
 
-<p>Şimdi java -version diyerek kurulum kontrol edelim.</p>
+<p><li><code>echo export "JAVA_HOME=\$(/usr/libexec/java_home)" &gt;&gt; ~/.bash_profile</code> ile java path tanımlayalım bash_profile içine</p>
 
-<p>echo export &ldquo;JAVA_HOME=\$(/usr/libexec/java_home)&rdquo; >> ~/.bash_profile ile java pays tanımlayalım bash_profile</p>
+<p><li>Eclipse indirelim. <br/>
+&ndash;> <a href="http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/mars/2/eclipse-jee-mars-2-macosx-cocoa-x86_64.tar.gz">http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/mars/2/eclipse-jee-mars-2-macosx-cocoa-x86_64.tar.gz</a></p>
 
-<p><a href="http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/mars/2/eclipse-jee-mars-2-macosx-cocoa-x86_64.tar.gz">http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/mars/2/eclipse-jee-mars-2-macosx-cocoa-x86_64.tar.gz</a></p>
+<p><li>Android sdk indirelim.<br/>
+&ndash;> <a href="https://developer.android.com/studio/index.html#downloads">https://developer.android.com/studio/index.html#downloads</a></p>
 
-<p>Buradan eclipse indirrelim.</p>
+<p><li>Eclipse indirelim. ADT ile android gerekliliklerini indirelim eclipse içinde  (help > install new software)</p>
 
-<p><a href="https://developer.android.com/studio/index.html#downloads">https://developer.android.com/studio/index.html#downloads</a></p>
+<p>&ndash;> ADT Plugin - <a href="https://dl-ssl.google.com/android/eclipse">https://dl-ssl.google.com/android/eclipse</a></p>
 
-<p>Android sdk indirelim.</p>
+<p><li>Konsolda bash profile içine:</p>
 
-<p>ADT ile android gerekliliklerini indirelim eclipse içinde  (help > install new software)</p>
-
-<p>ADT Plugin - <a href="https://dl-ssl.google.com/android/eclipse">https://dl-ssl.google.com/android/eclipse</a></p>
-
-<p>Eclipse için adnroid gerekliliklerini indiriyorz.</p>
-
-<p>Konsolda bash profile içine:</p>
-
-<p>export PATH=&ldquo;/usr/local/bin:$PATH&rdquo;</p>
+<p>`export PATH=&ldquo;/usr/local/bin:$PATH&rdquo;</p>
 
 <p>export PATH=/usr/local/lib/node_modules/grunt/bin:$PATH</p>
 
@@ -437,7 +437,7 @@ İlk olarak Eclipse kurulu değil ise <a href="http://www.eclipse.org/download
 
 <p>export PATH=&ldquo;/Users/kader.tarlan/Downloads/tools/platform-tools:$PATH&rdquo;</p>
 
-<p>export PATH=&ldquo;/Users/kader.tarlan/Downloads/tools/build-tools:$PATH&rdquo;</p>
+<p>export PATH=&ldquo;/Users/kader.tarlan/Downloads/tools/build-tools:$PATH&rdquo;`</p>
 </div>
   
   

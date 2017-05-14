@@ -4,7 +4,7 @@
   <title><![CDATA[KaderTarlan]]></title>
   <link href="http://kadertarlan.github.io/atom.xml" rel="self"/>
   <link href="http://kadertarlan.github.io/"/>
-  <updated>2017-05-14T19:25:04+03:00</updated>
+  <updated>2017-05-14T19:33:23+03:00</updated>
   <id>http://kadertarlan.github.io/</id>
   <author>
     <name><![CDATA[KaderTarlan]]></name>
@@ -182,23 +182,23 @@ Herşeyde imdadımıza otomasyon testleri koşacak diye de bir  durum yok aslın
 <p><ul>
 <li>
 İlk olarak Eclipse kurulu değil ise <a href="http://www.eclipse.org/downloads/">Eclipse IDE</a>‘yi indiriyoruz kullandığınız platforma göre linkten bulabilirsiniz.
--> <a href="http://www.eclipse.org/downloads/.">http://www.eclipse.org/downloads/.</a></p>
+     -> <a href="http://www.eclipse.org/downloads/">http://www.eclipse.org/downloads/</a></li></p>
 
-<p><li>Ayrıca <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8- downloads-2133151.html">JDK</a> indirmeniz gerekiyor. Bunun için de aşağıdaki linkten, işletim sisteminizi seçip anlaşmayı onayladıktan sonra indirebilirsiniz.<br/>
--> <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8- downloads-2133151.html">JDK</p>
+<p><li>Ayrıca <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">JDK</a> indirmeniz gerekiyor. Bunun için de aşağıdaki linkten, işletim sisteminizi seçip anlaşmayı onayladıktan sonra indirebilirsiniz.<br/>
+    -> <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8- downloads-2133151.html">JDK</li></p>
 
-<p><li><span style="color: #800000;">JDKʼ</span> ʼ yı indirip kurun. Yükleme bitince <span style="color: #0000ff;">Eclipseʼyi</span> açın.</p>
+<p><li><span style="color: #800000;">JDKʼ</span> ʼyı indirip kurun. Yükleme bitince <span style="color: #0000ff;">Eclipseʼyi</span> açın.</li></p>
 
 <p><li>Android <span style="color: #800000;">SDK</span> indireceğiz.Bunun için aşağıdaki linkten indirme işlemini yapıyoruz.
--> <a href="http://www.gezginler.net/indir/android-sdk.html">SDK</a></p>
+    -> <a href="http://www.gezginler.net/indir/android-sdk.html">SDK</a></li></p>
 
-<p><li>İndirdikten sonra çift tıklayıp kuralım. Eclipse dosyasının içine kurabilirsiniz. Yükleme bitince <span style="color: #800000;">SDK Manager</span> programı açılacaktır. Burada yüklemek istediğimiz <span style="color: #800000;">Android</span> sürümlerini seçerek kurulumunu sağlayabilirsiniz.</p>
+<p><li>İndirdikten sonra çift tıklayıp kuralım. Eclipse dosyasının içine kurabilirsiniz. Yükleme bitince <span style="color: #800000;">SDK Manager</span> programı açılacaktır. Burada yüklemek istediğimiz <span style="color: #800000;">Android</span> sürümlerini seçerek kurulumunu sağlayabilirsiniz.</li></p>
 
-<p><li>Şimdi Eclipseʼyi açın ve yukarıdaki menüden <span style="color: #800000;">Help-Install >  New Software </span>seçeneğine gelin. <span style="color: #800000;">Location</span> kısmına:  <a href="https://dl-ssl.google.com/android/eclipse/">https://dl-ssl.google.com/android/eclipse/</a>  adresini girin. span style=&ldquo;color: #800000;&rdquo;>ADT (Android Development Tools)</span> için gelen verileri seçerek indirilmesini sağlayın.</p>
+<p><li>Şimdi Eclipseʼyi açın ve yukarıdaki menüden <span style="color: #800000;">Help-Install >  New Software </span>seçeneğine gelin. <span style="color: #800000;">Location</span> kısmına:  <a href="https://dl-ssl.google.com/android/eclipse/">https://dl-ssl.google.com/android/eclipse/</a>  adresini girin. span style=&ldquo;color: #800000;&rdquo;>ADT (Android Development Tools)</span> için gelen verileri seçerek indirilmesini sağlayın.</li></p>
 
-<p><li>Son olarak <span style="color: #800000;">Eclipse</span> içerisinde <span style="color: #800000;">Window-Preferences</span> ve soldaki <span style="color: #800000;">Android</span> kısmına tıklıyoruz.  Buradaki <span style="color: #800000;">SDK Location</span> bölümüne <span style="color: #800000;"> Android SDK</span>ʼyı nereye kurduysak onu işaretliyoruz.</p>
+<p><li>Son olarak <span style="color: #800000;">Eclipse</span> içerisinde <span style="color: #800000;">Window-Preferences</span> ve soldaki <span style="color: #800000;">Android</span> kısmına tıklıyoruz.  Buradaki <span style="color: #800000;">SDK Location</span> bölümüne <span style="color: #800000;"> Android SDK</span>ʼyı nereye kurduysak onu işaretliyoruz.</li></p>
 
-<p>Kurulum işlemlerimiz tamam.  <span style="color: #800000;">Android Tools</span> indirirken <span style="color: #800000;">Android DDMSʼ</span>de inmiş oldu. Bu bizim <span style="color: #800000;">Android</span> testlerimiz için mobil cihazın ekran görüntüsü almamızı sağlayacak.</p>
+<p><span style="font-family: terminal, monaco, monospace;">Kurulum işlemlerimiz tamam.  <span style="color: #800000;">Android Tools</span> indirirken <span style="color: #800000;">Android DDMSʼ</span>de inmiş oldu. Bu bizim <span style="color: #800000;">Android</span> testlerimiz için mobil cihazın ekran görüntüsü almamızı sağlayacak. </span></p>
 
 <p>Şimdi <span style="color: #0000ff;">Appium</span>  kuralım. Link: <a href="https://bitbucket.org/appium/appium.app/downloads/">Appium</a> buradan Appium versiyonunu projenize uygun şekilde seçmelisiniz. Ben Android 5 ve 6 sürümlerinde ayrıca ios 9 sürümünde test yapabilmek için 1.4.13 indirdim. IOS 10 için 1.6 beta sürümünü eklemek lazım.  Mac bilgisayarlar için kurulumu oldukça basit indirdiğiniz dosyanın üzerine gelerek kurulumu gerçekleştiriniz. appium.jpeg.</p>
 

@@ -5,12 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>KKO Algoritması Ile Gezgin Satıcı Problemi - KaderTarlan</title>
+  <title>Maven Ile Java Test Projesi Oluşturmak - KaderTarlan</title>
   <meta name="author" content="KaderTarlan">
 
   
-  <meta name="description" content="Gezgin Satıcı Problemi (GSP) - Travelling Salesman Problem (TSP) Gezgin satıcı problemi, en önemli algoritma problemlerinden biridir.
-Gezgin satıcı &hellip;">
+  <meta name="description" content="For Junit Test : Create a Java project with Maven and imports it into the Eclipse.  
+Open a command prompt and use the following code: mvn -B &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,7 +19,7 @@ Gezgin satıcı &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://kadertarlan.github.io/blog/2014/03/08/kko-algoritmasi-ile-gezgin-satici-problemi">
+  <link rel="canonical" href="http://kadertarlan.github.io/blog/2017/05/21/maven-ile-java-test-projesi-olusturmak">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="KaderTarlan" type="application/atom+xml">
@@ -67,7 +67,7 @@ Gezgin satıcı &hellip;">
   
   <header>
     
-      <h1 class="entry-title">KKO Algoritması Ile Gezgin Satıcı Problemi</h1>
+      <h1 class="entry-title">Maven Ile Java Test Projesi Oluşturmak</h1>
     
     
       <p class="meta">
@@ -83,82 +83,55 @@ Gezgin satıcı &hellip;">
   
 
 
-<time datetime="2014-03-08T02:31:52+02:00" pubdate data-updated="true"></time>
+<time datetime="2017-05-21T14:00:45+03:00" pubdate data-updated="true"></time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><blockquote><p>Gezgin Satıcı Problemi (GSP) - Travelling Salesman Problem (TSP)</p></blockquote>
+<div class="entry-content"><pre><strong><em>For Junit Test : Create a Java project with Maven and imports it into the Eclipse.  
+Open a command prompt and use the following code:</em></strong></pre>
 
-<p>Gezgin satıcı problemi, en önemli algoritma problemlerinden biridir.
-Gezgin satıcı problemi iki şehir arasında mümkün olan en kısa yolu bulmaya çalışır, bu şehirler
-arasındaki her noktaya maximum bir kez uğramalı. Şehir sayısı artarsa problemimizde üstel bir
-şekilde artar. Gezgin Satıcı Problemi (GSP), üzerinde yoğun olarak çalışılan kombinasyonel
-eniyileme problemlerinin başında gelmektedir. Çözümü için birçok sezgisel algoritma
-geliştirilmiştir.</p>
 
-<p><font color=brown>Gezgin Satıcı probleminin çözümü;</font><br/>
-• Başlangıç için seçilebilecek n tane şehir vardır.<br/>
-• Bu şehirlerden birisi başlangıç noktası olacağı için, satıcı n-1 farklı şehirde satış yapabilir.<br/>
-• İkinci şehire geçince satıcının satış yapabileceği şehir sayısı n-2 olur.</p>
+<pre>mvn -B archetype:generate \
+  -DarchetypeGroupId=org.apache.maven.archetypes \
+  -DgroupId=com.sampleTest \
+  -DartifactId=my-test</pre>
 
-<blockquote><p>Karınca Koloni Algoritması</p></blockquote>
 
-<p>Karınca koloni algoritması Gezgin Satıcı Problemi gibi problemlerin çözümü için ortaya çıkarılmış
-bir algoritmadır. Karıncalar , yiyecek bulmak için en kısa yolu görme duyusunu kullanmadan
-bulurlar. Karıncalar yiyecek ararken ,yiyecege ulaştıkları yollara buharlaşma özelliği olan, feromon
-adında bir salgı bırakırlar. Feromon, aralarındaki haberleşmeyi sağlayan kimyevi maddenin adıdır,
-bununla yiyeceğin olduğu yere kadar giden bir koku izi bırakır.</p>
+<p><img class="alignnone  wp-image-557" src="https://kadertarlan.files.wordpress.com/2017/05/ekran-resmi-2017-05-19-01-50-32.png" alt="Ekran Resmi 2017-05-19 01.50.32.png" width="734" height="446" /></p>
 
-<p><img src="http://i.imgur.com/zQScTfQ.jpg"></p>
+<p><em><strong><code>mvn archetype:generate</code> command creates a project. <span style="color: #993300;">Archetype</span> is an original pattern for creating similar projects.</strong></em></p>
 
-<p><font color=red>1-</font> Yuvadan çıkan karıncalar, bulundukları yerde diğer karıncalardan kaynaklanan baskın bir koku
-yoksa tamamen rastgele hareket ederler.<br/>
-<font color=red>2-</font> Eğer herhangi bir yönden diğer karıncaların yaydığı bir kokuyu alabilmişse, karınca o tarafa
-yönelir. Birden çok yönden koku alıyorsa kokunun geldiği en baskın tarafa yönelir.<br/>
-<font color=red>3-</font>  Karıncanın yaydığı koku bir süre o bölgede kalabilir. Bu sayede bir yolu birden çok karınca tercih etmişse aradan belirli bir süre geçmiş olsa bile daha çok tercih edilen bölgeden daha baskın bir koku gelir.</p>
+<h2><span style="color: #ff0000;"><em>Maven Directory Layout</em></span></h2>
 
-<p><font color=brown>Karınca Koloni Optimizasyonu(KKO)</font><br/>
-Gerçek karınca koloni davranışından yola çıkarak karıncanın besin arayışını matematikselmodellerle ifade eden algoritmadır. Karıncaların besin arayışında kısa yolu bulabilme yeteneklerini Gezgin Satıcı Problemimizdeki kısa yolu bulma olayıyla eşleştiriyoruz.</p>
 
-<p>Gezgin Satıcı Problemi, KKO algoritmaları için oldukça önemlidir. İlk KKO algoritması olan Karınca Sistemi (Ant System), ilk olarak bu problem
-üzerinde denenmiştir. Çünkü bu problem, önemli bir Np-zor eniyileme problemidir. Ayrıca kolay anlaşılabilir ve yeni algoritmaların denenebileceği, etkinliklerinin ölçülebileceği standart bir deneme ortamıdır.</p>
+<pre>|-- src
+|   |-- main
+|   |   `-- java
+|   |       `-- com  
+|   |           -- sampleTest
+|   |             `-- App.java
+|   `-- test
+|       `-- java
+|           `-- com
+|              --  sampleTest
+|                `-- AppTest.java
+`-- pom.xml</pre>
 
-<p>6 adımda algoritmamızı oluşturmak istersek;<br/>
-<font color=blue>1-</font> Başlangıç fenomen değerlerini belirle<br/>
-<font color=blue>2-</font> Karıncaları random bir şekilde her bir noktaya koy<br/>
-<font color=blue>3-</font> Her karınca turunu tamamlar<br/>
-<font color=blue>4-</font> Karıncaların aldıkları yol hesaplanır ve local feromen değeri güncellenir<br/>
-<font color=blue>5-</font> En iyi çözüm hesaplanır ve gloabal feromon değeri güncellenir<br/>
-<font color=blue>6-</font> İstediğimiz sonucu elde edene kadar 2. adıma geri dön</p>
 
-<p><font color=red>Feromon guncellemesı; </font>
-Turunu tamamlayan karınca feromonunu günceller. Yollardaki feromonlar buharlaşma oranı kadar buharlaştırılır. Geçiş yapılan yolda ise feromonları artırırız bu artırma yolun uzunluğu ile ters orantılı olarak gerçekleşir.<br/>
-Daha kısa yolda böylece feromon miktarı daha fazla olur.</p>
+<p><em><strong><span style="color: #008000;">
+pom.xml :</span> Contains information about the project and details of various configurations used by <span style="color: #008000;">Maven</span> to build the project.</strong></em>
+<img class="alignnone  wp-image-570" src="https://kadertarlan.files.wordpress.com/2017/05/ekran-resmi-2017-05-19-01-58-03.png" alt="Ekran Resmi 2017-05-19 01.58.03" width="629" height="408" /></p>
 
-<p><font color=red>Local Feromon Güncellemesi;</font><br/>
-Geçilen yolda buharlaşma oranı kadar feromon buharlaştırılı ve yolun uzunluğu ile ters orantılı olacak şekilde feromon artırılır. Feromon miktarına bağlı olarak sürekli değişen rota sonunda en kısa yol bulunmuş olur.</p>
+<h3><em>
+Project is imported it into Eclipse IDE</em></h3>
 
-<p><font color=red>Global Feromon Güncellemesi;</font><br/>
-Global feromon güncellemesi geçerli adımda en iyi sonucu yapmış karıncanın yolunun feromondüzeyinin artırılması. Böylece bulunan en iyi sonuç bir sonraki adıma aktarılmış olur.</p>
 
-<p><font color=red>Karınca sayısı;</font><br/>
-Sayıyı artırmak hem iyi hem kötü. İyi tarafı çözümde iyileşme sağlar kötü tarafı fazla hesap gerekir
-karmaşıklık ve zaman artar.</p>
+<h4><img class="alignnone  wp-image-574" src="https://kadertarlan.files.wordpress.com/2017/05/ekran-resmi-2017-05-19-02-01-38.png" alt="Ekran Resmi 2017-05-19 02.01.38.png" width="387" height="363" />
+<span style="color: #993366;"><em><strong> Now this project ready to write tests!</strong></em></span></h4>
 
-<p><font color=red>Sezgisel Algoritma;</font><br/>
-Gercek uzaklık bilinmese de tahmin edilir. Bu tahmin Heuristic(Sezgi) denir.
-Optimal çözüm değil fakat optimal çözüme yakın değer aranır. Kesin çözümü garanti etmez.
-Sezgisel algoritmaların buradaki kullanım amacı hedefe varmak için doğal fenomenleri
-kullanmamız.<br/>
-Belirli sayıdaki karıncılarımızı random seçtiğimiz şehirlere yerleştiririz. Bu şehirlerden hedef şehire
-ulaşmak için aradaki şehirlere uğramalıyız. Böylece bir tur gerçekleşir.</p>
-
-<p>Bir şehirden diğer şehire giderken gidilecek bu şehri seçme faktörleri;<br/>
-Feromon izi miktarı, yol uzunluğu ve sezgisel bilgisi kullanılır. Tur sonunda ise feromon miktarı
-güncellenir. Bir sonraki karıncanın bu yolu tercih etmesinde bu feromon oranı etkilidir.</p>
 </div>
 
 
@@ -181,7 +154,7 @@ güncellenir. Bir sonraki karıncanın bu yolu tercih etmesinde bu feromon oran�
   
 
 
-<time datetime="2014-03-08T02:31:52+02:00" pubdate data-updated="true"></time>
+<time datetime="2017-05-21T14:00:45+03:00" pubdate data-updated="true"></time>
       
 
 
@@ -189,7 +162,7 @@ güncellenir. Bir sonraki karıncanın bu yolu tercih etmesinde bu feromon oran�
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://kadertarlan.github.io/blog/2014/03/08/kko-algoritmasi-ile-gezgin-satici-problemi/" data-via="" data-counturl="http://kadertarlan.github.io/blog/2014/03/08/kko-algoritmasi-ile-gezgin-satici-problemi/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://kadertarlan.github.io/blog/2017/05/21/maven-ile-java-test-projesi-olusturmak/" data-via="" data-counturl="http://kadertarlan.github.io/blog/2017/05/21/maven-ile-java-test-projesi-olusturmak/" >Tweet</a>
   
   
   
@@ -198,10 +171,8 @@ güncellenir. Bir sonraki karıncanın bu yolu tercih etmesinde bu feromon oran�
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2014/03/08/git-ve-github/" title="Previous Post: Git Ve Github">&laquo; Git Ve Github</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2014/03/08/octopress-blogunu-tasima/" title="Next Post: Octopress Blogunu Taşıma">Octopress Blogunu Taşıma &raquo;</a>
+        <a class="basic-alignment right" href="/blog/2017/05/17/mobil-otomasyon-ve-cihaz-destegi/" title="Next Post: Mobil Otomasyon Ve Cihaz Desteği">Mobil Otomasyon Ve Cihaz Desteği &raquo;</a>
       
     </p>
   </footer>

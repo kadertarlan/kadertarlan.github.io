@@ -4,7 +4,7 @@
   <title><![CDATA[KaderTarlan]]></title>
   <link href="http://kadertarlan.github.io/atom.xml" rel="self"/>
   <link href="http://kadertarlan.github.io/"/>
-  <updated>2017-05-21T14:04:14+03:00</updated>
+  <updated>2017-05-21T14:16:39+03:00</updated>
   <id>http://kadertarlan.github.io/</id>
   <author>
     <name><![CDATA[KaderTarlan]]></name>
@@ -18,8 +18,8 @@
     <link href="http://kadertarlan.github.io/blog/2017/05/21/maven-ile-java-test-projesi-olusturmak/"/>
     <updated>2017-05-21T14:00:45+03:00</updated>
     <id>http://kadertarlan.github.io/blog/2017/05/21/maven-ile-java-test-projesi-olusturmak</id>
-    <content type="html"><![CDATA[<pre><strong><em>For Junit Test : Create a Java project with Maven and imports it into the Eclipse.  
-Open a command prompt and use the following code:</em></strong></pre>
+    <content type="html"><![CDATA[<pre><strong><em> Junit Testi için : Eclipse'de geliştireceğimiz Maven Java Test Projesi için aşağıdaki komutu verelim:  
+Konsolu açıp aşağıdaki komutu kopyalayalım:</em></strong></pre>
 
 
 <pre>mvn -B archetype:generate \
@@ -30,9 +30,9 @@ Open a command prompt and use the following code:</em></strong></pre>
 
 <p><img class="alignnone  wp-image-557" src="https://kadertarlan.files.wordpress.com/2017/05/ekran-resmi-2017-05-19-01-50-32.png" alt="Ekran Resmi 2017-05-19 01.50.32.png" width="734" height="446" /></p>
 
-<p><em><strong><code>mvn archetype:generate</code> command creates a project. <span style="color: #993300;">Archetype</span> is an original pattern for creating similar projects.</strong></em></p>
+<p><em><strong><code>mvn archetype:generate</code> bu komut projeyi oluşturur. <span style="color: #993300;">Archetype</span>:  Bu ise benzer projeler oluşturmak için bir şablondur. </strong></em></p>
 
-<h2><span style="color: #ff0000;"><em>Maven Directory Layout</em></span></h2>
+<h2><span style="color: #ff0000;"><em>Maven Dizin Hiyerarşisi</em></span></h2>
 
 
 <pre>|-- src
@@ -50,15 +50,16 @@ Open a command prompt and use the following code:</em></strong></pre>
 
 
 <p><em><strong><span style="color: #008000;">
-pom.xml :</span> Contains information about the project and details of various configurations used by <span style="color: #008000;">Maven</span> to build the project.</strong></em>
+pom.xml :</span> <span style="color: #008000;">Maven</span> ile proje oluşturmak için kullanılan çeşitli konfigürasyonları ve proje ile detayları hakkında bilgiler içerir. </strong></em>
 <img class="alignnone  wp-image-570" src="https://kadertarlan.files.wordpress.com/2017/05/ekran-resmi-2017-05-19-01-58-03.png" alt="Ekran Resmi 2017-05-19 01.58.03" width="629" height="408" /></p>
 
 <h3><em>
-Project is imported it into Eclipse IDE</em></h3>
+Projeyi Eclipse IDE'ye dahil ettiğimiz zaman: </em></h3>
 
 
 <h4><img class="alignnone  wp-image-574" src="https://kadertarlan.files.wordpress.com/2017/05/ekran-resmi-2017-05-19-02-01-38.png" alt="Ekran Resmi 2017-05-19 02.01.38.png" width="387" height="363" />
-<span style="color: #993366;"><em><strong> Now this project ready to write tests!</strong></em></span></h4>
+<span style="color: #993366;">
+<em><strong> Şimde test projemiz hazır!</strong></em></span></h4>
 
 ]]></content>
   </entry>

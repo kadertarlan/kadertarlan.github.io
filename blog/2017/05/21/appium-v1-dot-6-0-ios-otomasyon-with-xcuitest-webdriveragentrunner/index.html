@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Jmeter Ile Performans Testi - KaderTarlan</title>
+  <title>Appium v1.6.0 - iOS Otomasyon With XCUITest WebDriverAgentRunner - KaderTarlan</title>
   <meta name="author" content="KaderTarlan">
 
   
-  <meta name="description" content="Performans ve Yük Testi nedir? Performans Testi Yazdığınız uygulamanın normal koşullarda olması gereken performansa ulaşıp ulaşılmadığının kontrolünü &hellip;">
+  <meta name="description" content="Sisteminizde Node(>3) ve Xcode(>8) kurulu olmalı. Ve ios (>10) için Appium 1.6 (latest release version) için ayarlamalar yapacağız. Önce aşağıdaki &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://kadertarlan.github.io/blog/2015/10/04/jmeter-ile-performans-testi">
+  <link rel="canonical" href="http://kadertarlan.github.io/blog/2017/05/21/appium-v1-dot-6-0-ios-otomasyon-with-xcuitest-webdriveragentrunner">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="KaderTarlan" type="application/atom+xml">
@@ -66,7 +66,7 @@
   
   <header>
     
-      <h1 class="entry-title">Jmeter Ile Performans Testi</h1>
+      <h1 class="entry-title">Appium v1.6.0 - iOS Otomasyon With XCUITest WebDriverAgentRunner</h1>
     
     
       <p class="meta">
@@ -82,46 +82,88 @@
   
 
 
-<time datetime="2015-10-04T04:35:31+03:00" pubdate data-updated="true"></time>
+<time datetime="2017-05-21T14:41:07+03:00" pubdate data-updated="true"></time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><h5>Performans ve Yük Testi nedir?</h5>
+<div class="entry-content"><p>Sisteminizde Node(>3) ve Xcode(>8) kurulu olmalı. Ve ios (>10) için <em><strong><span style="color: #ff6600;">Appium 1.6</span></strong></em> (latest release version) için ayarlamalar yapacağız.</p>
 
-<blockquote><p><font color=red>Performans Testi</font> Yazdığınız uygulamanın normal koşullarda olması gereken performansa ulaşıp ulaşılmadığının kontrolünü sağladığımız testlerdir.</p>
+<p>Önce aşağıdaki komutları sırayla vereceğiz:</p>
 
-<p><font color=red>Yük Testi</font> ise uygulamanıza maksimum kaç kullanıcı ile eriştiğimizde performans değişiminin denetlemesi işlemini yapan testlerdir. Artan sayıda kullanıcılar sisteme giriş yapıp sistemin dayanıklılığını ölçeriz.<br/>
-Uygulamanıza aşırı yüklendiğinde sistemin nasıl tepki verdiğini görmek böylece mümkün oluyor. Aslında bu da sistemin dayanıklılığını ölçtüğümüz bir performans testidir.</p></blockquote>
-
-<h5>Jmeter Kullanımı</h5>
-
-<ul>
-<li>Uygulamanız aynı anda kaç kullanıcı için sorunsuz çalışıyor?<br/>
-Bu süreci test etmek için <font color=#FF3333>Web Performans Test</font> aracına ihtiyacımız var.</li>
-</ul>
+<pre>sudo npm install -g appium@1.6</pre>
 
 
-<blockquote><p><font color=red>Jmeter</font> bir Java uygulamasıdır. Performans ölçmek için yazılmış açık kaynaklı bir yazılımdır.JMeter ile yukarıda bahsettiğimiz maksimum kullanıcı ile yük testleri yapabileceğimiz bir platform sağlar bize.</p></blockquote>
+<p><em><strong><span style="color: #ff6600;">Node</span></strong></em></p>
 
-<p>Uygulamanın beklenen performansın yakalayıp yakalamadığımızı test etmemizi sağlar.<br/>
-<font color=gray>Eşzamanlı</font> olarak belirlediğiniz sayıda sanal kullanıcıyı oluşturup sisteme giriş yapmaya çalışır. Ve çıkan sonuçları bize <font color=gray>raporlar</font>.</p>
+<pre>brew install node
+node -v</pre>
 
-<p><font color=red>Jmeter</font> her türde Web uygulamaları için kullanılabilir. Adresini verdiğiniz uygulamaya erişip amaçlanan adımları sağlar.</p>
 
-<p>Jmeter belirli test senaryoları için kullanmak mümkün.</p>
+<p><em><strong><span style="color: #ff6600;">XCode</span></strong></em></p>
 
-<p><font color=#990000>
-•Jmeter'da kullanıcı tanımladıktan sonra test yapacağımız web sunucu bilgilerini giriyoruz. Ve buraya giriş yapma isteğinde bulunuyoruz. Belirli kullanıcı sayısı ile giriş yapıp sonuçlar denetlenebilir. Bu kullanıcıların hepsini aynı anda uygulamaya giriş yapmasını sağlayabilirsiniz.</p>
+<pre>https://itunes.apple.com/us/app/xcode/id497799835?mt=12</pre>
 
-<p> •Saniye başına maksimum kullanıcı belirlenip giriş yapılmasını sağlanabilir ve bu bir döngü içinde kaç kez yapılacağı bildirilebilir.</p>
 
-<p>•Kullanıcı sayısını birden başlatıp artan şekilde uygulamaya giriş yapmasını sağlayıp nerede patlayacağını görebilirsiniz.
-</font></p>
+<p><em><strong>And then please enter the following console commands:</strong></em></p>
 
-<p>Bu ve benzeri senaryoları uygulayarak <font color=red>Jmeter</font> üzerinde test sonuçlarını, grafikler ile gözlemlememiz mümkün.</p>
+<pre>brew install ideviceinstaller
+brew install carthage
+sudo npm install -g ios-deploy
+sudo npm install appium-doctor
+npm install -g deviceconsole
+gem install xcpretty
+brew install libimobiledevice --HEAD - IOS 10
+brew install libimobiledevice - IOS 9</pre>
+
+
+<p><em><strong>Sonra bu path'e gidelim:</strong></em></p>
+
+<pre>cd /usr/local/lib/node_modules/appium/node_modules/appium-xcuitest-driver/WebDriverAgent</pre>
+
+
+<p><em><strong>Burada aşağıdaki komutu çalıştıralım:</strong></em></p>
+
+<pre>sudo mkdir -p Resources/WebDriverAgent.bundle</pre>
+
+
+<p><img class="alignnone size-full wp-image-665" src="https://kadertarlan.files.wordpress.com/2017/05/ekran-resmi-2017-05-21-15-45-10.png" alt="Ekran Resmi 2017-05-21 15.45.10.png" width="1226" height="338" /></p>
+
+<p><em><strong>Ve WebDriverAgent dizininde aşağıdaki komutu girelim: </strong></em></p>
+
+<pre>sudo sh ./Scripts/bootstrap.sh -d</pre>
+
+
+<p><em><strong>WebDriverAgent.xcodeproj dosyasının Xcode'da açalım': </strong></em></p>
+
+<p><img class="alignnone size-full wp-image-673" src="https://kadertarlan.files.wordpress.com/2017/05/ekran-resmi-2017-05-21-15-48-46.png" alt="Ekran Resmi 2017-05-21 15.48.46.png" width="1172" height="688" /></p>
+
+<p><em><strong>Bu dizinin çalıştırma iznini değiştirelim:  <span style="color: #ff6600;">appium-xcuitest-driver</span></strong></em></p>
+
+<pre>cd /usr/local/lib/node_modules/appium/node_modules/
+chmod -R 777 . appium-xcuitest-driver/*</pre>
+
+
+<p><em><strong>Sonra da Xcode'daki WebDriverAgent.xcodeproj projesine dönelim</strong></em>
+<em><strong>WebDriverAgent Project için imza ayarlamalarını yapalım. </strong></em>
+<img class="alignnone size-full wp-image-690" src="https://kadertarlan.files.wordpress.com/2017/05/ekran-resmi-2017-05-21-16-00-08.png?w=1200" alt="Ekran Resmi 2017-05-21 16.00.08.png" width="600" height="416" /></p>
+
+<p><em><strong>İmza ile ilegili ayarlamalrı yaptıktan sonra <span style="color: #ff6600;">Eclipse</span>&lsquo;deki test projesine dönelim.</strong></em></p>
+
+<p><em><strong>Burada <span style="color: #ff6600;">Capability</span>&lsquo;leri düzenlemeye ihtiyacımız var <span style="color: #ff6600;">BaseTest</span> içinde aşağıdaki gibi değişitirebilirsiniz..</strong></em></p>
+
+<p><img class="alignnone size-full wp-image-696" src="https://kadertarlan.files.wordpress.com/2017/05/ekran-resmi-2017-05-21-16-09-26.png" alt="Ekran Resmi 2017-05-21 16.09.26.png" width="914" height="160" />
+<em><strong>Buna ek olarak var olan projenizin Path'ini de bulup BaseTest için eklemeniz gerekmektedir. Benim <span style="color: #ff6600;">Eclipse</span> projemde örneğin:</strong></em></p>
+
+<p><span style="color: #993300;">capabilities.</span><span style="color: #000000;">setCapability(MobileCapabilityType</span>.<span style="color: #0000ff;">APP</span>, <em><span style="color: #0000ff;">&ldquo;/Users/kader.tarlan/Library/Developer/Xcode/DerivedData/BluTv-frejawjplldgkechkgwcmwjiljka/Build/Products/Debug-iphoneos/BluTv_iPad.app&rdquo;</span></em><span style="color: #000000;">);</span></p>
+
+<p><em><strong>Şimdi Appium'u terminalden çalıştıralım.</strong></em></p>
+
+<p><img class="alignnone  wp-image-706" src="https://kadertarlan.files.wordpress.com/2017/05/ekran-resmi-2017-05-21-16-16-24.png" alt="Ekran Resmi 2017-05-21 16.16.24.png" width="495" height="158" /></p>
+
+<p><span style="color: #993300;"><strong>Testleri çalıştırmak için herşey yolunda!</strong></span></p>
 </div>
 
 
@@ -144,7 +186,7 @@ Bu süreci test etmek için <font color=#FF3333>Web Performans Test</font> arac�
   
 
 
-<time datetime="2015-10-04T04:35:31+03:00" pubdate data-updated="true"></time>
+<time datetime="2017-05-21T14:41:07+03:00" pubdate data-updated="true"></time>
       
 
 
@@ -152,7 +194,7 @@ Bu süreci test etmek için <font color=#FF3333>Web Performans Test</font> arac�
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://kadertarlan.github.io/blog/2015/10/04/jmeter-ile-performans-testi/" data-via="" data-counturl="http://kadertarlan.github.io/blog/2015/10/04/jmeter-ile-performans-testi/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://kadertarlan.github.io/blog/2017/05/21/appium-v1-dot-6-0-ios-otomasyon-with-xcuitest-webdriveragentrunner/" data-via="" data-counturl="http://kadertarlan.github.io/blog/2017/05/21/appium-v1-dot-6-0-ios-otomasyon-with-xcuitest-webdriveragentrunner/" >Tweet</a>
   
   
   
@@ -161,10 +203,8 @@ Bu süreci test etmek için <font color=#FF3333>Web Performans Test</font> arac�
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2015/11/03/libreofiice-icin-test-yazma/" title="Previous Post: <font color=green>LibreOffice</font> Için Test Yazmak">&laquo; <font color=green>LibreOffice</font> Için Test Yazmak</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2015/09/04/bamboo-ile-surekli-entegrasyon/" title="Next Post: Bamboo Ile Sürekli Entegrasyon">Bamboo Ile Sürekli Entegrasyon &raquo;</a>
+        <a class="basic-alignment right" href="/blog/2017/05/21/maven-ile-java-test-projesi-olusturmak/" title="Next Post: Maven Ile Java Test Projesi Oluşturmak">Maven Ile Java Test Projesi Oluşturmak &raquo;</a>
       
     </p>
   </footer>

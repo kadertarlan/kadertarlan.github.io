@@ -9,7 +9,7 @@
   <meta name="author" content="KaderTarlan">
 
   
-  <meta name="description" content="Web uygulamarımızı test etmek için pek çok araç var ancak günden güne popüler olan mobil uygulamalarımızın testini yapmak istediğimiz zaman neler &hellip;">
+  <meta name="description" content="Sürekli Entegrasyon (Continuous Integration) bir proje ekibinin oluşturduğu kaynak kodun geliştirilme aşamasında sorunsuz ilerlemesini sağlamak için &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -63,6 +63,75 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2015/09/04/bamboo-ile-surekli-entegrasyon/">Bamboo Ile Sürekli Entegrasyon</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-09-04T04:35:31+03:00" pubdate data-updated="true"></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><blockquote><p><font color=#990000>Sürekli Entegrasyon (Continuous Integration)</font>  bir proje ekibinin oluşturduğu kaynak kodun geliştirilme aşamasında sorunsuz ilerlemesini sağlamak için her değişiklikten sonra sistemimizin hala çalışır durumda olduğunu kontrol etmek amacıyla kullandığımız yöntemdir.</p></blockquote>
+
+<p>Entegrasyon sürecini araçlar ile otomatik hale getirmek mümkün. Böylece entegrasyon hatalarını erkenden yakalayabiliyoruz.</p>
+
+<p>Projede yapılan değişiklikten sonra yolladığınız her commit için Entegrasyon işlemini otomatik olarak aktif edebiliyoruz.
+Aktif olan entegrasyon işlemimiz hataları ayıklayabilmek için testlere ihtiyaç duymakta. Yazdığınız tüm unit testler proje üzerinde, her commit sonrası uygulanıyor. Commit ettiğiniz değişiklğiniz projede bir hataya neden olduğunda testler hata veriyor ve Entegrasyon işlemimiz başarılı olarak amacını gerçekliyor.</p>
+
+<p>Sürekli Entegrasyon uygulanan projeler için hatalar hızlı bir şekilde erkenden fark ediliyor.
+<font color=#990000>Manuel testler</font> ile gözümüzden kaçabilecek en küçük hatalar bile bu sayede bulunabiliyor.
+Yazılan otomasyon testleri her değişiklikte otomatik çalışmış oluyor. Bir kullanıcının bu testleri çalıştır komutunu vermeden testler sürekli olarak uygulanmış oluyor.</p>
+
+<h5>Bamboo ile CI arasındaki ilişki</h5>
+
+<blockquote><p><font color=blue>Bamboo</font> yazılım uygulamaları için sürüm yönetimini otomatikleştirir.  <font color=blue>Atlassian</font> tarafından geliştirilen <font color=blue>CI</font> sunucu yazılımıdır.</p></blockquote>
+
+<p><font color=#990000>CI(Continous Integration)</font>, her yapılan değişikliğin sistemde sistemde sınanması işlemiydi. Yazılım sürecinde farklı modülleri en az hatada birleştirmek istiyoruz.  Böylece kalitemizi artırmayı hedefliyoruz.</p>
+
+<p><font color=blue>Bamboo</font> uygulamaların inşasını ve testini koordine eder ve zamanlar. Böylece kurulumlar ve testler otomatikleştirilmiş olur.</p>
+
+<p><font color=blue>Bamboo</font>’nun yanı sıra Java ile yazılmış özgür araç olan <font color=red>Jenkins</font> de kullanılabilir.</p>
+
+<h5>Bamboo için aşağıdakilere ihtiyaç vardır:</h5>
+
+<p>•Projemizin bulunduğu kod depomuz(  Buradan test etmek istediğimiz projemizin kodlarına erişeceğiz.) <br/>
+•İnşa betikleri (Koduna erişilen projeyi Bamboo için test edilmeye hazır vaziyette kurulumunu sağlacağız.)<br/>
+•Testler (Asıl amacımız olan yer burası, kontrolleri sağlayacak birim testlerimiz yazılmış olacak.)</p>
+
+<blockquote><p><font color=blue>Bamboo</font>, projemiz için kurulum ve test sürecini yürüten denetleyen aracımız.</p></blockquote>
+
+<p> Kurulum ve testleri çalıştıracak olan komutlar geliştiricinin kodu commit etmesiyle otomatik olarak tetiklenir. Tetikleme sonucunda projemizin bulunduğu kod deposundan kodumuz çekilir. Çekilen kod kullanılarak yazmış olduğumuz betik ile kurulum sağlanacak. Bir kurulum dosyası oluşturuluyor. <font color=blue>Bamboo</font> da bu dosyayı kurulumu yapacağımız makinaya gönderir. Makina betikte belirtildiği şekilde bu dosyadan kurulumu gerçekler.</p>
+
+<p> Kurulumdan sonra yazılmış olan otomasyon birim testleri aktif hale gelecek ve proje üzerinde yürütülecek. <font color=gray>Bamboo bütün bu süreçleri yönetir.</font> Testler bittiğinde sonuçları <font color=red>raporlar.</font></p>
+
+<p> Tüm bu adımlar bir commit mesajı ile aktif olurken Bamboo ile bunları manuel gerçeklemek de mümkün. Var olan projenizi temiz bir şekilde bir makinaya kurup, tüm testleri üzerinde çalıştırıp, sonuçları görmek için <font color=blue>Bamboo</font> üzerinden <font color=red>Run!</font> demeniz yeterlidir.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -2345,141 +2414,6 @@ Ve en son sayfamızı tekrar yenileyip değişikliklere bakıyoruz.</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/03/11/ruby-on-rails-3/">Ruby on Rails-3</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-03-11T18:06:11+02:00" pubdate data-updated="true"></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Bir önceki yazımda form oluşturmak , oluşturduklarımızı görmek ve ve listeleme işlemleri yaptık.
-Şimdi sayfaları arasında gezinmek için bazı bağlantılar ekleyelim.</p>
-
-<p><code>$app/views/welcome/index.html.erb</code><br/>
-dosyasını açıp  aşağıdaki gibi değiştirelim;</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="no">Hello</span><span class="p">,</span> <span class="no">Rails</span><span class="o">!&lt;</span><span class="sr">/h1&gt;</span>
-</span><span class='line'><span class="sr">&lt;%= link_to &quot;My Blog&quot;, controller: &quot;posts&quot; %&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p> <font color='red'> link_to </font> methodu <font color='brown'> Rails  </font> de <font color='brown'> View </font> katmanında  yardımcı metotlardan biridir. Gitmek istediğimiz sayfaya link oluşturur.<br/>
-Dosyamıza eklediğimiz bu iki satırlık kodumuzla ilk açılışta <font color='red'> Hello,Rails!  </font>  yazısı ile
-<font color='blue'> My Blog </font> linki oluşacak linke tıkladığımızada ise önceden oluşturduğumuz kayıtları görebileceğiz.
-<a href="http://localhost:3000/">http://localhost:3000/</a> adresine girdiğimizde ;</p>
-
-<p><img src="http://i.imgur.com/sqzokvt.jpg?1" alt="" /></p>
-
-<p>resim4 !!!!Not my blog a tıkladıgında blog ları mantıklı sekılde cek</p>
-
-<p>Şimdi bir link daha ekleyelim bu da bizi yeni bir ekleme yapmak için yönlendirecek bir link olsun o halde  <font color='blue'> New Post </font> adında yeni post oluşturmak için tekrar dosyamıza girerek<br/>
-<code>$ nano app/views/posts/index.html.erb</code><br/>
-komutu ile dosyamıza girip <br/>
-<code>&lt;%= link_to 'New post', new_post_path %&gt;</code><br/>
- satırını ekleyeceğiz son hali aşağıdaki gibi olacak.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="no">Hello</span><span class="p">,</span> <span class="no">Rails</span><span class="o">!&lt;</span><span class="sr">/h1&gt;</span>
-</span><span class='line'><span class="sr">&lt;%= link_to &quot;My Blog&quot;, controller: &quot;posts&quot; %&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="sr">&lt;%= link_to &#39;New post&#39;, new_post_path %&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p><a href="http://localhost:3000/">http://localhost:3000/</a> adresine girdiğimizde;</p>
-
-<p><img src="http://i.imgur.com/0quW0MB.jpg?1" alt="" /></p>
-
-<p>Gördüğünüz gibi <font color='blue'> New Post </font> linkimizde geldi. Şimdi linkimize tıklarsak karşımıza aşağıdaki gibi postlarımızı oluşturduğumuz ekranımız gelecek.</p>
-
-<p><img src="http://i.imgur.com/gSIAqmk.jpg?1" alt="" /></p>
-
-<p>Hatırlarsak <font color='blue'> My Blog </font> linkine tıkladığımızda karşımıza <font color='brown'> index </font> sayfamız çıkmıştı tüm
-kayıtlarımızın bulunduğu peki biz isteyelim ki <font color='blue'> New Post </font>&lsquo;a girelim kayıtımızı oluşturduktan sonra öyle bir linkimiz daha olsun ki bizi <font color='brown'> index </font>  sayfamıza geri götürsün.
-Bunun için de <font color='blue'> Back </font> linkini oluşturalım.
-Linki oluşturacağımız <font color='blue'> New Post </font>'tu. Bu bizim <font color='brown'> Views </font> dizinimizde <code>new.html.erb</code> sayfamız gideceğimizi gösterir.<br/>
-<code>$app/views/posts/new.html.erb</code></p>
-
-<p>komutu ile dosyamıza giriyoruz içinde önceden yazdığımız kodlar var ve biz bunun en altına aşağıdaki şekilde bir satır ekliyoruz.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&lt;</span><span class="sx">%= form_for :post do |f| %&gt;</span>
-</span><span class='line'><span class="sx">  ...</span>
-</span><span class='line'><span class="sx">&lt;% end %&gt;</span>
-</span><span class='line'><span class="sx"> &lt;%=</span> <span class="n">link_to</span> <span class="s1">&#39;Back&#39;</span><span class="p">,</span> <span class="n">posts_path</span> <span class="o">%&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Kayıt edip çıktıktan sonra <a href="http://localhost:3000/posts/new">http://localhost:3000/posts/new</a> adresimize girince çıkan sayfamız aşağıdaki gibi link eklenmiş olarak gelir.</p>
-
-<p><img src="http://i.imgur.com/oM0Ru8s.jpg?1" alt="" /></p>
-
-<p>Postumuzu oluşturduktan sonra oluşturduğumuz postu <font color='brown'> show </font> metotuyla oluşturduğumuz Text ve Title Başlıkları ile görüyorduk şimdi buraya da bir link ekleyelim ve bizi bu sayfadan <font color='brown'> index </font> sayfamıza götürsün , bunun için<br/>
-<code>app/views/posts/show.html.erb</code><br/>
-dosyamıza giriyoruz ve içine</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&lt;</span><span class="nb">p</span><span class="o">&gt;</span>
-</span><span class='line'><span class="err">  </span><span class="o">&lt;</span><span class="n">strong</span><span class="o">&gt;</span><span class="ss">Title</span><span class="p">:</span><span class="o">&lt;</span><span class="sr">/strong&gt;</span>
-</span><span class='line'><span class="sr">  &lt;%= @post.title %&gt;</span>
-</span><span class='line'><span class="sr">&lt;/</span><span class="nb">p</span><span class="o">&gt;</span>
-</span><span class='line'><span class="err"> </span>
-</span><span class='line'><span class="o">&lt;</span><span class="nb">p</span><span class="o">&gt;</span>
-</span><span class='line'><span class="err">  </span><span class="o">&lt;</span><span class="n">strong</span><span class="o">&gt;</span><span class="ss">Text</span><span class="p">:</span><span class="o">&lt;</span><span class="sr">/strong&gt;</span>
-</span><span class='line'><span class="sr">  &lt;%= @post.text %&gt;</span>
-</span><span class='line'><span class="sr">&lt;/</span><span class="nb">p</span><span class="o">&gt;</span>
-</span><span class='line'><span class="err"> </span>
-</span><span class='line'><span class="o">&lt;%=</span> <span class="n">link_to</span> <span class="s1">&#39;Back&#39;</span><span class="p">,</span> <span class="n">posts_path</span> <span class="o">%&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>yazıp kayıt ediyoruz şimdi <a href="http://localhost:3000/posts/new">http://localhost:3000/posts/new</a>  adresinden yeni bir post oluşturup <font color='brown'> Save Post </font>  butonuna tıkladıktan sonra çıkan sayfada <font color='blue'> Back </font> linkinin geldini görürsünüz .</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="3">&larr; Older</a>
@@ -2524,6 +2458,10 @@ dosyamıza giriyoruz ve içine</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2017/05/21/appium-v1-dot-6-0-ios-otomasyon-with-xcuitest-webdriveragentrunner/">Appium v1.6.0 - iOS Otomasyon With XCUITest WebDriverAgentRunner</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2017/05/21/maven-ile-java-test-projesi-olusturmak/">Maven Ile Java Test Projesi Oluşturmak</a>
       </li>
     
@@ -2537,10 +2475,6 @@ dosyamıza giriyoruz ve içine</p>
     
       <li class="post">
         <a href="/blog/2017/05/13/ozetle-yazilim-test-otomasyon/">Özetle Yazılım Test Otomasyon</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2017/02/01/appium-kurulumu/">Appium Kurulumu</a>
       </li>
     
   </ul>
@@ -2552,6 +2486,10 @@ dosyamıza giriyoruz ve içine</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2017/05/21/appium-v1-dot-6-0-ios-otomasyon-with-xcuitest-webdriveragentrunner/">Appium v1.6.0 - iOS Otomasyon With XCUITest WebDriverAgentRunner</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2017/05/21/maven-ile-java-test-projesi-olusturmak/">Maven Ile Java Test Projesi Oluşturmak</a>
       </li>
     
@@ -2565,10 +2503,6 @@ dosyamıza giriyoruz ve içine</p>
     
       <li class="post">
         <a href="/blog/2017/05/13/ozetle-yazilim-test-otomasyon/">Özetle Yazılım Test Otomasyon</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2017/02/01/appium-kurulumu/">Appium Kurulumu</a>
       </li>
     
   </ul>

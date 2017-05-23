@@ -4,7 +4,7 @@
   <title><![CDATA[KaderTarlan]]></title>
   <link href="http://kadertarlan.github.io/atom.xml" rel="self"/>
   <link href="http://kadertarlan.github.io/"/>
-  <updated>2017-05-23T11:32:22+03:00</updated>
+  <updated>2017-05-23T11:35:32+03:00</updated>
   <id>http://kadertarlan.github.io/</id>
   <author>
     <name><![CDATA[KaderTarlan]]></name>
@@ -144,30 +144,30 @@ Projeyi Eclipse IDE'ye dahil ettiğimiz zaman: </em></h3>
 <p><h4><img class="alignnone  wp-image-574" src="https://kadertarlan.files.wordpress.com/2017/05/ekran-resmi-2017-05-19-02-01-38.png" alt="Ekran Resmi 2017-05-19 02.01.38.png" width="387" height="363" />
 <span style="color: #993366;"></p>
 
-<p>h3><em>
-Herşey hazır şimdi Pom.xml içine gerekli olan bağımlılıkları siz test yazdıkça fark edip eklersiniz ancak şimdilik Selenium testleri koşabilmek için aşağıdaki bağımlılıkları da Pom içine ekleyelim.
+<p><h3><em>
+Herşey hazır şimdi Pom.xml içine gerekli olan bağımlılıkları siz test yazdıkça fark edip eklersiniz ancak şimdilik Selenium testleri koşabilmek için aşağıdaki bağımlılıkları da Pom içine ekleyelim. </h3></em>
 <code>
-<properties>
+   <properties>
      &lt;project.build.sourceEncoding>UTF-8&lt;/project.build.sourceEncoding>
      &lt;apache.poi.version>3.15&lt;/apache.poi.version>
      &lt;commons.lang3.version>3.0&lt;/commons.lang3.version>
-</properties></p>
+   </properties></p>
 
-<p><dependencies>
-<dependency>
-    <groupId>org.seleniumhq.selenium</groupId>
-    <artifactId>selenium-java</artifactId>
-    <version>2.52.0</version>
-</dependency>
-<dependency>
-    <groupId>org.apache.poi</groupId>
-    <artifactId>poi-ooxml</artifactId>
-    <version>${apache.poi.version}</version>
-</dependency>
-<dependency>
-    <groupId>org.apache.commons</groupId>
-    <artifactId>commons-lang3</artifactId>
-    <version>${commons.lang3.version}</version>
+<p>   <dependencies>
+   <dependency>
+     <groupId>org.seleniumhq.selenium</groupId>
+     <artifactId>selenium-java</artifactId>
+     <version>2.52.0</version>
+   </dependency>
+   <dependency>
+      <groupId>org.apache.poi</groupId>
+      <artifactId>poi-ooxml</artifactId>
+      <version>${apache.poi.version}</version>
+   </dependency>
+   <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-lang3</artifactId>
+      <version>${commons.lang3.version}</version>
 </dependency>
 </dependencies></p>
 

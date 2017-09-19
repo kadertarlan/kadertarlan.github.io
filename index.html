@@ -9,7 +9,7 @@
   <meta name="author" content="KaderTarlan">
 
   
-  <meta name="description" content="Sisteminizde Node(>3) ve Xcode(>8) kurulu olmalı. Ve ios (>10) için Appium 1.6 (latest release version) için ayarlamalar yapacağız. Önce aşağıdaki &hellip;">
+  <meta name="description" content="Bir çok test metodolojisi mevcuttur. Bunlardan bazıları Fonksiyonel, Sistem, Yük, Performans, Güvenlik, Stres, Uçtan uca ve Kullanıcı kabul &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -63,6 +63,130 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2017/09/18/cevik-ekiplerde-test-metodolojisi/">Çevik Ekiplerde Test Metodolojisi</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2017-09-18T22:01:43+03:00" pubdate data-updated="true"></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Bir çok test metodolojisi mevcuttur. Bunlardan bazıları Fonksiyonel, Sistem, Yük, Performans, Güvenlik, Stres, Uçtan uca ve Kullanıcı kabul Testleridir. Bizler bu testleri ister çevik bir proje istersek de daha geleneksel metodolojiler kullanan herhangi bir projede kullanabiliriz.</p>
+
+<p>Çevik test dediğimiz şey sadece çevik projelerde test etmek anlamına gelmez. Araştırmacı olan her test türü, çevik bir proje olsun ya da olmasın doğal olarak çeviktirler.</p>
+
+<p>Müsteri Takımları için Testçi Nedir?
+Testçiler müşteri ekibinin ayrılmaz birer üyesidirler. Ekibin ihtiyaçlarını ve örneklerini ortaya çıkarmakta ve müşterilerin gereksinimlerini test olarak ifade etmelerine yardımcı olmaktadırlar.</p>
+
+<p>Geliştirici Takımları için Testçi Nedir?
+Testçiler geliştirici ekibin bir üyesidir aynı zamanda.  Çünkü test çevik yazılım geliştirmirirken merkezi bir bileşendir. Test edenler, ekip  içinde müşteri adına kaliteyi savunurlar.</p>
+
+<p>Bazı çevik ekiplerin kendilerini “testçi” olarak tanımlayan herhangi bir üyesi yok. Ancak, bu ekipler  müşteri takımının storyleri için testlerinin yazılmasına, testlerin başarılı olduğundan emin olunmasına ve hangi testlerin yapılmasına karar verecek bu konuda yardım edecek birine ihtiyaç duyuyorlar.
+Bir ekibin testçisi olsa bile test görevlerinden tüm Çevik takım sorumludur. Çevik takımlarla ilgili deneyimlerin sonucunda  anlaşılıyor ki “test becerileri ve deneyimi” , proje başarısı için hayati önem taşımaktadır ve test uzmanlarının çevik ekiplere değer kattığını göstermektedir.</p>
+
+<p>Aşağıda Rollerin Etkileşimi şeması bulunmaktadır.  ****</p>
+
+<p>Geleneksel Takımlarla Çalışmak</p>
+
+<p>Geleneksel takımlarda serbestçe planlanmış ve gereksinimlerin tanımlanmasıyla başlayan ve genellikle acele test aşamasından oluşan bir yazılım geliştirme yaşam döngüsüne hakim.
+Kalite güvence ekiplerinin bu tarz geleneksel ekiplerde kalitenin bekçileri olarak hareket etmeleri bekleniyor. Yazılımcılar kendi kodlarını test etseler bile, kişisel çabalarla işbirliği yaparak test yapmak mümkün olamıyor.
+Geliştirme sonrası test aşamaları ile kalitenin yükseltilmesi bekleniyor. Ancak geliştirme ekipleri genelde hangi özelliklerin o sürümde  olduğundan ya da nasıl çalışması gerektiği konusunda pek de bilgi sahibi değildir.</p>
+
+<p>Çevik Takımlarla Çalışma</p>
+
+<p>Gereksinimleri nasıl tanımlayabiliriz? Kod parçasının 1-4 hafta arasında testlerini yapabilir miyiz ve ürünü teslim edebiliriz?
+Bu kadar hızlı bir şekilde nasıl kodlayabilir ve test edebiliriz? Testleri otomatik hale getirmek için zaman bulabilir miyiz? Kötü kod yazılmışsa ürünü teslim etmeden bunları fark etmek için nasıl kontrollerimiz olur? Sorularına cevap bularak Çevik ekibimizde testi dahil ediyoruz.
+Lisa’nın ekibi için testi çevik bir projeye nasıl entegre edeceklerini düşünmüşler. Buradaki sorun gerçekten projeyi testlerle nasıl sürdüreceğiz? Çevik bir ekibe gerçek değer katmak için test becerilerini ve tecrübelerini nasıl kullanacağımızı süreç içerisinde göreceğiz.</p>
+
+<p>Geleneksel ve Çevik Testler</p>
+
+<p>resim**</p>
+
+<p>Çevik ve geleneksel yazılım geliştirme ekipleri için testler arasındaki benzerliklere bakarsak,
+Testlerin ürün yayınlanmadan hemen önce gerçekleştiği açıktır. Diyagram idealisttir, çünkü kodlama için olan zaman ile test etme zamanı eşit gözükmekte. Birçok projede durum böyle değildir. Kodlama beklenenden uzun sürdüğü için ve test sonunda takımlar bir kod-fix döngüsüne girdikleri için testler ezilir.</p>
+
+<p>Çevik iteratif ve artımlıdır. Bu, test yapanların kodlamanın her aşamasını en kısa sürede test etmeleri anlamına gelir. Tekrarlama, bir hafta kadar kısa veya ayda bir olabilir. Ekip, kodun bir kısmını yazar ve test eder, doğru çalıştığından emin olur ve sonra yazılması gereken bir sonraki adıma geçer. Geliştiriciler burada story done olmayana kadar yani test edilmeyene kadar ilerlemez.</p>
+
+<p>Çevik test uzmanı kimdir?  Çevik testleri yürüten ekibin bir üyesidir.<br/>
+Beceriler önemlidir, ancak tutum daha önemlidir.
+Janet bu konu için şunları diyor: &ldquo;Tutum olmadan beceri bir şey değildir. Çevik ekiplerimiz için çok sayıda test görevlisi işe almak zorunda kaldık, bunu çok fazla düşündük ve çevik toplumdaki başkaları ile tartıştık. Test yapan kişiler büyük resmi görme eğilimindedirler. Uygulamaya bir kullanıcıdan veya müşterinin bakış açısından daha fazla bakarlar; bu da genel olarak müşteri odaklı oldukları anlamına gelir.&rdquo;</p>
+
+<p>ÇEVİK İLKELERİN VE DEĞERLERİN UYGULANMASI
+Bireylerin bir projenin başarısı üzerinde büyük etkisi olabilir. Daha tecrübeli ve daha yetenekli üyelerden oluşan bir ekibin daha az yetenekli bir ekipten daha iyi performans almasını bekleriz. Ancak bir ekip sadece bireysel üyelerden daha fazlasıdır. Çevik değerler ve ilkeler, projedeki bireylerin etkileşim  içinde olmalarına ve iletişimi sürekli tutmalarına teşvik eder. Çevik değerleri ve ilkeleri kendine rehberlik eden bir ekip ayrıca yetenekli bireylere de sahipse çalışanlarının daha zayıf olduğu bir takımından daha yüksek morale ve sahiptir.</p>
+
+<p>Çevik ekip için bazı ilkeler:
+Sürekli geribildirim sağlayın.
+   Müşteriye değer katın.
+   Yüz yüze iletişim kurmayı etkinleştirin.
+   Cesarete sahip olun.
+   Basit tutun.
+   Sürekli iyileştirme uygulayın.
+   Değişime cevap verin.
+   Kendinizi de yenileyin.
+   İnsanlara odaklanın.
+   Keyfini çıkarın.</p>
+
+<p>Becerilerimizden biri de “happy path“ dışındaki test durumlarını belirlemek olsa da,  happy path’lerin çalıştığından emin olarak başlamamız gerekir. Happy path’ler için testleri otomatikleştirebiliriz ve daha sonra daha detay testleri negatif-pozitif test caseleleri de ekleyebiliriz. Bir uygulama kritik öneme sahipse, negatif testler eklemek kesinlikle gereklidir.</p>
+
+<p>Yüz Yüze İletişim Etkinleştirme
+Hiçbir ekip iyi iletişim olmadan iyi çalışamaz. Çevik ekibin iletişim kolaylığı için benzersiz yollar araması gerekir. Bu işini daha iyi yapmak için kritik bir husustur.</p>
+
+<p>Lisanın bu konu hakkında şöyle yorum yapıyor: Test ekibi yeniydi ve ürün sahibi doğrudan geliştiricilere gidiyordu. Bu sorunu ekiple paylaşıp bir kural oluşturduk.  &ldquo;Üçlü Güç&rdquo; ile büyük başarı elde ettik. Bu, bir özellik hakkındaki tüm tartışmaların bir programcıya, bir testçiye ve ürün sahibine ihtiyacı olduğu anlamına geliyordu. Biri iki kişinin konuştuğunu görürse, diğerinin konuşmaya başlama hakkı olurdu. Çok uzun sürmeyen bu konuşmalar olmadan veya testi tartışmadan ürünü çıkarmayı kimse düşünmezdi.</p>
+
+<p>Herhangi bir özelliğin nasıl çalışması gerektiği veya bir arayüzün nasıl görünmesi gerektiği konusunda bir sorunuz olduğunda, test yapan bir geliştirici veya bir iş uzmanından bu konuda yardım alabilirsiniz. Test yapan kişiler hiçbir zaman doğrudan müşteri-geliştirici iletişim yolunda olmamalıdır, ancak çoğu zaman iletişimin gerçekleştiğinden emin olmalarına yardımcı olabilirler.</p>
+
+<p>Cesarelendirme
+Bu bölümde çevik bir ekibe geçiş yaparken ihtiyaç duyulan duygusal cesaret hakkında konuşalım.
+Çevik bir ekibe yeni katıldığınızda ya da mevcut ekibinizin çevik ekibe geçiş yaptığında ilk önce korkuyu yaşamanın ve cevaplanması gereken bir takım soruların olması normaldir.</p>
+
+<p>Her story için kısa sürede test görevlerini nasıl tamamlayabiliyoruz?  Bir test yöneticisi  veya kaliteli bir süreç yöneticisi iseniz bu rolü çevik bir ekip üzerinde nerede bulabileceğiniz belli değildir ve bunun cevabı kimsede yoktur. Çevik test yapmaya çalışan ekipler bu soruların cevaplarını bulmak için cesarete sahip olmalıdırlar.
+Ayrıca burada başarısızlığa uğrayacağımızı ve bu başarısızlıktan öğreneceğimiz şeeylerin olduğunu bilerek, başarısızlığa uğramak için de cesarete ihtiyacımız olacak. Kararlı bir yapıya kavuşmadığımız için her iterasyonda başarısızlığın tekrar canlanmamasını sağlamanın yollarını düşünmeye başlayacağız.
+Başkalarının hata yapmasına izin vermek için de cesarete ihtiyacımız var, çünkü dersi öğrenmenin tek yolu budur. Korkma! Çevik takımlar açıktır ve genellikle yeni fikirleri kabul etmektedirler.</p>
+
+<p>Basit Tut
+Bu, deneyeceğiniz ilk şeyin aslında çalışacağı anlamına gelmez, ancak basit olmalı.
+Çevik test kullanıcıları ve ekipleri, mümkün olan en basit yazılım uygulamasını üretmekle kalmayıp, yazılımın müşterinin gereksinimlerini karşılaması için basit bir yaklaşım benimsemekle yükümlüdürler. Bu, ekibin temaları ve öyküleri analiz etmek için biraz zaman ayırıp uygun mimari ve tasarım yoluyla düşünmemesi gerektiği anlamına gelmez. Bu, ekibin gereksinimleri biraz karmaşık olabileceği ve daha basit bir çözümün aynı değeri sağlayacağı anlamına gelir. Testçi ve diğer ekip üyeleri, müşterilere bilgi sağlamalı ve performans ve güvenlik gibi iş dışı gereklilikler de dahil olmak üzere kalitenin tüm yönlerini değerlendirmelidir.  Ekip çalışması basit, adım adım bir yaklaşım alarak müşterinin iyi kararlar vermesine yardımcı olabilir.
+Basit demek kolay değildir. Testçi için komplex olmayan araçlarla ve bu işi yapacak tekniklerin birleştirilmesi demektir. Araçlar bir elektronik tablo veya kontrol listesi kadar basit olabilir.</p>
+
+<p>Sürekli İyileştirme Uygulayın
+Daha iyi bir iş yapmak için yollar aramak çevik bir ekibin zihniyetinin bir parçasıdır. Tabii ki, tüm ekip bu şekilde düşünmeli çünkü çevikliğin merkezi ekibin her zaman daha iyi iş yapmaya çalışmasıdır.Testçi retrospective’lere katılmalı.  Nelerin iyi çalıştığını ve neyi ekleyeceğinizi veya neyin değiştirileceğini değerlendirmeli. Takımlar, testlerde ve diğer tüm alanlarda en büyük ilerlemelerini retrospektifler ve diğer süreç iyileştirme yollarıyla başarmışlardır.</p>
+
+<p>Yeni beceriler öğrenmek ve profesyonel olarak büyümek çevik testçiler için önemlidir. Toplantılara ve konferanslara giderler, email listelerine katılırlar ve yeni fikirler edinmek için makaleleri, blogları ve kitapları okurlar. Retrospektifler, yarın daha iyi iş çıkartabilmek için ekibin dün yaptıklarını kullanmasına olanak tanıyan anahtar bir çevik uygulamadır. Çevik test uzmanları ise bu fırsatı testle ilgili sorunları dile getirmek için kullanır ve ekipte bunlarla ilgili beyin fırtınası yapılmasını ister. Bu, ekibin sürekli iyileştirme için kendisine geribildirim sağlamanın bir yolu.</p>
+
+<p>Lisa’nın ekibi için:
+Ekibimiz retrospektifleri büyük bir fayda sağlamak için kullanmıştı, ancak daha iyi bir iş yapmak için bize odaklanmamıza yardımcı olması için yeni bir şeye ihtiyacımız olduğunu hissettik. İstediğimiz kadar üretken olmamızı engelleyen öğeler nelerdi? Bunlar konuşuldu ve çözümler getirildi. Böylece testlerimizi daha hızlı yapabildik.</p>
+
+<p>Değişikliğe Yanıt Verme
+Şelale ortamında çalıştığımızda &ldquo;Üzgünüm, şimdi bu değişikliği yapamayız deyip; Gereksinimler dondurulurdu. Bu durum Müşteriler için sinir bozucu olur. Ancak onlar da tüm gereksinimlerini belirleme konusunda mükemmel bir iş çıkarmadıklarını fark ettiler.
+İki haftalık çevik bir iterasyonda ise "Tamam, bunun için bir iş açıyoruz ve bir sonraki yineleme veya bir sonraki sürümde yapacağız&rdquo; dememiz yetiyor. Böylece müşteriler istediklerinde değişikliklerini alabileceklerini biliyor ve öncelikleri kontrol ediyorlar.
+Değişime tepki vermek çevik uygulayıcılar için önemli bir değerdir, ancak bunun test için en zor konulardan biri olduğunu tespit ettik. İstikrarlı olmak işte ben bunu test ettim,  çalışıyor demek ; “Sürekli değişen gereksinimler olduğunda testçinin kabusudur.  Bununla birlikte, çevik test görevlileri olarak değişikliği kabul etmek zorundayız.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -1249,74 +1373,6 @@ Testleri okumanıza yardımcı olabilmek için ben de bir örnek üzerinden anla
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2015/10/04/jmeter-ile-performans-testi/">Jmeter Ile Performans Testi</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2015-10-04T04:35:31+03:00" pubdate data-updated="true"></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h5>Performans ve Yük Testi nedir?</h5>
-
-<blockquote><p><font color=red>Performans Testi</font> Yazdığınız uygulamanın normal koşullarda olması gereken performansa ulaşıp ulaşılmadığının kontrolünü sağladığımız testlerdir.</p>
-
-<p><font color=red>Yük Testi</font> ise uygulamanıza maksimum kaç kullanıcı ile eriştiğimizde performans değişiminin denetlemesi işlemini yapan testlerdir. Artan sayıda kullanıcılar sisteme giriş yapıp sistemin dayanıklılığını ölçeriz.<br/>
-Uygulamanıza aşırı yüklendiğinde sistemin nasıl tepki verdiğini görmek böylece mümkün oluyor. Aslında bu da sistemin dayanıklılığını ölçtüğümüz bir performans testidir.</p></blockquote>
-
-<h5>Jmeter Kullanımı</h5>
-
-<ul>
-<li>Uygulamanız aynı anda kaç kullanıcı için sorunsuz çalışıyor?<br/>
-Bu süreci test etmek için <font color=#FF3333>Web Performans Test</font> aracına ihtiyacımız var.</li>
-</ul>
-
-
-<blockquote><p><font color=red>Jmeter</font> bir Java uygulamasıdır. Performans ölçmek için yazılmış açık kaynaklı bir yazılımdır.JMeter ile yukarıda bahsettiğimiz maksimum kullanıcı ile yük testleri yapabileceğimiz bir platform sağlar bize.</p></blockquote>
-
-<p>Uygulamanın beklenen performansın yakalayıp yakalamadığımızı test etmemizi sağlar.<br/>
-<font color=gray>Eşzamanlı</font> olarak belirlediğiniz sayıda sanal kullanıcıyı oluşturup sisteme giriş yapmaya çalışır. Ve çıkan sonuçları bize <font color=gray>raporlar</font>.</p>
-
-<p><font color=red>Jmeter</font> her türde Web uygulamaları için kullanılabilir. Adresini verdiğiniz uygulamaya erişip amaçlanan adımları sağlar.</p>
-
-<p>Jmeter belirli test senaryoları için kullanmak mümkün.</p>
-
-<p><font color=#990000>
-•Jmeter'da kullanıcı tanımladıktan sonra test yapacağımız web sunucu bilgilerini giriyoruz. Ve buraya giriş yapma isteğinde bulunuyoruz. Belirli kullanıcı sayısı ile giriş yapıp sonuçlar denetlenebilir. Bu kullanıcıların hepsini aynı anda uygulamaya giriş yapmasını sağlayabilirsiniz.</p>
-
-<p> •Saniye başına maksimum kullanıcı belirlenip giriş yapılmasını sağlanabilir ve bu bir döngü içinde kaç kez yapılacağı bildirilebilir.</p>
-
-<p>•Kullanıcı sayısını birden başlatıp artan şekilde uygulamaya giriş yapmasını sağlayıp nerede patlayacağını görebilirsiniz.
-</font></p>
-
-<p>Bu ve benzeri senaryoları uygulayarak <font color=red>Jmeter</font> üzerinde test sonuçlarını, grafikler ile gözlemlememiz mümkün.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="2">&larr; Older</a>
@@ -1359,6 +1415,10 @@ Bu süreci test etmek için <font color=#FF3333>Web Performans Test</font> arac�
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2017/09/18/cevik-ekiplerde-test-metodolojisi/">Çevik Ekiplerde Test Metodolojisi</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2017/05/21/appium-v1-dot-6-0-ios-otomasyon-with-xcuitest-webdriveragentrunner/">Appium v1.6.0 - iOS Otomasyon With XCUITest WebDriverAgentRunner</a>
       </li>
     
@@ -1372,10 +1432,6 @@ Bu süreci test etmek için <font color=#FF3333>Web Performans Test</font> arac�
     
       <li class="post">
         <a href="/blog/2017/05/13/test-otomasyonu-icin-oaliyeti-azaltan-yontemler/">Test Otomasyonu Için Maliyeti Azaltan Yöntemler</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2017/05/13/ozetle-yazilim-test-otomasyon/">Özetle Yazılım Test Otomasyon</a>
       </li>
     
   </ul>
@@ -1387,6 +1443,10 @@ Bu süreci test etmek için <font color=#FF3333>Web Performans Test</font> arac�
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2017/09/18/cevik-ekiplerde-test-metodolojisi/">Çevik Ekiplerde Test Metodolojisi</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2017/05/21/appium-v1-dot-6-0-ios-otomasyon-with-xcuitest-webdriveragentrunner/">Appium v1.6.0 - iOS Otomasyon With XCUITest WebDriverAgentRunner</a>
       </li>
     
@@ -1400,10 +1460,6 @@ Bu süreci test etmek için <font color=#FF3333>Web Performans Test</font> arac�
     
       <li class="post">
         <a href="/blog/2017/05/13/test-otomasyonu-icin-oaliyeti-azaltan-yontemler/">Test Otomasyonu Için Maliyeti Azaltan Yöntemler</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2017/05/13/ozetle-yazilim-test-otomasyon/">Özetle Yazılım Test Otomasyon</a>
       </li>
     
   </ul>

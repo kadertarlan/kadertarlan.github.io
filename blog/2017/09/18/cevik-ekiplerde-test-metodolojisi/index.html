@@ -1,0 +1,387 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Çevik Ekiplerde Test Metodolojisi - KaderTarlan</title>
+  <meta name="author" content="KaderTarlan">
+
+  
+  <meta name="description" content="Bir çok test metodolojisi mevcuttur. Bunlardan bazıları Fonksiyonel, Sistem, Yük, Performans, Güvenlik, Stres, Uçtan uca ve Kullanıcı kabul &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://kadertarlan.github.io/blog/2017/09/18/cevik-ekiplerde-test-metodolojisi">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="KaderTarlan" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><div class="header-left">
+  <hgroup>
+  <h1><a href="/">KaderTarlan</a></h1>
+  
+  <div class="subtitle">
+    <h2>BlogCan</h2>
+  </div>
+  
+  </hgroup>
+  
+</div>
+
+<div class="header-right">
+  <ul class="main-navigation">
+ <div> 
+  <li><a href="/">Blog Yazıları</a></li></div><div class="spacer"></div>
+     <div> 
+        <li><a href="/blog/archives">Blog Arşivi</a></li></div><div class="spacer"></div>
+     <div> 
+        </ul>
+  
+
+</div>
+</header>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Çevik Ekiplerde Test Metodolojisi</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2017-09-18T22:01:43+03:00" pubdate data-updated="true"></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Bir çok test metodolojisi mevcuttur. Bunlardan bazıları Fonksiyonel, Sistem, Yük, Performans, Güvenlik, Stres, Uçtan uca ve Kullanıcı kabul Testleridir. Bizler bu testleri ister çevik bir proje istersek de daha geleneksel metodolojiler kullanan herhangi bir projede kullanabiliriz.</p>
+
+<p>Çevik test dediğimiz şey sadece çevik projelerde test etmek anlamına gelmez. Araştırmacı olan her test türü, çevik bir proje olsun ya da olmasın doğal olarak çeviktirler.</p>
+
+<p>Müsteri Takımları için Testçi Nedir?
+Testçiler müşteri ekibinin ayrılmaz birer üyesidirler. Ekibin ihtiyaçlarını ve örneklerini ortaya çıkarmakta ve müşterilerin gereksinimlerini test olarak ifade etmelerine yardımcı olmaktadırlar.</p>
+
+<p>Geliştirici Takımları için Testçi Nedir?
+Testçiler geliştirici ekibin bir üyesidir aynı zamanda.  Çünkü test çevik yazılım geliştirmirirken merkezi bir bileşendir. Test edenler, ekip  içinde müşteri adına kaliteyi savunurlar.</p>
+
+<p>Bazı çevik ekiplerin kendilerini “testçi” olarak tanımlayan herhangi bir üyesi yok. Ancak, bu ekipler  müşteri takımının storyleri için testlerinin yazılmasına, testlerin başarılı olduğundan emin olunmasına ve hangi testlerin yapılmasına karar verecek bu konuda yardım edecek birine ihtiyaç duyuyorlar.
+Bir ekibin testçisi olsa bile test görevlerinden tüm Çevik takım sorumludur. Çevik takımlarla ilgili deneyimlerin sonucunda  anlaşılıyor ki “test becerileri ve deneyimi” , proje başarısı için hayati önem taşımaktadır ve test uzmanlarının çevik ekiplere değer kattığını göstermektedir.</p>
+
+<p>Aşağıda Rollerin Etkileşimi şeması bulunmaktadır.  ****</p>
+
+<p>Geleneksel Takımlarla Çalışmak</p>
+
+<p>Geleneksel takımlarda serbestçe planlanmış ve gereksinimlerin tanımlanmasıyla başlayan ve genellikle acele test aşamasından oluşan bir yazılım geliştirme yaşam döngüsüne hakim.
+Kalite güvence ekiplerinin bu tarz geleneksel ekiplerde kalitenin bekçileri olarak hareket etmeleri bekleniyor. Yazılımcılar kendi kodlarını test etseler bile, kişisel çabalarla işbirliği yaparak test yapmak mümkün olamıyor.
+Geliştirme sonrası test aşamaları ile kalitenin yükseltilmesi bekleniyor. Ancak geliştirme ekipleri genelde hangi özelliklerin o sürümde  olduğundan ya da nasıl çalışması gerektiği konusunda pek de bilgi sahibi değildir.</p>
+
+<p>Çevik Takımlarla Çalışma</p>
+
+<p>Gereksinimleri nasıl tanımlayabiliriz? Kod parçasının 1-4 hafta arasında testlerini yapabilir miyiz ve ürünü teslim edebiliriz?
+Bu kadar hızlı bir şekilde nasıl kodlayabilir ve test edebiliriz? Testleri otomatik hale getirmek için zaman bulabilir miyiz? Kötü kod yazılmışsa ürünü teslim etmeden bunları fark etmek için nasıl kontrollerimiz olur? Sorularına cevap bularak Çevik ekibimizde testi dahil ediyoruz.
+Lisa’nın ekibi için testi çevik bir projeye nasıl entegre edeceklerini düşünmüşler. Buradaki sorun gerçekten projeyi testlerle nasıl sürdüreceğiz? Çevik bir ekibe gerçek değer katmak için test becerilerini ve tecrübelerini nasıl kullanacağımızı süreç içerisinde göreceğiz.</p>
+
+<p>Geleneksel ve Çevik Testler</p>
+
+<p>resim**</p>
+
+<p>Çevik ve geleneksel yazılım geliştirme ekipleri için testler arasındaki benzerliklere bakarsak,
+Testlerin ürün yayınlanmadan hemen önce gerçekleştiği açıktır. Diyagram idealisttir, çünkü kodlama için olan zaman ile test etme zamanı eşit gözükmekte. Birçok projede durum böyle değildir. Kodlama beklenenden uzun sürdüğü için ve test sonunda takımlar bir kod-fix döngüsüne girdikleri için testler ezilir.</p>
+
+<p>Çevik iteratif ve artımlıdır. Bu, test yapanların kodlamanın her aşamasını en kısa sürede test etmeleri anlamına gelir. Tekrarlama, bir hafta kadar kısa veya ayda bir olabilir. Ekip, kodun bir kısmını yazar ve test eder, doğru çalıştığından emin olur ve sonra yazılması gereken bir sonraki adıma geçer. Geliştiriciler burada story done olmayana kadar yani test edilmeyene kadar ilerlemez.</p>
+
+<p>Çevik test uzmanı kimdir?  Çevik testleri yürüten ekibin bir üyesidir.<br/>
+Beceriler önemlidir, ancak tutum daha önemlidir.
+Janet bu konu için şunları diyor: &ldquo;Tutum olmadan beceri bir şey değildir. Çevik ekiplerimiz için çok sayıda test görevlisi işe almak zorunda kaldık, bunu çok fazla düşündük ve çevik toplumdaki başkaları ile tartıştık. Test yapan kişiler büyük resmi görme eğilimindedirler. Uygulamaya bir kullanıcıdan veya müşterinin bakış açısından daha fazla bakarlar; bu da genel olarak müşteri odaklı oldukları anlamına gelir.&rdquo;</p>
+
+<p>ÇEVİK İLKELERİN VE DEĞERLERİN UYGULANMASI
+Bireylerin bir projenin başarısı üzerinde büyük etkisi olabilir. Daha tecrübeli ve daha yetenekli üyelerden oluşan bir ekibin daha az yetenekli bir ekipten daha iyi performans almasını bekleriz. Ancak bir ekip sadece bireysel üyelerden daha fazlasıdır. Çevik değerler ve ilkeler, projedeki bireylerin etkileşim  içinde olmalarına ve iletişimi sürekli tutmalarına teşvik eder. Çevik değerleri ve ilkeleri kendine rehberlik eden bir ekip ayrıca yetenekli bireylere de sahipse çalışanlarının daha zayıf olduğu bir takımından daha yüksek morale ve sahiptir.</p>
+
+<p>Çevik ekip için bazı ilkeler:
+Sürekli geribildirim sağlayın.
+   Müşteriye değer katın.
+   Yüz yüze iletişim kurmayı etkinleştirin.
+   Cesarete sahip olun.
+   Basit tutun.
+   Sürekli iyileştirme uygulayın.
+   Değişime cevap verin.
+   Kendinizi de yenileyin.
+   İnsanlara odaklanın.
+   Keyfini çıkarın.</p>
+
+<p>Becerilerimizden biri de “happy path“ dışındaki test durumlarını belirlemek olsa da,  happy path’lerin çalıştığından emin olarak başlamamız gerekir. Happy path’ler için testleri otomatikleştirebiliriz ve daha sonra daha detay testleri negatif-pozitif test caseleleri de ekleyebiliriz. Bir uygulama kritik öneme sahipse, negatif testler eklemek kesinlikle gereklidir.</p>
+
+<p>Yüz Yüze İletişim Etkinleştirme
+Hiçbir ekip iyi iletişim olmadan iyi çalışamaz. Çevik ekibin iletişim kolaylığı için benzersiz yollar araması gerekir. Bu işini daha iyi yapmak için kritik bir husustur.</p>
+
+<p>Lisanın bu konu hakkında şöyle yorum yapıyor: Test ekibi yeniydi ve ürün sahibi doğrudan geliştiricilere gidiyordu. Bu sorunu ekiple paylaşıp bir kural oluşturduk.  &ldquo;Üçlü Güç&rdquo; ile büyük başarı elde ettik. Bu, bir özellik hakkındaki tüm tartışmaların bir programcıya, bir testçiye ve ürün sahibine ihtiyacı olduğu anlamına geliyordu. Biri iki kişinin konuştuğunu görürse, diğerinin konuşmaya başlama hakkı olurdu. Çok uzun sürmeyen bu konuşmalar olmadan veya testi tartışmadan ürünü çıkarmayı kimse düşünmezdi.</p>
+
+<p>Herhangi bir özelliğin nasıl çalışması gerektiği veya bir arayüzün nasıl görünmesi gerektiği konusunda bir sorunuz olduğunda, test yapan bir geliştirici veya bir iş uzmanından bu konuda yardım alabilirsiniz. Test yapan kişiler hiçbir zaman doğrudan müşteri-geliştirici iletişim yolunda olmamalıdır, ancak çoğu zaman iletişimin gerçekleştiğinden emin olmalarına yardımcı olabilirler.</p>
+
+<p>Cesarelendirme
+Bu bölümde çevik bir ekibe geçiş yaparken ihtiyaç duyulan duygusal cesaret hakkında konuşalım.
+Çevik bir ekibe yeni katıldığınızda ya da mevcut ekibinizin çevik ekibe geçiş yaptığında ilk önce korkuyu yaşamanın ve cevaplanması gereken bir takım soruların olması normaldir.</p>
+
+<p>Her story için kısa sürede test görevlerini nasıl tamamlayabiliyoruz?  Bir test yöneticisi  veya kaliteli bir süreç yöneticisi iseniz bu rolü çevik bir ekip üzerinde nerede bulabileceğiniz belli değildir ve bunun cevabı kimsede yoktur. Çevik test yapmaya çalışan ekipler bu soruların cevaplarını bulmak için cesarete sahip olmalıdırlar.
+Ayrıca burada başarısızlığa uğrayacağımızı ve bu başarısızlıktan öğreneceğimiz şeeylerin olduğunu bilerek, başarısızlığa uğramak için de cesarete ihtiyacımız olacak. Kararlı bir yapıya kavuşmadığımız için her iterasyonda başarısızlığın tekrar canlanmamasını sağlamanın yollarını düşünmeye başlayacağız.
+Başkalarının hata yapmasına izin vermek için de cesarete ihtiyacımız var, çünkü dersi öğrenmenin tek yolu budur. Korkma! Çevik takımlar açıktır ve genellikle yeni fikirleri kabul etmektedirler.</p>
+
+<p>Basit Tut
+Bu, deneyeceğiniz ilk şeyin aslında çalışacağı anlamına gelmez, ancak basit olmalı.
+Çevik test kullanıcıları ve ekipleri, mümkün olan en basit yazılım uygulamasını üretmekle kalmayıp, yazılımın müşterinin gereksinimlerini karşılaması için basit bir yaklaşım benimsemekle yükümlüdürler. Bu, ekibin temaları ve öyküleri analiz etmek için biraz zaman ayırıp uygun mimari ve tasarım yoluyla düşünmemesi gerektiği anlamına gelmez. Bu, ekibin gereksinimleri biraz karmaşık olabileceği ve daha basit bir çözümün aynı değeri sağlayacağı anlamına gelir. Testçi ve diğer ekip üyeleri, müşterilere bilgi sağlamalı ve performans ve güvenlik gibi iş dışı gereklilikler de dahil olmak üzere kalitenin tüm yönlerini değerlendirmelidir.  Ekip çalışması basit, adım adım bir yaklaşım alarak müşterinin iyi kararlar vermesine yardımcı olabilir.
+Basit demek kolay değildir. Testçi için komplex olmayan araçlarla ve bu işi yapacak tekniklerin birleştirilmesi demektir. Araçlar bir elektronik tablo veya kontrol listesi kadar basit olabilir.</p>
+
+<p>Sürekli İyileştirme Uygulayın
+Daha iyi bir iş yapmak için yollar aramak çevik bir ekibin zihniyetinin bir parçasıdır. Tabii ki, tüm ekip bu şekilde düşünmeli çünkü çevikliğin merkezi ekibin her zaman daha iyi iş yapmaya çalışmasıdır.Testçi retrospective’lere katılmalı.  Nelerin iyi çalıştığını ve neyi ekleyeceğinizi veya neyin değiştirileceğini değerlendirmeli. Takımlar, testlerde ve diğer tüm alanlarda en büyük ilerlemelerini retrospektifler ve diğer süreç iyileştirme yollarıyla başarmışlardır.</p>
+
+<p>Yeni beceriler öğrenmek ve profesyonel olarak büyümek çevik testçiler için önemlidir. Toplantılara ve konferanslara giderler, email listelerine katılırlar ve yeni fikirler edinmek için makaleleri, blogları ve kitapları okurlar. Retrospektifler, yarın daha iyi iş çıkartabilmek için ekibin dün yaptıklarını kullanmasına olanak tanıyan anahtar bir çevik uygulamadır. Çevik test uzmanları ise bu fırsatı testle ilgili sorunları dile getirmek için kullanır ve ekipte bunlarla ilgili beyin fırtınası yapılmasını ister. Bu, ekibin sürekli iyileştirme için kendisine geribildirim sağlamanın bir yolu.</p>
+
+<p>Lisa’nın ekibi için:
+Ekibimiz retrospektifleri büyük bir fayda sağlamak için kullanmıştı, ancak daha iyi bir iş yapmak için bize odaklanmamıza yardımcı olması için yeni bir şeye ihtiyacımız olduğunu hissettik. İstediğimiz kadar üretken olmamızı engelleyen öğeler nelerdi? Bunlar konuşuldu ve çözümler getirildi. Böylece testlerimizi daha hızlı yapabildik.</p>
+
+<p>Değişikliğe Yanıt Verme
+Şelale ortamında çalıştığımızda &ldquo;Üzgünüm, şimdi bu değişikliği yapamayız deyip; Gereksinimler dondurulurdu. Bu durum Müşteriler için sinir bozucu olur. Ancak onlar da tüm gereksinimlerini belirleme konusunda mükemmel bir iş çıkarmadıklarını fark ettiler.
+İki haftalık çevik bir iterasyonda ise "Tamam, bunun için bir iş açıyoruz ve bir sonraki yineleme veya bir sonraki sürümde yapacağız&rdquo; dememiz yetiyor. Böylece müşteriler istediklerinde değişikliklerini alabileceklerini biliyor ve öncelikleri kontrol ediyorlar.
+Değişime tepki vermek çevik uygulayıcılar için önemli bir değerdir, ancak bunun test için en zor konulardan biri olduğunu tespit ettik. İstikrarlı olmak işte ben bunu test ettim,  çalışıyor demek ; “Sürekli değişen gereksinimler olduğunda testçinin kabusudur.  Bununla birlikte, çevik test görevlileri olarak değişikliği kabul etmek zorundayız.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">KaderTarlan</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2017-09-18T22:01:43+03:00" pubdate data-updated="true"></time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://kadertarlan.github.io/blog/2017/09/18/cevik-ekiplerde-test-metodolojisi/" data-via="" data-counturl="http://kadertarlan.github.io/blog/2017/09/18/cevik-ekiplerde-test-metodolojisi/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+      
+        <a class="basic-alignment right" href="/blog/2017/05/21/appium-v1-dot-6-0-ios-otomasyon-with-xcuitest-webdriveragentrunner/" title="Next Post: Appium v1.6.0 - iOS Otomasyon With XCUITest WebDriverAgentRunner">Appium v1.6.0 - iOS Otomasyon With XCUITest WebDriverAgentRunner &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  <section>
+    <font color=#660033> <p>Merhaba! Ben</font> <a href="https://twitter.com/KdrTrln">Kader Tarlan</a>!</p>
+    <font color=#660033>Neler üzerinde çalıştığımı görmek için  <a href="https://github.com/kadertarlan">Github</a> sayfamı kontrol edebilirsin. .</p>
+        
+        <p><font color=blue>Linledin</font> sitesinden yeteneklerime bakabilir, <font color=green>Twitter</font>'dan beni takip edebilirsin! </p>
+        
+        <div class="social-icons">
+            
+            
+            
+            <a href="http://www.linkedin.com/in/kader-tarlan-39537363"><i class="fa fa-linkedin fa-3x"></i></a>
+            
+            
+            
+            
+            
+            <a href="https://github.com/kadertarlan"><i class="fa fa-github fa-3x"></i></a>
+            
+            
+            
+            <a href="https://twitter.com/KdrTrln"><i class="fa fa-twitter fa-3x"></i></a>
+            
+            
+        </div>
+        
+        <p><br>Sayfama uğradığın için <strong>Teşekkürler!</strong></p>
+</section></font>
+
+  <section>
+  <h1>Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2017/09/18/cevik-ekiplerde-test-metodolojisi/">Çevik Ekiplerde Test Metodolojisi</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/05/21/appium-v1-dot-6-0-ios-otomasyon-with-xcuitest-webdriveragentrunner/">Appium v1.6.0 - iOS Otomasyon With XCUITest WebDriverAgentRunner</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/05/21/maven-ile-java-test-projesi-olusturmak/">Maven Ile Java Test Projesi Oluşturmak</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/05/17/mobil-otomasyon-ve-cihaz-destegi/">Mobil Otomasyon Ve Cihaz Desteği</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/05/13/test-otomasyonu-icin-oaliyeti-azaltan-yontemler/">Test Otomasyonu Için Maliyeti Azaltan Yöntemler</a>
+      </li>
+    
+  </ul>
+</section>
+
+  
+    <section>
+  <h1>Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2017/09/18/cevik-ekiplerde-test-metodolojisi/">Çevik Ekiplerde Test Metodolojisi</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/05/21/appium-v1-dot-6-0-ios-otomasyon-with-xcuitest-webdriveragentrunner/">Appium v1.6.0 - iOS Otomasyon With XCUITest WebDriverAgentRunner</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/05/21/maven-ile-java-test-projesi-olusturmak/">Maven Ile Java Test Projesi Oluşturmak</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/05/17/mobil-otomasyon-ve-cihaz-destegi/">Mobil Otomasyon Ve Cihaz Desteği</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/05/13/test-otomasyonu-icin-oaliyeti-azaltan-yontemler/">Test Otomasyonu Için Maliyeti Azaltan Yöntemler</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/kadertarlan">@kadertarlan</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'kadertarlan',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2017 - KaderTarlan -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+<p>
+ <!--
+<span>Copyright &copy; 2017  KaderTarlan -</span>
+<span class="credit">Powered by <a href="http://octopress.org">Octopress</a> using the <a href="https://github.com/fapper/classic-martinb">classic-martinb</a> theme</span>
+
+</p>
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

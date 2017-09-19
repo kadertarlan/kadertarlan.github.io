@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
+<loc>http://kadertarlan.github.io/blog/2017/09/18/cevik-ekiplerde-test-metodolojisi/</loc>
+<lastmod>2017-09-18T22:01:43+03:00</lastmod>
+</url>
+<url>
 <loc>http://kadertarlan.github.io/blog/2017/05/21/appium-v1-dot-6-0-ios-otomasyon-with-xcuitest-webdriveragentrunner/</loc>
 <lastmod>2017-05-21T14:41:07+03:00</lastmod>
 </url>
@@ -113,11 +117,5 @@
 </url>
 <url>
 <loc>http://kadertarlan.github.io/</loc>
-</url>
-<url>
-<loc>http://kadertarlan.github.io/posts/2/</loc>
-</url>
-<url>
-<loc>http://kadertarlan.github.io/posts/3/</loc>
 </url>
 </urlset>

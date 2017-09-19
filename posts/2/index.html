@@ -9,7 +9,7 @@
   <meta name="author" content="KaderTarlan">
 
   
-  <meta name="description" content="Sürekli Entegrasyon (Continuous Integration) bir proje ekibinin oluşturduğu kaynak kodun geliştirilme aşamasında sorunsuz ilerlemesini sağlamak için &hellip;">
+  <meta name="description" content="Performans ve Yük Testi nedir? Performans Testi Yazdığınız uygulamanın normal koşullarda olması gereken performansa ulaşıp ulaşılmadığının kontrolünü &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -63,6 +63,74 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2015/10/04/jmeter-ile-performans-testi/">Jmeter Ile Performans Testi</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-10-04T04:35:31+03:00" pubdate data-updated="true"></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h5>Performans ve Yük Testi nedir?</h5>
+
+<blockquote><p><font color=red>Performans Testi</font> Yazdığınız uygulamanın normal koşullarda olması gereken performansa ulaşıp ulaşılmadığının kontrolünü sağladığımız testlerdir.</p>
+
+<p><font color=red>Yük Testi</font> ise uygulamanıza maksimum kaç kullanıcı ile eriştiğimizde performans değişiminin denetlemesi işlemini yapan testlerdir. Artan sayıda kullanıcılar sisteme giriş yapıp sistemin dayanıklılığını ölçeriz.<br/>
+Uygulamanıza aşırı yüklendiğinde sistemin nasıl tepki verdiğini görmek böylece mümkün oluyor. Aslında bu da sistemin dayanıklılığını ölçtüğümüz bir performans testidir.</p></blockquote>
+
+<h5>Jmeter Kullanımı</h5>
+
+<ul>
+<li>Uygulamanız aynı anda kaç kullanıcı için sorunsuz çalışıyor?<br/>
+Bu süreci test etmek için <font color=#FF3333>Web Performans Test</font> aracına ihtiyacımız var.</li>
+</ul>
+
+
+<blockquote><p><font color=red>Jmeter</font> bir Java uygulamasıdır. Performans ölçmek için yazılmış açık kaynaklı bir yazılımdır.JMeter ile yukarıda bahsettiğimiz maksimum kullanıcı ile yük testleri yapabileceğimiz bir platform sağlar bize.</p></blockquote>
+
+<p>Uygulamanın beklenen performansın yakalayıp yakalamadığımızı test etmemizi sağlar.<br/>
+<font color=gray>Eşzamanlı</font> olarak belirlediğiniz sayıda sanal kullanıcıyı oluşturup sisteme giriş yapmaya çalışır. Ve çıkan sonuçları bize <font color=gray>raporlar</font>.</p>
+
+<p><font color=red>Jmeter</font> her türde Web uygulamaları için kullanılabilir. Adresini verdiğiniz uygulamaya erişip amaçlanan adımları sağlar.</p>
+
+<p>Jmeter belirli test senaryoları için kullanmak mümkün.</p>
+
+<p><font color=#990000>
+•Jmeter'da kullanıcı tanımladıktan sonra test yapacağımız web sunucu bilgilerini giriyoruz. Ve buraya giriş yapma isteğinde bulunuyoruz. Belirli kullanıcı sayısı ile giriş yapıp sonuçlar denetlenebilir. Bu kullanıcıların hepsini aynı anda uygulamaya giriş yapmasını sağlayabilirsiniz.</p>
+
+<p> •Saniye başına maksimum kullanıcı belirlenip giriş yapılmasını sağlanabilir ve bu bir döngü içinde kaç kez yapılacağı bildirilebilir.</p>
+
+<p>•Kullanıcı sayısını birden başlatıp artan şekilde uygulamaya giriş yapmasını sağlayıp nerede patlayacağını görebilirsiniz.
+</font></p>
+
+<p>Bu ve benzeri senaryoları uygulayarak <font color=red>Jmeter</font> üzerinde test sonuçlarını, grafikler ile gözlemlememiz mümkün.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -1932,488 +2000,6 @@ Bunun için <a href="http://localhost/GCM/test.php">http://localhost/GCM/test.ph
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/03/17/ruby-on-rails-4/">Ruby on Rails-4</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-03-17T16:14:30+02:00" pubdate data-updated="true"></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><font color='red'> CRUD </font> işlemlerinden <font color='red'>  Update</font> etme seçeneğine göz atalım bu yazımda ;<br/>
-öncelikle aşağıdaki komutla dosyamızı açalım</p>
-
-<p><code>$ nano app/models/post.rb</code></p>
-
-<p>dosyasına girdikten sonra dosya içeriğimiz aşağıdaki gibidir;</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Post</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>şeklinde henüz doldurulmamış sadece<font color='red'> Post </font>  sınıfının <font color='red'> ActiveRecord::Base  </font>
-sınıfını miras aldığını görürüz.<font color='red'>  ActiveRecord </font>  sayesinde <font color='red'> Rails </font>  modelleri için işlevselllik sağlanıyor.<br/>
-Bunlar ;   CRUD (Create, Read, Update,Destroy) işlemleri, veri doğrulama, gelişmiş arama desteği ve çoklu modellerin birbirleriyle ilişki yeteneği..</p>
-
-<h3>Veri Doğrulama</h3>
-
-<p>Rails modellere gönderilen verileri doğrulamak için yardımcı yöntemleri içerir. Bunun için;</p>
-
-<p><code>$nano app/models/post.rb</code><br/>
- dosyasını açalım ve düzenleyelim.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Post</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
-</span><span class='line'><span class="err">  </span><span class="n">validates</span> <span class="ss">:title</span><span class="p">,</span> <span class="ss">presence</span><span class="p">:</span> <span class="kp">true</span><span class="p">,</span>
-</span><span class='line'><span class="err">                    </span><span class="ss">length</span><span class="p">:</span> <span class="p">{</span> <span class="ss">minimum</span><span class="p">:</span> <span class="mi">5</span> <span class="p">}</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Bu değişiklik ile , başlık yazarken en az beş karakter uzunluğunda bir başlık yazmanız istenecek. <br/>
-Rails bir modelde çeşitli koşulları doğrulamak için; <br/>
-kolonların yapısını ,biçimini , ilişkili nesnelerin varlığını kontrol eder.</p>
-
-<p>Geçersiz bir post oluşturduğunuzda <font color='red'>  @post.save </font> çağrıldığı zaman , yaptığınız doğrulama kontrolü sayesinde yanlış olan şeyler onaylanmayacaktır.<br/>
-Mesela  5 harften az bir <font color='red'> title </font> karakteri girdiğinizde indeximizin olduğu sayfaya gönderileceksiniz ve yazdığınız titlenin gelmediğini göreceksiniz. Eğer yanlış giden bişey varsa <font color='red'> index </font> sayfasına gelmek yerine yeni post oluşturma sayfasına yönlendirilmek isteyelim.<br/>
-Bunun için düzenlemeler yapmamız gerekir;</p>
-
-<p><code>$nano app/controllers/posts_controller.rb</code> <br/>
- dosyasını açtığımızda; <br/>
-Create metotunda yer alan <font color='red'>@post.save </font> satırımızda değişiklikler yapacağız.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">new</span>
-</span><span class='line'><span class="err">  </span><span class="vi">@post</span> <span class="o">=</span> <span class="no">Post</span><span class="o">.</span><span class="n">new</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'><span class="err"> </span>
-</span><span class='line'><span class="k">def</span> <span class="nf">create</span>
-</span><span class='line'><span class="err">  </span><span class="vi">@post</span> <span class="o">=</span> <span class="no">Post</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">params</span><span class="o">[</span><span class="ss">:post</span><span class="o">].</span><span class="n">permit</span><span class="p">(</span><span class="ss">:title</span><span class="p">,</span> <span class="ss">:text</span><span class="p">))</span>
-</span><span class='line'><span class="err"> </span>
-</span><span class='line'><span class="err">  </span><span class="k">if</span> <span class="vi">@post</span><span class="o">.</span><span class="n">save</span>
-</span><span class='line'><span class="err">    </span><span class="n">redirect_to</span> <span class="vi">@post</span>
-</span><span class='line'><span class="err">  </span><span class="k">else</span>
-</span><span class='line'><span class="err">    </span><span class="n">render</span> <span class="s1">&#39;new&#39;</span>
-</span><span class='line'><span class="err">  </span><span class="k">end</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Komutumuzda yanlış giden bişeyler varsa <font color='red'>create </font> metotumuzda  <font color='red'>redirect_to</font> yerine <font color='red'> render </font>  kullanılacak.</p>
-
-<p><font color='red'>Render </font> methodu <font color='red'>@post  </font> objesini geçerek  <font color='red'>new </font> şablonuna geçer. Yeni form gönderme isteği oluşturur.</p>
-
-<p>bu komutları yazıp çıktıktan sonra <a href="http://localhost:3000/posts">http://localhost:3000/posts</a> adresimize girip<br/>
-title kısmını 5 harftan fazla olunca title ve textimizin kayıt edildiğini index sayfasında görürüz.<br/>
-Ancak 5 harften az karakterler yazıp <font color='blue'> Save Post </font> dersek aynı sayfada kaldığımızı göreceğiz. Biz aynı sayfada kalıyoruz ancak kullanıcıya bir hata raporu vermiyoruz eksik girmemesini söylemek istiyoruz.</p>
-
-<p><code>$ nano app/views/posts/new.html.erb</code><br/>
-sayfasına gireriz ve içini aşağıdaki şekilde değiştiririz.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&lt;</span><span class="sx">%= form_for :post, url: posts_path do |f| %&gt;</span>
-</span><span class='line'><span class="sx">  &lt;% if @post.errors.any? %&gt;</span>
-</span><span class='line'><span class="sx">  &lt;div id=</span><span class="s2">&quot;error_explanation&quot;</span><span class="o">&gt;</span>
-</span><span class='line'><span class="err">    </span><span class="o">&lt;</span><span class="n">h2</span><span class="o">&gt;&lt;</span><span class="sx">%= pluralize(@post.errors.count, &quot;error&quot;) %&gt; prohibited</span>
-</span><span class='line'><span class="sx">      this post from being saved:&lt;/h2&gt;</span>
-</span><span class='line'><span class="sx">    &lt;ul&gt;</span>
-</span><span class='line'><span class="sx">    &lt;% @post.errors.full_messages.each do |msg| %&gt;</span>
-</span><span class='line'><span class="sx">      &lt;li&gt;&lt;%=</span> <span class="n">msg</span> <span class="sx">%&gt;&lt;/li&gt;</span>
-</span><span class='line'><span class="err">    </span><span class="o">&lt;</span><span class="sx">% end %&gt;</span>
-</span><span class='line'><span class="sx">    &lt;/ul&gt;</span>
-</span><span class='line'><span class="err">  </span><span class="o">&lt;</span><span class="sr">/div&gt;</span>
-</span><span class='line'><span class="sr">  &lt;% end %&gt;</span>
-</span><span class='line'><span class="sr">  &lt;p&gt;</span>
-</span><span class='line'><span class="sr">    &lt;%= f.label :title %&gt;&lt;br&gt;</span>
-</span><span class='line'><span class="sr">    &lt;%= f.text_field :title %&gt;</span>
-</span><span class='line'><span class="sr">  &lt;/</span><span class="nb">p</span><span class="o">&gt;</span>
-</span><span class='line'><span class="err"> </span>
-</span><span class='line'><span class="err">  </span><span class="o">&lt;</span><span class="nb">p</span><span class="o">&gt;</span>
-</span><span class='line'><span class="err">    </span><span class="o">&lt;</span><span class="sx">%= f.label :text %&gt;&lt;br&gt;</span>
-</span><span class='line'><span class="sx">    &lt;%=</span> <span class="n">f</span><span class="o">.</span><span class="n">text_area</span> <span class="ss">:text</span> <span class="sx">%&gt;</span>
-</span><span class='line'><span class="sx">  &lt;/p&gt;</span>
-</span><span class='line'><span class="err"> </span>
-</span><span class='line'><span class="err">  </span><span class="o">&lt;</span><span class="nb">p</span><span class="o">&gt;</span>
-</span><span class='line'><span class="err">    </span><span class="o">&lt;</span><span class="sx">%= f.submit %&gt;</span>
-</span><span class='line'><span class="sx">  &lt;/p&gt;</span>
-</span><span class='line'><span class="sx">&lt;% end %&gt;</span>
-</span><span class='line'><span class="sx"> </span>
-</span><span class='line'><span class="sx">&lt;%=</span> <span class="n">link_to</span> <span class="s1">&#39;Back&#39;</span><span class="p">,</span> <span class="n">posts_path</span> <span class="o">%&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>şimdi sayfamızı tekrar yenilersek ve 5 harften kısa bir title yazarsak aşağıdaki şekilde bir uyarı alırız.</p>
-
-<p><img src="http://i.imgur.com/WMcmd7z.jpg?1" alt="" /></p>
-
-<p>Herhangi bir hata varsa <font color='red'> @post.errors.any?</font> Satırı ile kontrol ediliyor ve
-<font color='red'> @post.errors.full_messages </font>  satırı ile de tüm hataların listesini gösteriyoruz.</p>
-
-<p>ÇoğunluklA Rails de yardımcı değişkenler sayılar ve dizelerdir. Sayı büyük olduğu taktirde
-dize otomatik olarak çoğul olacak .</p>
-
-<p><font color='red'> posts_controller</font>  da <font color='red'>@post = Post.new </font>  satırı koymazsak <font color='red'>@post.errors.any?  </font> bize hata atar.<br/>
- <font color='red'> field_with_errors</font> sınıfında div de  bir hata olduğunda<font color='red'> Rails </font> otomatik olarak alanları sarar.
-Onları çarpıcı yapmak için bir <font color='red'>css </font>   kuralı tanımlayabilirsiniz.<br/>
-Şimdi başlık olmadan bir yazı kaydederken de bir hata mesajı alırsınız.</p>
-
-<p><img src="http://i.imgur.com/0whYz6s.jpg" alt="" /></p>
-
-<p> <font color='red'> CRUD </font>  işlemlerinde <font color='red'>  U  </font>  yani Update gelirsek şimdi,</p>
-
-<p><font color='red'>posts_controller</font>  sayfamıza girersek</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">edit</span>
-</span><span class='line'><span class="err">  </span><span class="vi">@post</span> <span class="o">=</span> <span class="no">Post</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">params</span><span class="o">[</span><span class="ss">:id</span><span class="o">]</span><span class="p">)</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>satırını dosyamızın en altına ekliyoruz.<br/>
-Henüz sayfamızı yenilemiyoruz çünkü henüz şablonumuz eksik yenilesek dahi sayfamızda değişiklik yansımayacak.<br/>
-Şimdi şablonlarımız için</p>
-
-<p><code>nano app/views/posts/edit.html.erb</code></p>
-
-<p>sayfası diye yeni bir <font color='red'>html</font> sayfası oluşturuyoruz <font color='red'> Views </font> dizinimizde.
-Oluşturduğumuz dosyanın içine ise</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="no">Editing</span> <span class="n">post</span><span class="o">&lt;</span><span class="sr">/h1&gt;</span>
-</span><span class='line'><span class="sr"> </span>
-</span><span class='line'><span class="sr">&lt;%= form_for :post, url: post_path(@post), method: :patch do |f| %&gt;</span>
-</span><span class='line'><span class="sr">  &lt;% if @post.errors.any? %&gt;</span>
-</span><span class='line'><span class="sr">  &lt;div id=&quot;error_explanation&quot;&gt;</span>
-</span><span class='line'><span class="sr">    &lt;h2&gt;&lt;%= pluralize(@post.errors.count, &quot;error&quot;) %&gt; prohibited</span>
-</span><span class='line'><span class="sr">      this post from being saved:&lt;/</span><span class="n">h2</span><span class="o">&gt;</span>
-</span><span class='line'><span class="err">    </span><span class="o">&lt;</span><span class="n">ul</span><span class="o">&gt;</span>
-</span><span class='line'><span class="err">    </span><span class="o">&lt;</span><span class="sx">% @post.errors.full_messages.each </span><span class="k">do</span> <span class="o">|</span><span class="n">msg</span><span class="o">|</span> <span class="sx">%&gt;</span>
-</span><span class='line'><span class="sx">      &lt;li&gt;</span><span class="o">&lt;</span><span class="sx">%= msg %&gt;&lt;/li&gt;</span>
-</span><span class='line'><span class="sx">    &lt;% end %&gt;</span>
-</span><span class='line'><span class="sx">    &lt;/ul&gt;</span>
-</span><span class='line'><span class="sx">  &lt;/div&gt;</span>
-</span><span class='line'><span class="sx">  &lt;% end %&gt;</span>
-</span><span class='line'><span class="sx">  &lt;p&gt;</span>
-</span><span class='line'><span class="sx">    &lt;%=</span> <span class="n">f</span><span class="o">.</span><span class="n">label</span> <span class="ss">:title</span> <span class="sx">%&gt;&lt;br&gt;</span>
-</span><span class='line'><span class="err">    </span><span class="o">&lt;</span><span class="sx">%= f.text_field :title %&gt;</span>
-</span><span class='line'><span class="sx">  &lt;/p&gt;</span>
-</span><span class='line'><span class="sx"> </span>
-</span><span class='line'><span class="sx">  &lt;p&gt;</span>
-</span><span class='line'><span class="sx">    &lt;%=</span> <span class="n">f</span><span class="o">.</span><span class="n">label</span> <span class="ss">:text</span> <span class="sx">%&gt;&lt;br&gt;</span>
-</span><span class='line'><span class="err">    </span><span class="o">&lt;</span><span class="sx">%= f.text_area :text %&gt;</span>
-</span><span class='line'><span class="sx">  &lt;/p&gt;</span>
-</span><span class='line'><span class="sx"> </span>
-</span><span class='line'><span class="sx">  &lt;p&gt;</span>
-</span><span class='line'><span class="sx">    &lt;%=</span> <span class="n">f</span><span class="o">.</span><span class="n">submit</span> <span class="sx">%&gt;</span>
-</span><span class='line'><span class="sx">  &lt;/p&gt;</span>
-</span><span class='line'><span class="o">&lt;</span><span class="sx">% end %&gt;</span>
-</span><span class='line'><span class="sx"> </span>
-</span><span class='line'><span class="sx">&lt;%= link_to &#39;Back&#39;, posts_path %&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Ancak henüz <font color='red'>Edit</font> aksiyonumuz formumuzda yer almıyor sayfamızda bunun için yapmamız gerekenler var.
-<font color='red'>Rest</font> protokole göre kaynakları güncellemek için beklenen konum <font color='red'> HTTP </font> yöntemidir.</p>
-
-<p><code>app/controllers/posts_controller.rb</code></p>
-
-<p>dosyasında güncelleme eylemini oluşturmanız gerekir:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">update</span>
-</span><span class='line'><span class="err">  </span><span class="vi">@post</span> <span class="o">=</span> <span class="no">Post</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">params</span><span class="o">[</span><span class="ss">:id</span><span class="o">]</span><span class="p">)</span>
-</span><span class='line'><span class="err"> </span>
-</span><span class='line'><span class="err">  </span><span class="k">if</span> <span class="vi">@post</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">params</span><span class="o">[</span><span class="ss">:post</span><span class="o">].</span><span class="n">permit</span><span class="p">(</span><span class="ss">:title</span><span class="p">,</span> <span class="ss">:text</span><span class="p">))</span>
-</span><span class='line'><span class="err">    </span><span class="n">redirect_to</span> <span class="vi">@post</span>
-</span><span class='line'><span class="err">  </span><span class="k">else</span>
-</span><span class='line'><span class="err">    </span><span class="n">render</span> <span class="s1">&#39;edit&#39;</span>
-</span><span class='line'><span class="err">  </span><span class="k">end</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p> <font color='red'>update  </font>  , zaten var olan bir kaydı güncelleştirmek istediğinizde kullanılır ve
-  Eğer güncellemek istediğiniz nitelikleri içeren bir hash varsa onu kabul eder.</p>
-
-<p>Daha önce de olduğu gibi, biz kullanıcıya formu geri göstermek istediğimiz zaman gönderiyi güncelleyerek bir hata varsa</p>
-
-<p>Sonunda, bütün mesajların olduğu index listesinde <font color='red'>edit</font> aksiyonuna bir link gösterir.<br/>
-Ancak <font color='red'>&lsquo;show&rsquo;</font> linkinin yanında gözükmesi için aşağıdaki adrese girip</p>
-
-<p><code>$nano app/views/posts/index.html.erb</code></p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&lt;</span><span class="n">table</span><span class="o">&gt;</span>
-</span><span class='line'><span class="err">  </span><span class="o">&lt;</span><span class="n">tr</span><span class="o">&gt;</span>
-</span><span class='line'><span class="err">    </span><span class="o">&lt;</span><span class="n">th</span><span class="o">&gt;</span><span class="no">Title</span><span class="o">&lt;</span><span class="sr">/th&gt;</span>
-</span><span class='line'><span class="sr">    &lt;th&gt;Text&lt;/</span><span class="n">th</span><span class="o">&gt;</span>
-</span><span class='line'><span class="err">    </span><span class="o">&lt;</span><span class="n">th</span><span class="o">&gt;&lt;</span><span class="sr">/th&gt;</span>
-</span><span class='line'><span class="sr">    &lt;th&gt;&lt;/</span><span class="n">th</span><span class="o">&gt;</span>
-</span><span class='line'><span class="err">  </span><span class="o">&lt;</span><span class="sr">/tr&gt;</span>
-</span><span class='line'><span class="sr"> </span>
-</span><span class='line'><span class="sr">&lt;% @posts.each do |post| %&gt;</span>
-</span><span class='line'><span class="sr">  &lt;tr&gt;</span>
-</span><span class='line'><span class="sr">    &lt;td&gt;&lt;%= post.title %&gt;&lt;/</span><span class="n">td</span><span class="o">&gt;</span>
-</span><span class='line'><span class="err">    </span><span class="o">&lt;</span><span class="n">td</span><span class="o">&gt;&lt;</span><span class="sx">%= post.text %&gt;&lt;/td&gt;</span>
-</span><span class='line'><span class="sx">    &lt;td&gt;&lt;%=</span> <span class="n">link_to</span> <span class="s1">&#39;Show&#39;</span><span class="p">,</span> <span class="n">post</span> <span class="sx">%&gt;&lt;/td&gt;</span>
-</span><span class='line'><span class="err">    </span><span class="o">&lt;</span><span class="n">td</span><span class="o">&gt;&lt;%=</span> <span class="n">link_to</span> <span class="s1">&#39;Edit&#39;</span><span class="p">,</span> <span class="n">edit_post_path</span><span class="p">(</span><span class="n">post</span><span class="p">)</span> <span class="sx">%&gt;&lt;/td&gt;</span>
-</span><span class='line'><span class="err">  </span><span class="o">&lt;</span><span class="sr">/tr&gt;</span>
-</span><span class='line'><span class="sr">&lt;% end %&gt;</span>
-</span><span class='line'><span class="sr">&lt;/</span><span class="n">table</span><span class="o">&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>şimdi sayfamızı yenilediğimizde ve bir form doldurup gönderdiğimizde index sayfamızda resimde gördüğümüz gibi  <font color='red'>Edit</font> linkinin geldiğini görüyoruz.</p>
-
-<p><img src="http://i.imgur.com/fnOsCN8.jpg" alt="" /></p>
-
-<p>Ancak <font color='red'>show</font> sayfamıza geldiğimizde linkin burda olmadığını görüyoruz.</p>
-
-<p><img src="http://i.imgur.com/I6VOZef.jpg" alt="" /></p>
-
-<p>bunun içinde</p>
-
-<p><code>app/views/posts/show.html.erb</code></p>
-
-<p>komutu ile sayfamızı açıyoruz ve içine en alta</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">|</span> <span class="o">&lt;%=</span> <span class="n">link_to</span> <span class="s1">&#39;Edit&#39;</span><span class="p">,</span> <span class="n">edit_post_path</span><span class="p">(</span><span class="vi">@post</span><span class="p">)</span> <span class="o">%&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>satırını ekliyoruz. Kayıt edip çıkıyoruz ve tekrar sayfamızı yeniliyoruz <font color='red'>show </font> sayfasına geliyoruz.</p>
-
-<p>şimdi show sayfasında da  <font color='red'>Edit</font> linkinin geldiğini görürüz.</p>
-
-<p><img src="http://i.imgur.com/moLqyBD.jpg" alt="" /></p>
-
-<p>Viewsteki tekrarların silinmesi için<br/>
-<font color='red'> Edit</font>  sayfamız<font color='red'> New </font>sayfasına çok benziyor.
-Aslında her iki yerdede formu göstermek için aynı kod paylaşılır</p>
-
-<p><code>nano app/views/posts/_form.html.erb</code><br/>
- komutu ile<br/>
-Aşağıdaki içeriğe sahip yeni bir dosya oluşturalım</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&lt;</span><span class="sx">%= form_for @post do |f| %&gt;</span>
-</span><span class='line'><span class="sx">  &lt;% if @post.errors.any? %&gt;</span>
-</span><span class='line'><span class="sx">  &lt;div id=</span><span class="s2">&quot;error_explanation&quot;</span><span class="o">&gt;</span>
-</span><span class='line'><span class="err">    </span><span class="o">&lt;</span><span class="n">h2</span><span class="o">&gt;&lt;</span><span class="sx">%= pluralize(@post.errors.count, &quot;error&quot;) %&gt; prohibited</span>
-</span><span class='line'><span class="sx">      this post from being saved:&lt;/h2&gt;</span>
-</span><span class='line'><span class="sx">    &lt;ul&gt;</span>
-</span><span class='line'><span class="sx">    &lt;% @post.errors.full_messages.each do |msg| %&gt;</span>
-</span><span class='line'><span class="sx">      &lt;li&gt;&lt;%=</span> <span class="n">msg</span> <span class="sx">%&gt;&lt;/li&gt;</span>
-</span><span class='line'><span class="err">    </span><span class="o">&lt;</span><span class="sx">% end %&gt;</span>
-</span><span class='line'><span class="sx">    &lt;/ul&gt;</span>
-</span><span class='line'><span class="err">  </span><span class="o">&lt;</span><span class="sr">/div&gt;</span>
-</span><span class='line'><span class="sr">  &lt;% end %&gt;</span>
-</span><span class='line'><span class="sr">  &lt;p&gt;</span>
-</span><span class='line'><span class="sr">    &lt;%= f.label :title %&gt;&lt;br&gt;</span>
-</span><span class='line'><span class="sr">    &lt;%= f.text_field :title %&gt;</span>
-</span><span class='line'><span class="sr">  &lt;/</span><span class="nb">p</span><span class="o">&gt;</span>
-</span><span class='line'><span class="err"> </span>
-</span><span class='line'><span class="err">  </span><span class="o">&lt;</span><span class="nb">p</span><span class="o">&gt;</span>
-</span><span class='line'><span class="err">    </span><span class="o">&lt;</span><span class="sx">%= f.label :text %&gt;&lt;br&gt;</span>
-</span><span class='line'><span class="sx">    &lt;%=</span> <span class="n">f</span><span class="o">.</span><span class="n">text_area</span> <span class="ss">:text</span> <span class="sx">%&gt;</span>
-</span><span class='line'><span class="sx">  &lt;/p&gt;</span>
-</span><span class='line'><span class="err"> </span>
-</span><span class='line'><span class="err">  </span><span class="o">&lt;</span><span class="nb">p</span><span class="o">&gt;</span>
-</span><span class='line'><span class="err">    </span><span class="o">&lt;%=</span> <span class="n">f</span><span class="o">.</span><span class="n">submit</span> <span class="sx">%&gt;</span>
-</span><span class='line'><span class="sx">  &lt;/p&gt;</span>
-</span><span class='line'><span class="o">&lt;</span><span class="sx">% end </span><span class="o">%&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p> <code>$nano app/views/posts/new.html.erb</code><br/>
-dosyasına girelim</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="no">New</span> <span class="n">post</span><span class="o">&lt;</span><span class="sr">/h1&gt;</span>
-</span><span class='line'><span class="sr"> </span>
-</span><span class='line'><span class="sr">&lt;%= render &#39;form&#39; %&gt;</span>
-</span><span class='line'><span class="sr"> </span>
-</span><span class='line'><span class="sr">&lt;%= link_to &#39;Back&#39;, posts_path %&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>içerikleri ekleyip kayıt edip çıkalım aynı şekilde ;</p>
-
-<p><code>$nano app/views/posts/edit.html.erb</code></p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="no">Edit</span> <span class="n">post</span><span class="o">&lt;</span><span class="sr">/h1&gt;</span>
-</span><span class='line'><span class="sr"> </span>
-</span><span class='line'><span class="sr">&lt;%= render &#39;form&#39; %&gt;</span>
-</span><span class='line'><span class="sr"> </span>
-</span><span class='line'><span class="sr">&lt;%= link_to &#39;Back&#39;, posts_path %&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>dosyasına da  bu komutlarımızı ekliyoruz.<br/>
-Ve en son sayfamızı tekrar yenileyip değişikliklere bakıyoruz.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="3">&larr; Older</a>
@@ -2458,6 +2044,10 @@ Ve en son sayfamızı tekrar yenileyip değişikliklere bakıyoruz.</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2017/09/18/cevik-ekiplerde-test-metodolojisi/">Çevik Ekiplerde Test Metodolojisi</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2017/05/21/appium-v1-dot-6-0-ios-otomasyon-with-xcuitest-webdriveragentrunner/">Appium v1.6.0 - iOS Otomasyon With XCUITest WebDriverAgentRunner</a>
       </li>
     
@@ -2471,10 +2061,6 @@ Ve en son sayfamızı tekrar yenileyip değişikliklere bakıyoruz.</p>
     
       <li class="post">
         <a href="/blog/2017/05/13/test-otomasyonu-icin-oaliyeti-azaltan-yontemler/">Test Otomasyonu Için Maliyeti Azaltan Yöntemler</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2017/05/13/ozetle-yazilim-test-otomasyon/">Özetle Yazılım Test Otomasyon</a>
       </li>
     
   </ul>
@@ -2486,6 +2072,10 @@ Ve en son sayfamızı tekrar yenileyip değişikliklere bakıyoruz.</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2017/09/18/cevik-ekiplerde-test-metodolojisi/">Çevik Ekiplerde Test Metodolojisi</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2017/05/21/appium-v1-dot-6-0-ios-otomasyon-with-xcuitest-webdriveragentrunner/">Appium v1.6.0 - iOS Otomasyon With XCUITest WebDriverAgentRunner</a>
       </li>
     
@@ -2499,10 +2089,6 @@ Ve en son sayfamızı tekrar yenileyip değişikliklere bakıyoruz.</p>
     
       <li class="post">
         <a href="/blog/2017/05/13/test-otomasyonu-icin-oaliyeti-azaltan-yontemler/">Test Otomasyonu Için Maliyeti Azaltan Yöntemler</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2017/05/13/ozetle-yazilim-test-otomasyon/">Özetle Yazılım Test Otomasyon</a>
       </li>
     
   </ul>
